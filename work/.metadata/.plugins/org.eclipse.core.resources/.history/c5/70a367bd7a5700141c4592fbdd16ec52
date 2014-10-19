@@ -1,0 +1,7 @@
+package com.hhwork.controller;
+
+@Controller
+@RequestMapping({"test/*"})
+public class TestController extends BaseController{
+	
+}

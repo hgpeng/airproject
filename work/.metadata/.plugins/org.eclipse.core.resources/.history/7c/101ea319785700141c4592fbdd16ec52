@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd" default-lazy-init="true">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<!-- 驱动 -->
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<!-- 数据库连接 -->
+ 		<property name="url" value="jdbc:oracle:thin:@192.168.10.239:1521:ORCL"/>
+<!--  		<property name="url" value="jdbc:oracle:thin:@120.31.136.82:1521:ORCL"/> -->
+		<!-- 用户 -->
+		<property name="username" value="yyx" />
+		<!-- 密码 -->
+		<property name="password" value="yyx2013" />
+		<!-- 连接数初始连接数 --> 
+		<property name="initialSize" value="5" />
+		<!-- 最大连接数 -->
+		<property name="maxActive" value="50" />
+		<!-- 最小空闲连接 -->
+		<property name="minIdle" value="5"/>
+		<!-- 最大空闲连接 -->
+		<property name="maxIdle" value="15" />
+		<!-- 自动提交 -->
+		<property name="defaultAutoCommit" value="false" />
+		<!-- 自动回收超时连接 -->
+		<property name="removeAbandoned" value="true" />
+		<!-- 超时时间(以秒数为单位) -->
+		<property name="removeAbandonedTimeout" value="30"/>
+		<!-- 测试连接有效性 -->
+		<property name="validationQuery" value="select  count(1) from dual" />
+		<!-- 获取连接时测试连接 -->
+		<property name="testOnBorrow" value="true" />
+	</bean> 
+</beans>
