@@ -1,0 +1,5 @@
+package com.hhwork.controller;
+
+public class BaseController {
+	
+}

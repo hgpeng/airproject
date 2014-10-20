@@ -1,0 +1,6 @@
+package com.hhwork.controller;
+
+
+public class TestController extends BaseController{
+	
+}
