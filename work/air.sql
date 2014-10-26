@@ -46,6 +46,23 @@ CREATE TABLE `bg_admin` (
 
 /*Data for the table `bg_admin` */
 
+/*Table structure for table `friend_link` */
+
+DROP TABLE IF EXISTS `friend_link`;
+
+CREATE TABLE `friend_link` (
+  `id` int(11) NOT NULL auto_increment,
+  `text` varchar(100) default NULL COMMENT '链接文字',
+  `link` varchar(250) NOT NULL COMMENT '链接地址',
+  `icon` varchar(100) default NULL COMMENT '链接图标',
+  `createTime` datetime default NULL COMMENT '创建时间',
+  `createMan` varchar(20) default NULL COMMENT '创建人',
+  `status` tinyint(4) default NULL COMMENT '状态',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Data for the table `friend_link` */
+
 /*Table structure for table `leaves` */
 
 DROP TABLE IF EXISTS `leaves`;
@@ -63,6 +80,22 @@ CREATE TABLE `leaves` (
 
 /*Data for the table `leaves` */
 
+/*Table structure for table `manage_service` */
+
+DROP TABLE IF EXISTS `manage_service`;
+
+CREATE TABLE `manage_service` (
+  `id` int(11) NOT NULL auto_increment COMMENT '主键',
+  `title` varchar(100) default NULL COMMENT '标题',
+  `content` text COMMENT '内容',
+  `status` tinyint(4) default NULL COMMENT '状态',
+  `createTime` datetime default NULL COMMENT '创建时间',
+  `createMan` varchar(20) default NULL COMMENT '创建人',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Data for the table `manage_service` */
+
 /*Table structure for table `news` */
 
 DROP TABLE IF EXISTS `news`;
@@ -71,7 +104,6 @@ CREATE TABLE `news` (
   `id` int(11) NOT NULL auto_increment,
   `title` varchar(100) NOT NULL COMMENT '标题',
   `content` text NOT NULL COMMENT '新闻内容',
-  `type` tinyint(4) NOT NULL default '0' COMMENT '类型(0：企业，1：媒体)',
   `status` tinyint(4) NOT NULL default '0' COMMENT '状态',
   `createTime` datetime NOT NULL COMMENT '创建时间',
   `createMan` varchar(50) NOT NULL COMMENT '创建人',
@@ -140,6 +172,22 @@ CREATE TABLE `product_template` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Data for the table `product_template` */
+
+/*Table structure for table `solutions` */
+
+DROP TABLE IF EXISTS `solutions`;
+
+CREATE TABLE `solutions` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(100) default NULL COMMENT '标题，非必须',
+  `content` text COMMENT '解决方案内容',
+  `status` tinyint(4) default NULL COMMENT '状态',
+  `createTime` datetime default NULL COMMENT '创建时间',
+  `createMan` varchar(20) default NULL COMMENT '创建人',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Data for the table `solutions` */
 
 /*Table structure for table `template_settings` */
 
