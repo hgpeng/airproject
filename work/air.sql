@@ -16,21 +16,6 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`air` /*!40100 DEFAULT CHARACTER SET utf
 
 USE `air`;
 
-/*Table structure for table `album` */
-
-DROP TABLE IF EXISTS `album`;
-
-CREATE TABLE `album` (
-  `id` int(11) NOT NULL auto_increment COMMENT '主键',
-  `path` char(200) NOT NULL COMMENT '图片位置',
-  `desc` varchar(200) default NULL COMMENT '备注',
-  `productId` int(11) NOT NULL COMMENT '产品关联id',
-  `type` tinyint(4) default NULL COMMENT '图片类型（0：普通照，1：展示照）',
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-/*Data for the table `album` */
-
 /*Table structure for table `album_reference` */
 
 DROP TABLE IF EXISTS `album_reference`;
@@ -45,6 +30,56 @@ CREATE TABLE `album_reference` (
 
 /*Data for the table `album_reference` */
 
+/*Table structure for table `bg_admin` */
+
+DROP TABLE IF EXISTS `bg_admin`;
+
+CREATE TABLE `bg_admin` (
+  `id` int(11) NOT NULL COMMENT '主键',
+  `username` varchar(50) NOT NULL COMMENT '登陆名',
+  `password` varchar(200) NOT NULL COMMENT '密码',
+  `salt` varchar(6) default NULL,
+  `nickname` varchar(20) default NULL COMMENT '昵称',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Data for the table `bg_admin` */
+
+/*Table structure for table `leaves` */
+
+DROP TABLE IF EXISTS `leaves`;
+
+CREATE TABLE `leaves` (
+  `id` int(11) NOT NULL auto_increment,
+  `content` varchar(300) default NULL COMMENT '留言',
+  `contact` varchar(150) default NULL COMMENT '联系方式',
+  `status` tinyint(4) default '0' COMMENT '留言状态',
+  `createTime` datetime NOT NULL COMMENT '留言时间',
+  `replyMan` varchar(20) default NULL COMMENT '回复人',
+  `replyContent` text COMMENT '回复意见',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Data for the table `leaves` */
+
+/*Table structure for table `news` */
+
+DROP TABLE IF EXISTS `news`;
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(100) NOT NULL COMMENT '标题',
+  `content` text NOT NULL COMMENT '新闻内容',
+  `type` tinyint(4) NOT NULL default '0' COMMENT '类型(0：企业，1：媒体)',
+  `status` tinyint(4) NOT NULL default '0' COMMENT '状态',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `createMan` varchar(50) NOT NULL COMMENT '创建人',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `news` */
+
 /*Table structure for table `presentation` */
 
 DROP TABLE IF EXISTS `presentation`;
@@ -53,7 +88,7 @@ CREATE TABLE `presentation` (
   `id` int(11) NOT NULL auto_increment COMMENT '主键',
   `productId` int(11) default NULL COMMENT '产品id',
   `html` text COMMENT '生成的产品介绍页',
-  `createTime` timestamp NULL default NULL COMMENT '创建时间',
+  `createTime` datetime default NULL COMMENT '创建时间',
   `createMan` varchar(20) default NULL COMMENT '创建人',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -71,12 +106,27 @@ CREATE TABLE `product` (
   `mainPhoto` char(200) default NULL COMMENT '展示图片',
   `status` tinyint(4) default NULL COMMENT '状态（0：下架，1：上架，2：删除）',
   `templateId` int(11) default NULL COMMENT '对应的产品模板',
-  `createTime` timestamp NULL default NULL COMMENT '创建时间',
+  `createTime` datetime default NULL COMMENT '创建时间',
   `createMan` varchar(20) default NULL COMMENT '创建人',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 /*Data for the table `product` */
+
+/*Table structure for table `product_album` */
+
+DROP TABLE IF EXISTS `product_album`;
+
+CREATE TABLE `product_album` (
+  `id` int(11) NOT NULL auto_increment COMMENT '主键',
+  `path` char(200) NOT NULL COMMENT '图片位置',
+  `desc` varchar(200) default NULL COMMENT '备注',
+  `productId` int(11) NOT NULL COMMENT '产品关联id',
+  `type` tinyint(4) default NULL COMMENT '图片类型（0：普通照，1：展示照）',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+/*Data for the table `product_album` */
 
 /*Table structure for table `product_template` */
 
