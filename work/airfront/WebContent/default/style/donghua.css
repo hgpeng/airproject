@@ -172,6 +172,16 @@
     animation-name: swing;
 }
 
+.swinginfi{
+    animation: swing 5s linear 2s infinite alternate;
+	/* Firefox: */
+	-moz-animation: swing 5s linear 2s infinite alternate;
+	/* Safari ºÍ Chrome: */
+	-webkit-animation: swing 5s linear 2s infinite alternate;
+	/* Opera: */
+	-o-animation: swing 5s linear 2s infinite alternate;
+}
+
 @-webkit-keyframes rollIn {
     0% {
         opacity: 0;
@@ -683,4 +693,146 @@
 .zoomInLeft {
   -webkit-animation-name: zoomInLeft;
   animation-name: zoomInLeft;
+}
+
+@-webkit-keyframes zoomInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(.1) translateX(2000px);
+    transform: scale(.1) translateX(2000px);
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(.475) translateX(-48px);
+    transform: scale(.475) translateX(-48px);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes zoomInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(.1) translateX(2000px);
+    -ms-transform: scale(.1) translateX(2000px);
+    transform: scale(.1) translateX(2000px);
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: scale(.475) translateX(-48px);
+    -ms-transform: scale(.475) translateX(-48px);
+    transform: scale(.475) translateX(-48px);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+.zoomInRight {
+  -webkit-animation-name: zoomInRight;
+  animation-name: zoomInRight;
+}
+
+@-webkit-keyframes lightshade {
+     0% {
+        border:5px solid #A6E0EA;
+    }
+    25% {
+        border:5px solid #62F3FD;
+    }
+	50% {
+        border:5px solid #00E5EE;
+	}
+	75% {
+        border:5px solid #62F3FD;
+    }
+    100% {
+        border:5px solid #A6E0EA;
+    }
+}
+
+@keyframes lightshade {
+    0% {
+        border:5px solid #A6E0EA;
+    }
+    25% {
+        border:5px solid #62F3FD;
+    }
+	50% {
+        border:5px solid #00E5EE;
+	}
+	75% {
+        border:5px solid #62F3FD;
+    }
+    100% {
+        border:5px solid #A6E0EA;
+    }
+}
+.lightshadeinfi{
+    animation: lightshade 5s linear 2s infinite alternate;
+	/* Firefox: */
+	-moz-animation: lightshade 5s linear 2s infinite alternate;
+	/* Safari ºÍ Chrome: */
+	-webkit-animation: lightshade 5s linear 2s infinite alternate;
+	/* Opera: */
+	-o-animation: lightshade 5s linear 2s infinite alternate;
+}
+
+@-webkit-keyframes zoomInSmall {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(48px);
+    transform: translateX(48px);
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(600px);
+    transform: translateX(600px);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes zoomInSmall {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(48px);
+    -ms-transform: translateX(48px);
+    transform: translateX(48px);
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translateX(600px);
+    -ms-transform: translateX(600px);
+    transform: translateX(600px);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+}
+
+.zoomInSmall {
+  -webkit-animation-name: zoomInSmall;
+  animation-name: zoomInSmall;
+}
+
+.zoomIninfi
+{
+    animation: zoomInSmall 20s linear 2s infinite alternate;
+	/* Firefox: */
+	-moz-animation: zoomInSmall 20s linear 2s infinite alternate;
+	/* Safari ºÍ Chrome: */
+	-webkit-animation: zoomInSmall 20s linear 2s infinite alternate;
+	/* Opera: */
+	-o-animation: zoomInSmall 20s linear 2s infinite alternate;
 }

@@ -52,7 +52,7 @@ a:hover{color:#008cd6;}
 .bannertxt dd img{ width:200px;}
 .bannertxt dd a{ color:#00a2e8; margin:0 0 0 18px; }
 
-@media screen and (min-width: 2000px) {
+@media screen and (min-width: 1800px) {
 .bannertxt{ width:865px; margin:auto; padding:180px 0 0 0; text-align:right; line-height:30px;}
 .bannertxt h3{ font-size:36px; color:#898989; font-weight:normal; padding:13px 0 35px 0;}
 .bannertxt h4{ font-size:30px; color:#34a3e3; font-weight:normal; padding:0 0 7px 0;}
@@ -111,7 +111,7 @@ a:hover{color:#008cd6;}
 .info h3{color:#1b75e5; font-size:37px; font-weight:normal; padding:0 0 12px 0; line-height:120%;}
 .info p{line-height:25px;font-size:12px;}
 
-@media screen and (min-width: 2000px) { 
+@media screen and (min-width: 1800px) { 
 /**/
 .info{ margin-top:-300px; padding:0 0 0 150px; font-size:16px; color:#313131; }
 .info h4{color:#1b75e5; font-size:36px; font-weight:normal;line-height:120%;}
@@ -270,3 +270,101 @@ a:hover{color:#008cd6;}
     right: -40px;
     cursor: pointer;
 }
+
+img.pgymove{
+
+}
+
+.trans12s{
+	transition:all 10s;
+	-ms-transition:all 10s; 	/* IE 9 */
+	-moz-transition:all 10s; 	/* Firefox */
+	-webkit-transition:all 10s; /* Safari 和 Chrome */
+	-o-transition:all 10s;
+}
+
+
+.Circlebody{ position:relative; border:8px solid #638c0b;border-radius:300px; width:300px; height:300px; margin:auto; padding:90px;}
+.Circleimg{ position:absolute;}
+.Circleimg:hover{
+	transform:scale(1.1);
+	-ms-transform:scale(1.1); 	/* IE 9 */
+	-moz-transform:scale(1.1); 	/* Firefox */
+	-webkit-transform:scale(1.1); /* Safari 和 Chrome */
+	-o-transform:scale(1.1);
+	transition:all 1.2s;
+	-ms-transition:all 1.2s; 	/* IE 9 */
+	-moz-transition:all 1.2s; 	/* Firefox */
+	-webkit-transition:all 1.2s; /* Safari 和 Chrome */
+	-o-transition:all 1.2s;
+}
+.proimg1{ left:213px; top:-60px;width:56px;}
+.proimg2{ right:10px; top:20px;width:62px;}
+.proimg3{ right:-93px; top:200px;width:104px;}
+.proimg4{ right:17px; bottom:37px;width:65px;}
+.proimg5{ left:213px; bottom:-45px;width:46px;}
+.proimg6{ left:-5px; bottom:20px;width:80px;}
+.proimg7{ left:-70px; top:200px;width:92px;}
+.proimg8{ left:4px; top:0;width:65px;}
+.Circlebinfo{ position:relative;border:6px solid #638c0b;border-radius:284px; width:284px; height:284px; text-align:center; color:#FFF; font-size:18px;}
+.Circlebinfo ul li{ background:#00a0e9; position:absolute; width:81px; height:81px;border-radius:81px; text-align:center; line-height:81px;}
+.Circlebinfo ul li:hover{ background:#8DB6CD;}
+.txt1{ left:97px; top:-50px;}
+.txt2{ right:5px; top:-2px;}
+.txt3{ right:-51px; top:100px;}
+.txt4{ right:7px; bottom:9px;}
+.txt5{ left:97px; bottom:-50px;}
+.txt6{ left:3px; bottom:9px;}
+.txt7{ left:-50px; top:100px;}
+.txt8{ left:0; top:-2px;}
+.Circlebinfo dl{ padding:103px 0 0 0; } 
+.Circlebinfo dd{ margin:-13px 0 0 0;}
+.Circlebinfo .centerimg{width:163px;margin-top:-20px;}
+@media screen and (min-width: 2000px) {
+.Circlebody{ position:relative; border:8px solid #638c0b;border-radius:664px; width:420px; height:420px; margin:auto; padding:124px;}
+.Circleimg{ position:absolute;}
+.proimg1{ left:303px; top:-89px;}
+.proimg2{ right:-2px; top:41px;}
+.proimg3{ right:-103px; top:273px;}
+.proimg4{ right:17px; bottom:37px;}
+.proimg5{ left:321px; bottom:-65px;}
+.proimg6{ left:-5px; bottom:10px;}
+.proimg7{ left:-120px; top:264px;}
+.proimg8{ left:-24px; top:-29px;}
+.Circlebinfo{ position:relative;border:6px solid #638c0b;border-radius:404px; width:404px; height:404px; text-align:center; color:#FFF; font-size:18px;}
+.Circlebinfo ul li{ background:#00a0e9; position:absolute; width:121px; height:121px;border-radius:121px; text-align:center; line-height:121px;}
+.txt1{ left:157px; top:-60px;}
+.txt2{ right:5px; top:3px;}
+.txt3{ right:-51px; top:144px;}
+.txt4{ right:7px; bottom:9px;}
+.txt5{ left:147px; bottom:-52px;}
+.txt6{ left:3px; bottom:4px;}
+.txt7{ left:-59px; top:144px;}
+.txt8{ left:0; top:-2px;}
+.Circlebinfo dl{ padding:103px 0 0 0; } 
+.Circlebinfo dd{ margin:-13px 0 0 0;}
+}
+/* .active h3{
+	transform:scale(1,1);
+	-ms-transform:scale(1,1); 	IE 9
+	-moz-transform:scale(1,1);Firefox
+	-webkit-transform:scale(1,1);Safari 和 Chrome
+	-o-transform:scale(1,1);
+	transition:all 1.2s;
+	-ms-transition:all 1.2s; 	IE 9
+	-moz-transition:all 1.2s; 	Firefox
+	-webkit-transition:all 1.2s; Safari 和 Chrome
+	-o-transition:all 1.2s;
+}
+.active h4{
+	transform:scale(1,1);
+	-ms-transform:scale(1,1); 	IE 9
+	-moz-transform:scale(1,1);Firefox
+	-webkit-transform:scale(1,1);Safari 和 Chrome
+	-o-transform:scale(1,1);
+	transition:all 1.2s;
+	-ms-transition:all 1.2s; 	IE 9
+	-moz-transition:all 1.2s; 	Firefox
+	-webkit-transition:all 1.2s; Safari 和 Chrome
+	-o-transition:all 1.2s;
+} */

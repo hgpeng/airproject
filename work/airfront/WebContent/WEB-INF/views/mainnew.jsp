@@ -15,7 +15,42 @@
 <script type="text/javascript" src="${base}/default/js/control/jquery.easings.min.js" ></script>
 <script type="text/javascript" src="${base}/default/js/control/jquery.lazyload.js" ></script>
 <script type="text/javascript" src="${base}/default/js/control/fullPage/jquery.fullPage.min.js" ></script>
-
+<style>
+	#section1 .fp-controlArrow{display:none;}
+	.demo02{
+		text-align:center;		
+		border-radius:50%;
+		-moz-border-radius:50%;
+		position:absolute;
+		z-index:999;
+		border:5px solid #62F3FD;
+    }
+    
+    .smallcircle{
+    	width:60px;
+		top:245px;
+		left:371px;
+		height:180px;
+		transform: rotate(-23deg);
+		-ms-transform: rotate(-20deg);		/* IE 9 */
+		-webkit-transform: rotate(-23deg);	/* Safari and Chrome */
+		-o-transform: rotate(-20deg);		/* Opera */
+		-moz-transform: rotate(-23deg);
+    }
+    
+    .bigcircle{
+    	width:134px;
+		top:155px;
+		left:330px;
+		height:360px;
+		transform: rotate(-24deg);
+		-ms-transform: rotate(-24deg);		/* IE 9 */
+		-webkit-transform: rotate(-24deg);	/* Safari and Chrome */
+		-o-transform: rotate(-24deg);		/* Opera */
+		-moz-transform: rotate(-24deg);
+    }
+    
+</style>
 <script type="text/javascript" >
 	videojs.options.flash.swf = "${base}/default/js/control/video/video-js.swf";
 	
@@ -24,7 +59,7 @@
 	         threshold: 200,
 	         data_attribute: 'src'
 	     });
-		 
+		 setTimeout(animatesection,2000);
 		//setTimeout(showitem,1000);
 		$(".animation-mark").hide();
 		$("#section1 .animation-mark").show().addClass("animated");
@@ -50,6 +85,9 @@
 			         if(index==5){
 			        	 $("#boxwarp").trans({"margin-top":"-89px","transition-duration":"1s"});
 			         }
+			         if(index==4){
+			        	 //$("#section4").find("img.pgymove").trans({"margin-left":"500px","transition-duration":"2s"});
+			         }
 			         clearInterval(autoPlay);
 			         if(index==1){
 			            	$("#contro").fadeOut();
@@ -61,7 +99,8 @@
 		 var _autoPlayIndex = 1;
 		 var maxPlay = $("#section1 .slide").length;
 		 
-		 var autoPlay = setInterval(function(){			
+		 var autoPlay = setInterval(function(){	
+			 return;
 					playSlider(_autoPlayIndex + 1);
 					
 					_autoPlayIndex = (_autoPlayIndex+1)>=maxPlay?0:(_autoPlayIndex+1);
@@ -74,6 +113,9 @@
 		$("#contro a.down").click(function(){
 			$.fn.fullpage.moveSectionDown();
 		});
+		
+		initcircle();
+		imgSize(winWidth,winHeight);
 	})
 	var cnum = 0;
 	function showitem(){
@@ -85,6 +127,20 @@
 		if(cnum<$("#tags li").length)
 		setTimeout(showitem,1000);
 		
+	}
+	
+	var curcolor = 0;
+	function animatesection(){
+		if(curcolor==0){
+			$("#bgimg").attr("src","${base}/default/style/images/banner1.jpg");
+			curcolor = 1;
+		}else{
+			$("#bgimg").attr("src","${base}/default/style/images/banner.jpg");
+			curcolor = 0;
+		}
+		
+		
+		setTimeout(animatesection,2000);
 	}
 	
 	function showvideo(){
@@ -106,6 +162,33 @@
 		$($(".bannerico a")[_index - 1]).addClass("now");
     }
 	
+	function initcircle(){
+		if($.browser.msie){}
+		else{
+			
+			var wper = $(window).width()/1280;
+			var hper = $(window).height()/589;
+			var bw = 134*wper;
+			var hw = 360*hper;
+			$("#bigcircle").css("width",bw);
+			$("#bigcircle").css("height",hw);
+			
+			//$("div .demo02").show();
+		}
+	}
+	
+	 var winHeight = $(window).height(),winWidth = $(window).width();
+
+    var imgSize = function(winWidth,winHeight){
+        var percent = winWidth/2000,winPercent = winWidth/winHeight;
+       
+           // $("#section3 img.Circleimg").each(function(i,item){
+           // 	$(item).width(percent*$(item).width());
+          //  });
+       
+
+    }
+	
 </script>
 <title>首页</title>
 </head>
@@ -122,7 +205,7 @@
           <li><a href="#">解决方案</a></li>
           <li><a href="#">治理服务</a></li>
           <li><a href="#">下载中心</a></li>
-          <li><a href="#">在线商店</a></li>
+          <li><a href="#">在线商城</a></li>
           <li><a href="#">关于我们</a></li>
         </ul>
       </div>
@@ -158,7 +241,7 @@
           <li><a href="#">解决方案</a></li>
           <li><a href="#">治理服务</a></li>
           <li><a href="#">下载中心</a></li>
-          <li><a href="#">在线商店</a></li>
+          <li><a href="#">在线商城</a></li>
           <li><a href="#">关于德士特</a></li>
         </ul>
       </div>
@@ -166,17 +249,19 @@
   <div id="section1" class="section">
   <div class="slide" id="slider1" style="cursor: pointer;">
 	    <div class="banner">
-	    <img  style="display:none;" class="bgimg animation-mark bounceInLeft" src="${base }/default/style/images/banner.jpg" alt="">
+	    
+	    <img  id="bgimg" class="bgimg" src="${base }/default/style/images/banner.jpg" alt="">
+	    <img   class="bannertxt animation-mark zoomIninfi" style="position:absolute;height:100px;bottom:50px;right:0px;" src="${base }/default/style/images/downcloud.png" alt="">
 	    <div style="display:none;" class="bannertxt animation-mark bounceInRight">
 	    <dl><dd><img src="${base }/default/style/images/banntxt.png" alt=""/><h3>智能空气监测仪</h3><h4>看的见 才安全</h4></dd>
 	    <dd><a href="#">了解更多 ></a><a href="javascript:void(0)" onclick="showvideo()"　class="Video">观看影片</a></dd></dl>
 	    </div>
 	    </div>
     </div>
-    <div class="slide" id="slider2" style="cursor: pointer;">
+     <div class="slide" id="slider2" style="cursor: pointer;">
    
      <div class="banner">
-	    <img  style="display:none;" class="bgimg animation-mark bounceInUp" src="${base }/default/style/images/banner.jpg" alt="">
+	    <img  class="bgimg" src="${base }/default/style/images/banner.jpg" alt="">
 	    <div style="display:none;" class="bannertxt animation-mark slideInDown">
 	    <dl><dd><img src="${base }/default/style/images/banntxt.png" alt=""/><h3>智能空气监测仪</h3><h4>看的见 才安全</h4></dd>
 	    <dd><a href="#">了解更多 ></a><a href="javascript:void(0)" onclick="showvideo()"　class="Video">观看影片</a></dd></dl>
@@ -186,13 +271,13 @@
     <div class="slide" id="slider3" style="cursor: pointer;">
    
      <div class="banner">
-	    <img  style="display:none;" class="bgimg animation-mark bounceInUp" src="${base }/default/style/images/banner.jpg" alt="">
+	    <img class="bgimg" src="${base }/default/style/images/banner.jpg" alt="">
 	    <div style="display:none;" class="bannertxt animation-mark bounceInRight">
 	    <dl><dd><img src="${base }/default/style/images/banntxt.png" alt=""/><h3>智能空气监测仪</h3><h4>看的见 才安全</h4></dd>
 	    <dd><a href="#">了解更多 ></a><a href="javascript:void(0)" onclick="showvideo()"　class="Video">观看影片</a></dd></dl>
 	    </div>
 	    </div>
-    </div>
+    </div> 
      <div>
     	    <ul class="bannerico">
     	    <li><a class="now" href="#"><span>1</span></a></li><li>
@@ -255,7 +340,32 @@ DST生物酶技术是从自然微生物中分离提纯出对人体有益的微�
   </div>
   <div id="section3" style=" border-bottom:1px solid #FFF;" class="section">
   <img  class="bgimg" src="${base }/default/style/images/bg3.jpg" alt="">
-    <div class="imgbody"><img style="display:none;"  class="round animation-mark" src="${base }/default/style/images/img1.png" alt=""/></div>
+        
+     <div class="Circlebody animation-mark round" style="display:none;">
+    <img src="${base }/default/style/images/proimg1.png" class="Circleimg proimg1" alt=""/>
+    <img src="${base }/default/style/images/proimg2.png" class="Circleimg proimg2" alt=""/>
+    <img src="${base }/default/style/images/proimg3.png" class="Circleimg proimg3" alt=""/>
+    <img src="${base }/default/style/images/proimg4.png" class="Circleimg proimg4" alt=""/>
+    <img src="${base }/default/style/images/proimg5.png" class="Circleimg proimg5" alt=""/>
+    <img src="${base }/default/style/images/proimg6.png" class="Circleimg proimg6" alt=""/>
+    <img src="${base }/default/style/images/proimg7.png" class="Circleimg proimg7" alt=""/>
+    <img src="${base }/default/style/images/proimg8.png" class="Circleimg proimg8" alt=""/>
+    <div class="Circlebinfo">
+    <ul>
+    <li class="txt1">消毒机</li>
+    <li class="txt2">加湿机</li>
+    <li class="txt3">空调</li>
+    <li class="txt4">负离子</li>
+    <li class="txt5">智能加湿</li>
+    <li class="txt6">智能新风</li>
+    <li class="txt7">治理服务</li>
+    <li class="txt8">空气侠</li>
+    </ul>
+    <dl><dt><img class="centerimg" src="${base }/default/style/images/pro.jpg" alt=""/></dt><dd>空气眼</dd></dl>
+    </div>
+    </div>
+    
+    
   </div>
   <div id="section4" class="section">
   <img  class="bgimg"src="${base }/default/style/images/bg4.jpg" alt="">
@@ -276,7 +386,7 @@ DST生物酶技术是从自然微生物中分离提纯出对人体有益的微�
         <li><a href="#">治理服务</a></li>
       </ul>
     </div>
-    <div class="homebody bounceInUp animation-mark" style="display:none;">
+    <div class="homebody bounceInUp animation-mark"  style="display:none;animation-delay:0.3s;-webkit-animation-delay:0.3s;">
       <div class="centerbody">
         <div class="leftnews"><img class="newslogo" src="${base }/default/style/images/newslogo.png" alt=""/>
           <dl>
@@ -300,7 +410,7 @@ DST生物酶技术是从自然微生物中分离提纯出对人体有益的微�
             <dt><img src="${base }/default/style/images/tel.png" alt=""/></dt>
             <dd>电话：+86 755 -  8899 9996<br/>
               邮箱：dst@dstgroup.com.cn<br/>
-              地址：深圳市南山高新区粤兴大道9号</dd>
+              地址：深圳市南山高新区粤兴大道9号华中科技大学深圳产学研基地B座9楼</dd>
           </dl>
           <ul class="icolist">
             <li style="padding:0 31px 0 0;"><a href="#"><span class="listico1"></span>新浪</a></li>
