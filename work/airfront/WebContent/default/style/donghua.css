@@ -836,3 +836,59 @@
 	/* Opera: */
 	-o-animation: zoomInSmall 20s linear 2s infinite alternate;
 }
+
+@-webkit-keyframes inpshow {
+    0% {
+        opacity: 0;
+        width:0px;
+    }
+
+    100% {
+        opacity: 1;
+        width:90px;
+    }
+}
+
+@keyframes inpshow {
+    0% {
+        opacity: 0;
+        width:0px;
+    }
+
+    100% {
+        opacity: 1;
+        width:90px;
+    }
+}
+.inpshow{
+	-webkit-animation-name: inpshow;
+  	animation-name: inpshow;
+}
+
+@-webkit-keyframes inphide {
+    0% {
+        opacity: 1;
+        width:90px;
+    }
+
+    100% {
+        opacity: 1;
+        width:0px;
+    }
+}
+
+@keyframes inphide {
+     0% {
+        opacity: 1;
+        width:90px;
+    }
+
+    100% {
+        opacity: 1;
+        width:0px;
+    }
+}
+.inphide{
+	-webkit-animation-name: inphide;
+  	animation-name: inphide;
+}

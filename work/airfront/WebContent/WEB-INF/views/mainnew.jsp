@@ -53,7 +53,7 @@
 </style>
 <script type="text/javascript" >
 	videojs.options.flash.swf = "${base}/default/js/control/video/video-js.swf";
-	
+	var mgheight = 0;
 	$(document).ready(function(){
 		 $('div.section img').lazyload({
 	         threshold: 200,
@@ -67,9 +67,11 @@
 				anchors: ['page1', 'page2', 'page3', 'page4', 'page5'],
 				navigation: true,
 				navigationPosition: 'left',
+				easing :'easeInOutQuart',
 				onLeave:function(index,nextIndex,direction ){
 					if(index==5){
 						$("#boxwarp").css("margin-top","0");
+						$("#boxwarp").css("transition-duration","0");
 					}
 				},
 				afterLoad: function(anchorLink, index){
@@ -83,12 +85,16 @@
 					 $(".animation-mark").removeClass("animatedelay").hide();
 			         $("#section" + index + " .animation-mark").show().addClass("animatedelay");
 			         if(index==5){
-			        	 $("#boxwarp").trans({"margin-top":"-89px","transition-duration":"1s"});
+			        	 if(mgheight>0)
+			        	 	$("#boxwarp").trans({"margin-top":"-"+mgheight+"px","transition-duration":"0.5s"});
 			         }
 			         if(index==4){
 			        	 //$("#section4").find("img.pgymove").trans({"margin-left":"500px","transition-duration":"2s"});
 			         }
-			         clearInterval(autoPlay);
+			         if(index==1){
+			        	 $("#boxwarp").css("top","0");
+			         }
+			        // clearInterval(autoPlay);
 			         if(index==1){
 			            	$("#contro").fadeOut();
 			            }else{
@@ -116,6 +122,21 @@
 		
 		initcircle();
 		imgSize(winWidth,winHeight);
+		$("#flashdiv").height(winHeight);
+		$("#boxwarp .header").css("position","relative");
+		if(winHeight>(575+40)){
+			$("div .homemenu").css("padding-top",(winHeight-615)/2).css("padding-bottom",(winHeight-615)/2);
+		}else{
+			mgheight = 615+60-winHeight;
+			$("div .homemenu").css("padding","30px 0");
+		}
+		
+		$(".bannerico a").click(function(){	
+			var key = $(this).attr("key")
+			playSlider(key);
+			
+		});
+		
 	})
 	var cnum = 0;
 	function showitem(){
@@ -189,6 +210,21 @@
 
     }
 	
+    function showsearch(event){
+    	$("#zhilico").hide();
+    	$("#searchinp").show().addClass("animated");
+    	event.stopPropagation();
+    }
+    
+    $(document).click(function(){
+    	$("#searchinp").removeClass("inpshow").addClass("inphide"); 
+    	setTimeout(function(){
+    		$("#searchinp").hide();
+    		$("#searchinp").removeClass("animated").removeClass("inphide").addClass("inpshow");
+    		$("#zhilico").show();
+    	},1000);
+    	
+    });
 </script>
 <title>首页</title>
 </head>
@@ -218,10 +254,13 @@
 	<div class="pop-wrap" style="display: none;">
   <div class="close" onclick="hidevideo();"></div>
   <div>
-    <video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none"
+   <!--  <video id="example_video_1" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="none"
 		      data-setup="{}" width="838" height="350">
 			    <source src="http://www.51zhiye.com/images/zhiyewang/51wzsy.flv" type='video/flv' />	  
-			  </video>
+			  </video> -->
+	 <embed type="application/x-shockwave-flash" 
+	 width="858" height="350" src="http://player.youku.com/player.php/sid/XMzI5MzEwODQ4/v.swf" allowfullscreen="true" quality="high" allowscriptaccess="always" align="middle"></embed>
+			  
   </div>
 </div>
   
@@ -229,10 +268,12 @@
       <div class="headerbody">
         <div class="headerright">
           <ul>
-            <li><a href="#" class="an">治理服务</a></li>
-            <li><a href="#"><img src="${base }/default/style/images/ico2.png" alt=""/></a></li>
+           <li ><input type="text" id="searchinp" class="inpshow" style="width:90px;height:25px;display:none;"/></li>
+            <li><a id="zhilico" href="#" style="" class="an">治理服务</a></li>
+            <li><a href="javascript:void(0)" onclick="showsearch(event)"><img src="${base }/default/style/images/ico2.png" alt=""/></a></li>
             <li><a href="#"><img src="${base }/default/style/images/ico1.png" alt=""/></a></li>
           </ul>
+          
         </div>
         <div class="logo"><img src="${base }/default/style/images/logo.png" alt=""/></div>
         <ul class="nav">
@@ -248,20 +289,30 @@
   </div>
   <div id="section1" class="section">
   <div class="slide" id="slider1" style="cursor: pointer;">
-	    <div class="banner">
-	    
-	    <img  id="bgimg" class="bgimg" src="${base }/default/style/images/banner.jpg" alt="">
-	    <img   class="bannertxt animation-mark zoomIninfi" style="position:absolute;height:100px;bottom:50px;right:0px;" src="${base }/default/style/images/downcloud.png" alt="">
-	    <div style="display:none;" class="bannertxt animation-mark bounceInRight">
+	    <div class="banner" style="height: 100%;margin: 0;padding: 0;background-color: #F1F1F1F1;">
+	    <div class="bannertxt animation-mark bounceInRight">
 	    <dl><dd><img src="${base }/default/style/images/banntxt.png" alt=""/><h3>智能空气监测仪</h3><h4>看的见 才安全</h4></dd>
 	    <dd><a href="#">了解更多 ></a><a href="javascript:void(0)" onclick="showvideo()"　class="Video">观看影片</a></dd></dl>
 	    </div>
+	   <div id="flashdiv" style="z-index:-1;">
+	    <object type="application/x-shockwave-flash" id="flashcontent" name="flashcontent" 
+	    data="${base }/default/style/01.swf" width="100%" height="100%" 
+	    style="z-index:-1;visibility: visible; width: 100%; left: auto; margin-top:-99px;margin-left: 0px; top: auto; padding-bottom: 0px;">
+	    <param name="quality" value="high">
+	    <param name="scale" value="noscale">
+	    <param name="wmode" value="transparent" />
+	    <param name="allowscriptaccess" value="always">
+	    <param name="bgcolor" value="#F1F1F1F1">
+	    <param name="flashvars" value="siteXML=xml/site.xml"></object>
+	  </div>
+	   <img   class="bannertxt animation-mark zoomIninfi" style="z-index:100;position:absolute;height:100px;bottom:50px;right:0px;" src="${base }/default/style/images/downcloud.png" alt="">
+	    
 	    </div>
     </div>
      <div class="slide" id="slider2" style="cursor: pointer;">
    
      <div class="banner">
-	    <img  class="bgimg" src="${base }/default/style/images/banner.jpg" alt="">
+	    <img  class="bgimg" style="top:0px;" src="${base }/default/style/images/banner.jpg" alt="">
 	    <div style="display:none;" class="bannertxt animation-mark slideInDown">
 	    <dl><dd><img src="${base }/default/style/images/banntxt.png" alt=""/><h3>智能空气监测仪</h3><h4>看的见 才安全</h4></dd>
 	    <dd><a href="#">了解更多 ></a><a href="javascript:void(0)" onclick="showvideo()"　class="Video">观看影片</a></dd></dl>
@@ -271,7 +322,7 @@
     <div class="slide" id="slider3" style="cursor: pointer;">
    
      <div class="banner">
-	    <img class="bgimg" src="${base }/default/style/images/banner.jpg" alt="">
+	    <img class="bgimg" style="top:0px;" src="${base }/default/style/images/banner.jpg" alt="">
 	    <div style="display:none;" class="bannertxt animation-mark bounceInRight">
 	    <dl><dd><img src="${base }/default/style/images/banntxt.png" alt=""/><h3>智能空气监测仪</h3><h4>看的见 才安全</h4></dd>
 	    <dd><a href="#">了解更多 ></a><a href="javascript:void(0)" onclick="showvideo()"　class="Video">观看影片</a></dd></dl>
@@ -279,11 +330,11 @@
 	    </div>
     </div> 
      <div>
-    	    <ul class="bannerico">
-    	    <li><a class="now" href="#"><span>1</span></a></li><li>
-    	    <a href="#" ><span>2</span></a></li><li><a href="#"><span>3</span></a></li></ul>
+    	    <ul class="bannerico" style="bottom:125px;">
+    	    <li><a key="1" class="now" href="#"><span>1</span></a></li><li>
+    	    <a key="2" href="#" ><span>2</span></a></li><li><a key="3" href="#"><span>3</span></a></li></ul>
     
-    </div>
+    </div> 
     
   </div>
   <div id="section2" style="border-bottom:1px solid #FFF;" class="section">
@@ -341,7 +392,7 @@ DST生物酶技术是从自然微生物中分离提纯出对人体有益的微�
   <div id="section3" style=" border-bottom:1px solid #FFF;" class="section">
   <img  class="bgimg" src="${base }/default/style/images/bg3.jpg" alt="">
         
-     <div class="Circlebody animation-mark round" style="display:none;">
+     <div class="Circlebody">
     <img src="${base }/default/style/images/proimg1.png" class="Circleimg proimg1" alt=""/>
     <img src="${base }/default/style/images/proimg2.png" class="Circleimg proimg2" alt=""/>
     <img src="${base }/default/style/images/proimg3.png" class="Circleimg proimg3" alt=""/>
@@ -386,8 +437,8 @@ DST生物酶技术是从自然微生物中分离提纯出对人体有益的微�
         <li><a href="#">治理服务</a></li>
       </ul>
     </div>
-    <div class="homebody bounceInUp animation-mark"  style="display:none;animation-delay:0.3s;-webkit-animation-delay:0.3s;">
-      <div class="centerbody">
+    <div class="homebody">
+      <div class="centerbody bounceInUp animation-mark" style="display:none;">
         <div class="leftnews"><img class="newslogo" src="${base }/default/style/images/newslogo.png" alt=""/>
           <dl>
             <dt>2014/09<span>28</span></dt>
@@ -450,6 +501,7 @@ DST生物酶技术是从自然微生物中分离提纯出对人体有益的微�
     
     <div>
     
+</div>
 </div>
 </body>
 </html>
