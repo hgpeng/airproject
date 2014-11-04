@@ -106,7 +106,7 @@
 		 var maxPlay = $("#section1 .slide").length;
 		 
 		 var autoPlay = setInterval(function(){	
-			 return;
+			 //return;
 					playSlider(_autoPlayIndex + 1);
 					
 					_autoPlayIndex = (_autoPlayIndex+1)>=maxPlay?0:(_autoPlayIndex+1);
@@ -137,6 +137,10 @@
 			
 		});
 		
+		$("#bannertxtdiv").css("right",((winWidth-1024)/2+30)+"px");
+		if(winHeight>900){
+			$("#bannertxtdiv").css("top","100px");
+		}
 	})
 	var cnum = 0;
 	function showitem(){
@@ -259,7 +263,8 @@
 			    <source src="http://www.51zhiye.com/images/zhiyewang/51wzsy.flv" type='video/flv' />	  
 			  </video> -->
 	 <embed type="application/x-shockwave-flash" 
-	 width="858" height="350" src="http://player.youku.com/player.php/sid/XMzI5MzEwODQ4/v.swf" allowfullscreen="true" quality="high" allowscriptaccess="always" align="middle"></embed>
+	 width="858" height="350" src="http://player.youku.com/player.php/sid/XMzI5MzEwODQ4/v.swf" 
+	 allowfullscreen="true" quality="high" allowscriptaccess="always" align="middle"></embed>
 			  
   </div>
 </div>
@@ -290,7 +295,7 @@
   <div id="section1" class="section">
   <div class="slide" id="slider1" style="cursor: pointer;">
 	    <div class="banner" style="height: 100%;margin: 0;padding: 0;background-color: #F1F1F1F1;">
-	    <div class="bannertxt animation-mark bounceInRight">
+	    <div id="bannertxtdiv" class="bannertxt animation-mark bounceInRight" style="position:absolute;padding:0;top:50px;right:150px;">
 	    <dl><dd><img src="${base }/default/style/images/banntxt.png" alt=""/><h3>智能空气监测仪</h3><h4>看的见 才安全</h4></dd>
 	    <dd><a href="#">了解更多 ></a><a href="javascript:void(0)" onclick="showvideo()"　class="Video">观看影片</a></dd></dl>
 	    </div>
@@ -298,6 +303,7 @@
 	    <object type="application/x-shockwave-flash" id="flashcontent" name="flashcontent" 
 	    data="${base }/default/style/01.swf" width="100%" height="100%" 
 	    style="z-index:-1;visibility: visible; width: 100%; left: auto; margin-top:-99px;margin-left: 0px; top: auto; padding-bottom: 0px;">
+	    <param name="movie" value="${base }/default/style/01.swf">
 	    <param name="quality" value="high">
 	    <param name="scale" value="noscale">
 	    <param name="wmode" value="transparent" />
@@ -401,18 +407,20 @@ DST生物酶技术是从自然微生物中分离提纯出对人体有益的微�
     <img src="${base }/default/style/images/proimg6.png" class="Circleimg proimg6" alt=""/>
     <img src="${base }/default/style/images/proimg7.png" class="Circleimg proimg7" alt=""/>
     <img src="${base }/default/style/images/proimg8.png" class="Circleimg proimg8" alt=""/>
+    <div style="padding:100px;">
     <div class="Circlebinfo">
     <ul>
-    <li class="txt1">消毒机</li>
-    <li class="txt2">加湿机</li>
-    <li class="txt3">空调</li>
-    <li class="txt4">负离子</li>
-    <li class="txt5">智能加湿</li>
-    <li class="txt6">智能新风</li>
-    <li class="txt7">治理服务</li>
-    <li class="txt8">空气侠</li>
+    <li class="txt1"><span>消毒机</span></li>
+    <li class="txt2"><span>加湿机</span></li>
+    <li class="txt3"><span>空调</span></li>
+    <li class="txt4"><span>负离子</span></li>
+    <li class="txt5"><span>智能加湿</span></li>
+    <li class="txt6"><span>智能新风</span></li>
+    <li class="txt7"><span>治理服务</span></li>
+    <li class="txt8"><span>空气侠</span></li>
     </ul>
     <dl><dt><img class="centerimg" src="${base }/default/style/images/pro.jpg" alt=""/></dt><dd>空气眼</dd></dl>
+    </div>
     </div>
     </div>
     

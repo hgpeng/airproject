@@ -297,8 +297,7 @@ img.pgymove{
 	-o-transition:all 10s;
 }
 
-
-.Circlebody{ position:relative; border:8px solid #638c0b;border-radius:300px; width:300px; height:300px; margin:auto; padding:90px;}
+.Circlebody{ position:relative; background:url(images/022.png); width:496px; height:496px; margin:50px auto;}
 .Circleimg{ position:absolute;}
 .Circleimg:hover{
 	transform:scale(1.1);
@@ -320,9 +319,10 @@ img.pgymove{
 .proimg6{ left:-5px; bottom:20px;width:80px;}
 .proimg7{ left:-70px; top:200px;width:92px;}
 .proimg8{ left:4px; top:0;width:65px;}
-.Circlebinfo{ position:relative;border:6px solid #638c0b;border-radius:284px; width:284px; height:284px; text-align:center; color:#FFF; font-size:18px;}
-.Circlebinfo ul li{ background:#00a0e9; position:absolute; width:81px; height:81px;border-radius:81px; text-align:center; line-height:81px;}
-.Circlebinfo ul li:hover{ background:#DAA520;}
+.Circlebinfo{ position:relative;background:url(images/023.png) center no-repeat;; width:296px; height:296px;text-align:center; color:#FFF; font-size:18px;}
+.Circlebinfo ul li{background: url(images/01.png) no-repeat 0 0;width:81px;height:81px;position:absolute; text-align:center;}
+.Circlebinfo ul li:hover{ background: url(images/01.png) no-repeat 0 -81px;}
+.Circlebinfo span{line-height:81px;}
 .txt1{ left:97px; top:-50px;}
 .txt2{ right:5px; top:-2px;}
 .txt3{ right:-51px; top:100px;}
@@ -334,30 +334,7 @@ img.pgymove{
 .Circlebinfo dl{ padding:103px 0 0 0; } 
 .Circlebinfo dd{ margin:-13px 0 0 0;}
 .Circlebinfo .centerimg{width:163px;margin-top:-20px;}
-@media screen and (min-width: 2000px) {
-.Circlebody{ position:relative; border:8px solid #638c0b;border-radius:664px; width:420px; height:420px; margin:auto; padding:124px;}
-.Circleimg{ position:absolute;}
-.proimg1{ left:303px; top:-89px;}
-.proimg2{ right:-2px; top:41px;}
-.proimg3{ right:-103px; top:273px;}
-.proimg4{ right:17px; bottom:37px;}
-.proimg5{ left:321px; bottom:-65px;}
-.proimg6{ left:-5px; bottom:10px;}
-.proimg7{ left:-120px; top:264px;}
-.proimg8{ left:-24px; top:-29px;}
-.Circlebinfo{ position:relative;border:6px solid #638c0b;border-radius:404px; width:404px; height:404px; text-align:center; color:#FFF; font-size:18px;}
-.Circlebinfo ul li{ background:#00a0e9; position:absolute; width:121px; height:121px;border-radius:121px; text-align:center; line-height:121px;}
-.txt1{ left:157px; top:-60px;}
-.txt2{ right:5px; top:3px;}
-.txt3{ right:-51px; top:144px;}
-.txt4{ right:7px; bottom:9px;}
-.txt5{ left:147px; bottom:-52px;}
-.txt6{ left:3px; bottom:4px;}
-.txt7{ left:-59px; top:144px;}
-.txt8{ left:0; top:-2px;}
-.Circlebinfo dl{ padding:103px 0 0 0; } 
-.Circlebinfo dd{ margin:-13px 0 0 0;}
-}
+
 /* .active h3{
 	transform:scale(1,1);
 	-ms-transform:scale(1,1); 	IE 9
