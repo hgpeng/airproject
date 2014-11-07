@@ -1,0 +1,63 @@
+package com.hhwork.service;
+
+import java.util.List;
+import java.util.Map;
+
+import com.hhwork.common.Pagination;
+import com.hhwork.model.BaseData;
+import com.hhwork.model.BaseType;
+
+public interface BaseDataService {
+
+	
+	/**
+	 * 获取所有菜单
+	 * @return
+	 */
+	public List<BaseData> getMenus();
+	
+	/**
+	 * 根据查询条件获取基础类型
+	 * @param page
+	 * @param query
+	 * @return
+	 */
+	public Pagination<BaseType> getBaseType(Pagination<BaseType> page,Map<String,Object> query);
+	
+	/**
+	 * 获取所有基本类型
+	 * @return
+	 */
+	public List<BaseType> getAllBaseTypes();
+	
+	/**
+	 * 根据查询条件获取基础数据
+	 * @param page
+	 * @param query
+	 * @return
+	 */
+	public Pagination<BaseData> getBaseData(Pagination<BaseData> page,Map<String,Object> query);
+	
+	
+	
+	/**
+	 * 保存基本类型
+	 * @param baseType
+	 * @return
+	 */
+	public int saveBaseType(BaseType baseType);
+	
+	/**
+	 * 删除基本类型
+	 * @param id
+	 * @return
+	 */
+	public int deleteBaseType(int id);
+	
+	/**
+	 * 保存基本数据
+	 * @param baseData
+	 * @return
+	 */
+	public int saveBaseData(BaseData baseData);
+}
