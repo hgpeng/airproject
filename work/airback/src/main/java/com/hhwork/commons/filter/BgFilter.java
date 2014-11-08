@@ -36,13 +36,13 @@ public class BgFilter implements Filter {
 		HttpServletResponse resp = (HttpServletResponse) response;
 
 		String url = req.getRequestURI();
-		if (url.indexOf("/index/index.html")==-1 && url.indexOf("/index/login.html")==-1) {
+		if (url.indexOf("/index/index.jsps")==-1 && url.indexOf("/index/login.jsps")==-1) {
 			String loginCookie=LoginCookieUtil.getGuidCookie(req);
 			/**
 			 * 简单控制权限
 			 */
 			if (StringUtils.isBlank(loginCookie)) {
-				resp.sendRedirect("/index/index.html");
+				resp.sendRedirect("/index/index.jsps");
 				return;
 			}
 		}

@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.logicalcobwebs.proxool.ProxoolDataSource;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.hhwork.common.PageMapper;
@@ -22,6 +23,9 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 
 	@Resource
 	ProxoolDataSource airDataSource;
+	
+	@Resource
+	protected JdbcTemplate airJdbcTemplate;
 	
 	@Override
 	public int saveProduct(Product product) {
@@ -54,6 +58,11 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 			}
 			
 		});
+	}
+
+	@Override
+	public int putProductOffShelves(Product p) {
+		return updateObject(p, p.getId());
 	}
 
 }

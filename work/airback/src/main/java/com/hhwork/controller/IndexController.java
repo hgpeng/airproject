@@ -46,7 +46,7 @@ public class IndexController extends BaseController {
 		int status=bgUserService.login(user,response);
 		if(status==Constants.Status.SUCCESS){
 			try {
-				response.sendRedirect("/menus/menu.html");
+				response.sendRedirect("/menus/menu.jsps");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

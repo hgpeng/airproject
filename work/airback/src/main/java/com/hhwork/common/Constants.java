@@ -32,4 +32,21 @@ public class Constants {
 		 */
 		public static final int MENUITEM=2;
 	}
+	
+	/**
+	 * 产品状态
+	 * @author hgpeng
+	 *
+	 */
+	public static class ProductStatus{
+		/**
+		 * 上架
+		 */
+		public static final int OnShelves=1;
+		
+		/**
+		 * 下架
+		 */
+		public static final int OffShelves=2;
+	}
 }

@@ -15,6 +15,13 @@ public interface ProductDao {
 	public int saveProduct(Product product);
 	
 	/**
+	 * 下架产品
+	 * @param productId
+	 * @return
+	 */
+	public int putProductOffShelves(Product p);
+	
+	/**
 	 * 翻页获取产品信息
 	 * @param page
 	 * @param query
