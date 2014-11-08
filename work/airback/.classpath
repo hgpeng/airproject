@@ -55,5 +55,6 @@
 	<classpathentry exported="true" kind="lib" path="web/WEB-INF/lib/d396333_common_util.jar"/>
 	<classpathentry exported="true" kind="lib" path="web/WEB-INF/lib/fastjson-1.1.23.jar"/>
 	<classpathentry exported="true" kind="lib" path="web/WEB-INF/lib/ueditor.jar"/>
+	<classpathentry kind="lib" path="web/WEB-INF/lib/pinyin4j-2.5.0.jar"/>
 	<classpathentry kind="output" path="web/WEB-INF/classes"/>
 </classpath>
