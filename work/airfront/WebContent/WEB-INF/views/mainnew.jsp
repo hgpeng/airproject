@@ -6,8 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="renderer" content="webkit">
 <jsp:include page="common/commonHead.jsp"></jsp:include>
-<link rel="stylesheet" href="${base }/default/style/main.css">
-<link rel="stylesheet" href="${base }/default/style/donghua.css">
 <link rel="stylesheet" type="text/css" href="${base}/default/js/control/video/video-js.css" />
 <link rel="stylesheet" type="text/css" href="${base}/default/js/control/fullPage/jquery.fullPage.css" />
 <script type="text/javascript"  src="${base }/default/js/module/hover.js"></script>
@@ -17,39 +15,6 @@
 <script type="text/javascript" src="${base}/default/js/control/fullPage/jquery.fullPage.min.js" ></script>
 <style>
 	#section1 .fp-controlArrow{display:none;}
-	.demo02{
-		text-align:center;		
-		border-radius:50%;
-		-moz-border-radius:50%;
-		position:absolute;
-		z-index:999;
-		border:5px solid #62F3FD;
-    }
-    
-    .smallcircle{
-    	width:60px;
-		top:245px;
-		left:371px;
-		height:180px;
-		transform: rotate(-23deg);
-		-ms-transform: rotate(-20deg);		/* IE 9 */
-		-webkit-transform: rotate(-23deg);	/* Safari and Chrome */
-		-o-transform: rotate(-20deg);		/* Opera */
-		-moz-transform: rotate(-23deg);
-    }
-    
-    .bigcircle{
-    	width:134px;
-		top:155px;
-		left:330px;
-		height:360px;
-		transform: rotate(-24deg);
-		-ms-transform: rotate(-24deg);		/* IE 9 */
-		-webkit-transform: rotate(-24deg);	/* Safari and Chrome */
-		-o-transform: rotate(-24deg);		/* Opera */
-		-moz-transform: rotate(-24deg);
-    }
-    
 </style>
 <script type="text/javascript" >
 	videojs.options.flash.swf = "${base}/default/js/control/video/video-js.swf";
@@ -59,7 +24,7 @@
 	         threshold: 200,
 	         data_attribute: 'src'
 	     });
-		 setTimeout(animatesection,2000);
+		 //setTimeout(animatesection,2000);
 		//setTimeout(showitem,1000);
 		$(".animation-mark").hide();
 		$("#section1 .animation-mark").show().addClass("animated");
@@ -110,7 +75,7 @@
 					playSlider(_autoPlayIndex + 1);
 					
 					_autoPlayIndex = (_autoPlayIndex+1)>=maxPlay?0:(_autoPlayIndex+1);
-				}, 3000);
+				}, 8000);
 		 
 		 $("#contro a.up").click(function(){
 			 $.fn.fullpage.moveSectionUp();
@@ -120,7 +85,7 @@
 			$.fn.fullpage.moveSectionDown();
 		});
 		
-		initcircle();
+		
 		imgSize(winWidth,winHeight);
 		$("#flashdiv").height(winHeight);
 		$("#boxwarp .header").css("position","relative");
@@ -137,10 +102,13 @@
 			
 		});
 		
-		$("#bannertxtdiv").css("right",((winWidth-1024)/2+30)+"px");
+		$("#section1").find("div[name='bannertxtdiv']").css("right",((winWidth-1024)/2+30)+"px");
 		if(winHeight>900){
-			$("#bannertxtdiv").css("top","100px");
+			$("#section1").find("div[name='bannertxtdiv']").css("top","100px");
 		}
+		$("div.info").css("padding-left",((winWidth-1280)/2+200)+"px");
+		
+		$("#section1").find("div[name='flashdiv']").height(winHeight).width(winWidth);
 	})
 	var cnum = 0;
 	function showitem(){
@@ -187,21 +155,6 @@
 		$($(".bannerico a")[_index - 1]).addClass("now");
     }
 	
-	function initcircle(){
-		if($.browser.msie){}
-		else{
-			
-			var wper = $(window).width()/1280;
-			var hper = $(window).height()/589;
-			var bw = 134*wper;
-			var hw = 360*hper;
-			$("#bigcircle").css("width",bw);
-			$("#bigcircle").css("height",hw);
-			
-			//$("div .demo02").show();
-		}
-	}
-	
 	 var winHeight = $(window).height(),winWidth = $(window).width();
 
     var imgSize = function(winWidth,winHeight){
@@ -214,45 +167,13 @@
 
     }
 	
-    function showsearch(event){
-    	$("#zhilico").hide();
-    	$("#searchinp").show().addClass("animated");
-    	event.stopPropagation();
-    }
-    
-    $(document).click(function(){
-    	$("#searchinp").removeClass("inpshow").addClass("inphide"); 
-    	setTimeout(function(){
-    		$("#searchinp").hide();
-    		$("#searchinp").removeClass("animated").removeClass("inphide").addClass("inpshow");
-    		$("#zhilico").show();
-    	},1000);
-    	
-    });
 </script>
 <title>首页</title>
 </head>
 <body>
 <div id="boxwarp">
-  <div id="contro" style="display:none;">
-    <div class="logobox "><a href="#"><img src="${base }/default/style/images/rightlogo.jpg" alt=""/></a></div>
-    <div class="conbox ">
-      <div class="arrow"><a class="up"></a></div>
-      <div class="portfolio">
-        <ul>
-          <li><a href="#" class="now">概览</a></li>
-          <li><a href="#">产品中心</a></li>
-          <li><a href="#">解决方案</a></li>
-          <li><a href="#">治理服务</a></li>
-          <li><a href="#">下载中心</a></li>
-          <li><a href="#">在线商城</a></li>
-          <li><a href="#">关于我们</a></li>
-        </ul>
-      </div>
-      <div class="arrowbottom"><a class="down"></a></div>
-    </div>
-  </div>
-
+ 
+<jsp:include page="common/top.jsp"></jsp:include>
   
   <div style="display: none;" class="pop-bg"></div>
 	<div class="pop-wrap" style="display: none;">
@@ -269,37 +190,15 @@
   </div>
 </div>
   
-    <div class="header">
-      <div class="headerbody">
-        <div class="headerright">
-          <ul>
-           <li ><input type="text" id="searchinp" class="inpshow" style="width:90px;height:25px;display:none;"/></li>
-            <li><a id="zhilico" href="#" style="" class="an">治理服务</a></li>
-            <li><a href="javascript:void(0)" onclick="showsearch(event)"><img src="${base }/default/style/images/ico2.png" alt=""/></a></li>
-            <li><a href="#"><img src="${base }/default/style/images/ico1.png" alt=""/></a></li>
-          </ul>
-          
-        </div>
-        <div class="logo"><img src="${base }/default/style/images/logo.png" alt=""/></div>
-        <ul class="nav">
-          <li><a href="#" class="now">概览</a></li>
-          <li><a href="#">产品中心</a></li>
-          <li><a href="#">解决方案</a></li>
-          <li><a href="#">治理服务</a></li>
-          <li><a href="#">下载中心</a></li>
-          <li><a href="#">在线商城</a></li>
-          <li><a href="#">关于德士特</a></li>
-        </ul>
-      </div>
-  </div>
+    
   <div id="section1" class="section">
   <div class="slide" id="slider1" style="cursor: pointer;">
 	    <div class="banner" style="height: 100%;margin: 0;padding: 0;background-color: #F1F1F1F1;">
-	    <div id="bannertxtdiv" class="bannertxt animation-mark bounceInRight" style="position:absolute;padding:0;top:50px;right:150px;">
+	    <div name="bannertxtdiv" class="bannertxt animation-mark bounceInRight" style="position:absolute;padding:0;top:30px;right:150px;">
 	    <dl><dd><img src="${base }/default/style/images/banntxt.png" alt=""/><h3>智能空气监测仪</h3><h4>看的见 才安全</h4></dd>
 	    <dd><a href="#">了解更多 ></a><a href="javascript:void(0)" onclick="showvideo()"　class="Video">观看影片</a></dd></dl>
 	    </div>
-	   <div id="flashdiv" style="z-index:-1;">
+	   <div name="flashdiv" style="z-index:-1;">
 	    <object type="application/x-shockwave-flash" id="flashcontent" name="flashcontent" 
 	    data="${base }/default/style/01.swf" width="100%" height="100%" 
 	    style="z-index:-1;visibility: visible; width: 100%; left: auto; margin-top:-99px;margin-left: 0px; top: auto; padding-bottom: 0px;">
@@ -311,28 +210,52 @@
 	    <param name="bgcolor" value="#F1F1F1F1">
 	    <param name="flashvars" value="siteXML=xml/site.xml"></object>
 	  </div>
-	   <img   class="bannertxt animation-mark zoomIninfi" style="z-index:100;position:absolute;height:100px;bottom:50px;right:0px;" src="${base }/default/style/images/downcloud.png" alt="">
 	    
 	    </div>
     </div>
      <div class="slide" id="slider2" style="cursor: pointer;">
    
      <div class="banner">
-	    <img  class="bgimg" style="top:0px;" src="${base }/default/style/images/banner.jpg" alt="">
-	    <div style="display:none;" class="bannertxt animation-mark slideInDown">
+	   
+	    <div name="bannertxtdiv" class="bannertxt animation-mark bounceInRight" style="position:absolute;padding:0;top:30px;right:150px;">
 	    <dl><dd><img src="${base }/default/style/images/banntxt.png" alt=""/><h3>智能空气监测仪</h3><h4>看的见 才安全</h4></dd>
 	    <dd><a href="#">了解更多 ></a><a href="javascript:void(0)" onclick="showvideo()"　class="Video">观看影片</a></dd></dl>
 	    </div>
+	   <div name="flashdiv" style="z-index:-1;">
+	    <object type="application/x-shockwave-flash" id="flashcontent" name="flashcontent" 
+	    data="${base }/default/style/01.swf" width="100%" height="100%" 
+	    style="z-index:-1;visibility: visible; width: 100%; left: auto; margin-top:-99px;margin-left: 0px; top: auto; padding-bottom: 0px;">
+	    <param name="movie" value="${base }/default/style/01.swf">
+	    <param name="quality" value="high">
+	    <param name="scale" value="noscale">
+	    <param name="wmode" value="transparent" />
+	    <param name="allowscriptaccess" value="always">
+	    <param name="bgcolor" value="#F1F1F1F1">
+	    <param name="flashvars" value="siteXML=xml/site.xml"></object>
+	  </div>
+	     
 	    </div>
     </div>
     <div class="slide" id="slider3" style="cursor: pointer;">
    
-     <div class="banner">
-	    <img class="bgimg" style="top:0px;" src="${base }/default/style/images/banner.jpg" alt="">
-	    <div style="display:none;" class="bannertxt animation-mark bounceInRight">
+    <div class="banner">
+	    <div name="bannertxtdiv" class="bannertxt animation-mark bounceInRight" style="position:absolute;padding:0;top:30px;right:150px;">
 	    <dl><dd><img src="${base }/default/style/images/banntxt.png" alt=""/><h3>智能空气监测仪</h3><h4>看的见 才安全</h4></dd>
 	    <dd><a href="#">了解更多 ></a><a href="javascript:void(0)" onclick="showvideo()"　class="Video">观看影片</a></dd></dl>
 	    </div>
+	   <div name="flashdiv" style="z-index:-1;">
+	    <object type="application/x-shockwave-flash" id="flashcontent" name="flashcontent" 
+	    data="${base }/default/style/01.swf" width="100%" height="100%" 
+	    style="z-index:-1;visibility: visible; width: 100%; left: auto; margin-top:-99px;margin-left: 0px; top: auto; padding-bottom: 0px;">
+	    <param name="movie" value="${base }/default/style/01.swf">
+	    <param name="quality" value="high">
+	    <param name="scale" value="noscale">
+	    <param name="wmode" value="transparent" />
+	    <param name="allowscriptaccess" value="always">
+	    <param name="bgcolor" value="#F1F1F1F1">
+	    <param name="flashvars" value="siteXML=xml/site.xml"></object>
+	  </div>
+	    
 	    </div>
     </div> 
      <div>
@@ -446,6 +369,7 @@ DST生物酶技术是从自然微生物中分离提纯出对人体有益的微�
       </ul>
     </div>
     <div class="homebody">
+      <div style="height:486px;">
       <div class="centerbody bounceInUp animation-mark" style="display:none;">
         <div class="leftnews"><img class="newslogo" src="${base }/default/style/images/newslogo.png" alt=""/>
           <dl>
@@ -497,7 +421,7 @@ DST生物酶技术是从自然微生物中分离提纯出对人体有益的微�
           </form>
         </div>
       </div>
-      
+      </div>
       <div class="footer">
       <div class="footerbody"> <a href="#" class="footerShare"><img src="${base }/default/style/images/Share.png" alt=""></a>
         <div class="footermenu"><a href="#">关于德士特</a><a href="#">新闻动态</a><a href="#">联系我们</a><a href="#">产权声明</a></div>

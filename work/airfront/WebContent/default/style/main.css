@@ -21,6 +21,7 @@ a:hover{color:#008cd6;}
 .headerright{ float:right; padding:25px 0 0 0; height:43px; line-height:43px; overflow:hidden;}
 .headerright ul li{ float:left; padding:0 0 0 16px;}
 .an{ display:inline-block;border-radius:6px; background:#008cd6; color:#FFF; width:93px; height:28px; line-height:28px; text-align:center; margin:8px 0 0 0; }
+#zlfwli a:hover{color:#313131;}
 /*右边menu*/
 #contro{position:fixed; top:50%; right:0px; margin-top:-250px; width:110px; z-index:1200;}
 .imgp{background-position:50% 50%; background-size:cover; background-repeat:no-repeat; height:100%; min-height:100%;}
@@ -59,26 +60,27 @@ a:hover{color:#008cd6;}
 /*banner*/
 .banner{ position:relative; height:100%;}
 .banner .bgimg{top:50px;}
-.bannertxt{ width:665px; margin:auto; padding:150px 0 0 0; text-align:right; line-height:30px;}
+
+/* .bannertxt{ width:665px; margin:auto; padding:150px 0 0 0; text-align:right; line-height:30px;}
 .bannertxt h3{ font-size:20px; color:#898989; font-weight:normal; }
 .bannertxt h4{ font-size:14px; color:#34a3e3; font-weight:normal; }
 .bannertxt dd{ font-size:10px;}
 .bannertxt dd img{ width:200px;}
-.bannertxt dd a{ color:#00a2e8; margin:0 0 0 18px; }
+.bannertxt dd a{ color:#00a2e8; margin:0 0 0 18px; } */
 
-@media screen and (min-width: 1800px) {
+
 .bannertxt{ width:865px; margin:auto; padding:180px 0 0 0; text-align:right; line-height:30px;}
 .bannertxt h3{ font-size:36px; color:#898989; font-weight:normal; padding:13px 0 35px 0;}
 .bannertxt h4{ font-size:30px; color:#34a3e3; font-weight:normal; padding:0 0 7px 0;}
 .bannertxt dd{ font-size:16px;}
 .bannertxt dd img{ width:auto}
 .bannertxt dd a{ color:#00a2e8; margin:0 0 0 18px; }
-}
+
 
 .Video { background:url(images/Video.png) right center no-repeat; padding:2px 25px 2px 0;}
 .bannerico{ position:absolute; left:50%; bottom:50px; height:2px; width:228px; margin:0 0 0 -114px;z-index:999;}
 .bannerico li{ float:left; padding:0 5px;height:2px; }
-.bannerico li a{ float:left; display:inline-block; background:#ddd; width:66px; height:2px;}
+.bannerico li a{ float:left; display:inline-block; background:#ddd; width:66px; height:5px;}
 .bannerico li a.now,.bannerico li a:hover{ background:#008cd6;}
 .bannerico li span{ display:none;}
 /*蓝色*/
@@ -86,7 +88,7 @@ a:hover{color:#008cd6;}
 .pagebody{ width:1024px; margin:auto; overflow:hidden;}
 .pageleft{ float:left; width:253px; padding:100px 0 0 0;}
 .pageright{ float:left; width:771px; padding:5px 0 0 0;}
-.pagetitle{ font-size:50px; color:#FFF; height:105px; line-height:105px; font-weight:normal; text-align:right;}
+.pagetitle{ font-size:37px; color:#FFF; height:105px; line-height:105px; font-weight:normal; text-align:right;}
 
 .Tab{ background:url(images/titlebg.png) right 108px no-repeat; height:138px; padding:0 0 9px 21px;overflow:hidden;}
 
@@ -120,17 +122,13 @@ a:hover{color:#008cd6;}
 .imgbody img{ height:100%;}
 
 
-.info{margin-top:-200px;padding:0 0 0 150px; font-size:16px; color:#313131; }
+.info{margin-top:-200px;padding:0 0 0 200px; font-size:16px; color:#313131; }
 .info h4{color:#1b75e5; font-size:20px; font-weight:normal;line-height:120%;}
 .info h3{color:#1b75e5; font-size:37px; font-weight:normal; padding:0 0 12px 0; line-height:120%;}
 .info p{line-height:25px;font-size:12px;}
 
-@media screen and (min-width: 1800px) { 
-/**/
-.info{ margin-top:-300px; padding:0 0 0 150px; font-size:16px; color:#313131; }
-.info h4{color:#1b75e5; font-size:36px; font-weight:normal;line-height:120%;}
-.info h3{color:#1b75e5; font-size:53px; font-weight:normal; padding:0 0 12px 0; line-height:120%;}
-.info p{line-height:25px;}
+@media screen and (min-width: 1800px){ 
+.info{ margin-top:-300px; padding:0 0 0 450px; font-size:16px; color:#313131; }
 }
 
 /*.homemenu{ height:28px; line-height:28px; padding:32px 0;}
@@ -150,9 +148,9 @@ a:hover{color:#008cd6;}
 .homemenu ul li{ float:left; width:149px; border-left:1px solid #cccccc; margin-left:-1px; text-align:center;}
 .homemenu ul li a{ font-size:14px; color:#666;}
 .homemenu ul li a:hover{ color:#008cd6;}
-.leftnews{ float:left; width:320px; padding:93px 0 0 0;}
-.rightMessage{ float:left; width:320px; padding:77px 0 0 0;}
-.centercontact{ float:left; width:320px; padding:77px 30px 0 31px;}
+.leftnews{ float:left; width:320px; padding:66px 0 0 0;}
+.rightMessage{ float:left; width:320px; padding:50px 0 0 0;}
+.centercontact{ float:left; width:320px; padding:50px 30px 0 31px;}
 
 
 
@@ -165,7 +163,7 @@ a:hover{color:#008cd6;}
 .leftnews dl dt{ float:left; text-align:center; width:80px;  font-size:12px;  line-height:18px;}
 .leftnews dl dt span{ display:block; font-size:32px; padding:10px 0 0 0;}
 .leftnews dl dd{ float:left; border-left:1px solid #949494; width:221px; height:57px; padding:0 0 0 18px; font-size:12px; line-height:18px;}
-.leftnews dl dd h3{ font-size:18px; font-weight:normal; padding:0 0 6px 0;}
+.leftnews dl dd h3{ font-size:20px; font-weight:normal; padding:0 0 6px 0;}
 .centercontact dt{ padding:3px 0 31px 0;}
 .icolist{ padding:50px 0 0 0; overflow:hidden;}
 .icolist li{ float:left; width:49px; line-height:40px; text-align:center;}
