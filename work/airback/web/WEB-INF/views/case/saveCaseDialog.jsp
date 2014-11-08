@@ -5,19 +5,16 @@
 <head>
 <title>应用案例</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<jsp:include page="../common.jsp"></jsp:include>
 </head>
 <body>
 <form id="saveBaseTypeForm">
 </form>
- <link href="${base }/js/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css"> 
- <link href="${base }/js/ligerUI/skins/Gray/css/all.css" rel="stylesheet" type="text/css"> 
-<script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
-<script src="/js/ligerUI/js/core/base.js" type="text/javascript"></script>
-<script type="text/javascript" src="/js/ligerUI/js/plugins/ligerForm.js"></script>
-<script src="/js/ligerUI/js/plugins/ligerTextBox.js" type="text/javascript"></script>
-<script src="/js/ligerUI/js/plugins/ligerComboBox.js" type="text/javascript"></script>
-<script src="/js/ligerUI/js/plugins/ligerDateEditor.js" type="text/javascript"></script>
-<script type="text/javascript" src="/js/custom/case/saveCaseDataIndex.js"></script>
+<script src="${base }/js/ligerUI/js/core/base.js" type="text/javascript"></script>
+<script type="text/javascript" src="${base }/js/ligerUI/js/plugins/ligerForm.js"></script>
+<script src="${base }/js/ligerUI/js/plugins/ligerTextBox.js" type="text/javascript"></script>
+<script src="${base }/js/ligerUI/js/plugins/ligerComboBox.js" type="text/javascript"></script>
+<script src="${base }/js/ligerUI/js/plugins/ligerDateEditor.js" type="text/javascript"></script>
+<script type="text/javascript" src="${base }/js/custom/case/saveCaseDataIndex.js"></script>
 </body>
 </html>
