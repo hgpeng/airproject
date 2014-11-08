@@ -1,5 +1,8 @@
 package com.hhwork.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,11 +16,20 @@ public class IndexController extends BaseController {
 	
 	@RequestMapping({"product"})
 	public String product(ModelMap model) { 
-		return "productlist"; 
+		return "product"; 
+    }
+	
+	@RequestMapping({"productcenter"})
+	public String productcenter(ModelMap model) { 
+		Map<String,Object> param = new HashMap<String,Object>();
+		//查产品系列
+		param.put("typeid", "5");
+		return "productcenter"; 
     }
 	
 	@RequestMapping({"solution"})
 	public String solution(ModelMap model) { 
+		
 		return "solution"; 
     }
 	
@@ -39,5 +51,22 @@ public class IndexController extends BaseController {
 	@RequestMapping({"contact"})
 	public String contact(ModelMap model) { 
 		return "contact"; 
+    }
+	
+	@RequestMapping({"greenService"})
+	public String greenService(ModelMap model) { 
+		return "greenService"; 
+    }
+	
+	@RequestMapping(value="caselist")
+	public String caselist(ModelMap model) { 
+		
+		return "caselistnew";
+    }
+	
+	@RequestMapping(value="caseshow")
+	public String caseshow(ModelMap model) { 
+		
+		return "caseshow";
     }
 }

@@ -1,0 +1,24 @@
+.c{zoom:1;}
+.c:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.demo-test {display: -webkit-box;display: -ms-flexbox; display: -webkit-flex; display: flex;}
+.demo-test {height: 100%;-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;-webkit-box-align: center; -ms-flex-align: center;-webkit-align-items: center;align-items: center;}
+html #boxwarp .header { position:absolute;}
+
+.case-show { width:100%; height:100%; position:relative; background:#e6e6e6; box-sizing:border-box; padding-top:92px;padding-right:340px;}
+
+.case-show .fullSlide { height:100%; position:relative; }
+.case-show .fullSlide .bd { height:100%; position:relative;}
+.case-show .fullSlide .bd ul { height:100%;position:relative; padding:0 70px;}
+.case-show .fullSlide .bd ul li { width:100%;  height:100%; overflow:hidden;}
+.prev {width:50%;height:100%; display:block; position:absolute; left:0; top:0; cursor:pointer;}
+.next {width:50%;height:100%; display:block; position:absolute;right:0; top:0; cursor:pointer;}
+.prev i { width:61px; height:61px;display:block; background:url(images/case/case_01.png) no-repeat left -61px; position:absolute;left:35px; top:50%; margin-top:-30px;}
+.next i { width:61px; height:61px;display:block; background:url(images/case/case_02.png) no-repeat left -61px; position:absolute;right:35px; top:50%; margin-top:-30px;}
+.prev:hover i, .next:hover i{ background-position: left top;}
+
+.case-right { width:340px; height:100%; position:absolute; background:#34a3e3 url(images/case/case02.jpg) no-repeat left bottom; right:0; top:0; box-sizing:border-box; padding:200px 35px 0; color:#fff; font-size:14px; z-index:888;}
+.case-right h2 { line-height:37px; background:url(images/case/case_03.png) no-repeat left top; padding-left:40px; font-size:20px; font-weight:normal;}
+.case-right p { padding-top:30px; line-height:30px;}
+.case-close { width:31px; height:31px; position:absolute; right:35px; top:140px;}
+.case-close a {width:31px; height:31px; display:block; background:url(images/case/case_04.png) no-repeat; text-indent:-9999px;}
+.fenxiang { position:absolute; right:35px; bottom:20px;}
