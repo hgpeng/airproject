@@ -20,7 +20,7 @@
         var ps = p.split("/");
         var pth = "";
         for(var i = 0; i < ps.length; i++){
-            if(ps[i]!=null && ps[i]!=''){
+            if(ps[i]!=null){
                 pth = ps[i];
                 break;
             }

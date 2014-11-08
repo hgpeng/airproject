@@ -2,7 +2,7 @@
 <%@page import="com.dingjian.base.util.SystemConfig"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
         pageEncoding="utf-8"%>
-    <%@page import="com.dingjian.framework.util.Uploader"%>
+<%@page import="com.hhwork.controller.ueditor.Uploader"%> 
 
     <%
     request.setCharacterEncoding("utf-8");
