@@ -39,7 +39,7 @@
 		
 		 <filter-mapping>
 		  <filter-name>loginFilter</filter-name>
-		  <url-pattern>/*.html</url-pattern>
+		  <url-pattern>/*.jsps</url-pattern>
 		 </filter-mapping>
 
 	<listener>
@@ -59,7 +59,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>mvc-dispatcher</servlet-name>
-		<url-pattern>*.html</url-pattern>
+		<url-pattern>*.jsps</url-pattern>
 	</servlet-mapping>
 
 
