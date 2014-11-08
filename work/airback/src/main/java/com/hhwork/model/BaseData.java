@@ -30,6 +30,9 @@ public class BaseData {
 	@Column(ignore=true)
 	private List<BaseData> childrens;
 
+	@Column(ignore=true)
+	private String baseType;
+	
 	public int getId() {
 		return id;
 	}
@@ -108,6 +111,14 @@ public class BaseData {
 
 	public void setIcon(String icon) {
 		this.icon = icon;
+	}
+
+	public String getBaseType() {
+		return baseType;
+	}
+
+	public void setBaseType(String baseType) {
+		this.baseType = baseType;
 	}
 	
 	
