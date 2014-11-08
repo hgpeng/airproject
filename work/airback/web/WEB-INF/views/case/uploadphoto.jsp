@@ -13,7 +13,7 @@
 <input type="hidden" id="dataid" value="${caseid}"/>
 <div id="imgdiv">
 	<c:forEach items="${cplist }" var="item">
-		<img style='width:200px;' src='${base}/images/${item.path}'/>
+		<img style='width:200px;' src='${base}/uploadimages/${item.path}'/>
 	</c:forEach>
 </div>
 <script type="text/javascript" src="${base }/js/artDialog/artDialog.js?skin=blue"></script>
@@ -25,7 +25,7 @@
 	
 	function afterupload(json,data){
 		if(json.STATE=='SUCCESS'){
-			var html = "<img style='width:200px;' src='${base}/images/"+json.PATH+"'/>";
+			var html = "<img style='width:200px;' src='${base}/uploadimages/"+json.PATH+"'/>";
 			$(imgdiv).append(html);
 			
 			$.ajax({
