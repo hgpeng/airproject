@@ -12,7 +12,7 @@ var saveBaseDataDialog=function(){
                 { display: "面积", name: "area", newline: true, type: "text", width:300},
                 { display: "地址", name: "addr", newline: true, type: "text", width:300},
                 { display: "时间", name: "buildtime", newline: true, type: "text", width:300},
-                { display:'基本类型',name:"basedata",type: "select", comboboxName: "baseTypeSelect", options: { url:'/baseData/getAllBaseData.html?type=3',valueFieldID: "basedataId",textField:'name' }},
+                { display:'基本类型',name:"basedata",type: "select", comboboxName: "baseTypeSelect", options: { url:'/baseData/getAllBaseData.jsps?type=3',valueFieldID: "basedataId",textField:'name' }},
                 { display: "内容", name: "content", newline: true, type: "textarea", width:300}
                 ]
             });

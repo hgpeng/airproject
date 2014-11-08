@@ -19,7 +19,7 @@ var baseDataIndex=function(){
 	            {display:'地址',name:'addr',align:'center',width:'20%'},
 	            {display:'操作',name:'operate',align:'center',width:'20%',render:_this.oprender}
 	            ], 
-	            url:'/case/getCaseData.html', 
+	            url:'/case/getCaseData.jsps', 
 	            parms:_this.getParam(),
                 pageSize: 20,width: '99%',
                 height: 0.95*$(document).height(),
@@ -37,10 +37,10 @@ var baseDataIndex=function(){
 
 		},
 		oprender:function(data,filterData){
-			return '<a href="javascript:void(0)" onclick=uploadphoto("'+data.id+'")>上传图片</a>';
+			return '<a href="javascript:void(0)" onclick=uploadphoto("'+data.id+'")>图片管理</a>';
 		},
 		add:function(){
-			art.dialog.open('/case/saveCaseDialog.html',{
+			art.dialog.open('/case/saveCaseDialog.jsps',{
 				id:"saveBaseType",
 				title:'保存应用案例',
 				width: 500,
@@ -58,7 +58,7 @@ var baseDataIndex=function(){
 						return false;
 					}
 					$.ajax({
-						url:'/case/saves.html',
+						url:'/case/saves.jsps',
 						type:'post',
 						data:$(page.find("form")[0]).serialize(),
 						success:function(ret){
@@ -80,9 +80,9 @@ $(function(){
 })
 
 uploadphoto=function(id){
-	art.dialog.open('/case/uploadphoto.html?id='+id,{
+	art.dialog.open('/case/uploadphoto.jsps?id='+id,{
 		id:"saveBaseType",
-		title:'上传图片',
+		title:'图片管理',
 		width: 500,
 		height: 250,
 		resizable: false,
@@ -91,19 +91,7 @@ uploadphoto=function(id){
 		ok:function(contentWindow){
 			var page=$(contentWindow.document);
 			
-			$.ajax({
-				url:'/case/savesPhoto.html',
-				type:'post',
-				data:$(page.find("form")[0]).serialize(),
-				success:function(ret){
-					if(ret.ret==-1){
-						art.dialog.alert("修改失败");
-						return false;
-					}
-					art.dialog.alert("修改成功");
-					reload();
-				}
-			})
+			
 		}
 	});
 }
