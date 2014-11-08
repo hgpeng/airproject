@@ -17,6 +17,8 @@ public class BaseData {
 	
 	private String name;
 	
+	private String name_en;
+	
 	private String icon;
 	
 	private String url;
@@ -108,6 +110,14 @@ public class BaseData {
 
 	public void setIcon(String icon) {
 		this.icon = icon;
+	}
+
+	public String getName_en() {
+		return name_en;
+	}
+
+	public void setName_en(String name_en) {
+		this.name_en = name_en;
 	}
 	
 	

@@ -87,6 +87,7 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 				baseData.setName(rs.getString("name"));
 				baseData.setTypeId(rs.getInt("typeId"));
 				baseData.setParentId(rs.getInt("parentId"));
+				baseData.setName_en(rs.getString("name_en"));
 				baseData.setUrl(rs.getString("url"));
 				baseData.setDesc(rs.getString("descr"));
 				baseData.setCreateTime(rs.getDate("createTime"));

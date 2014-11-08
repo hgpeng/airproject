@@ -45,7 +45,7 @@ public class PresentationDaoImpl extends BaseDaoImpl implements PresentationDao 
 				Presentation p=new Presentation();
 				p.setId(rs.getInt("id"));
 				p.setProductId(rs.getInt("productId"));
-				p.setNum(rs.getInt("num"));
+				p.setNum(rs.getString("num"));
 				p.setHtml(rs.getString("html"));
 				p.setCreateTime(rs.getDate("createTime"));
 				p.setCreateMan(rs.getString("createMan"));

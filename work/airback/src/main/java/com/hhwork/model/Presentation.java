@@ -19,7 +19,7 @@ public class Presentation implements Serializable{
 	
 	private int productId;
 	
-	private int num;
+	private String num;
 	
 	private String html;
 	
@@ -43,11 +43,11 @@ public class Presentation implements Serializable{
 		this.productId = productId;
 	}
 
-	public int getNum() {
+	public String getNum() {
 		return num;
 	}
 
-	public void setNum(int num) {
+	public void setNum(String num) {
 		this.num = num;
 	}
 

@@ -36,4 +36,12 @@ public class ProductController extends BaseController {
 		Pagination<Product> res=productService.getProductList(page, query);
 		outPrint(response,JSONArray.toJSON(res) );
 	}
+	
+	@RequestMapping("saveProductDialog")
+	public String saveProductDialog(ModelMap modelMap){
+		int productId=getInt("productId");
+		return "/product/openProductDialog";
+	}
+	
+	
 }
