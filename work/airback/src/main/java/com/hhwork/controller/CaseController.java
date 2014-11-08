@@ -1,5 +1,9 @@
 package com.hhwork.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,6 +21,7 @@ import com.hhwork.common.Pagination;
 import com.hhwork.model.AppCase;
 import com.hhwork.model.Articles;
 import com.hhwork.model.BaseData;
+import com.hhwork.model.CasePhoto;
 import com.hhwork.service.AppCaseService;
 
 @Controller
@@ -25,6 +30,7 @@ public class CaseController  extends BaseController {
 	
 	@Autowired
 	private AppCaseService appCaseService;
+	
 	
 	@RequestMapping("list")
 	public String menuIndex(){
@@ -79,7 +85,30 @@ public class CaseController  extends BaseController {
 	public String uploadphoto(ModelMap modelMap){
 		String caseid = this.getString("id");
 		modelMap.put("caseid", caseid);
+		
+		Map<String,Object> param = new HashMap<String,Object>();
+		param.put("caseid", caseid);
+		List<CasePhoto> cplist = 
+		this.appCaseService.getCasePhoto(param);
+		modelMap.put("cplist", cplist);
 		return "/case/uploadphoto";
 	}
 	
+	@ResponseBody
+	@RequestMapping("savesPhoto")
+	public void savesPhoto(HttpServletResponse response){
+		
+		 String caseid = this.getString("caseid");
+		 String path = this.getString("path");
+		 CasePhoto app = new CasePhoto();	 
+		if(StringUtils.isBlank(caseid)){
+			ResponseUtils.renderJson(response, "{\"ret\":-1}");
+			return ;
+		}
+		app.setCaseid(Integer.parseInt(caseid));
+		app.setPath(path);
+		
+		int ret=appCaseService.saveCasePhoto(app);
+		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
+	}
 }
