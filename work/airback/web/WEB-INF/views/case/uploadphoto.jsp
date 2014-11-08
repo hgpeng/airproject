@@ -10,21 +10,39 @@
 </head>
 <body>
 <input type="button" value="添加" id="upload"/>
+<input type="hidden" id="dataid" value="${caseid}"/>
 <div id="imgdiv">
-	
+	<c:forEach items="${cplist }" var="item">
+		<img style='width:200px;' src='${base}/images/${item.path}'/>
+	</c:forEach>
 </div>
+<script type="text/javascript" src="${base }/js/artDialog/artDialog.js?skin=blue"></script>
+<script type="text/javascript" src="${base }/js/artDialog/plugins/iframeTools.js"></script>
 <script type="text/javascript" src="${base }/js/ajaxupload.js"></script>
 <script type="text/javascript" src="${base }/js/common.js"></script>
 <script type="text/javascript">
-	initajaxupload("upload","/imgupload/upload.html?direct=case",afterupload,null,null);
+	initajaxupload("upload","/imgupload/upload.jsps?direct=case",afterupload,null,null);
 	
 	function afterupload(json,data){
 		if(json.STATE=='SUCCESS'){
-			var html = "<img src='${base}/images/"+json.PATH+"'/>";
+			var html = "<img style='width:200px;' src='${base}/images/"+json.PATH+"'/>";
 			$(imgdiv).append(html);
-			art.dialog.tips("上传成功");
+			
+			$.ajax({
+				url:'${base }/case/savesPhoto.jsps',
+				type:'post',
+				data:{caseid:$("#dataid").val(),path:json.PATH},
+				success:function(ret){
+					if(ret.ret==-1){
+						art.dialog.alert("修改失败");
+						return false;
+					}
+					art.dialog.alert("修改成功");
+				}
+			})
+			
 		}else{
-			art.dialog.tips("上传失败");
+			art.dialog.alert("上传失败");
 		}
 	}
 </script>
