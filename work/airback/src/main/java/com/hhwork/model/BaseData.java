@@ -27,6 +27,8 @@ public class BaseData {
 	
 	private String createMan;
 	
+	private String name_en;
+	
 	@Column(ignore=true)
 	private List<BaseData> childrens;
 
@@ -119,6 +121,14 @@ public class BaseData {
 
 	public void setBaseType(String baseType) {
 		this.baseType = baseType;
+	}
+
+	public String getName_en() {
+		return name_en;
+	}
+
+	public void setName_en(String name_en) {
+		this.name_en = name_en;
 	}
 	
 	

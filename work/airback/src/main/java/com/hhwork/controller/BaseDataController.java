@@ -116,6 +116,7 @@ public class BaseDataController extends BaseController {
 	public void saveBaseData(HttpServletResponse response){
 		int id=getInt("id",-1);
 		String name=getString("name");
+		String name_en=getString("name_en");
 		String icon = this.getString("icon");
 		String url=getString("url","");
 		int typeId=getInt("typeId",-1);
@@ -136,6 +137,7 @@ public class BaseDataController extends BaseController {
 		baseData.setUrl(url);
 		baseData.setTypeId(typeId);
 		baseData.setIcon(icon);
+		baseData.setName_en(name_en);
 		int ret=baseDataService.saveBaseData(baseData);
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
 	}
