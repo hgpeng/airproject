@@ -18,7 +18,7 @@ var baseTypeIndex=function(){
 	            	return "<a href='javascript:void(0);' onclick='baseTypeIndex.deleteBaseType("+rowdata.id+")'>删除</a>";
 	            }}
 	            ], 
-	            url:'/baseData/getBaseTypeData.html', 
+	            url:'/baseData/getBaseTypeData.jsps', 
 	            parms:_this.getParam(),
                 pageSize: 20,width: '99%',
                 height: 0.95*$(document).height(),
@@ -35,7 +35,7 @@ var baseTypeIndex=function(){
 		deleteBaseType:function(id){
 			art.dialog.confirm("确定要删除该基本类型吗？",function(){
 				$.ajax({
-					url:'/baseData/deleteBaseType.html',
+					url:'/baseData/deleteBaseType.jsps',
 					type:'post',
 					data:{id:id},
 					success:function(ret){
@@ -53,7 +53,7 @@ var baseTypeIndex=function(){
 
 		},
 		add:function(){
-			art.dialog.open('/baseData/saveBaseTypeDialog.html',{
+			art.dialog.open('/baseData/saveBaseTypeDialog.jsps',{
 				id:"saveBaseType",
 				title:'保存基础类型',
 				width: 300,
@@ -70,7 +70,7 @@ var baseTypeIndex=function(){
 						return false;
 					}
 					$.ajax({
-						url:'/baseData/saveBaseType.html',
+						url:'/baseData/saveBaseType.jsps',
 						type:'post',
 						data:{name:name},
 						success:function(ret){

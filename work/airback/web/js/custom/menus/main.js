@@ -24,7 +24,7 @@ var main=function(){
 	            },
 	            async: {//异步加载节点数据
 	                enable: true,
-	                url: "/menus/getMenus.html"
+	                url: "/menus/getMenus.jsps"
 	            },
 	            callback: {//绑定回调函数
 	            	onAsyncSuccess:function(event,treeId,treeNode,msg){

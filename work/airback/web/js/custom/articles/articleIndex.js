@@ -9,7 +9,7 @@ var article=function(){
 	            {display: '主键', name: 'id', align: 'center', width: '5%' },
 	            {display:'内容',name:'preview',align:'left',width:'80%'}
 	            ], 
-	            url:'/articles/list.html', 
+	            url:'/articles/list.jsps', 
 	            parms:_this.getParam(),
                 pageSize: 20,width: '99%',
                 height: 0.95*$(document).height(),
@@ -27,7 +27,7 @@ var article=function(){
 
 		},
 		add:function(item){
-			art.dialog.open('/articles/saveArticlesDialog.html',{
+			art.dialog.open('/articles/saveArticlesDialog.jsps',{
 				id:"saveBaseType",
 				title:'保存文章',
 				width: 600,

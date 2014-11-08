@@ -16,7 +16,7 @@ var baseDataIndex=function(){
 	            {display: '主键', name: 'id', align: 'center', width: '20%' },
 	            {display:'基本数据',name:'name',align:'center',width:'80%'} 
 	            ], 
-	            url:'/baseData/getBaseData.html', 
+	            url:'/baseData/getBaseData.jsps', 
 	            parms:_this.getParam(),
                 pageSize: 20,width: '99%',
                 height: 0.95*$(document).height(),
@@ -34,7 +34,7 @@ var baseDataIndex=function(){
 
 		},
 		add:function(){
-			art.dialog.open('/baseData/saveBaseDataDialog.html',{
+			art.dialog.open('/baseData/saveBaseDataDialog.jsps',{
 				id:"saveBaseType",
 				title:'保存基础类型',
 				width: 500,
@@ -53,7 +53,7 @@ var baseDataIndex=function(){
 						return false;
 					}
 					$.ajax({
-						url:'/baseData/saveBaseData.html',
+						url:'/baseData/saveBaseData.jsps',
 						type:'post',
 						data:{name:name,url:url,id:id,typeId:basetypeId},
 						success:function(ret){
