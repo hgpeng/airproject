@@ -6,6 +6,9 @@ import com.hhwork.annotation.Table;
 public class AppCase {
 	private int id;
 	private String name;
+	private String name_en;
+	private String number;
+	private String photo;
 	private String area;
 	private String addr;
 	private String buildtime;
@@ -17,6 +20,24 @@ public class AppCase {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public String getName_en() {
+		return name_en;
+	}
+	public void setName_en(String name_en) {
+		this.name_en = name_en;
+	}
+	public String getNumber() {
+		return number;
+	}
+	public void setNumber(String number) {
+		this.number = number;
+	}
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 	public String getName() {
 		return name;

@@ -24,7 +24,7 @@ public class AppCaseDaoImpl extends BaseDaoImpl implements AppCaseDao {
 	@Override
 	public Pagination<AppCase> getAppCase(Pagination<AppCase> page) {
 		
-		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,addr,content,area,buildtime,type,name,basedataid from appcase ");
+		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,addr,content,area,buildtime,name,name_en,basedataid from appcase ");
 		
 		return SQLHelpers.getRowSize(sql.toString(), airDataSource, null, page, new PageMapper<AppCase>(){
 
@@ -36,6 +36,7 @@ public class AppCaseDaoImpl extends BaseDaoImpl implements AppCaseDao {
 				res.setArea(rs.getString("area"));
 				res.setBuildtime(rs.getString("buildtime"));
 				res.setName(rs.getString("name"));
+				res.setName_en(rs.getString("name_en"));
 				res.setBasedataId(rs.getInt("basedataid"));
 				res.setContent(rs.getString("content"));		
 				return res;

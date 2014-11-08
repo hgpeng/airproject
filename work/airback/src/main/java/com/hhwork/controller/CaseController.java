@@ -52,14 +52,34 @@ public class CaseController  extends BaseController {
 	@ResponseBody
 	@RequestMapping("saves")
 	public void saveAppCase(HttpServletResponse response){
-		String content=getString("content");
-		AppCase app = new AppCase();
-		if(StringUtils.isBlank(content)){
+		 String name = this.getString("name");
+		 String area = this.getString("area");
+		 String addr = this.getString("addr");
+		 String buildtime = this.getString("buildtime");
+		 int basedataId = Integer.parseInt(this.getString("basedataId"));
+		 String content = this.getString("content");
+		 String name_en = this.getString("name_en");
+		 AppCase app = new AppCase();	 
+		if(StringUtils.isBlank(name)){
 			ResponseUtils.renderJson(response, "{\"ret\":-1}");
 			return ;
 		}
+		app.setAddr(addr);
+		app.setArea(area);
+		app.setName(name);
+		app.setBuildtime(buildtime);
+		app.setContent(content);
+		app.setBasedataId(basedataId);
+		app.setName_en(name_en);
 		int ret=appCaseService.saveAppCase(app);
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
+	}
+	
+	@RequestMapping("uploadphoto")
+	public String uploadphoto(ModelMap modelMap){
+		String caseid = this.getString("id");
+		modelMap.put("caseid", caseid);
+		return "/case/uploadphoto";
 	}
 	
 }
