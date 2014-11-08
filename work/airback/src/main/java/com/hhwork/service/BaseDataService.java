@@ -60,4 +60,9 @@ public interface BaseDataService {
 	 * @return
 	 */
 	public int saveBaseData(BaseData baseData);
+	
+	/**
+	 * 
+	 */
+	public List<BaseData> getAllBaseData(Map<String,Object> param);
 }

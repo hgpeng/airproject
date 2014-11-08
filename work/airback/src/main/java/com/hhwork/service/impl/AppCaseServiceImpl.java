@@ -19,13 +19,13 @@ public class AppCaseServiceImpl implements AppCaseService {
 	@Override
 	public Pagination<AppCase> getAppCase(Pagination<AppCase> page) {
 		// TODO Auto-generated method stub
-		return null;
+		return appCaseDao.getAppCase(page);
 	}
 
 	@Override
 	public int saveAppCase(AppCase article) {
 		// TODO Auto-generated method stub
-		return 0;
+		return appCaseDao.saveAppCase(article);
 	}
 
 }

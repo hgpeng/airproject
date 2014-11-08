@@ -36,4 +36,6 @@ public interface BaseDataDao {
 	 * @return
 	 */
 	public Pagination<BaseData> getBaseData(Pagination<BaseData> page,Map<String,Object> query);
+	
+	public List<BaseData> getAllBaseData(Map<String,Object> param);
 }

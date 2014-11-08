@@ -64,4 +64,10 @@ public class BaseDataServiceImpl implements BaseDataService {
 		return baseTypeDao.getBaseTypeList();
 	}
 
+	@Override
+	public List<BaseData> getAllBaseData(Map<String,Object> param) {
+		// TODO Auto-generated method stub
+		return baseDataDao.getAllBaseData(param);
+	}
+
 }

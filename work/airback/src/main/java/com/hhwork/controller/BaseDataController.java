@@ -1,5 +1,7 @@
 package com.hhwork.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -82,6 +84,19 @@ public class BaseDataController extends BaseController {
 	public void getBaseData(HttpServletRequest request,
 			HttpServletResponse response,Pagination<BaseData> page){
 		Pagination<BaseData> res=baseDataService.getBaseData(page, null);
+		outPrint(response, JSONArray.toJSON(res));
+	}
+	
+	/**
+	 * 获取基础数据
+	 * @param request
+	 * @param response
+	 * @param page
+	 */
+	@RequestMapping("getAllBaseData")
+	public void getAllBaseData(HttpServletRequest request,
+			HttpServletResponse response){
+		List<BaseData> res=baseDataService.getAllBaseData(this.getParaMap());
 		outPrint(response, JSONArray.toJSON(res));
 	}
 	
