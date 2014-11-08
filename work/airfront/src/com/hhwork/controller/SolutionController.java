@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value="solution/*")
 public class SolutionController extends BaseController {
 	@RequestMapping(value="list")
-	public String view(ModelMap model) { 
-		String id = this.getString("id");
+	public String list(ModelMap model) { 
 		
 		return "solutionList";
     }
 	
-	@RequestMapping(value="caselist")
-	public String caselist(ModelMap model) { 
+	@RequestMapping(value="view")
+	public String view(ModelMap model) { 
+		String id = this.getString("id");
 		
-		
-		return "caseList";
+		return "solutionView";
     }
+
 }
