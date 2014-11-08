@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhwork.dao.BaseDataDao">
+	
+	<select id="select" parameterType="java.util.Map" resultType="com.hhwork.model.BaseData">
+		select 
+		b.id,
+		b.parentId,
+		b.typeId,
+		b.name,
+		b.url,
+		b.descr,
+		b.createTime,
+		b.createMan,
+		b.icon,
+		t.name basetype 
+		from basedata b 
+		left join basetype t on b.typeid = t.id 
+		<where>
+			<if test="id!=null"> AND b.id = #{id}</if>
+			<if test="name!=null"> AND b.name = #{name}</if>
+			<if test="type!=null"> AND t.id = #{type}</if>
+		</where>
+	</select>
+	
+	<select id="selectArticle" parameterType="java.util.Map" resultType="com.hhwork.model.Articles" >
+	    select 
+	     a.id,
+	     a.title,
+	     a.content,
+	     a.img,
+	     a.preview,
+	     a.type,
+	     a.status 
+	     from articles a 
+	     left join basedata b on a.type = b.id 
+	     <where>
+			<if test="id!=null"> AND b.id = #{id}</if>
+			<if test="name!=null"> AND b.name = #{name}</if>
+			<if test="type!=null"> AND t.id = #{type}</if>
+		</where>
+	</select>
+	
+</mapper>
