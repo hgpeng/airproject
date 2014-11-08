@@ -5,22 +5,23 @@
 html #boxwarp .header { position:absolute;}
 
 .case-warp {width:100%; height:100%; position:relative; background:#fff; box-sizing:border-box; padding-top:92px;padding-right:280px;}
-.case-list { height:100%;}
+.case-list { height:100%; position:relative; overflow:hidden;}
 .example { height:100%; position:relative;}
 .example .sly { width:100%; height:100%; position:relative; overflow:hidden;}
 .example .sly ul{ height:100%;}
 .example .sly ul li { width:340px; float:left; height:100%; position:relative;}
+.example .sly ul li img { width:100%;}
 .example .sly ul li a {cursor: url("images/case/hover.cur"), pointer;display: block;}
 .example .sly ul li a:before {content: " "; display: block;width: 100%;height: 100%;background: #666;opacity: 0.5;position: absolute;left: 0;top: 0;z-index: 11; }
 .example .sly ul li a:hover:before {content: " "; display: none;width: 100%;height: 100%;background: #666;opacity: 0.5;position: absolute;left: 0;top: 0;z-index: 11; }
 .example .sly ul li.active a:before { display:none;} 
-.caselistbox { width:339px; height:300px; background:#fff; position:absolute; left:0; bottom:0;color:#8a8a8a;text-align:center; border-right:1px solid #ededed; z-index:22;transition-property: all;transition-duration:0.3s, 0.3s;transition-timing-function:ease-in;transition-delay:0;}
-.case-sz { font-size:36px; padding-top:90px; line-height:46px;}
+.caselistbox { width:339px; height:30%; background:#fff; position:absolute; left:0; bottom:0;color:#8a8a8a;text-align:center; border-right:1px solid #ededed; z-index:22;transition-property: all;transition-duration:0.3s, 0.3s;transition-timing-function:ease-in;transition-delay:0;}
+.caselistbox p { clear:both; overflow:hidden;}
+.case-sz { font-size:36px; padding-top:20px; line-height:46px;}
 .case-title { font-size:24px; line-height:48px;}
-.case-en { line-height:40px; font-size:12px; }
-.example .sly ul li a:hover .caselistbox { background:#e4671d; color:#fff; height:500px;border-right:1px solid #e4671d;}
+.case-en { line-height:40px; font-size:12px; text-align:center;}
+.example .sly ul li a:hover .caselistbox { background:#e4671d; color:#fff; height:50%;border-right:1px solid #e4671d;}
 .example .sly ul li a:hover .caselistbox .case-en { color:#f1b28d;}
-
 .case-r {width:280px; height:100%; position:absolute; background:#34a3e3 url(images/case/case02.jpg) no-repeat left bottom; right:0; top:0; box-sizing:border-box; padding:130px 0 0; color:#fff; font-size:14px; z-index:888;}
 .case-rlogo { padding:0 0 44px 30px;}
 .case-r a { color:#fff;}
@@ -31,14 +32,59 @@ html #boxwarp .header { position:absolute;}
 .case-rul li a:hover { background:#2a94dd;}
 .case-rul li.rlist_01 a { background:url(images/case/case_07.png) no-repeat 30px center; font-size:20px;}
 .case-rul li.rlist_01 a:hover {background:#2a94dd url(images/case/case_07.png) no-repeat 30px center;}
-.case-rul li:hover a{background:#2a94dd;}
+.case-rul li:hover a, .case-rul li.hover a{background:#2a94dd;}
 
-.case-r-nav { width:0px; height:100%; overflow:hidden; position:absolute; left:0px; top:0; padding-top:253px; box-sizing:border-box; opacity:0; transition-property: all;transition-duration:0.3s, 0.3s;transition-timing-function:ease-in;transition-delay:0;}
+.case-r-nav { width:0px; height:100%; overflow:hidden; position:absolute; left:0px; top:0; padding-top:100px; box-sizing:border-box; opacity:0; transition-property: all;transition-duration:0.3s, 0.3s;transition-timing-function:ease-in;transition-delay:0;}
 .case-r-nav:before {content: " "; display: block;width: 100%;height: 100%;background: #000;opacity: 0.6;position: absolute;left: 0;top: 0;z-index:44; }
-.case-r-nav ul { background:none; line-height:58px; z-index:55; position:relative; padding:0;}
+.case-r-nav ul { background:none; line-height:50px; z-index:55; position:relative; padding:0;}
 .case-r-nav ul li { background:none; padding:0;}
-.case-r-nav ul li img { padding:10px 10px 0 0;}
+.case-r-nav ul li img { padding:6px 10px 0 0;}
 .case-rul li .case-r-nav ul li a { display:block; padding:0 0 0 15px; background:none;}
 .case-rul li .case-r-nav ul li a:hover { background:#000;}
 
 .case-rul li:hover .case-r-nav {width:160px; opacity:1;left:-160px;}
+
+.green .example .sly ul li a:hover .caselistbox{background:#8fc31f;border-right:1px solid #8fc31f;}
+.green .example .sly ul li a:hover .caselistbox .case-en { color:#6c990b;}
+
+.about-green-box { position:absolute; width:100%; height:100%; left:0; top:0; z-index:99;transition-property: all;transition-duration:0.5s, 0.5s;transition-timing-function:ease-in;transition-delay:0; opacity:1;}
+.about-green-box:before {content: " "; display: block;width: 100%;height: 100%;background: #fff;opacity: 0.95;position: absolute;left: 0;top: 0;z-index:100; }
+.about-warp { position:relative; z-index:111; width:80%; margin:0 auto; height:100%;}
+.about-close { width:31px; height:31px; position:absolute; z-index:9999; right:40px; top:40px; display:block; background:url(images/case/close.png) no-repeat; cursor:pointer;}
+.about-h2 { color:#777; font-size:36px; padding:20px 0; text-align:center; font-weight: normal; height:69px;}
+.about-h2 p { line-height:40px;}
+.about-h2 .p-en { font-size:16px; line-height:24px; color:#c5c4c4;}
+.about-img { overflow:hidden; height:30%;}
+.about-img li { width:31%; height:100%; float:left; padding-right:1px;}
+.about-img li img { max-width:100%;}
+.none { transform:translate(0,100%); opacity:0;}
+.about-h3 { font-weight:normal; font-size:24px; color:#535353; padding:10px 0; line-height:30px;}
+.example12 { height:36%; position:relative;}
+.example12 .sly { width:96%; height:100%; overflow:hidden;}
+.example12 .sly p { color:#535353; line-height:26px; font-size:14px; padding-bottom:20px; }
+.example12 .scrollbar { width:8px; height:100%; position:absolute; right:0; top:0; background:#f6f6f6; border:1px solid #cfcfcf; border-radius:10px;}
+.example12 .scrollbar .handle { width:100%; height:100%; background:#d0d0d0;border-radius:10px;}
+.about-h2 img {  float:left; padding-right:10px;}
+.about-h2 div { width:247px; margin:0 auto;}
+
+.jjfa .case-rul, .jjfa .case-rul li { background:none; overflow:hidden;}
+.jjfa .case-rul li a { padding-left:30px;}
+.jjfa .case-rul li.rlist_01 a { padding-left:65px;}
+.jjfa .case-rul li span { padding-top:6px; width:50px; display:inline-block; float:left;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

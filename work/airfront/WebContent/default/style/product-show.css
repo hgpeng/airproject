@@ -2,7 +2,7 @@
 .c:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
 .demo-test {display: -webkit-box;display: -ms-flexbox; display: -webkit-flex; display: flex;}
 .demo-test {height: 100%;-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;-webkit-box-align: center; -ms-flex-align: center;-webkit-align-items: center;align-items: center;}
-#boxwarp .header { position:relative; overflow:visible;}
+#boxwarp .header { position:relative; overflow:visible; height:90px;box-shadow:0px 0px 10px #000;}
 #boxwarp .headerbody {overflow:visible; width:1200px;}
 #boxwarp .footerbody {width:1200px;}
 #boxwarp .footerShare { left:50%; margin-left:-18px;}
@@ -19,7 +19,7 @@ transition-delay:0; height:0; overflow:hidden;z-index:9999;}
 .nav li a { display:block;}
 .two-menu ul { width:1160px; margin:0 auto; padding:20px;}
 .two-menu ul li { float:left; padding-left:80px; text-align:center;}
-.two-menu ul li a { font-size:15px; color:#535353; line-height:30px; text-decoration:none;} .two-menu ul li a:hover { color:#008bd6;}
+.two-menu ul li a { font-size:15px; color:#535353; line-heigsht:30px; text-decoration:none;} .two-menu ul li a:hover { color:#008bd6;}
 .nav li .two-nav { color:#008bd6; position:relative;}
 
 .productshow-banner { width:100%; height:600px; position:relative; top:-10px;}
@@ -48,10 +48,8 @@ transition-delay:0; height:0; overflow:hidden;z-index:9999;}
 .pro-boxlist ul li p { line-height:56px; font-size:15px; text-align:center;}
 .pro-more { padding-top:20px; text-align:center; line-height:20px; font-size:15px;}
 .pro-more a { color:#34a3e3;}
-.example4 {width:1200px;margin:0 auto;height:129x; position:relative;}
-.example4 .bd{ width:1100px;}
-.example4 .bd ul{ overflow:hidden; zoom:1; }
-.example4 .bd ul li{ margin:0 8px; float:left; _display:inline; overflow:hidden; text-align:center;  }
+.example4 {width:1298px; height:129x; position:relative;}
+.example4 .sly{ width:1200px; height:129px; margin:0 auto;}
 .example4 .prevPage { width:49px; height:129px; position:absolute; left:0; top:0; text-indent:-9999px;}
 .example4 .nextPage { width:49px; height:129px; position:absolute; right:0; top:0; text-indent:-9999px;}
 .example4 .btn:before {content:"";font-size: 0; width: 100%;height:100%; position:absolute; left:0; top:0; background:#fff;opacity:0.5; z-index:22;}

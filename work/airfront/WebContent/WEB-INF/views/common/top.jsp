@@ -33,7 +33,7 @@
           <li><a href="${base }/greenService">治理服务</a></li>
           <li><a href="#">下载中心</a></li>
           <li><a href="#">在线商城</a></li>
-          <li><a href="#">关于我们</a></li>
+          <li><a href="${base }/about">关于我们</a></li>
         </ul>
       </div>
       <div class="arrowbottom"><a class="down"></a></div>
@@ -57,7 +57,7 @@
           <li><a href="#">解决方案</a></li>
           <li><a href="#">下载中心</a></li>
           <li><a href="#">在线商城</a></li>
-          <li><a href="#">关于德士特</a></li>
+          <li><a href="${base }/about">关于德士特</a></li>
         </ul>
       </div>
   </div>
