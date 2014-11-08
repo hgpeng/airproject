@@ -10,8 +10,8 @@
 <body>
 <form id="saveBaseTypeForm">
 </form>
- <link href="/js/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css"> 
- <link href="/js/ligerUI/skins/Gray/css/all.css" rel="stylesheet" type="text/css"> 
+ <link href="${base }/js/ligerUI/skins/Aqua/css/ligerui-all.css" rel="stylesheet" type="text/css"> 
+ <link href="${base }/js/ligerUI/skins/Gray/css/all.css" rel="stylesheet" type="text/css"> 
 <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
 <script src="/js/ligerUI/js/core/base.js" type="text/javascript"></script>
 <script type="text/javascript" src="/js/ligerUI/js/plugins/ligerForm.js"></script>
