@@ -1,5 +1,9 @@
 package com.hhwork.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +19,9 @@ import com.alibaba.fastjson.JSONArray;
 import com.d3.d396333.common.util.ResponseUtils;
 import com.hhwork.common.Pagination;
 import com.hhwork.model.Articles;
+import com.hhwork.model.BaseData;
 import com.hhwork.service.ArticleService;
+import com.hhwork.service.BaseDataService;
 
 @Controller
 @RequestMapping("/articles/*")
@@ -23,6 +29,9 @@ public class ArticlesController extends BaseController {
 
 	@Resource
 	protected ArticleService articleService;
+	
+	@Resource
+	protected BaseDataService baseDataService;
 	
 	@RequestMapping("articleIndex")
 	public String articleIndex(ModelMap modelMap){
@@ -40,6 +49,10 @@ public class ArticlesController extends BaseController {
 	
 	@RequestMapping("saveArticlesDialog")
 	public String saveArticlesDialog(ModelMap modelMap){
+		Map<String,Object> param = new HashMap<String,Object>();
+		List<BaseData> bdlist = 
+				baseDataService.getAllBaseData(param);
+		modelMap.put("bdlist", bdlist);
 		return "article/saveArticlesDialog";
 	}
 	

@@ -100,7 +100,7 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 
 	@Override
 	public List<BaseData> getAllBaseData(Map<String,Object> param) {
-		String sql="select id,parentId,typeId,name,url,descr,createTime,createMan from basedata where 1=1 ";
+		String sql="select b.id,b.parentId,b.typeId,b.name,b.url,b.descr,b.createTime,b.createMan,t.name basetype from basedata b left join basetype t on b.typeid = t.id where 1=1 ";
 		if(null!=param.get("type")){
 			sql += "and typeId= '"+param.get("type").toString()+"'";
 		}
@@ -118,6 +118,7 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 			e.setParentId((Integer)data.get("parentId"));
 			e.setUrl(null==data.get("url")?"":data.get("url").toString());
 			e.setDesc(null==data.get("descr")?"":data.get("descr").toString());	
+			e.setBaseType(null==data.get("basetype")?"":data.get("basetype").toString());	
 			items.add(e);
 		}
 		return items;

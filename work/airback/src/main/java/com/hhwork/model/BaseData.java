@@ -29,9 +29,14 @@ public class BaseData {
 	
 	private String createMan;
 	
+	private String name_en;
+	
 	@Column(ignore=true)
 	private List<BaseData> childrens;
 
+	@Column(ignore=true)
+	private String baseType;
+	
 	public int getId() {
 		return id;
 	}
@@ -112,6 +117,17 @@ public class BaseData {
 		this.icon = icon;
 	}
 
+<<<<<<< HEAD
+=======
+	public String getBaseType() {
+		return baseType;
+	}
+
+	public void setBaseType(String baseType) {
+		this.baseType = baseType;
+	}
+
+>>>>>>> 2d60b7129079f0b0f313b1dcfb77f247844c8269
 	public String getName_en() {
 		return name_en;
 	}

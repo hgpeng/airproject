@@ -38,11 +38,13 @@ var article=function(){
 				ok:function(contentWindow,target){
 					var page=contentWindow.window;
 					var content=page.saveArticleDialog.getContent();
-
+					var pagejq=$(contentWindow.document);
+					var type = pagejq.find("#type").val();
+					var tilte = pagejq.find("#title").val();
 					$.ajax({
-						url:base+'/articles/saves.html',
+						url:base+'/articles/saves.jsps',
 						type:'post',
-						data:{content:content},
+						data:{content:content,type:type,title:title},
 						success:function(ret){
 							
 						}

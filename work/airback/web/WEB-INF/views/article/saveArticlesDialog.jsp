@@ -24,6 +24,13 @@ request.setAttribute("imagepath", path +"/images");
 	<div style="clear:both;margin:5px;"></div>
 	</div>
 	<div>
+	类型:<select name="type" id="type">
+	<c:forEach items="${bdlist}" var="item">
+	<option value="${item.id }">${item.name }(${item.baseType })</option>
+	</c:forEach>
+	</select>
+	</div>
+	<div>
 	<script type="text/plain" id="content" name="content">${data.content}</script>
 	</div>
 <script type="text/javascript" src="/js/ueditor/ueditor.config.js"></script>

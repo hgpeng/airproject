@@ -47,6 +47,8 @@ var baseDataIndex=function(){
 					var name=page.find("#name").val();
 					var id=page.find("#id").val();
 					var url=page.find("#url").val();
+					var icon=page.find("#icon").val();
+					var name_en = page.find("#name_en").val();
 					var basetypeId=page.find("#baseTypeId").val();
 					if(!name || name.length==0){
 						art.dialog.alert("请输入类型名");
@@ -55,7 +57,7 @@ var baseDataIndex=function(){
 					$.ajax({
 						url:'/baseData/saveBaseData.jsps',
 						type:'post',
-						data:{name:name,url:url,id:id,typeId:basetypeId},
+						data:{name:name,url:url,id:id,typeId:basetypeId,icon:icon,name_en:name_en},
 						success:function(ret){
 							if(ret.ret==-1){
 								art.dialog.alert("修改失败");
