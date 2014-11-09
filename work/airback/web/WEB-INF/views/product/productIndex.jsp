@@ -10,8 +10,8 @@
 <body>
 <div id="tableGrid"></div>
 <jsp:include page="../common.jsp"></jsp:include>
-<script type="text/javascript" src="/js/artDialog/artDialog.js?skin=blue"></script>
-<script type="text/javascript" src="/js/artDialog/plugins/iframeTools.js"></script>
-<script src="/js/custom/product/productIndex.js"></script>
+<script type="text/javascript" src="${base}/js/artDialog/artDialog.js?skin=blue"></script>
+<script type="text/javascript" src="${base}/js/artDialog/plugins/iframeTools.js"></script>
+<script src="${base}/js/custom/product/productIndex.js"></script>
 </body>
 </html>

@@ -17,6 +17,8 @@ public class BaseData {
 	
 	private String name;
 	
+	private String name_en;
+	
 	private String icon;
 	
 	private String url;
@@ -27,7 +29,6 @@ public class BaseData {
 	
 	private String createMan;
 	
-	private String name_en;
 	
 	@Column(ignore=true)
 	private List<BaseData> childrens;

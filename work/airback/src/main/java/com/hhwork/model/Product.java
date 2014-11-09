@@ -17,6 +17,8 @@ public class Product {
 	
 	private String mainPhoto;
 	
+	private int typeId;
+	
 	private int status;
 	
 	private int templateId;
@@ -87,6 +89,14 @@ public class Product {
 
 	public void setCreateMan(String createMan) {
 		this.createMan = createMan;
+	}
+
+	public int getTypeId() {
+		return typeId;
+	}
+
+	public void setTypeId(int typeId) {
+		this.typeId = typeId;
 	}
 	
 	
