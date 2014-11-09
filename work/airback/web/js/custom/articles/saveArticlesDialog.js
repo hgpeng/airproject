@@ -5,7 +5,7 @@ var saveArticleDialog=function(){
 		init:function(){
 			contentEditor = UE.getEditor('content',{initialFrameHeight:320,initialFrameWidth:'98%'});
 		},
-		getContent:function(dialog){
+		getContent:function(){
 			var title=$("#title").val();
 			var content=contentEditor.getContentTxt();
 			return content;

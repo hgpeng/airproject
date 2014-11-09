@@ -1,6 +1,13 @@
 var article=function(){
 	var grid;
 	var _this;
+	
+	function reload(){
+		var param=_this.getParam();
+		grid.options.parms=param;
+		grid.loadData();
+	}
+	
 	return {
 		init:function(){
 			_this=this;
@@ -44,9 +51,9 @@ var article=function(){
 					$.ajax({
 						url:base+'/articles/saves.jsps',
 						type:'post',
-						data:{content:content,type:type,title:title},
+						data:{content:content,type:type,title:tilte},
 						success:function(ret){
-							
+							reload();
 						}
 					});
 				},
