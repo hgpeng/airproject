@@ -7,16 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 </style>
-<%
-int port = request.getServerPort();
-String scheme = request.getScheme();
-String path = request.getScheme()+"://"+request.getServerName() + ((("http".equals(scheme) && port == 80) ||("https".equals(scheme)  && port == 443)) ? "" : ":" + port) + request.getContextPath();
-request.setAttribute("base", path);
-request.setAttribute("imagepath", path +"/images");
-%>
-<script type='text/javascript'>
-	var base='${base}';
-</script>
+<jsp:include  page="../common.jsp"></jsp:include>
 </head>
 <body>
 	<div>
@@ -30,13 +21,20 @@ request.setAttribute("imagepath", path +"/images");
 	</c:forEach>
 	</select>
 	</div>
+	<input type="hidden" id="imgpath" name="imgpath"/>
+	图片:<input type="button" value="添加" id="upload"/>
+	<div id="imgdiv">
+	</div>
+	</div>
 	<div>
 	<script type="text/plain" id="content" name="content">${data.content}</script>
 	</div>
-<script type="text/javascript" src="/js/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" src="/js/ueditor/ueditor.all.min.js"></script>
-
-<script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="/js/custom/articles/saveArticlesDialog.js"></script>
+<script type="text/javascript" src="${base }/js/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="${base }/js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" src="${base }/js/artDialog/artDialog.js?skin=blue"></script>
+<script type="text/javascript" src="${base }/js/artDialog/plugins/iframeTools.js"></script>
+<script type="text/javascript" src="${base }/js/ajaxupload.js"></script>
+<script type="text/javascript" src="${base }/js/common.js"></script>
+<script type="text/javascript" src="${base }/js/custom/articles/saveArticlesDialog.js"></script>
 </body>
 </html>

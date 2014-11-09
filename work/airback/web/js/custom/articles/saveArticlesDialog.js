@@ -14,4 +14,17 @@ var saveArticleDialog=function(){
 }();
 $(function(){
 	saveArticleDialog.init();
+	
+initajaxupload("upload","/imgupload/upload.jsps?direct=article",afterupload,null,null);
+	
+	function afterupload(json,data){
+		if(json.STATE=='SUCCESS'){
+			var html = "<img style='width:100px;' path='"+json.PATH+"' src='"+base+"/uploadimages/"+json.PATH+"'/>";
+			$("#imgdiv").append(html);		
+			art.dialog.alert("上传成功");
+		}else{
+			art.dialog.alert("上传失败");
+		}
+	}
+	
 });

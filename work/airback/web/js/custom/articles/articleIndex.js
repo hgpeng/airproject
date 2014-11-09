@@ -48,10 +48,15 @@ var article=function(){
 					var pagejq=$(contentWindow.document);
 					var type = pagejq.find("#type").val();
 					var tilte = pagejq.find("#title").val();
+					var imgpath = '';
+					$.each(pagejq.find("#imgdiv img"),function(i,item){
+						imgpath += $(item).attr("path")+",";
+					})
+					if(imgpath) imgpath = imgpath.substring(0,imgpath.length-1);
 					$.ajax({
 						url:base+'/articles/saves.jsps',
 						type:'post',
-						data:{content:content,type:type,title:tilte},
+						data:{content:content,type:type,title:tilte,img:imgpath},
 						success:function(ret){
 							reload();
 						}
