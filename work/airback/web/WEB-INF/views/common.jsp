@@ -13,3 +13,5 @@ request.setAttribute("imagepath", path +"/images");
 <link href="${base }/js/ligerUI/skins/Gray/css/all.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${base}/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="${base}/js/ligerUI/js/ligerui.all.js"></script>
+<link href="${base }/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" type="text/css" /> 
+<script src="${base }/js/ztree/jquery.ztree.core-3.4.js" type="text/javascript"></script> 
