@@ -8,7 +8,7 @@ var saveProduct=function(){
                 fields: [
                 { name: "id", type: "hidden" },
                 { display: "名称", name: "name", newline: true, type: "text", validate: { required: true,minlength:3 }, group: "基础信息", groupicon: groupicon},
-                { display: "备注", name: "desc", newline: true, type: "textarea"}
+                { display: "备注", name: "desc", newline: true, type: "textarea",options:{cols:100,rows:4,width:400}}
                 ]
             });
 		}

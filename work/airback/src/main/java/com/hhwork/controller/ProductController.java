@@ -1,5 +1,6 @@
 package com.hhwork.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,6 +13,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alibaba.fastjson.JSONArray;
+import com.d3.d396333.common.util.ResponseUtils;
+import com.dingjian.base.util.StringUtils;
+import com.hhwork.common.Constants;
 import com.hhwork.common.Pagination;
 import com.hhwork.model.Product;
 import com.hhwork.service.ProductService;
@@ -40,7 +44,36 @@ public class ProductController extends BaseController {
 	@RequestMapping("saveProductDialog")
 	public String saveProductDialog(ModelMap modelMap){
 		int productId=getInt("productId");
+		
 		return "/product/openProductDialog";
+	}
+	
+	@RequestMapping("saveProduct")
+	public void saveProduct(HttpServletRequest request,
+			HttpServletResponse response){
+		String name=getString("name");
+		String desc=getString("desc");
+		String mainPhoto=getString("mainPhoto");
+		if(StringUtils.isEmpty(name)){
+			ResponseUtils.renderJson(response, "{\"ret\":-1}");
+			return;
+		}
+		if(StringUtils.isEmpty(desc)){
+			desc="";
+		}
+		if(StringUtils.isEmpty(mainPhoto)){
+			mainPhoto="";
+		}
+		Product p=new Product();
+		p.setCreateTime(new Date());
+		p.setName(name);
+		p.setDesc(desc);
+		p.setMainPhoto(mainPhoto);
+		//默认下架
+		p.setStatus(Constants.ProductStatus.OffShelves);
+		p.setCreateMan(Constants.ADMIN);
+		int ret=productService.saveProduct(p);
+		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
 	}
 	
 	
