@@ -19,7 +19,14 @@ public interface ProductService {
 	 * @param p
 	 * @return
 	 */
-	public int putProductOffShelves(Product p);
+	public int putProductOnOrOffShelves(Product p);
+	
+	/**
+	 * 根据id获取产品
+	 * @param id
+	 * @return
+	 */
+	public Product getProduct(int id);
 	
 	public Pagination<Product> getProductList(Pagination<Product> page,Map<String,Object> query);
 }

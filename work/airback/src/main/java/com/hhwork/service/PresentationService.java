@@ -21,4 +21,18 @@ public interface PresentationService {
 	 * @return
 	 */
 	public Pagination<Presentation> getPresentation(Pagination<Presentation> page,Map<String,Object> query);
+	
+	
+	/**
+	 * 删除模板
+	 * @param p
+	 */
+	public int deletePresentation(Presentation p);
+	
+	/**
+	 * 获取模板
+	 * @param id
+	 * @return
+	 */
+	public Presentation getPresentation(int id);
 }

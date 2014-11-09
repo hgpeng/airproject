@@ -28,4 +28,11 @@ public interface ProductDao {
 	 * @return
 	 */
 	public Pagination<Product> getProducts(Pagination<Product> page,Map<String,Object> query);
+	
+	/**
+	 * 根据id获取Product
+	 * @param id
+	 * @return
+	 */
+	public Product getProduct(int id);
 }

@@ -18,18 +18,22 @@ public class BaseDaoImpl implements BaseDao {
 	@Override
 	public int saveObject(Object obj) {
 		SQLValues sqlValues=SQLHelpers.generateInsertSQL(obj);
+		System.out.println(sqlValues.getSql());
 		return airJdbcTemplate.update(sqlValues.getSql(), sqlValues.getArgs());
 	}
 
 	@Override
 	public int deleteObjectById(Object obj,int id) {
 		String sql=SQLHelpers.generateDeleteSQL(obj, id);
+		System.out.println(sql);
 		return airJdbcTemplate.update(sql);
 	}
 
 	@Override
 	public int updateObject(Object obj, int id) {
-		return 0;
+		SQLValues sqlValues=SQLHelpers.generateUpdateSQL(obj, id);
+		System.out.println(sqlValues.getSql());
+		return airJdbcTemplate.update(sqlValues.getSql(),sqlValues.getArgs());
 	}
 
 }

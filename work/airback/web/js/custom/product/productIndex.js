@@ -36,10 +36,86 @@ var productIndex=function(){
 			return {};
 		},
 		renderOperation:function(rowdata, index, value){
-			var str="<a href=''>上架</a>  ";
-			str+="<a href=''>添加模板</a>  ";
-			str+="<a href=''>调整模板</a>  ";
+			var status=rowdata.status;
+			var changeStatus=3-status;
+			var statusTxt=(status==1?"下架":"上架");
+			var str="<a href='javascript:void(0);' onclick='productIndex.putOnShelves("+rowdata.id+","+changeStatus+")'>"+statusTxt+"</a>  ";
+			str+="<a href='javascript:void(0);' onclick='productIndex.addTemplate("+rowdata.id+")'>添加模板</a>  ";
+			str+="<a href='javascript:void(0);' onclick='productIndex.manageTemplate("+rowdata.id+")'>管理模板</a>  ";
 			return str;
+		},
+		manageTemplate:function(id){
+			art.dialog.open(base+'/presentation/manageTemplate.jsps?productId='+id,{
+				id:"manageTemplate",
+				title:'管理模板',
+				width: 700,
+				height: 500,
+				resizable: false,
+				lock:true,
+				cancel:true
+			});
+		},
+		putOnShelves:function(id,status){
+			var statusTxt=(status==1?"上架":"下架");
+			art.dialog.confirm("确定要将该商品"+statusTxt+"吗?",function(){
+				$.ajax({
+				url:base+'/product/putOnShelves.jsps',
+				type:'post',
+				data:{productId:id,status:status},
+				success:function(ret){
+					if(ret.ret!=1){
+						art.dialog.alert("服务器发生错误，请稍后再试");
+					}else{
+						art.dialog.alert(statusTxt+"成功",reload);
+					}
+				}
+				});
+			});
+			
+		},
+		addTemplate:function(productId){
+			art.dialog.open(base+'/presentation/presentationIndex.jsps?productId='+productId,{
+				id:"savePresentation",
+				title:'新增模板',
+				width: 700,
+				height: 500,
+				resizable: false,
+				lock:true,
+				okVal:'保存',
+				ok:function(contentWindow,target){
+					var page=contentWindow.window;
+					var content=page.presentationIndex.getContent();
+					if(!content || content.length==0){
+						alert("模板内容不能为空");
+						return false;
+					}
+					var pagejq=$(contentWindow.document);
+					var num=pagejq.find("#num").val();
+					if(!num || num.length==0){
+						alert("屏数不能为空");
+						return false;
+					}
+					
+					var params={};
+					params.productId=pagejq.find("#productId").val();
+					params.html=content;
+					params.num=pagejq.find("#num").val();
+					$.ajax({
+						url:base+'/presentation/savePresentation.jsps',
+						type:'post',
+						data:params,
+						success:function(res){
+							if(res.ret<=0){
+								art.dialog.alert("新增模板失败，请稍后再试");
+								return false;
+							}else{
+								art.dialog.alert("新增模板成功",reload);
+							}
+						}
+					});
+				},
+				cancel:true
+			});
 		},
 		add:function(){
 			art.dialog.open(base+'/product/saveProductDialog.jsps',{
@@ -80,4 +156,5 @@ var productIndex=function(){
 
 $(function(){
 	productIndex.init();
+	window.productIndex=productIndex;
 });
