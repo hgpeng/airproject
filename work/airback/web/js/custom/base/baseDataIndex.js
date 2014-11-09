@@ -8,9 +8,46 @@ var baseDataIndex=function(){
 		grid.loadData();
 	}
 	
+	
 	return {
 		init:function(){
 			_this=this;
+			var h = $(top).height();
+			
+			$("#main").ligerLayout({height:h*0.9+'',leftWidth:200,minLeftWidth:200,allowLeftCollapse:true,allowLeftResize:true});
+			
+			var setting = {
+		            data: {
+		                simpleData: {
+		                	idKey:"id",
+		                	pIdKey:"id",
+		                    enable: true
+		                },
+		                key:{
+		            		url:"",
+		            		name:"name",
+		            		id:"id"
+		            	}
+		            },
+		            check: {
+		                enable: true
+		            },
+		            async: {//异步加载节点数据
+		                enable: true,
+		                url: "/baseData/getAllBaseTypes.jsps"
+		            },
+		            callback: {//绑定回调函数
+		            	onAsyncSuccess:function(event,treeId,treeNode,msg){
+
+		            	},
+		                onClick: function(event, treeId, treeNode, msg){
+		                	alert(treeNode.id);
+		                }//点击绑定事件
+		            }
+
+		        };  
+		        $.fn.zTree.init($("#leftTree"), setting, []); 
+			
 			grid=$("#tableGrid").ligerGrid({
 				columns: [ 
 	            {display: '主键', name: 'id', align: 'center', width: '20%' },
@@ -18,8 +55,8 @@ var baseDataIndex=function(){
 	            ], 
 	            url:'/baseData/getBaseData.jsps', 
 	            parms:_this.getParam(),
-                pageSize: 20,width: '99%',
-                height: 0.95*$(document).height(),
+                pageSize: 20,
+               
 	            fixedCellHeight:false,
 	            toolbar: {
                     items: [
