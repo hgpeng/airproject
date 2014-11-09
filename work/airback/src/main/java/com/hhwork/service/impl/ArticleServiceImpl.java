@@ -30,6 +30,8 @@ public class ArticleServiceImpl implements ArticleService {
 		String preview=article.getContent();
 		//去除html标签
 		preview=HTMLHelpers.getTextFromHtml(preview);
+		if(StringUtils.isNotEmpty(preview))
+			preview = preview.length()>100?preview.substring(0, 100):preview;
 		article.setPreview(preview);
 		article.setCreateTime(new Date());
 		article.setCreateMan(Constants.ADMIN);

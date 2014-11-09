@@ -74,7 +74,7 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 	@Override
 	public Pagination<BaseData> getBaseData(Pagination<BaseData> page,
 			Map<String, Object> query) {
-		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,name,typeId,parentId,url,descr,createTime,createMan");
+		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,name,name_en,typeId,parentId,url,descr,createTime,createMan");
 		sql.append(" from basedata where 1=1 ");
 		List<Object> args=new ArrayList<Object>();
 		sql.append(" order by id asc");
