@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 
 import org.logicalcobwebs.proxool.ProxoolDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.hhwork.common.PageMapper;
@@ -45,16 +46,7 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 
 			@Override
 			public Product toCustomizedBean(ResultSet rs) throws SQLException {
-				Product p=new Product();
-				p.setId(rs.getInt("id"));
-				p.setName(rs.getString("name"));
-				p.setDesc(rs.getString("descr"));
-				p.setMainPhoto(rs.getString("mainPhoto"));
-				p.setStatus(rs.getInt("status"));
-				p.setTemplateId(rs.getInt("templateId"));
-				p.setCreateTime(rs.getDate("createTime"));
-				p.setCreateMan(rs.getString("createMan"));
-				return p;
+				return generateProduct(rs);
 			}
 			
 		});
@@ -65,4 +57,29 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 		return updateObject(p, p.getId());
 	}
 
+	@Override
+	public Product getProduct(int id) {
+		String sql="select id,name,descr,mainPhoto,status,templateId,createTime,createMan from product where id=?";
+		
+		return airJdbcTemplate.queryForObject(sql,new Object[]{ id},new RowMapper<Product>() {
+
+			@Override
+			public Product mapRow(ResultSet rs, int arg1) throws SQLException {
+				return generateProduct(rs);
+			}
+		});
+	}
+	
+	private Product generateProduct(ResultSet rs) throws SQLException{
+		Product p=new Product();
+		p.setId(rs.getInt("id"));
+		p.setName(rs.getString("name"));
+		p.setDesc(rs.getString("descr"));
+		p.setMainPhoto(rs.getString("mainPhoto"));
+		p.setStatus(rs.getInt("status"));
+		p.setTemplateId(rs.getInt("templateId"));
+		p.setCreateTime(rs.getDate("createTime"));
+		p.setCreateMan(rs.getString("createMan"));
+		return p;
+	}
 }

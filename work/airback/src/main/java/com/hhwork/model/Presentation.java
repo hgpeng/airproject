@@ -27,6 +27,9 @@ public class Presentation implements Serializable{
 	
 	private String createMan;
 
+	@Column(ignore=true)
+	private Product product;
+	
 	public int getId() {
 		return id;
 	}
@@ -73,6 +76,14 @@ public class Presentation implements Serializable{
 
 	public void setCreateMan(String createMan) {
 		this.createMan = createMan;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 	
 	

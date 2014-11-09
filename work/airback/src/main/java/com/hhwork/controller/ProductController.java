@@ -77,4 +77,20 @@ public class ProductController extends BaseController {
 	}
 	
 	
+	@RequestMapping("putOnShelves")
+	public void putOnShelves(HttpServletRequest request,
+			HttpServletResponse response){
+		int productId=getInt("productId",-1);
+		int status=getInt("status",-1);
+		if(productId==-1 || status==-1){
+			ResponseUtils.renderJson(response, "{\"ret\":-1}");
+			return;
+		}
+		Product product=new Product();
+		product.setId(productId);
+		product.setStatus(status);
+		int ret=productService.putProductOnOrOffShelves(product);
+		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
+	}
+	
 }

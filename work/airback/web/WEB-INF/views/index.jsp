@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-<title>珍爱管理后台登录页</title>
+<title>管理后台登录页</title>
 <style>
 .errorblock {
 	color: #ff0000;
@@ -30,7 +30,7 @@
 	</div>
 </div>
 <form id="loginForm" name='f'
-			action="/index/login.html"
+			action="/index/login.jsps"
 			method='POST'>
 <div class="login_main">
 	<div class="login_border">

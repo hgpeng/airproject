@@ -32,4 +32,14 @@ public class PresentationServiceImpl implements PresentationService {
 		return presentationDao.getPresentationList(page, query);
 	}
 
+	@Override
+	public int deletePresentation(Presentation p) {
+		return presentationDao.deletePresentation(p);
+	}
+
+	@Override
+	public Presentation getPresentation(int id) {
+		return presentationDao.getPresentationById(id);
+	}
+
 }
