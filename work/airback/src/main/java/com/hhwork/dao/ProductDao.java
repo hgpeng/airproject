@@ -35,4 +35,11 @@ public interface ProductDao {
 	 * @return
 	 */
 	public Product getProduct(int id);
+	
+	/**
+	 * 删除产品
+	 * @param p
+	 * @return
+	 */
+	public int deleteProduct(Product p);
 }

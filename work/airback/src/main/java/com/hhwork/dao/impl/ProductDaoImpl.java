@@ -30,7 +30,7 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 	
 	@Override
 	public int saveProduct(Product product) {
-		if(product.getId()>=0){
+		if(product.getId()<=0){
 			return saveObject(product);
 		}else{
 			return updateObject(product, product.getId());
@@ -81,5 +81,10 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 		p.setCreateTime(rs.getDate("createTime"));
 		p.setCreateMan(rs.getString("createMan"));
 		return p;
+	}
+
+	@Override
+	public int deleteProduct(Product p) {
+		return deleteObjectById(p, p.getId());
 	}
 }

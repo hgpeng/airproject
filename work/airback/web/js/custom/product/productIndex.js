@@ -15,7 +15,7 @@ var productIndex=function(){
 				columns: [ 
 	            {display: '主键', name: 'id', align: 'center', width: '5%' },
 	            {display:'产品名称',name:'name',align:'center',width:'15%'},
-	            {display:'备注',name:'desc',align:'left',width:'60%'},
+	            {display:'备注',name:'desc',align:'left',width:'55%'},
 	            {display:'操作',render:_this.renderOperation}
 	            ], 
 	            url:'/product/getProductList.jsps', 
@@ -25,9 +25,7 @@ var productIndex=function(){
 	            fixedCellHeight:false,
 	            toolbar: {
                     items: [
-                    { text: '增加', click: _this.add, icon: 'add' },
-                    { line: true },
-                    { text: '修改', click: null, icon: 'modify' }
+                    { text: '增加', click: _this.add, icon: 'add' }
                     ]
                 }
 			});
@@ -39,9 +37,13 @@ var productIndex=function(){
 			var status=rowdata.status;
 			var changeStatus=3-status;
 			var statusTxt=(status==1?"下架":"上架");
-			var str="<a href='javascript:void(0);' onclick='productIndex.putOnShelves("+rowdata.id+","+changeStatus+")'>"+statusTxt+"</a>  ";
+			var str="<a href='javascript:void(0);' onclick='productIndex.add("+rowdata.id+");'>修改</a>  ";
+			str+="<a href='javascript:void(0);' onclick='productIndex.putOnShelves("+rowdata.id+","+changeStatus+")'>"+statusTxt+"</a>  ";
 			str+="<a href='javascript:void(0);' onclick='productIndex.addTemplate("+rowdata.id+")'>添加模板</a>  ";
 			str+="<a href='javascript:void(0);' onclick='productIndex.manageTemplate("+rowdata.id+")'>管理模板</a>  ";
+			if(status==2){
+				str+="<a href='javascript:void(0);' onclick='productIndex.delete("+rowdata.id+")'>删除</a>";
+			}
 			return str;
 		},
 		manageTemplate:function(id){
@@ -117,8 +119,12 @@ var productIndex=function(){
 				cancel:true
 			});
 		},
-		add:function(){
-			art.dialog.open(base+'/product/saveProductDialog.jsps',{
+		add:function(id){
+			var url=base+'/product/saveProductDialog.jsps';
+			if(id){
+				url+="?productId="+id;
+			}
+			art.dialog.open(url,{
 				id:"saveProductDialog",
 				title:'保存产品',
 				width: 500,
@@ -129,26 +135,49 @@ var productIndex=function(){
 				ok:function(contentWindow,target){
 					var page=$(contentWindow.document);
 					var name=page.find("#name").val();
+					var id=page.find("#productId").val();
 					if(!name || name.length==0){
 						art.dialog.alert("产品名称不能为空");
 						return false;
 					}
 					var desc=page.find("#desc").val();
 					var mainPhoto=page.find("#mainPhoto").val();
+					var params={name:name,desc:desc,mainPhoto:mainPhoto};
+					if(id){
+						params.id=id;
+					}
 					$.ajax({
 						url:base+'/product/saveProduct.jsps',
 						type:'post',
-						data:{name:name,desc:desc,mainPhoto:mainPhoto},
+						data:params,
 						success:function(res){
 							if(res.ret==-1){
 								art.dialog.alert("更新失败");
 								return false;
 							}
-							art.dialog.alert("新增成功",reload);
+							var tips=id?'修改成功':'新增成功';
+							art.dialog.alert(tips,reload);
 						}
 					});
 				},
 				cancel:true
+			});
+		},
+		delete:function(id){
+			art.dialog.confirm("确定删除该产品吗?",function(){
+				$.ajax({
+					url:base+'/product/deleteProduct.jsps',
+					type:'post',
+					data:{productId:id},
+					success:function(res){
+						if(res.ret==-1){
+							alert('删除失败');
+							return;
+						}else{
+							art.dialog.alert("删除成功",reload);
+						}
+					}
+				});
 			});
 		}
 	}
