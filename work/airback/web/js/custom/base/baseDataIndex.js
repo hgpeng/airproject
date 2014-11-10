@@ -20,13 +20,11 @@ var baseDataIndex=function(){
 		            data: {
 		                simpleData: {
 		                	idKey:"id",
-		                	pIdKey:"id",
 		                    enable: true
 		                },
 		                key:{
 		            		url:"",
-		            		name:"name",
-		            		id:"id"
+		            		name:"name"
 		            	}
 		            },
 		            check: {
@@ -41,7 +39,8 @@ var baseDataIndex=function(){
 
 		            	},
 		                onClick: function(event, treeId, treeNode, msg){
-		                	alert(treeNode.id);
+		                	
+		            		grid.loadData();
 		                }//点击绑定事件
 		            }
 
