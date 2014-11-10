@@ -47,6 +47,10 @@ request.setAttribute("imagepath", path +"/images");
       out.write(_jsp_string5, 0, _jsp_string5.length);
       _caucho_expr_0.print(out, _jsp_env, false);
       out.write(_jsp_string6, 0, _jsp_string6.length);
+      _caucho_expr_1.print(out, _jsp_env, false);
+      out.write(_jsp_string7, 0, _jsp_string7.length);
+      _caucho_expr_1.print(out, _jsp_env, false);
+      out.write(_jsp_string8, 0, _jsp_string8.length);
     } catch (java.lang.Throwable _jsp_e) {
       pageContext.handlePageException(_jsp_e);
     } finally {
@@ -122,26 +126,30 @@ request.setAttribute("imagepath", path +"/images");
     String resourcePath = loader.getResourcePathSpecificFirst();
     mergePath.addClassPath(resourcePath);
     com.caucho.vfs.Depend depend;
-    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/common.jsp"), 2919029749596527852L, false);
+    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/common.jsp"), -5569637242273579308L, false);
     com.caucho.jsp.JavaPage.addDepend(_caucho_depends, depend);
   }
   private static com.caucho.el.Expr _caucho_expr_0;
   private static com.caucho.el.Expr _caucho_expr_1;
 
-  private final static char []_jsp_string6;
+  private final static char []_jsp_string7;
   private final static char []_jsp_string2;
   private final static char []_jsp_string1;
   private final static char []_jsp_string3;
   private final static char []_jsp_string5;
   private final static char []_jsp_string0;
   private final static char []_jsp_string4;
+  private final static char []_jsp_string6;
+  private final static char []_jsp_string8;
   static {
-    _jsp_string6 = "/js/ligerUI/js/ligerui.all.js\"></script>".toCharArray();
+    _jsp_string7 = "/css/zTreeStyle/zTreeStyle.css\" rel=\"stylesheet\" type=\"text/css\" /> \r\n<script src=\"".toCharArray();
     _jsp_string2 = "/js/ligerUI/skins/Aqua/css/ligerui-all.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n<link href=\"".toCharArray();
     _jsp_string1 = "';\r\n</script>\r\n<link href=\"".toCharArray();
     _jsp_string3 = "/js/ligerUI/skins/ligerui-icons.css\" rel=\"stylesheet\" media=\"screen\"/>\r\n<link href=\"".toCharArray();
     _jsp_string5 = "/js/jquery-1.8.3.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
     _jsp_string0 = "\r\n<script type='text/javascript'>\r\n	var base='".toCharArray();
     _jsp_string4 = "/js/ligerUI/skins/Gray/css/all.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<script type=\"text/javascript\" src=\"".toCharArray();
+    _jsp_string6 = "/js/ligerUI/js/ligerui.all.js\"></script>\r\n<link href=\"".toCharArray();
+    _jsp_string8 = "/js/ztree/jquery.ztree.core-3.4.js\" type=\"text/javascript\"></script> ".toCharArray();
   }
 }

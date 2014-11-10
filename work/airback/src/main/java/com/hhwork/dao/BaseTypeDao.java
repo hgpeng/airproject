@@ -32,4 +32,11 @@ public interface BaseTypeDao {
 	 * @return
 	 */
 	public List<BaseType> getBaseTypeList();
+	
+	/**
+	 * 根据id获取BaseType
+	 * @param id
+	 * @return
+	 */
+	public BaseType getBaseTypeById(int id);
 }

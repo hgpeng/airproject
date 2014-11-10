@@ -65,4 +65,11 @@ public interface BaseDataService {
 	 * 
 	 */
 	public List<BaseData> getAllBaseData(Map<String,Object> param);
+	
+	/**
+	 * 根据id获取BaseType
+	 * @param id
+	 * @return
+	 */
+	public BaseType getBaseTypeById(int id);
 }
