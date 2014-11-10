@@ -44,7 +44,8 @@ public class ProductController extends BaseController {
 	@RequestMapping("saveProductDialog")
 	public String saveProductDialog(ModelMap modelMap){
 		int productId=getInt("productId");
-		
+		Product product=productService.getProduct(productId);
+		modelMap.put("product", product);
 		return "/product/openProductDialog";
 	}
 	
@@ -65,6 +66,11 @@ public class ProductController extends BaseController {
 			mainPhoto="";
 		}
 		Product p=new Product();
+		int productId=getInt("id",-1);
+		if(productId!=-1){
+			p.setId(productId);
+		}
+		
 		p.setCreateTime(new Date());
 		p.setName(name);
 		p.setDesc(desc);
@@ -93,4 +99,16 @@ public class ProductController extends BaseController {
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
 	}
 	
+	
+	@RequestMapping("deleteProduct")
+	public void deleteProduct(HttpServletRequest request,
+			HttpServletResponse response){
+		int productId=getInt("productId",-1);
+		if(productId==-1){
+			ResponseUtils.renderJson(response, "{\"ret\":-1}");
+			return;
+		}
+		int ret=productService.deleteProduct(productId);
+		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
+	}
 }

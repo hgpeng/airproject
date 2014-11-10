@@ -8,12 +8,15 @@
 
 </head>
 <body>
+	<input type="hidden" id="productId" value="${product.id }"/>
+	<input type="hidden" id="productName" value="${product.name }"/>
+	<input type="hidden" id="productDesc" value="${product.desc }"/>
 	<form id="saveProductForm">
 		
 	</form>
 	<div style="clear:both;">
 	</div> 
-	<input type="hidden" id="mainPhoto" name="mainPhoto"/>
+	<input type="hidden" id="mainPhoto" name="mainPhoto" value="${product.mainPhoto }"/>
 	<input id="upload" type="button" value="添加图片"/>
 	<jsp:include page="../common.jsp"></jsp:include>
 	<script src="${base }/js/ligerUI/js/core/base.js"

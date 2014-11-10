@@ -29,4 +29,12 @@ public interface ProductService {
 	public Product getProduct(int id);
 	
 	public Pagination<Product> getProductList(Pagination<Product> page,Map<String,Object> query);
+	
+	
+	/**
+	 * 删除产品
+	 * @param id
+	 * @return
+	 */
+	public int deleteProduct(int id);
 }
