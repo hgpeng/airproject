@@ -101,7 +101,7 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 	public List<BaseData> getAllBaseData(Map<String,Object> param) {
 		String sql="select b.id,b.parentId,b.typeId,b.name,b.url,b.descr,b.createTime,b.createMan,t.name basetype from basedata b left join basetype t on b.typeid = t.id where 1=1 ";
 		if(null!=param.get("type")){
-			sql += "and typeId= '"+param.get("type").toString()+"'";
+			sql += "and b.typeId= '"+param.get("type").toString()+"'";
 		}
 		List<Map<String,Object>> list=airJdbcTemplate.queryForList(sql);
 		if(list==null || list.size()==0){
