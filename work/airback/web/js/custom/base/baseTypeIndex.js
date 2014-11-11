@@ -15,7 +15,9 @@ var baseTypeIndex=function(){
 	            {display: '主键', name: 'id', align: 'center', width: '20%' },
 	            {display:'类型名称',name:'name',align:'center',width:'60%'},
 	            {display:'操作',align:'center',width:'20%',render:function(rowdata, index, value){
-	            	return "<a href='javascript:void(0);' onclick='baseTypeIndex.deleteBaseType("+rowdata.id+")'>删除</a>";
+	            	var str="<a href='javascript:void(0);' onclick='baseTypeIndex.add("+rowdata.id+")'>修改</a>   ";
+	            	str+="<a href='javascript:void(0);' onclick='baseTypeIndex.deleteBaseType("+rowdata.id+")'>删除</a>";
+	            	return str;
 	            }}
 	            ], 
 	            url:'/baseData/getBaseTypeData.jsps', 
@@ -25,9 +27,7 @@ var baseTypeIndex=function(){
 	            fixedCellHeight:false,
 	            toolbar: {
                     items: [
-                    { text: '增加', click: _this.add, icon: 'add' },
-                    { line: true },
-                    { text: '修改', click: null, icon: 'modify' }
+                    { text: '增加', click: _this.add, icon: 'add' }
                     ]
                 }
 			});
@@ -52,14 +52,19 @@ var baseTypeIndex=function(){
 		getParam:function(){
 
 		},
-		add:function(){
-			art.dialog.open('/baseData/saveBaseTypeDialog.jsps',{
+		add:function(id){
+			var str='/baseData/saveBaseTypeDialog.jsps';
+			if(id){
+				str+="?id="+id;
+			}
+			art.dialog.open(str,{
 				id:"saveBaseType",
 				title:'保存基础类型',
 				width: 300,
 				height: 120,
 				resizable: false,
 				lock:true,
+				cancel:true,
 				okVal:'保存',
 				ok:function(contentWindow){
 					var page=$(contentWindow.document);
@@ -69,10 +74,14 @@ var baseTypeIndex=function(){
 						art.dialog.alert("请输入类型名");
 						return false;
 					}
+					var params={name:name};
+					if(id){
+						params.id=id;
+					}
 					$.ajax({
 						url:'/baseData/saveBaseType.jsps',
 						type:'post',
-						data:{name:name},
+						data:params,
 						success:function(ret){
 							if(ret.ret==-1){
 								art.dialog.alert("修改失败");

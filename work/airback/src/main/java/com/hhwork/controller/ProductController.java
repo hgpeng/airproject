@@ -43,9 +43,11 @@ public class ProductController extends BaseController {
 	
 	@RequestMapping("saveProductDialog")
 	public String saveProductDialog(ModelMap modelMap){
-		int productId=getInt("productId");
-		Product product=productService.getProduct(productId);
-		modelMap.put("product", product);
+		int productId=getInt("productId",-1);
+		if(productId!=-1){
+			Product product=productService.getProduct(productId);
+			modelMap.put("product", product);
+		}
 		return "/product/openProductDialog";
 	}
 	

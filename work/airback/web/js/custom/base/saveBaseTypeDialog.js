@@ -10,9 +10,11 @@ var saveBaseTypeDialog=function(){
                 fields: [
                 { name: "id", type: "hidden" },
                 { display: "基本类型", name: "name", newline: true, type: "text", validate: { required: true,minlength:3 }, group: "基础信息", groupicon: groupicon},
-                { display: "链接", name: "url", newline: true, type: "text", validate: { required: true,minlength:3 }, group: "基础信息", groupicon: groupicon}
+                { display: "链接", name: "url", newline: true, type: "text", validate: { required: true,minlength:3 }}
                 ]
             });
+            $("#name").val($("#baseTypeName").val());
+            $("#id").val($("#typeId").val());
 		}
 	}
 }();

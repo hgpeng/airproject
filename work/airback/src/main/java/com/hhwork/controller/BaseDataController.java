@@ -42,6 +42,11 @@ public class BaseDataController extends BaseController {
 	
 	@RequestMapping("saveBaseTypeDialog")
 	public String saveBaseTypeDialog(ModelMap modelMap){
+		int typeId=getInt("id",-1);
+		if(typeId!=-1){
+			BaseType baseType=baseDataService.getBaseTypeById(typeId);
+			modelMap.put("baseType", baseType);
+		}
 		return "/base/saveBaseTypeDialog";
 	}
 
