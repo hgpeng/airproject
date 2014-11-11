@@ -10,11 +10,27 @@
 <body>
 <form id="saveBaseTypeForm">
 </form>
+<input id="upload" type="button" value="添加图标"/>
 <script src="${base }/js/ligerUI/js/core/base.js" type="text/javascript"></script>
 <script type="text/javascript" src="${base }/js/ligerUI/js/plugins/ligerForm.js"></script>
 <script src="${base }/js/ligerUI/js/plugins/ligerTextBox.js" type="text/javascript"></script>
 <script src="${base }/js/ligerUI/js/plugins/ligerComboBox.js" type="text/javascript"></script>
 <script src="${base }/js/ligerUI/js/plugins/ligerDateEditor.js" type="text/javascript"></script>
 <script type="text/javascript" src="${base }/js/custom/case/saveCaseDataIndex.js"></script>
+<script type="text/javascript" src="${base }/js/ajaxupload.js"></script>
+<script type="text/javascript" src="${base }/js/common.js"></script>
+<script type="text/javascript">
+	initajaxupload("upload","/imgupload/upload.jsps?direct=case",afterupload,null,null);
+	
+	function afterupload(json,data){
+		if(json.STATE=='SUCCESS'){
+			
+			$("#photos").val(json.PATH);
+			
+		}else{
+			art.dialog.alert("上传失败");
+		}
+	}
+</script>
 </body>
 </html>
