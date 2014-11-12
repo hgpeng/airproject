@@ -1,6 +1,7 @@
 package com.hhwork.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -14,9 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.alibaba.fastjson.JSONArray;
 import com.d3.d396333.common.util.ResponseUtils;
 import com.dingjian.base.util.StringUtils;
+import com.hhwork.common.Constants;
 import com.hhwork.common.Pagination;
+import com.hhwork.model.BaseData;
 import com.hhwork.model.Presentation;
 import com.hhwork.model.Product;
+import com.hhwork.service.BaseDataService;
 import com.hhwork.service.PresentationService;
 import com.hhwork.service.ProductService;
 
@@ -29,6 +33,9 @@ public class PresentationController extends BaseController {
 	
 	@Resource
 	protected ProductService productService;
+	
+	@Resource
+	protected BaseDataService baseDataService;
 	
 	@RequestMapping("presentationIndex")
 	public String presentationIndex(ModelMap modelMap){
@@ -120,5 +127,28 @@ public class PresentationController extends BaseController {
 		p.setId(templateId);
 		int ret=presentationService.deletePresentation(p);
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
+	}
+	
+	@RequestMapping("getTemplateScript")
+	public void getTemplateScript(HttpServletRequest request,
+			HttpServletResponse response){
+		int scriptType=getInt("scriptType",-1);
+		//参数不合法
+		if(scriptType==-1 || scriptType>=3 || scriptType<1){
+			ResponseUtils.renderJson(response, "{\"ret\":-1}");
+			return;
+		}
+		int realTypeId=0;
+		if(scriptType==1){//等于1取flash脚本
+			realTypeId=Constants.BaseType.FLASH;
+		}else{//等于2的情况取Html脚本
+			realTypeId=Constants.BaseType.HTML;
+		}
+		List<BaseData> baseDatas=baseDataService.getBaseDataByBaseTypeId(realTypeId);
+		if(baseDatas!=null && baseDatas.size()>0){
+			BaseData baseData=baseDatas.get(0);
+			String script=baseData.getDesc();
+			ResponseUtils.renderJson(response, "{\"ret\":\"1\",\"script\":\""+script+"\"}");
+		}
 	}
 }

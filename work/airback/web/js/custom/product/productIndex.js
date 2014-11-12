@@ -86,12 +86,18 @@ var productIndex=function(){
 				okVal:'保存',
 				ok:function(contentWindow,target){
 					var page=contentWindow.window;
-					var content=page.presentationIndex.getContent();
+					var content="";
+					var pagejq=$(contentWindow.document);
+					var selected=pagejq.find("input[name=script]:checked").val();
+					if(selected==3){
+						content=page.presentationIndex.getContent();
+					}else{
+						content=page.presentationIndex.getScript();
+					}
 					if(!content || content.length==0){
 						alert("模板内容不能为空");
 						return false;
 					}
-					var pagejq=$(contentWindow.document);
 					var num=pagejq.find("#num").val();
 					if(!num || num.length==0){
 						alert("屏数不能为空");

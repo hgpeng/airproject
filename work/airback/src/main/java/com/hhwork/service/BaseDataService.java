@@ -72,4 +72,12 @@ public interface BaseDataService {
 	 * @return
 	 */
 	public BaseType getBaseTypeById(int id);
+	
+	/**
+	 * 根据基本类型id获取基本数据
+	 * @param typeId
+	 * @return
+	 */
+	public List<BaseData> getBaseDataByBaseTypeId(int typeId);
+	
 }

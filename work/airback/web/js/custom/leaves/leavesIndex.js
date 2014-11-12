@@ -4,6 +4,7 @@ var leavesIndex=function(){
 
 	return {
 		init:function(){
+			_this=this;
 			grid=$("#tableGrid").ligerGrid({
 				columns: [ 
 	            {display: '留言', name: 'content', align: 'center', width: '60%' },
@@ -14,15 +15,11 @@ var leavesIndex=function(){
 	            url:'/leaves/getLeavesData.jsps', 
 	            parms:_this.getParam(),
                 pageSize: 20,
-	            fixedCellHeight:false,
-	            toolbar: {
-                    items: [
-                    { text: '增加', click: _this.add, icon: 'add' },
-                    { line: true },
-                    { text: '修改', click: null, icon: 'modify' }
-                    ]
-                }
+	            fixedCellHeight:false
 			});
+		},
+		getParam:function(){
+
 		}
 	}
 }();
