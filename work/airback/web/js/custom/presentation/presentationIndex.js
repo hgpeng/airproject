@@ -8,7 +8,7 @@ var presentationIndex=function(){
 			_this=this;
 			contentEditor = UE.getEditor('content',{initialFrameHeight:400,initialFrameWidth:'98%'});
 			$("input[name=script]").change(function(){
-				var val=this.value;
+				var val=+this.value;
 				switch(val){
 					case 1:
 						_this.showScriptPanel();
@@ -17,9 +17,10 @@ var presentationIndex=function(){
 								url:base+'/presentation/getTemplateScript.jsps',
 								type:'post',
 								data:{scriptType:val},
+								dataType:'text',
 								success:function(res){
-									if(res.ret==1){
-										flash=res.script;
+									if(res){
+										flash=res;
 									}
 								}
 							});
@@ -31,10 +32,11 @@ var presentationIndex=function(){
 							$.ajax({
 								url:base+'/presentation/getTemplateScript.jsps',
 								type:'post',
+								dataType:'text',
 								data:{scriptType:val},
 								success:function(res){
-									if(res.ret==1){
-										script=res.script;
+									if(res){
+										script=res;
 									}
 								}
 							});
@@ -57,10 +59,10 @@ var presentationIndex=function(){
 				result=script;
 			}
 			var imgpath=$("#imgpath").val();
-			if(!imgpath && imgpath.length>=0){
-				result=result.replaceAll("${imgPath}",imgpath);
+			if(!imgpath){
+				return {};
 			}
-			return result;
+			return {result:result,imgpath:imgpath};
 		},
 		showScriptPanel:function(){
 			$("#content").hide();
