@@ -16,7 +16,7 @@ var presentationIndex=function(){
 				var val=+this.value;
 				switch(val){
 					case 1:
-						_this.showScriptPanel();
+						_this.showScriptPanel('flash上传');
 						if(!flash){
 							$.ajax({
 								url:base+'/presentation/getTemplateScript.jsps',
@@ -32,7 +32,7 @@ var presentationIndex=function(){
 						}
 					break;
 					case 2:
-						_this.showScriptPanel();
+						_this.showScriptPanel('图片上传');
 						if(!script){
 							$.ajax({
 								url:base+'/presentation/getTemplateScript.jsps',
@@ -69,9 +69,10 @@ var presentationIndex=function(){
 			}
 			return {result:result,imgpath:imgpath};
 		},
-		showScriptPanel:function(){
+		showScriptPanel:function(text){
 			$("#content").hide();
 			$("#imagePanel").show();
+			$("#uploadTxt").text(text);
 		},
 		showContentPanel:function(){
 			$("#content").show();

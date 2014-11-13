@@ -30,7 +30,7 @@ request.setAttribute("imagepath", path +"/images");
 	</label>
 	<label>
 	<input type="radio" name="script" value="2"/>
-	html脚本
+	图片脚本
 	</label>
 	<label>
 	<input type="radio" name="script" value="3" checked/>
@@ -46,7 +46,7 @@ request.setAttribute("imagepath", path +"/images");
 	</div>
 	<div id="imagePanel" style="display:none;">
 		<input type="hidden" id="imgpath" name="imgpath"/>
-		图片:<input type="button" value="添加" id="upload"/>
+		<span id="uploadTxt">图片</span>:<input type="button" value="添加" id="upload"/>
 	</div>
 <script type="text/javascript" src="/js/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" src="/js/ueditor/ueditor.all.min.js"></script>
