@@ -72,7 +72,10 @@ public class ProductController extends BaseController {
 		if(productId!=-1){
 			p.setId(productId);
 		}
-		
+		int typeId=getInt("typeId",-1);
+		if(typeId!=-1){
+			p.setTypeId(typeId);
+		}
 		p.setCreateTime(new Date());
 		p.setName(name);
 		p.setDesc(desc);

@@ -86,7 +86,10 @@ public class PresentationController extends BaseController {
 		}
 		String imagePath=getString("imgpath");
 		if(StringUtils.isNotBlank(imagePath)){
-			String basePath=SystemConfig.getParameter("image_path") + "product/";
+			int port = request.getServerPort();
+			String scheme = request.getScheme();
+			String path = request.getScheme()+"://"+request.getServerName() + ((("http".equals(scheme) && port == 80) ||("https".equals(scheme)  && port == 443)) ? "" : ":" + port) + request.getContextPath();
+			String basePath=path+"/uploadimages/";
 			html=html.replaceAll("\\$\\{imgPath\\}", basePath+imagePath);
 		}
 			

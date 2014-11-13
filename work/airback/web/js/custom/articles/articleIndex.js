@@ -95,7 +95,7 @@ function edit(id){
 	article.add(id);
 }
 function deleteArticle(id){
-
+	article.delete(id);
 }
 $(function(){
 	article.init();

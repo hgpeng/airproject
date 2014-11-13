@@ -14,6 +14,21 @@
 	<form id="saveProductForm">
 		
 	</form>
+	<div style="clear:both"></div>
+	<div style="padding-left:20px;">
+	<label>
+	<input type="radio" name="baseType" value="1"/>
+	首页
+	</label>
+	<label>
+	<input type="radio" name="baseType" value="2"/>
+	产品
+	</label>
+	<label>
+	<input type="radio" name="baseType" value="3"/>
+	产品详情
+	</label>
+	</div>
 	<div style="clear:both;">
 	</div> 
 	<input type="hidden" id="mainPhoto" name="mainPhoto" value="${product.mainPhoto }"/>

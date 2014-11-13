@@ -40,7 +40,9 @@ request.setAttribute("imagepath", path +"/images");
 	</div>
 	
 	<div>
+	<div style="width:650px;">
 	<script type="text/plain" id="content" name="content">${presentation.html}</script>
+	</div>
 	</div>
 	<div id="imagePanel" style="display:none;">
 		<input type="hidden" id="imgpath" name="imgpath"/>
@@ -48,7 +50,8 @@ request.setAttribute("imagepath", path +"/images");
 	</div>
 <script type="text/javascript" src="/js/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" src="/js/ueditor/ueditor.all.min.js"></script>
-
+<script type="text/javascript" src="${base }/js/artDialog/artDialog.js?skin=blue"></script>
+<script type="text/javascript" src="${base }/js/artDialog/plugins/iframeTools.js"></script>
 <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="${base }/js/ajaxupload.js"></script>
 <script type="text/javascript" src="${base }/js/common.js"></script>
@@ -57,8 +60,9 @@ request.setAttribute("imagepath", path +"/images");
 	
 	function afterupload(json,data){
 		if(json.STATE=='SUCCESS'){
-			
-			$("#imgpath").val(json.PATH);
+			art.dialog.alert("上传成功",function(){
+				$("#imgpath").val(json.PATH);
+			});
 			
 		}else{
 			art.dialog.alert("上传失败");

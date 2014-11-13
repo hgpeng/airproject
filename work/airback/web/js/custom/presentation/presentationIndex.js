@@ -6,7 +6,12 @@ var presentationIndex=function(){
 	return {
 		init:function(){
 			_this=this;
-			contentEditor = UE.getEditor('content',{initialFrameHeight:400,initialFrameWidth:'98%'});
+			var config={initialFrameHeight:320,initialFrameWidth:'98%'};
+			var presentationId=$("#presentationId").val();
+			if(presentationId && presentationId.length>0){
+				config.sourceEditorFirst=true;
+			}
+			contentEditor = UE.getEditor('content',config);
 			$("input[name=script]").change(function(){
 				var val=+this.value;
 				switch(val){

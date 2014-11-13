@@ -4112,7 +4112,8 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');///import editor.js
                 textarea.style.display = ''
             }
 
-            textarea.style.width = me.iframe.offsetWidth + 'px';
+            //textarea.style.width = me.iframe.offsetWidth + 'px';
+            textarea.style.width = '500px';
             textarea.style.height = me.iframe.offsetHeight + 'px';
             textarea.value = me.getContent();
             textarea.id = me.key;

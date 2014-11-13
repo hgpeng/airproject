@@ -112,8 +112,6 @@ var productIndex=function(){
 						alert("屏数不能为空");
 						return false;
 					}
-					
-					
 					params.productId=pagejq.find("#productId").val();
 					
 					params.num=pagejq.find("#num").val();
@@ -161,6 +159,12 @@ var productIndex=function(){
 					if(id){
 						params.id=id;
 					}
+					var typeId=page.find("input[name=baseType]:checked").val();
+					if(!typeId){
+						alert("请选择产品展示类型");
+						return false;
+					}
+					params.typeId=typeId;
 					$.ajax({
 						url:base+'/product/saveProduct.jsps',
 						type:'post',
