@@ -14,6 +14,13 @@ var saveBaseDataDialog=function(){
                 { display:'基本类型',name:"baseType",type: "select", comboboxName: "baseTypeSelect", options: { url:'/baseData/getAllBaseTypes.jsps',valueFieldID: "baseTypeId",textField:'name' }}
                 ]
             });
+            
+            $("#name").val($("#nameId").val());
+            $("#name_en").val($("#name_enId").val());
+            $("#icon").val($("#iconId").val());
+            $("#url").val($("#urlId").val());
+            $("#id").val($("#dataId").val());
+            
 		}
 	}
 }();

@@ -39,7 +39,9 @@ var baseDataIndex=function(){
 
 		            	},
 		                onClick: function(event, treeId, treeNode, msg){
-		                	
+		                	var param={};
+		                	param.type = treeNode.id;
+		                	grid.options.parms=param;
 		            		grid.loadData();
 		                }//点击绑定事件
 		            }
@@ -49,13 +51,14 @@ var baseDataIndex=function(){
 			
 			grid=$("#tableGrid").ligerGrid({
 				columns: [ 
-	            {display: '主键', name: 'id', align: 'center', width: '20%' },
-	            {display:'基本数据',name:'name',align:'center',width:'80%'} 
+	            {display:'基本数据',name:'name',align:'center',width:'50%'},
+	            {display:'操作',name:'name',align:'center',width:'30%',render:_this.oprender}
 	            ], 
 	            url:'/baseData/getBaseData.jsps', 
 	            parms:_this.getParam(),
                 pageSize: 20,
-               
+                delayLoad:true,
+                rownumbers:true,
 	            fixedCellHeight:false,
 	            toolbar: {
                     items: [
@@ -65,12 +68,16 @@ var baseDataIndex=function(){
                     ]
                 }
 			});
+			
 		},
 		getParam:function(){
 
 		},
+		oprender:function(data,filterData){
+			return '<a href="javascript:void(0)" onclick=deletebase("'+data.id+'")>删除</a>';
+		},
 		add:function(){
-			art.dialog.open('/baseData/saveBaseDataDialog.jsps',{
+			art.dialog.open(base+'/baseData/saveBaseDataDialog.jsps',{
 				id:"saveBaseType",
 				title:'保存基础类型',
 				width: 500,
@@ -91,7 +98,7 @@ var baseDataIndex=function(){
 						return false;
 					}
 					$.ajax({
-						url:'/baseData/saveBaseData.jsps',
+						url:base+'/baseData/saveBaseData.jsps',
 						type:'post',
 						data:{name:name,url:url,id:id,typeId:basetypeId,icon:icon,name_en:name_en},
 						success:function(ret){
@@ -111,3 +118,52 @@ var baseDataIndex=function(){
 $(function(){
 	baseDataIndex.init();
 })
+
+function modify(id){
+	art.dialog.open(base+'/baseData/saveBaseDataDialog.jsps?id='+id,{
+		id:"saveBaseType",
+		title:'修改基础类型',
+		width: 500,
+		height: 250,
+		resizable: false,
+		lock:true,
+		okVal:'保存',
+		ok:function(contentWindow){
+			var page=$(contentWindow.document);
+			var name=page.find("#name").val();
+			var id=page.find("#id").val();
+			var url=page.find("#url").val();
+			var icon=page.find("#icon").val();
+			var name_en = page.find("#name_en").val();
+			var basetypeId=page.find("#baseTypeId").val();
+			if(!name || name.length==0){
+				art.dialog.alert("请输入类型名");
+				return false;
+			}
+			$.ajax({
+				url:base+'/baseData/saveBaseData.jsps',
+				type:'post',
+				data:{name:name,url:url,id:id,typeId:basetypeId,icon:icon,name_en:name_en},
+				success:function(ret){
+					if(ret.ret==-1){
+						art.dialog.alert("修改失败");
+						return false;
+					}
+					art.dialog.alert("修改成功");
+					baseDataIndex.reload();
+				}
+			})
+		}
+	});
+}
+
+function deletebase(id){
+	$.post(base+"/baseData/deleteBaseData.jsps",{id:id},function(ret){
+		if(ret.ret==-1){
+						art.dialog.alert("删除失败");
+						return false;
+					}
+					art.dialog.alert("删除成功");
+					baseDataIndex.reload();
+	},'json')
+}
