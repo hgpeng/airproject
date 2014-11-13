@@ -6,6 +6,7 @@
 <title>修改模板</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
+#showdiv img{width:100%;}
 </style>
 <%
 int port = request.getServerPort();
@@ -19,6 +20,8 @@ request.setAttribute("imagepath", path +"/images");
 </script>
 </head>
 <body>
+<div id="showdiv" style="width:100%;">
 ${presentation.html }
+</div>
 </body>
 </html>
