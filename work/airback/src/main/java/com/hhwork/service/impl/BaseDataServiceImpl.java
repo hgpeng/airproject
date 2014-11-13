@@ -1,6 +1,7 @@
 package com.hhwork.service.impl;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -72,6 +73,13 @@ public class BaseDataServiceImpl implements BaseDataService {
 	@Override
 	public BaseType getBaseTypeById(int id) {
 		return baseTypeDao.getBaseTypeById(id);
+	}
+
+	@Override
+	public List<BaseData> getBaseDataByBaseTypeId(int typeId) {
+		Map<String,Object> params=new HashMap<String,Object>();
+		params.put("type", typeId);
+		return baseDataDao.getAllBaseData(params);
 	}
 
 }

@@ -17,9 +17,10 @@ public class _savebasedatadialog__jsp extends com.caucho.jsp.JavaPage
               javax.servlet.http.HttpServletResponse response)
     throws java.io.IOException, javax.servlet.ServletException
   {
+    javax.servlet.http.HttpSession session = request.getSession(true);
     com.caucho.server.webapp.WebApp _jsp_application = _caucho_getApplication();
     javax.servlet.ServletContext application = _jsp_application;
-    com.caucho.jsp.PageContextImpl pageContext = com.caucho.jsp.QJspFactory.allocatePageContext(this, _jsp_application, request, response, null, null, 8192, true, false);
+    com.caucho.jsp.PageContextImpl pageContext = com.caucho.jsp.QJspFactory.allocatePageContext(this, _jsp_application, request, response, null, session, 8192, true, false);
     javax.servlet.jsp.JspWriter out = pageContext.getOut();
     final javax.el.ELContext _jsp_env = pageContext.getELContext();
     javax.servlet.ServletConfig config = getServletConfig();
@@ -28,6 +29,24 @@ public class _savebasedatadialog__jsp extends com.caucho.jsp.JavaPage
     request.setCharacterEncoding("UTF-8");
     try {
       out.write(_jsp_string0, 0, _jsp_string0.length);
+      pageContext.include("../common.jsp", false);
+      out.write(_jsp_string1, 0, _jsp_string1.length);
+      _caucho_expr_0.print(out, _jsp_env, false);
+      out.write(_jsp_string2, 0, _jsp_string2.length);
+      _caucho_expr_0.print(out, _jsp_env, false);
+      out.write(_jsp_string3, 0, _jsp_string3.length);
+      _caucho_expr_0.print(out, _jsp_env, false);
+      out.write(_jsp_string4, 0, _jsp_string4.length);
+      _caucho_expr_0.print(out, _jsp_env, false);
+      out.write(_jsp_string5, 0, _jsp_string5.length);
+      _caucho_expr_0.print(out, _jsp_env, false);
+      out.write(_jsp_string6, 0, _jsp_string6.length);
+      _caucho_expr_0.print(out, _jsp_env, false);
+      out.write(_jsp_string7, 0, _jsp_string7.length);
+      _caucho_expr_0.print(out, _jsp_env, false);
+      out.write(_jsp_string8, 0, _jsp_string8.length);
+      _caucho_expr_0.print(out, _jsp_env, false);
+      out.write(_jsp_string9, 0, _jsp_string9.length);
     } catch (java.lang.Throwable _jsp_e) {
       pageContext.handlePageException(_jsp_e);
     } finally {
@@ -65,17 +84,7 @@ public class _savebasedatadialog__jsp extends com.caucho.jsp.JavaPage
 
   public long _caucho_lastModified()
   {
-    long lastModified = 0;
-    for (int i = _caucho_depends.size() - 1; i >= 0; i--) {
-      Object oDepend = _caucho_depends.get(i);
-      if (oDepend instanceof com.caucho.vfs.Depend) {
-        com.caucho.vfs.Depend depend = (com.caucho.vfs.Depend) oDepend;
-        if (lastModified < depend.getLastModified())
-          lastModified = depend.getLastModified();
-      }
-    }
-
-    return lastModified;
+    return 0;
   }
 
   public java.util.HashMap<String,java.lang.reflect.Method> _caucho_getFunctionMap()
@@ -92,6 +101,7 @@ public class _savebasedatadialog__jsp extends com.caucho.jsp.JavaPage
     com.caucho.jsp.TaglibManager manager = webApp.getJspApplicationContext().getTaglibManager();
     manager.addTaglibFunctions(_jsp_functionMap, "c", "http://java.sun.com/jsp/jstl/core");
     com.caucho.jsp.PageContextImpl pageContext = new com.caucho.jsp.PageContextImpl(webApp, this);
+    _caucho_expr_0 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${base }");
   }
 
   public void destroy()
@@ -112,12 +122,31 @@ public class _savebasedatadialog__jsp extends com.caucho.jsp.JavaPage
     String resourcePath = loader.getResourcePathSpecificFirst();
     mergePath.addClassPath(resourcePath);
     com.caucho.vfs.Depend depend;
-    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/base/saveBaseDataDialog.jsp"), -1848505013389259857L, false);
+    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/base/saveBaseDataDialog.jsp"), 2893350022317089098L, false);
     com.caucho.jsp.JavaPage.addDepend(_caucho_depends, depend);
   }
+  private static com.caucho.el.Expr _caucho_expr_0;
 
+  private final static char []_jsp_string2;
+  private final static char []_jsp_string5;
+  private final static char []_jsp_string1;
+  private final static char []_jsp_string7;
+  private final static char []_jsp_string6;
+  private final static char []_jsp_string9;
+  private final static char []_jsp_string3;
+  private final static char []_jsp_string4;
+  private final static char []_jsp_string8;
   private final static char []_jsp_string0;
   static {
-    _jsp_string0 = "\r\n\r\n<html>\r\n<head>\r\n<title>\u4fee\u6539\u57fa\u7840\u7c7b\u578b</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n</head>\r\n<body>\r\n<form id=\"saveBaseTypeForm\">\r\n</form>\r\n <link href=\"/js/ligerUI/skins/Aqua/css/ligerui-all.css\" rel=\"stylesheet\" type=\"text/css\"> \r\n <link href=\"/js/ligerUI/skins/Gray/css/all.css\" rel=\"stylesheet\" type=\"text/css\"> \r\n<script type=\"text/javascript\" src=\"/js/jquery-1.8.3.min.js\"></script>\r\n<script src=\"/js/ligerUI/js/core/base.js\" type=\"text/javascript\"></script>\r\n<script type=\"text/javascript\" src=\"/js/ligerUI/js/plugins/ligerForm.js\"></script>\r\n<script src=\"/js/ligerUI/js/plugins/ligerTextBox.js\" type=\"text/javascript\"></script>\r\n<script src=\"/js/ligerUI/js/plugins/ligerComboBox.js\" type=\"text/javascript\"></script>\r\n<script src=\"/js/ligerUI/js/plugins/ligerDateEditor.js\" type=\"text/javascript\"></script>\r\n<script type=\"text/javascript\" src=\"/js/custom/base/saveBaseDataDialog.js\"></script>\r\n</body>\r\n</html>".toCharArray();
+    _jsp_string2 = "/js/ligerUI/js/core/base.js\" type=\"text/javascript\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
+    _jsp_string5 = "/js/ligerUI/js/plugins/ligerComboBox.js\" type=\"text/javascript\"></script>\r\n<script src=\"".toCharArray();
+    _jsp_string1 = "\r\n<script src=\"".toCharArray();
+    _jsp_string7 = "/js/custom/base/saveBaseDataDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
+    _jsp_string6 = "/js/ligerUI/js/plugins/ligerDateEditor.js\" type=\"text/javascript\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
+    _jsp_string9 = "/js/common.js\"></script>\r\n<script type=\"text/javascript\">\r\n	initajaxupload(\"upload\",\"/imgupload/upload.jsps?direct=case\",afterupload,null,null);\r\n	\r\n	function afterupload(json,data){\r\n		if(json.STATE=='SUCCESS'){\r\n			\r\n			$(\"#icon\").val(json.PATH);\r\n			\r\n		}else{\r\n			art.dialog.alert(\"\u4e0a\u4f20\u5931\u8d25\");\r\n		}\r\n	}\r\n</script>\r\n</body>\r\n</html>".toCharArray();
+    _jsp_string3 = "/js/ligerUI/js/plugins/ligerForm.js\"></script>\r\n<script src=\"".toCharArray();
+    _jsp_string4 = "/js/ligerUI/js/plugins/ligerTextBox.js\" type=\"text/javascript\"></script>\r\n<script src=\"".toCharArray();
+    _jsp_string8 = "/js/ajaxupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
+    _jsp_string0 = "\r\n\r\n<html>\r\n<head>\r\n<title>\u4fee\u6539\u57fa\u7840\u7c7b\u578b</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n</head>\r\n<body>\r\n<form id=\"saveBaseTypeForm\">\r\n</form>\r\n<input id=\"upload\" type=\"button\" value=\"\u6dfb\u52a0\u56fe\u6807\"/>\r\n".toCharArray();
   }
 }

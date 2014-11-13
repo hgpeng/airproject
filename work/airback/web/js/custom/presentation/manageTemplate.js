@@ -13,7 +13,9 @@ var manageTemplate=function(){
 			grid=$("#tableGrid").ligerGrid({
 				columns: [ 
 	            {display: '主键', name: 'id', align: 'center', width: '10%' },
-	            {display:'内容',name:'html',align:'left',width:'60%'},
+	            {display:'内容',name:'html',align:'left',width:'60%',render:function(rowdata,index,value){
+	            	return "<a href='javascript:void(0);' onclick='showData("+rowdata.id+")'>"+rowdata.html+"</a>";
+	            }},
 	            {display:'屏数',name:'num',align:'center',width:'5%'},
 	            {display:'操作',render:_this.renderOperation}
 	            ], 
@@ -108,6 +110,16 @@ var manageTemplate=function(){
 		}
 	}
 }();
+function showData(rowdata){
+	art.dialog.open('/presentation/showPreview.jsps?id='+rowdata,{
+		id:"previewDialog",
+		title:'预览',
+		width: 500,
+		height: 350,
+		resizable: false,
+		lock:true,
+	});
+}
 $(function(){
 	manageTemplate.init();
 	window.manageTemplate=manageTemplate;

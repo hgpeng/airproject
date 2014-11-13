@@ -31,6 +31,16 @@ public class Constants {
 		 * 菜单项
 		 */
 		public static final int MENUITEM=2;
+		
+		/**
+		 * flash脚本
+		 */
+		public static final int FLASH=10;
+		
+		/**
+		 * html脚本
+		 */
+		public static final int HTML=11;
 	}
 	
 	/**
@@ -49,4 +59,5 @@ public class Constants {
 		 */
 		public static final int OffShelves=2;
 	}
+	
 }

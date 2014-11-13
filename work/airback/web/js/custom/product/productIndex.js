@@ -85,22 +85,37 @@ var productIndex=function(){
 				lock:true,
 				okVal:'保存',
 				ok:function(contentWindow,target){
+					var params={};
 					var page=contentWindow.window;
-					var content=page.presentationIndex.getContent();
-					if(!content || content.length==0){
+					var content="";
+					var pagejq=$(contentWindow.document);
+					var selected=pagejq.find("input[name=script]:checked").val();
+					if(selected==3){
+						content=page.presentationIndex.getContent();
+						if(!content || content.length==0){
 						alert("模板内容不能为空");
 						return false;
+						}
+						params.html=content;
+					}else{
+						content=page.presentationIndex.getScript();
+						if(!content.imgpath){
+							alert("请先上传图片");
+							return false;
+						}
+						params.html=content.result;
+						params.imgpath=content.imgpath;
 					}
-					var pagejq=$(contentWindow.document);
+
 					var num=pagejq.find("#num").val();
 					if(!num || num.length==0){
 						alert("屏数不能为空");
 						return false;
 					}
 					
-					var params={};
+					
 					params.productId=pagejq.find("#productId").val();
-					params.html=content;
+					
 					params.num=pagejq.find("#num").val();
 					$.ajax({
 						url:base+'/presentation/savePresentation.jsps',
