@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +11,32 @@
 <link rel="stylesheet" type="text/css" href="${base }/default/style/other.css"/>
 <link rel="stylesheet" type="text/css" href="${base }/default/style/product-show.css"/>
 <title>公司介绍</title>
+<script>
+	$(document).ready(function(){
+		$("#contro").show();
+	});
+	
+	function showmore(obj,id){
+		if($(obj).attr("key")=='hid'){
+			$("#about"+id).find("div.about-expansion").show();
+			$(obj).attr("key","show");
+			$(obj).html("[收起]");
+			$("div.about-list").each(function(i,item){
+				if($(item).attr("id")!=("about"+id)){
+					$(item).hide();
+				}
+			});
+				
+		}else{
+			$("div.about-list").show();
+			$("#about"+id).find("div.about-expansion").hide();
+			$(obj).attr("key","hid");
+			$(obj).html("[展开更多]");
+		}
+		
+	}
+	
+</script>
 </head>
 <body>
 <div id="boxwarp" class="scrollbox">
@@ -20,7 +48,7 @@
 <div class="w1200 pb40">
      
      
-     <div class="about-list">
+<%--      <div class="about-list">
           <p class="blue">全球领先</p>
           <p class="font24 pt10 pb15">室内健康环境专家与领导者</p>
           <div class="combox">
@@ -56,10 +84,37 @@
           
           <!------展开以上隐藏div时,字体更改为收起------->
           <div class="about-more pb15 pt30"><a href="#">[展开更多]...</a></div>
+     </div> --%>
+     
+     
+     <c:forEach items="${adlist }" var="item"  varStatus="status">
+     	<div id="about${item.id }" class="about-list">
+          <p class="blue">${fn:substring(item.basedata.name,0,4)}</p>
+          <p class="font24 pt10 pb15">${fn:substring(item.basedata.name,4,-1)}</p>
+          <div class="combox">
+               <div class="about-listl"><img src="${base}/images/${item.basedata.icon}"></div>
+               <div class="about-listr">
+                    <h1 class="nobold">${item.title }</h1>
+                    <div class="combox pt15">
+                         ${item.preview }...
+                    </div>
+               </div>
+          </div>
+          
+           <!------展开div------->
+          <div class="about-expansion" style="display:none;">
+               
+               <div class="coombox pt40">
+                    ${item.content }
+               </div>
+          
+          </div>
+          
+          <div class="about-more pb15 pt30"><a key="hid" href="javascript:void(0);" onclick="showmore(this,'${item.id }')">[展开更多]</a></div>
      </div>
+     </c:forEach>
      
-     
-      <div class="about-list">
+     <%--  <div class="about-list">
           <p class="blue">品牌文化</p>
           <p class="font24 pt10 pb15">蓝动中国 美好生活</p>
           <div class="combox">
@@ -93,7 +148,7 @@
                </div>
           </div>
           <div class="about-more pb15 pt30"><a href="#">[展开更多]...</a></div>
-     </div>
+     </div> --%>
      
      
 

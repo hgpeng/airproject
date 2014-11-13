@@ -9,6 +9,7 @@
 		b.parentId,
 		b.typeId,
 		b.name,
+		b.name_en,
 		b.url,
 		b.descr,
 		b.createTime,
@@ -32,13 +33,18 @@
 	     a.img,
 	     a.preview,
 	     a.type,
-	     a.status 
+	     a.status,
+	     b.id as "basedata.id",
+	     b.name as "basedata.name",
+	     b.name_en as "basedata.name_en",
+	     b.icon as "basedata.icon"
 	     from articles a 
 	     left join basedata b on a.type = b.id 
 	     <where>
-			<if test="id!=null"> AND b.id = #{id}</if>
-			<if test="name!=null"> AND b.name = #{name}</if>
-			<if test="type!=null"> AND t.id = #{type}</if>
+			<if test="id!=null"> AND a.id = #{id}</if>
+			<if test="name!=null"> AND a.name = #{name}</if>
+			<if test="type!=null"> AND a.type = #{type}</if>
+			<if test="basetype!=null"> AND b.typeId = #{basetype}</if>
 		</where>
 	</select>
 	

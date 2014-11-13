@@ -10,6 +10,7 @@ a:hover{color:#008cd6;}
 #boxwarp {position: absolute;left:0; top:0; right: 0; bottom: 0; width:100%; height: 100%; }
 .imgp{ width: 100%; height: 100%; position:relative; }
 .bgimg{ position:absolute; left:0; bottom:0; right:0; top:0; z-index:-1; width:100%; height:100%;}
+
 /*头部*/
 .header{ position:absolute; left:0; top:0; z-index:9999; background:url(images/header.png) repeat-x; height:99px; width:100%; overflow:hidden;}
 .headerbody{ width:1024px; margin:auto;font-size:16px;  overflow:hidden;}
@@ -22,6 +23,27 @@ a:hover{color:#008cd6;}
 .headerright ul li{ float:left; padding:0 0 0 16px;}
 .an{ display:inline-block;border-radius:6px; background:#008cd6; color:#FFF; width:93px; height:28px; line-height:28px; text-align:center; margin:8px 0 0 0; }
 #zlfwli a:hover{color:#313131;}
+
+#boxwarp .header { overflow:visible; height:90px;box-shadow:0px 0px 10px #000;}
+#boxwarp .headerbody {overflow:visible; width:1200px;}
+#boxwarp .footerbody {width:1200px;}
+#boxwarp .footerShare { left:50%; margin-left:-18px;}
+#boxwarp .homemenu { height:38px; line-height:38px; padding:100px 0;}
+#boxwarp .homemenu ul { line-height:38px; height:38px;}
+#boxwarp .homemenu ul li a { font-size:16px;}
+#boxwarp .nav { padding:0; line-height:94px;}
+.two-menu { width:100%; position:absolute; left:0; top:92px; background:#fff; border-bottom:1px solid #d2d2d2;opacity:0;transition-property:opacity height;
+transition-duration:0.3s, 0.3s;
+transition-timing-function:ease-in;
+transition-delay:0; height:0; overflow:hidden;z-index:9999;}
+.nav li:hover .two-menu{ opacity:1; height:178px;}
+.nav li:hover .two-nav:before {content:"";font-size: 0; width: 15px;height: 10px; position:absolute; left:50%; top:82px; background:url(images/product/products_13.png); display:block; margin-left:-8px;}
+.nav li a { display:block;}
+.two-menu ul { width:1160px; margin:0 auto; padding:20px;}
+.two-menu ul li { float:left; padding-left:80px; text-align:center;}
+.two-menu ul li a { font-size:15px; color:#535353; line-height:30px; text-decoration:none;} .two-menu ul li a:hover { color:#008bd6;}
+.nav li .two-nav { color:#008bd6; position:relative;}
+
 /*右边menu*/
 #contro{position:fixed; top:50%; right:0px; margin-top:-250px; width:110px; z-index:1200;}
 .imgp{background-position:50% 50%; background-size:cover; background-repeat:no-repeat; height:100%; min-height:100%;}

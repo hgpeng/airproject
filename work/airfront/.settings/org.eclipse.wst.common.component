@@ -3,6 +3,7 @@
     <wb-module deploy-name="airfront">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/resource"/>
         <property name="context-root" value="airfront"/>
         <property name="java-output-path" value="/airfront/build/classes"/>
     </wb-module>

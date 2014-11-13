@@ -8,13 +8,18 @@
 <jsp:include page="common/commonHead.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="${base }/default/style/other.css"/>
 <link rel="stylesheet" type="text/css" href="${base }/default/style/product-show.css"/>
-<title>公司介绍</title>
+<title>联系我们</title>
+<script>
+	$(document).ready(function(){
+		$("div.header").hide();
+		$("#contro").show();
+	});
+</script>
 </head>
 <body>
 <div id="boxwarp" class="scrollbox">
 	    <jsp:include page="common/top.jsp"></jsp:include>
 	<!------内容------->
-<div class="about-banner"><p align="center"><img src="${base}/default/style/images/other/about-banner.jpg"></p></div> 
 
 
 <!------内容------->

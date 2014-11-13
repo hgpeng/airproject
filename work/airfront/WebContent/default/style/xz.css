@@ -1,0 +1,65 @@
+.c{zoom:1;}
+.c:after{content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.demo-test {display: -webkit-box;display: -ms-flexbox; display: -webkit-flex; display: flex;}
+.demo-test {height: 100%;-webkit-box-pack: center;-ms-flex-pack: center;-webkit-justify-content: center;justify-content: center;-webkit-box-align: center; -ms-flex-align: center;-webkit-align-items: center;align-items: center;}
+#boxwarp .header { position:relative; overflow:visible; height:90px;box-shadow:0px 0px 10px #000;}
+#boxwarp .headerbody {overflow:visible; width:1200px;}
+#boxwarp .footerbody {width:1200px;}
+#boxwarp .footerShare { left:50%; margin-left:-18px;}
+#boxwarp .homemenu { height:38px; line-height:38px; padding:100px 0;}
+#boxwarp .homemenu ul { line-height:38px; height:38px;}
+#boxwarp .homemenu ul li a { font-size:16px;}
+#boxwarp .nav { padding:0; line-height:94px;}
+.two-menu { width:100%; position:absolute; left:0; top:92px; background:#fff; border-bottom:1px solid #d2d2d2;opacity:0;transition-property:opacity height;
+transition-duration:0.3s, 0.3s;
+transition-timing-function:ease-in;
+transition-delay:0; height:0; overflow:hidden;z-index:9999;}
+.nav li:hover .two-menu{ opacity:1; height:178px;}
+.nav li:hover .two-nav:before {content:"";font-size: 0; width: 15px;height: 10px; position:absolute; left:50%; top:82px; background:url(../img/products_13.png); display:block; margin-left:-8px;}
+.nav li a { display:block;}
+.two-menu ul { width:1160px; margin:0 auto; padding:20px;}
+.two-menu ul li { float:left; padding-left:80px; text-align:center;}
+.two-menu ul li a { font-size:15px; color:#535353; line-height:30px; text-decoration:none;} .two-menu ul li a:hover { color:#008bd6;}
+.nav li .two-nav { color:#008bd6; position:relative;}
+
+.xz-banner { width:100%; text-align:center; background:#00a0e9;}
+.xz-banner img { max-width:100%;}
+.xz_two { width:100%; background:#f3f3f1; border-bottom:1px solid #e0e0e0;}
+.m15_container { width:1200px; margin:0 auto;}
+.m15_btns_ul { width:1000px; margin:0 auto;}
+.m15_btns_ul li { float:left; width:25%; padding:55px 0;}
+.m15_btns_ul li a { background-position: 0 0; background-repeat: no-repeat; height: 150px; margin:0 auto; text-indent: -9999px; width: 150px; display:block;}
+.m15_btns_ul li a:hover {background-position: 0 -150px;}
+.m15_btn_android {
+    background-image: url("images/other/m15_btn_android.png");
+}
+.m15_btn_iphone {
+    background-image: url("images/other/m15_btn_iphone.png");
+}
+.m15_btn_pc {
+    background-image: url("images/other/m15_btn_03.png");
+}
+.m15_btn_bbs {
+    background-image: url("images/other/m15_btn_04.png");
+}
+.m15_btns_ul li span { color: #313131;  font-size: 18px;   margin: 20px auto 0;   text-align: center; width:100%; display:block;}
+.xz-warp { width:1200px; margin:0 auto; padding:80px 0;}
+.yy_title { line-height:34px; font-size:30px; color:#626262; font-weight:normal;}
+.pro_box { width:1272px; position:relative; padding-bottom:78px;}
+.pro_cell { width:246px; height:410px; float:left; padding-right:70px; position:relative; padding-top:30px;}
+.pro_cell .xz_a { display:block; width:100%; height:100%; box-shadow: 0 2px 4px #ececec;transition: all 0.12s linear 0s; position:relative;}
+.pro_cell:hover .xz_a { box-shadow: 0 4px 4px #ececec;}
+.pro_cell .xza-bottom { width:210px; height:45px; position:absolute; left:15px; bottom:20px; text-align:center; font-size:20px; display:block; color:#fff; background:#26c71a; line-height:45px;}
+.pro_cell:hover { top:-2px;}
+.pro_cell:hover .xza-bottom { bottom:22px;}
+.pro_cell .xza-bottom:hover { background:#23b718;}
+.xz_a h2 { line-height:50px; padding:0 15px; font-size:18px; color:#1b1b1b;}
+.xz_a p { padding:0 15px; color:#1b1b1b; line-height:22px; font-size:12px;}
+.xza-bottom img { padding:10px 10px 0 0;}
+.xz-more { width:100%; border-top:1px solid #e0e0e0; padding-top:25px; overflow:hidden;}
+.xz-more a { width:135px; height:42px; text-align:center; line-height:42px; background:#249ce8; border-radius:6px; color:#fff; font-size:16px; text-decoration:none; float:right; display: inline-block; margin-right:20px;}
+.xz-more a:hover { color:#fff; text-decoration:none; background:#0281d1;}
+
+.footer { width:100%;}
+#boxwarp .headNavfix { display: block;}
+.none { display:none;}

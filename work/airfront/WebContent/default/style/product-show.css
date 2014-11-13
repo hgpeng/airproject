@@ -31,7 +31,7 @@ transition-delay:0; height:0; overflow:hidden;z-index:9999;}
 .fullSlide .hd li { width:6px; height:6px; border:2px solid #fff; border-radius:50%; display:inline-block; margin:0 5px; text-indent:-9999px;}
 .fullSlide .hd li.on {border:2px solid #008cd6; background:#008cd6;}
 
-.mainwarp { width:1298px; margin:0 auto; position:relative; top:-45px;}
+.mainwarp { width:1200px; margin:0 auto; position:relative; top:-45px;}
 .product-nav { width:100%; height:129px; overflow:hidden;}
 .product-nav li { background:#008bd6; width:133.5px; box-sizing:border-box; float:left; height:129px; position:relative; left:-1px; border-left:1px solid #fff;}
 .product-nav li a{ color:#fff; font-size:15px; text-align:center; display:block;}
@@ -41,19 +41,19 @@ transition-delay:0; height:0; overflow:hidden;z-index:9999;}
 .product-nav li:hover { background:#f39700;}
 .product-nav li.active {background:#f39700;}
 
-.pro-box { padding-top:40px;}
+.pro-box { padding-top:40px;width:1100px;margin:0 auto;}
 .pro-boxlist ul { border:1px solid #e5e5e5;}
 .pro-boxlist ul li{ width:33.33%; height:400px; border-left:1px solid #e5e5e5;border-top:1px solid #e5e5e5; position:relative; top:-1px; left:-1px; float:left; box-sizing:border-box;}
 .pro-boxlist ul li img { max-width:398px; max-height:340px;}
 .pro-boxlist ul li p { line-height:56px; font-size:15px; text-align:center;}
 .pro-more { padding-top:20px; text-align:center; line-height:20px; font-size:15px;}
 .pro-more a { color:#34a3e3;}
-.example4 {width:1298px; height:129x; position:relative;}
-.example4 .sly{ width:1200px; height:129px; margin:0 auto;}
-.example4 .prevPage { width:49px; height:129px; position:absolute; left:0; top:0; text-indent:-9999px;}
-.example4 .nextPage { width:49px; height:129px; position:absolute; right:0; top:0; text-indent:-9999px;}
-.example4 .btn:before {content:"";font-size: 0; width: 100%;height:100%; position:absolute; left:0; top:0; background:#fff;opacity:0.5; z-index:22;}
-.example4 .prevPage i { width:100%; height:100%; display:block; background:url(images/product/products_23.png) no-repeat center center;position:absolute; left:0; top:0; z-index:33;}
-.example4 .prevPage:hover i{background:url(images/product/products_22.png) no-repeat center center;}
-.example4 .nextPage i { width:100%; height:100%; display:block; background:url(images/product/products_25.png) no-repeat center center;position:absolute; left:0; top:0; z-index:33;}
-.example4 .nextPage:hover i{background:url(images/product/products_24.png) no-repeat center center;}
+.example4 {width:1198px; height:129x; position:relative;}
+.example4 .sly{ width:1100px; height:129px; margin:0 auto;}
+.prevPage { width:49px; height:129px; position:absolute; left:0; top:0; text-indent:-9999px;}
+.nextPage { width:49px; height:129px; position:absolute; right:0; top:0; text-indent:-9999px;}
+.btn:before {content:"";font-size: 0; width: 100%;height:100%; position:absolute; left:0; top:0; background:#fff;opacity:0.5; z-index:22;}
+.prevPage i { width:100%; height:100%; display:block; background:url(images/product/products_23.png) no-repeat center center;position:absolute; left:0; top:0; z-index:33;}
+.prevPage:hover i{background:url(images/product/products_22.png) no-repeat center center;}
+.nextPage i { width:100%; height:100%; display:block; background:url(images/product/products_25.png) no-repeat center center;position:absolute; left:0; top:0; z-index:33;}
+.nextPage:hover i{background:url(images/product/products_24.png) no-repeat center center;}
