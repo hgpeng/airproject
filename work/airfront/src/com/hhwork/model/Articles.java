@@ -3,7 +3,12 @@ package com.hhwork.model;
 import java.io.Serializable;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
 
 
 public class Articles implements Serializable{
@@ -31,6 +36,12 @@ public class Articles implements Serializable{
 	
 	private String createMan;
 
+	//
+	private List<String> imglist;
+	
+	//
+	private BaseData basedata;
+	
 	public int getId() {
 		return id;
 	}
@@ -101,6 +112,25 @@ public class Articles implements Serializable{
 
 	public void setCreateMan(String createMan) {
 		this.createMan = createMan;
+	}
+
+	public List<String> getImglist() {
+		if(StringUtils.isEmpty(img)) return null;
+		String[] imgary = img.split(",");
+		List<String> imglist = Arrays.asList(imgary);
+		return imglist;
+	}
+
+	public void setImglist(List<String> imglist) {
+		this.imglist = imglist;
+	}
+
+	public BaseData getBasedata() {
+		return basedata;
+	}
+
+	public void setBasedata(BaseData basedata) {
+		this.basedata = basedata;
 	}
 	
 	
