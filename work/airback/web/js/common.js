@@ -40,12 +40,6 @@ function initajaxupload(id,url,afterupload,submitupload,data){
         		submitupload();
         	}
         	
-        	if (extension && /^(jpg|png|jpeg|gif|icon|ico)$/.test(extension));
-            
-            else {
-                art.dialog.alert("只允许上传jpg|png|jpeg|gif|icon|ico图片");
-                return false;
-            }
         	
         },
         onComplete: function(file, json){  
