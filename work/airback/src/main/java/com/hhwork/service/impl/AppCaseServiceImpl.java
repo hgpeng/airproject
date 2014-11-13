@@ -48,4 +48,10 @@ public class AppCaseServiceImpl implements AppCaseService {
 		return casePhotoDao.getCasePhoto(param);
 	}
 
+	@Override
+	public int deleteAppCase(int id) {
+		
+		return appCaseDao.deleteAppCase(id);
+	}
+
 }

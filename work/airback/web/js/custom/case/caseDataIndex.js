@@ -37,7 +37,8 @@ var baseDataIndex=function(){
 
 		},
 		oprender:function(data,filterData){
-			return '<a href="javascript:void(0)" onclick=uploadphoto("'+data.id+'")>图片管理</a>';
+			return '<a href="javascript:void(0)" onclick=uploadphoto("'+data.id+'")>图片管理</a>'
+			+'<a href="javascript:void(0)" onclick=baseDataIndex.deleteCase("'+data.id+'")>|删除</a>';
 		},
 		add:function(){
 			art.dialog.open('/case/saveCaseDialog.jsps',{
@@ -72,6 +73,16 @@ var baseDataIndex=function(){
 					})
 				}
 			});
+		},
+		deleteCase:function(id){
+			$.post(base+"/case/delete.jsps",{id:id},function(ret){
+				if(ret.ret==-1){
+								art.dialog.alert("删除失败");
+								return false;
+							}
+							art.dialog.alert("删除成功");
+							reload();
+			},'json');
 		}
 	}
 }();

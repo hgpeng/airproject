@@ -124,4 +124,6 @@ public class ImageController extends BaseController {
 	    response.setContentType("text/html");
 	    outPrint(response, JSONObject.toJSON(getOutputMsg()));
 	  }
+	
+	
 }

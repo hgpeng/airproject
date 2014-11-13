@@ -111,4 +111,11 @@ public class CaseController  extends BaseController {
 		int ret=appCaseService.saveCasePhoto(app);
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
 	}
+	
+	@RequestMapping("delete")
+	public void delete(HttpServletResponse response){
+		int id=getInt("id",-1);
+		int ret=appCaseService.deleteAppCase(id);
+		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
+	}
 }

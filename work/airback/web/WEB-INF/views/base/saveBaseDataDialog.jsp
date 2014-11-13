@@ -8,6 +8,12 @@
 
 </head>
 <body>
+<input type="hidden" id="dataId" value="${baseData.id }"/>
+<input type="hidden" id="nameId" value="${baseData.name }"/>
+<input type="hidden" id="name_enId" value="${baseData.name_en }"/>
+<input type="hidden" id="iconId" value="${baseData.icon }"/>
+<input type="hidden" id="urlId" value="${baseData.url }"/>
+
 <form id="saveBaseTypeForm">
 </form>
 <input id="upload" type="button" value="添加图标"/>

@@ -82,4 +82,16 @@ public class BaseDataServiceImpl implements BaseDataService {
 		return baseDataDao.getAllBaseData(params);
 	}
 
+	@Override
+	public BaseData getBaseDataById(int id) {
+		// TODO Auto-generated method stub
+		return baseDataDao.getBaseDataById(id);
+	}
+
+	@Override
+	public int deleteBaseData(int id) {
+		
+		return baseDataDao.deleteBaseData(id);
+	}
+
 }
