@@ -34,7 +34,7 @@
 		<script type="text/javascript" src="${base }/js/ajaxupload.js"></script>
 <script type="text/javascript" src="${base }/js/common.js"></script>
 <script type="text/javascript">
-	initajaxupload("upload","/imgupload/upload.jsps?direct=case",afterupload,null,null);
+	initajaxupload("upload","/imgupload/upload.jsps?direct=product",afterupload,null,null);
 	
 	function afterupload(json,data){
 		if(json.STATE=='SUCCESS'){

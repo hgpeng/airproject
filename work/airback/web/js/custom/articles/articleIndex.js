@@ -14,7 +14,12 @@ var article=function(){
 			grid=$("#tableGrid").ligerGrid({
 				columns: [ 
 	            {display: '主键', name: 'id', align: 'center', width: '5%' },
-	            {display:'内容',name:'preview',align:'left',width:'80%'}
+	            {display:'内容',name:'preview',align:'left',width:'60%'},
+	            {display:'操作',name:'operation',align:'center',render:function(rowdata, index, value){
+	            	var str="<a href='javascript:void(0);' onclick='edit("+rowdata.id+")'>修改</a>   ";
+	            	str+="<a href='javascript:void(0);' onclick='deleteArticle("+rowdata.id+")'>删除</a>";
+	            	return str;
+	            }}
 	            ], 
 	            url:'/articles/list.jsps', 
 	            parms:_this.getParam(),
@@ -23,9 +28,7 @@ var article=function(){
 	            fixedCellHeight:false,
 	            toolbar: {
                     items: [
-                    { text: '增加', click: _this.add, icon: 'add' },
-                    { line: true },
-                    { text: '修改', click: null, icon: 'modify' }
+                    { text: '增加', click: _this.add, icon: 'add' }
                     ]
                 }
 			});
@@ -33,8 +36,8 @@ var article=function(){
 		getParam:function(){
 
 		},
-		add:function(item){
-			art.dialog.open('/articles/saveArticlesDialog.jsps',{
+		add:function(id){
+			art.dialog.open('/articles/saveArticlesDialog.jsps?articleId='+id,{
 				id:"saveBaseType",
 				title:'保存文章',
 				width: 600,
@@ -46,6 +49,7 @@ var article=function(){
 					var page=contentWindow.window;
 					var content=page.saveArticleDialog.getContent();
 					var pagejq=$(contentWindow.document);
+					var articleId=pagejq.find("#articleId").val();
 					var type = pagejq.find("#type").val();
 					var tilte = pagejq.find("#title").val();
 					var imgpath = '';
@@ -53,10 +57,14 @@ var article=function(){
 						imgpath += $(item).attr("path")+",";
 					})
 					if(imgpath) imgpath = imgpath.substring(0,imgpath.length-1);
+					var params={content:content,type:type,title:tilte,img:imgpath};
+					if(articleId){
+						params.id=articleId;
+					}
 					$.ajax({
 						url:base+'/articles/saves.jsps',
 						type:'post',
-						data:{content:content,type:type,title:tilte,img:imgpath},
+						data:params,
 						success:function(ret){
 							reload();
 						}
@@ -64,10 +72,31 @@ var article=function(){
 				},
 				cancel:true
 			});
+		},
+		delete:function(id){
+			art.dialog.confirm("确定要删除该产品吗?",function(){
+				$.ajax({
+					url:base+'/articles/deleteArticles.jsps',
+					type:'post',
+					data:{articleId:id},
+					success:function(res){
+						if(res.ret==1){
+							art.dialog.alert("删除成功",reload);
+						}else{
+							art.dialog.alert("删除失败，请稍后再试");
+						}
+					}
+				});
+			})
 		}
 	}
 }();
+function edit(id){
+	article.add(id);
+}
+function deleteArticle(id){
 
+}
 $(function(){
 	article.init();
 });

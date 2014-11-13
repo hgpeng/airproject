@@ -53,6 +53,15 @@ public class ArticlesController extends BaseController {
 		List<BaseData> bdlist = 
 				baseDataService.getAllBaseData(param);
 		modelMap.put("bdlist", bdlist);
+		int articleId=getInt("articleId",-1);
+		if(articleId!=-1){
+			Articles article=articleService.getArticleById(articleId);
+			modelMap.put("article",article);
+			String imgPaths=article.getImg();
+			if(StringUtils.isNotBlank(imgPaths)){
+				modelMap.put("imgList", imgPaths.split(","));
+			}
+		}
 		return "article/saveArticlesDialog";
 	}
 	
@@ -65,6 +74,17 @@ public class ArticlesController extends BaseController {
 			return ;
 		}
 		int ret=articleService.saveArticles(articles);
+		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
+	}
+	
+	@RequestMapping("deleteArticles")
+	public void deleteArticles(HttpServletResponse response){
+		int id=getInt("articleId",-1);
+		if(id==-1){
+			ResponseUtils.renderJson(response, "{\"ret\":-1}");
+			return ;
+		}
+		int ret=articleService.deleteArticles(id);
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
 	}
 }

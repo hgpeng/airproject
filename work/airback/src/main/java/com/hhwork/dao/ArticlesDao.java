@@ -20,4 +20,11 @@ public interface ArticlesDao {
 	 * @return
 	 */
 	public int deleteArticles(int id);
+	
+	/**
+	 * 根据id获取文章
+	 * @param id
+	 * @return
+	 */
+	public Articles getArticleById(int id);
 }
