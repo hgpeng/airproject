@@ -34,7 +34,7 @@
         <li><a href="${base }/about" <c:if test="${pagename=='about' }">class="now"</c:if>>企业介绍</a></li>
           <li <c:if test="${pagename=='news' }">class="now"</c:if> ><a href="${base }/news">新闻报道</a></li>
           <li <c:if test="${pagename=='video' }">class="now"</c:if> ><a href="${base }/video">视频专区</a></li>
-          <li><a href="#">下载中心</a></li>
+          <li><a href="${base }/download">下载中心</a></li>
           <li><a href="${base }/contact">联系我们</a></li>
         </c:when>
         <c:otherwise>
@@ -42,8 +42,8 @@
           <li id="productli"><a href="${base }/productcenter">产品中心</a></li>
           <li><a href="${base }/solution">解决方案</a></li>
           <li><a href="${base }/greenService">治理服务</a></li>
-          <li><a href="#">下载中心</a></li>
-          <li><a href="#">在线商城</a></li>
+          <li><a href="${base }/download">下载中心</a></li>
+          <li><a href="${base }/online">在线商城</a></li>
           <li><a href="${base }/about">关于我们</a></li>
           <li><a href="${base }/about">加入我们</a></li>
         </c:otherwise>
@@ -88,8 +88,8 @@
           </li>
           
           <li><a href="${base }/solution">解决方案</a></li>
-          <li><a href="#">下载中心</a></li>
-          <li><a href="#">在线商城</a></li>
+          <li><a href="${base }/download">下载中心</a></li>
+          <li><a href="${base }/online">在线商城</a></li>
           <li><a href="${base }/about">关于德士特</a></li>
         </ul>
       </div>
