@@ -88,7 +88,7 @@ public class BaseDataController extends BaseController {
 	@RequestMapping("getBaseData")
 	public void getBaseData(HttpServletRequest request,
 			HttpServletResponse response,Pagination<BaseData> page){
-		Pagination<BaseData> res=baseDataService.getBaseData(page, null);
+		Pagination<BaseData> res=baseDataService.getBaseData(page, this.getParaMap());
 		outPrint(response, JSONArray.toJSON(res));
 	}
 	
@@ -107,6 +107,11 @@ public class BaseDataController extends BaseController {
 	
 	@RequestMapping("saveBaseDataDialog")
 	public String saveBaseDataDialog(ModelMap modelMap){
+		int id=getInt("id",-1);
+		if(id!=-1){
+			BaseData baseData=baseDataService.getBaseDataById(id);
+			modelMap.put("baseData", baseData);
+		}
 		return "/base/saveBaseDataDialog";
 	}
 	
@@ -144,6 +149,13 @@ public class BaseDataController extends BaseController {
 		baseData.setIcon(icon);
 		baseData.setName_en(name_en);
 		int ret=baseDataService.saveBaseData(baseData);
+		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
+	}
+	
+	@RequestMapping("deleteBaseData")
+	public void deleteBaseData(HttpServletResponse response){
+		int id=getInt("id",-1);
+		int ret=baseDataService.deleteBaseData(id);
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
 	}
 }

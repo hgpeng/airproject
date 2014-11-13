@@ -80,4 +80,17 @@ public interface BaseDataService {
 	 */
 	public List<BaseData> getBaseDataByBaseTypeId(int typeId);
 	
+	/**
+	 * 根据id获取BaseData
+	 * @param id
+	 * @return
+	 */
+	public BaseData getBaseDataById(int id);
+	
+	/**
+	 * 删除基本shuju
+	 * @param id
+	 * @return
+	 */
+	public int deleteBaseData(int id);
 }

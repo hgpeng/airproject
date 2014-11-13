@@ -11,12 +11,14 @@ import javax.annotation.Resource;
 
 import org.logicalcobwebs.proxool.ProxoolDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.hhwork.common.PageMapper;
 import com.hhwork.common.Pagination;
 import com.hhwork.dao.BaseDataDao;
 import com.hhwork.model.BaseData;
+import com.hhwork.model.BaseType;
 import com.hhwork.utils.SQLHelpers;
 
 @Repository("menuItemDao")
@@ -59,13 +61,13 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 		for(Map<String,Object> data:list){
 			BaseData e=new BaseData();
 			e.setId((Integer)data.get("id"));
-			e.setName(data.get("name").toString());
+			e.setName(String.valueOf(data.get("name")));
 			e.setTypeId((Integer)data.get("typeId"));
 			e.setParentId((Integer)data.get("parentId"));
-			e.setUrl(data.get("url").toString());
-			e.setDesc(data.get("descr").toString());
+			e.setUrl(String.valueOf(data.get("url")));
+			e.setDesc(String.valueOf(data.get("descr")));
 			e.setCreateTime((Date)data.get("createTime"));
-			e.setCreateMan(data.get("createMan").toString());
+			e.setCreateMan(String.valueOf(data.get("createMan")));
 			items.add(e);
 		}
 		return items;
@@ -76,6 +78,9 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 			Map<String, Object> query) {
 		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,name,typeId,parentId,url,descr,createTime,createMan");
 		sql.append(" from basedata where 1=1 ");
+		if(null!=query.get("type")){
+			sql.append("and typeId= '"+query.get("type").toString()+"'");
+		}
 		List<Object> args=new ArrayList<Object>();
 		sql.append(" order by id asc");
 		return SQLHelpers.getRowSize(sql.toString(), airDataSource, args.toArray(), page, new PageMapper<BaseData>(){
@@ -121,6 +126,40 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 			items.add(e);
 		}
 		return items;
+	}
+
+	@Override
+	public BaseData getBaseDataById(int id) {
+		String sql="select id,name,typeId,parentId,url,descr,createTime,createMan from basedata where id="+id;
+		List<Object> args=new ArrayList<Object>();
+		return airJdbcTemplate.queryForObject(sql, args.toArray(), new RowMapper<BaseData>(){
+
+			@Override
+			public BaseData mapRow(ResultSet rs, int arg1)
+					throws SQLException {
+				return generateBaseData(rs);
+			}
+			
+		});
+	}
+	
+	private BaseData generateBaseData(ResultSet rs) throws SQLException{
+		BaseData baseData=new BaseData();
+		baseData.setId(rs.getInt("id"));
+		baseData.setName(rs.getString("name"));
+		baseData.setTypeId(rs.getInt("typeId"));
+		baseData.setParentId(rs.getInt("parentId"));
+		baseData.setUrl(rs.getString("url"));
+		baseData.setDesc(rs.getString("descr"));
+		baseData.setCreateTime(rs.getDate("createTime"));
+		baseData.setCreateMan(rs.getString("createMan"));	
+		return baseData;
+	}
+
+	@Override
+	public int deleteBaseData(int id) {
+		// TODO Auto-generated method stub
+		return this.deleteObjectById(new BaseData(), id);
 	}
 
 }
