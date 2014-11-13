@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +14,7 @@
 <title>产品</title>
 <script>
 	$(document).ready(function(){
-		setTimeout(function(){
+		/* setTimeout(function(){
 			$("#productnav").trans({"margin-top":"0px","transition-duration":"0.7s"});
 			$("#productnav").find("img").fadeIn();
 		},500);
@@ -21,28 +23,20 @@
 			$("#productnav").trans({"margin-top":"0px","transition-duration":"0.7s"});
 			$("#productnav").find("img").fadeOut();
 			event.stopPropagation();
-		});
+		}); */
 		
-		$("div.example4").slide({mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:7});
+		$("div.example4").slide({mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:8});
 		
 	});
 	
-	 $(document).click(function(){
-		 $("#productnav").trans({"margin-top":"-200px","transition-duration":"0.7s"});
-		 $("#productnav").find("img").fadeIn();
-	 });
+	
 	
 </script>
 </head>
 <body>
 <div id="boxwarp" class="scrollbox">
    <jsp:include page="common/top.jsp"></jsp:include>
-    <div id="productnav" style="margin-top:-200px;height:200px;width:100%;background:#FFFFFF;">
-   		<div style="width:1024px;margin:0 auto;">
-   		 <img style="padding:30px;" src="${base}/default/style/images/product/products_14.png"/>
-   		 <img style="padding:30px;" src="${base}/default/style/images/product/products_15.png"/>
-   		 </div>
-    </div>
+
     <div class="productshow-banner">
     	<div class="fullSlide">
 		
@@ -60,42 +54,20 @@
     </div>
     
     <div class="mainwarp">
+    
     <div>
 	  <div class="example4">
 			
-			<div class="bd" style="padding-left:80px;">
+			<div class="bd sly">
 
             <ul class="product-nav big cfix" id="myTab2">
-                <li onmouseover="nTabs(this,0);" class="active">
-                    <a href="javascript:void(0)"><span class="demo-test"><img src="${base}/default/style/images/product/products_16.png" /></span><p>空气监测仪</p></a>
-                </li>
-                <li onmouseover="nTabs(this,1);">
-                    <a href="javascript:void(0)"><span class="demo-test"><img src="${base}/default/style/images/product/products_17.png" /></span><p>空气净化器</p></a>
-                </li>
-                <li onmouseover="nTabs(this,2);">
-                    <a href="javascript:void(0)"><span class="demo-test"><img src="${base}/default/style/images/product/products_21.png" /></span><p>红外模块</p></a>
-                </li>
-                <li onmouseover="nTabs(this,3);">
-                    <a href="javascript:void(0)"><span class="demo-test"><img src="${base}/default/style/images/product/products_18.png" /></span><p>智能开关</p></a>
-                </li>
-                <li onmouseover="nTabs(this,4);">
-                    <a href="javascript:void(0)"><span class="demo-test"><img src="${base}/default/style/images/product/products_19.png" /></span><p>净化产品</p></a>
-                </li>
-                <li onmouseover="nTabs(this,5);">
-                    <a href="javascript:void(0)"><span class="demo-test"><img src="${base}/default/style/images/product/products_20.png" /></span><p>APP</p></a>
-                </li>
-                <li onmouseover="nTabs(this,6);">
-                    <a href="javascript:void(0)"><span class="demo-test"><img src="${base}/default/style/images/product/products_26.png" /></span><p>加湿器</p></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><span class="demo-test"><img src="${base}/default/style/images/product/products_27.png" /></span><p>新风系统</p></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><span class="demo-test"><img src="${base}/default/style/images/product/products_28.png" /></span><p>消毒机</p></a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"><span class="demo-test"><img src="${base}/default/style/images/product/products_28.png" /></span><p>消毒机</p></a>
-                </li>
+            	<c:forEach items="${bdlist }" var="item" varStatus="status">
+            		 <li onmouseover="nTabs(this,${status.index});">
+                    <a href="javascript:void(0)"><span class="demo-test">
+                    <img src="${base}/images/${item.icon}" /></span>
+                    <p>${item.name}</p></a>
+                	</li>
+            	</c:forEach>
             </ul>
             </div>
           
@@ -111,10 +83,14 @@
         <div class="pro-box">
         	<div class="pro-boxlist">
             	<ul class="c" id="myTab2_Content0">
-                	<li>
-                    	<a href="${base }/product">
+                	<li >
+                    	<a class="newsin" href="${base }/product">
                         	<img src="${base}/default/style/images/product/product_06.jpg" />
                             <p>空气眼</p>
+                             <div class="newinbg">
+                           
+		                       <div class="newsinadd"></div>
+		                       </div>
                         </a>
                     </li>
                     <li>

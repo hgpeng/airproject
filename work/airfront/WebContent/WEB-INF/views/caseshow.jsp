@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -18,9 +20,14 @@
 		
 			<div class="bd">
 				<ul>
+				<c:if test="{!empty cplist}">
+				<c:forEach items="${cplist }" var="item"  varStatus="status">
+					<li _src="url(${base}/images/${item.path}" style="background:#e6e6e6 center center no-repeat;background-size:1440px auto"></li>				
+				</c:forEach>
+				</c:if>
 					<li _src="url(${base}/default/style/images/case/case01.jpg)" style="background:#e6e6e6 center center no-repeat;background-size:1440px auto"></li>
 					<li _src="url(${base}/default/style/images/case/case03.jpg)" style="background:#e6e6e6 center center no-repeat;background-size:1440px auto"></li>
-					<li _src="url(${base}/default/style/images/case/case04.jpg)" style="background:#e6e6e6 center center no-repeat;background-size:1440px auto"></li>
+				
 				</ul>
 			</div>
 		
@@ -30,11 +37,11 @@
 		
 		<div class="case-right">
         	<div class="case-close">
-            	<a href="case.html">关闭</a>
+            	<a href="${base }/caselist">关闭</a>
             </div>
-			<h2>振业城别墅</h2>
-            <p>时间：2014年7月<br/>地址：深圳<br/>面积：400平米</p>
-            <p>2014年7月16日, 绿色时代与振业城别墅区签定服务协议，同时对十五套精装修别墅进行全面空气净化处理，绿色时代以五大技术，十项流程，强效的产品与优质服务赢得了别墅区业主的高度认可。在治理过程中同时又承接了宝安曦城别墅及润恒御园别墅的治理工程。</p>
+			<h2>${data.name }</h2>
+            <p>时间：${data.buildtime }<br/>地址：${data.addr }<br/>面积：${data.area }平米</p>
+            <p>${data.content }</p>
             <div class="fenxiang">
             	<a href="#"><img src="${base}/default/style/images/case/case_05.png" /></a>
             </div>

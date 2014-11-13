@@ -1,23 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<script type="text/javascript" >
-    
-</script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="case-rlogo"><img src="${base}/default/style/images/case/case_06.png"/></div>
     		<ul class="case-rul">
     			<li class="rlist_01"><a href="#">治理服务</a></li>
-    			<li class="hover"><a href="${base }/greenService">绿色时代</a></li>
-    			<li>
+    			<li <c:if test="${page=='green'}">class="hover"</c:if>><a href="${base }/greenService">绿色时代</a></li>
+    			<li <c:if test="${page=='case'}">class="hover"</c:if> >
     				<a href="${base }/caselist">工程案例</a>
     				<div class="case-r-nav">
     					<ul>
+    					<c:forEach items="${celist }" var="item">
     						<li>
     							<a href="#">
-    								<img src="${base}/default/style/images/case/case_08.png"/>
-    								办公环境
+    								<img src="${base}/images/${item.icon}"/>
+    								${item.name }
     							</a>
     						</li>
-    						<li>
+    					</c:forEach>
+    						<%-- <li>
     							<a href="#">
     								<img src="${base}/default/style/images/case/case_09.png"/>
     								学校环境
@@ -76,7 +76,7 @@
     								<img src="${base}/default/style/images/case/case_18.png"/>
     								车内环境
     							</a>
-    						</li>
+    						</li> --%>
     					</ul>
     				</div>
     			</li>

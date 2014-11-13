@@ -165,7 +165,9 @@
   <div id="section2" style="border-bottom:1px solid #FFF;" class="section">
   	<div class="products-two">	
   		 <div class="slide" id="slider1" style="cursor: pointer;">
+  		 <div style="text-align:center;">
   		 	<img src="${base}/default/style/images/product/product_02.jpg"/>
+  		 	</div>
                         	<div class="two-wenzi">
                         		<p><img src="${base}/default/style/images/product/products_04.png" class="animation-mark stretchLeft"/></p>
                         		<p>简约即是美</p>
@@ -173,7 +175,8 @@
                         	</div>
   		</div>
   		 <div class="slide" id="slider2" style="cursor: pointer;">
-  		 	<img src="${base}/default/style/images/product/product_02.jpg"/>
+  		 <div style="text-align:center;">
+  		 	<img src="${base}/default/style/images/product/product_02.jpg"/></div>
                         	<div class="two-wenzi">
                         		<p><img src="${base}/default/style/images/product/products_04.png" class="animation-mark stretchLeft"/></p>
                         		<p>简约即是美</p>
@@ -181,7 +184,9 @@
                         	</div>
   		</div>
   		 <div class="slide" id="slider3" style="cursor: pointer;">
+  		  <div style="text-align:center;">
   		 <img src="${base}/default/style/images/product/product_02.jpg"/>
+  		 </div>
                         	<div class="two-wenzi">
                         		<p><img src="${base}/default/style/images/product/products_04.png" class="animation-mark stretchLeft"/></p>
                         		<p>简约即是美</p>
