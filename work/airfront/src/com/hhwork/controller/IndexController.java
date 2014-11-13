@@ -63,11 +63,13 @@ public class IndexController extends BaseController {
 	
 	@RequestMapping({"download"})
 	public String download(ModelMap model) { 
+		
 		return "download"; 
     }
 	
 	@RequestMapping({"online"})
-	public String online(ModelMap model) { 
+	public String online(ModelMap model) {
+		
 		return "online"; 
     }
 	
