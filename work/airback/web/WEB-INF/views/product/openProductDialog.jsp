@@ -33,6 +33,11 @@
 	</div> 
 	<input type="hidden" id="mainPhoto" name="mainPhoto" value="${product.mainPhoto }"/>
 	<input id="upload" type="button" value="添加图片"/>
+	<div id="imgdiv">
+	<c:if test="${! empty product.mainPhoto }">
+		<img style='width:200px;' src='${base}/uploadimages/${product.mainPhoto}'/>
+		</c:if>
+	</div>
 	<jsp:include page="../common.jsp"></jsp:include>
 	<script src="${base }/js/ligerUI/js/core/base.js"
 		type="text/javascript"></script>
@@ -53,6 +58,9 @@
 	
 	function afterupload(json,data){
 		if(json.STATE=='SUCCESS'){
+			art.dialog.tips("上传成功");
+			var html = "<img style='width:200px;' src='${base}/uploadimages/"+json.PATH+"'/>";
+			$("#imgdiv").html(html);
 			
 			$("#mainPhoto").val(json.PATH);
 			
