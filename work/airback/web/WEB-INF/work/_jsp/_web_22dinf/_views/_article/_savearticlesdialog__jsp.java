@@ -27,20 +27,72 @@ public class _savearticlesdialog__jsp extends com.caucho.jsp.JavaPage
     javax.servlet.Servlet page = this;
     response.setContentType("text/html; charset=UTF-8");
     request.setCharacterEncoding("UTF-8");
+    com.caucho.jsp.IteratorLoopSupportTag _jsp_loop_0 = null;
     try {
       out.write(_jsp_string0, 0, _jsp_string0.length);
-      
-int port = request.getServerPort();
-String scheme = request.getScheme();
-String path = request.getScheme()+"://"+request.getServerName() + ((("http".equals(scheme) && port == 80) ||("https".equals(scheme)  && port == 443)) ? "" : ":" + port) + request.getContextPath();
-request.setAttribute("base", path);
-request.setAttribute("imagepath", path +"/images");
-
+      pageContext.include("../common.jsp", false);
       out.write(_jsp_string1, 0, _jsp_string1.length);
       _caucho_expr_0.print(out, _jsp_env, false);
       out.write(_jsp_string2, 0, _jsp_string2.length);
       _caucho_expr_1.print(out, _jsp_env, false);
       out.write(_jsp_string3, 0, _jsp_string3.length);
+      if (_jsp_loop_0 == null)
+        _jsp_loop_0 = new com.caucho.jsp.IteratorLoopSupportTag();
+      java.lang.Object _jsp_items_1 = _caucho_expr_2.evalObject(_jsp_env);
+      java.util.Iterator _jsp_iter_1 = com.caucho.jstl.rt.CoreForEachTag.getIterator(_jsp_items_1);
+      _jsp_loop_0.init(0, Integer.MAX_VALUE, 1);
+      while (_jsp_iter_1.hasNext()) {
+        Object _jsp_i_1 = _jsp_iter_1.next();
+        pageContext.setAttribute("item", _jsp_i_1);
+        _jsp_loop_0.setCurrent(_jsp_i_1, _jsp_iter_1.hasNext());
+        out.write(_jsp_string4, 0, _jsp_string4.length);
+        _caucho_expr_3.print(out, _jsp_env, false);
+        out.write(_jsp_string5, 0, _jsp_string5.length);
+        if (_caucho_expr_4.evalBoolean(_jsp_env)) {
+        }
+        out.write(_jsp_string6, 0, _jsp_string6.length);
+        _caucho_expr_5.print(out, _jsp_env, false);
+        out.write('(');
+        _caucho_expr_6.print(out, _jsp_env, false);
+        out.write(_jsp_string7, 0, _jsp_string7.length);
+      }
+      pageContext.removeAttribute("item");
+      out.write(_jsp_string8, 0, _jsp_string8.length);
+      _caucho_expr_7.print(out, _jsp_env, false);
+      out.write(_jsp_string9, 0, _jsp_string9.length);
+      if (_jsp_loop_0 == null)
+        _jsp_loop_0 = new com.caucho.jsp.IteratorLoopSupportTag();
+      java.lang.Object _jsp_items_2 = _caucho_expr_8.evalObject(_jsp_env);
+      java.util.Iterator _jsp_iter_2 = com.caucho.jstl.rt.CoreForEachTag.getIterator(_jsp_items_2);
+      _jsp_loop_0.init(0, Integer.MAX_VALUE, 1);
+      while (_jsp_iter_2.hasNext()) {
+        Object _jsp_i_2 = _jsp_iter_2.next();
+        pageContext.setAttribute("item", _jsp_i_2);
+        _jsp_loop_0.setCurrent(_jsp_i_2, _jsp_iter_2.hasNext());
+        out.write(_jsp_string10, 0, _jsp_string10.length);
+        _caucho_expr_9.print(out, _jsp_env, false);
+        out.write(_jsp_string11, 0, _jsp_string11.length);
+        _caucho_expr_10.print(out, _jsp_env, false);
+        out.write(_jsp_string12, 0, _jsp_string12.length);
+      }
+      pageContext.removeAttribute("item");
+      out.write(_jsp_string13, 0, _jsp_string13.length);
+      _caucho_expr_11.print(out, _jsp_env, false);
+      out.write(_jsp_string14, 0, _jsp_string14.length);
+      _caucho_expr_12.print(out, _jsp_env, false);
+      out.write(_jsp_string15, 0, _jsp_string15.length);
+      _caucho_expr_12.print(out, _jsp_env, false);
+      out.write(_jsp_string16, 0, _jsp_string16.length);
+      _caucho_expr_12.print(out, _jsp_env, false);
+      out.write(_jsp_string17, 0, _jsp_string17.length);
+      _caucho_expr_12.print(out, _jsp_env, false);
+      out.write(_jsp_string18, 0, _jsp_string18.length);
+      _caucho_expr_12.print(out, _jsp_env, false);
+      out.write(_jsp_string19, 0, _jsp_string19.length);
+      _caucho_expr_12.print(out, _jsp_env, false);
+      out.write(_jsp_string20, 0, _jsp_string20.length);
+      _caucho_expr_12.print(out, _jsp_env, false);
+      out.write(_jsp_string21, 0, _jsp_string21.length);
     } catch (java.lang.Throwable _jsp_e) {
       pageContext.handlePageException(_jsp_e);
     } finally {
@@ -95,8 +147,19 @@ request.setAttribute("imagepath", path +"/images");
     com.caucho.jsp.TaglibManager manager = webApp.getJspApplicationContext().getTaglibManager();
     manager.addTaglibFunctions(_jsp_functionMap, "c", "http://java.sun.com/jsp/jstl/core");
     com.caucho.jsp.PageContextImpl pageContext = new com.caucho.jsp.PageContextImpl(webApp, this);
-    _caucho_expr_0 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${base}");
-    _caucho_expr_1 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${data.content}");
+    _caucho_expr_0 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${article.id }");
+    _caucho_expr_1 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${article.title }");
+    _caucho_expr_2 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${bdlist}");
+    _caucho_expr_3 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${item.id }");
+    _caucho_expr_4 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${article.type==item.id }");
+    _caucho_expr_5 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${item.name }");
+    _caucho_expr_6 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${item.baseType }");
+    _caucho_expr_7 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${article.img }");
+    _caucho_expr_8 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${imgList }");
+    _caucho_expr_9 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${base}");
+    _caucho_expr_10 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${item}");
+    _caucho_expr_11 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${article.content}");
+    _caucho_expr_12 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${base }");
   }
 
   public void destroy()
@@ -117,20 +180,75 @@ request.setAttribute("imagepath", path +"/images");
     String resourcePath = loader.getResourcePathSpecificFirst();
     mergePath.addClassPath(resourcePath);
     com.caucho.vfs.Depend depend;
-    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/article/saveArticlesDialog.jsp"), 853659676317203110L, false);
+    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/article/saveArticlesDialog.jsp"), 1430611004844233561L, false);
     com.caucho.jsp.JavaPage.addDepend(_caucho_depends, depend);
+  }
+
+  static {
+    try {
+    } catch (Exception e) {
+      e.printStackTrace();
+      throw new RuntimeException(e);
+    }
   }
   private static com.caucho.el.Expr _caucho_expr_0;
   private static com.caucho.el.Expr _caucho_expr_1;
+  private static com.caucho.el.Expr _caucho_expr_2;
+  private static com.caucho.el.Expr _caucho_expr_3;
+  private static com.caucho.el.Expr _caucho_expr_4;
+  private static com.caucho.el.Expr _caucho_expr_5;
+  private static com.caucho.el.Expr _caucho_expr_6;
+  private static com.caucho.el.Expr _caucho_expr_7;
+  private static com.caucho.el.Expr _caucho_expr_8;
+  private static com.caucho.el.Expr _caucho_expr_9;
+  private static com.caucho.el.Expr _caucho_expr_10;
+  private static com.caucho.el.Expr _caucho_expr_11;
+  private static com.caucho.el.Expr _caucho_expr_12;
 
-  private final static char []_jsp_string2;
-  private final static char []_jsp_string1;
+  private final static char []_jsp_string9;
+  private final static char []_jsp_string21;
+  private final static char []_jsp_string16;
+  private final static char []_jsp_string17;
+  private final static char []_jsp_string20;
+  private final static char []_jsp_string10;
+  private final static char []_jsp_string7;
+  private final static char []_jsp_string15;
   private final static char []_jsp_string3;
+  private final static char []_jsp_string2;
+  private final static char []_jsp_string13;
+  private final static char []_jsp_string5;
+  private final static char []_jsp_string18;
+  private final static char []_jsp_string4;
+  private final static char []_jsp_string11;
+  private final static char []_jsp_string6;
+  private final static char []_jsp_string12;
+  private final static char []_jsp_string14;
   private final static char []_jsp_string0;
+  private final static char []_jsp_string8;
+  private final static char []_jsp_string19;
+  private final static char []_jsp_string1;
   static {
-    _jsp_string2 = "';\r\n</script>\r\n</head>\r\n<body>\r\n	<div>\r\n	\u6807\u9898:<input type=\"text\" id=\"title\" style=\"width:80%\"/>\r\n	<div style=\"clear:both;margin:5px;\"></div>\r\n	</div>\r\n	<div>\r\n	<script type=\"text/plain\" id=\"content\" name=\"content\">".toCharArray();
-    _jsp_string1 = "\r\n<script type='text/javascript'>\r\n	var base='".toCharArray();
-    _jsp_string3 = "</script>\r\n	</div>\r\n<script type=\"text/javascript\" src=\"/js/ueditor/ueditor.config.js\"></script>\r\n<script type=\"text/javascript\" src=\"/js/ueditor/ueditor.all.min.js\"></script>\r\n\r\n<script type=\"text/javascript\" src=\"/js/jquery-1.8.3.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"/js/custom/articles/saveArticlesDialog.js\"></script>\r\n</body>\r\n</html>".toCharArray();
+    _jsp_string9 = "\"/>\r\n	\u56fe\u7247:<input type=\"button\" value=\"\u6dfb\u52a0\" id=\"upload\"/>\r\n	<div id=\"imgdiv\">\r\n	".toCharArray();
+    _jsp_string21 = "/js/custom/articles/saveArticlesDialog.js\"></script>\r\n</body>\r\n</html>".toCharArray();
+    _jsp_string16 = "/js/ueditor/ueditor.all.min.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
+    _jsp_string17 = "/js/artDialog/artDialog.js?skin=blue\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
+    _jsp_string20 = "/js/common.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
+    _jsp_string10 = "\r\n	<img style='width:100px;' path='\"+json.PATH+\"' src=\"".toCharArray();
+    _jsp_string7 = ")</option>\r\n	".toCharArray();
+    _jsp_string15 = "/js/ueditor/ueditor.config.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
+    _jsp_string3 = "\"/>\r\n	<div style=\"clear:both;margin:5px;\"></div>\r\n	</div>\r\n	<div>\r\n	\u7c7b\u578b:<select name=\"type\" id=\"type\">\r\n	".toCharArray();
+    _jsp_string2 = "\"/>\r\n	<div>\r\n	\u6807\u9898:<input type=\"text\" id=\"title\" style=\"width:80%\" value=\"".toCharArray();
+    _jsp_string13 = "\r\n	</div>\r\n	</div>\r\n	<div>\r\n	<script type=\"text/plain\" id=\"content\" name=\"content\">".toCharArray();
+    _jsp_string5 = "\"\r\n	".toCharArray();
+    _jsp_string18 = "/js/artDialog/plugins/iframeTools.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
+    _jsp_string4 = "\r\n	<option value=\"".toCharArray();
+    _jsp_string11 = "/uploadimages/".toCharArray();
+    _jsp_string6 = " \r\n	>".toCharArray();
+    _jsp_string12 = "\"/>\r\n	".toCharArray();
+    _jsp_string14 = "</script>\r\n	</div>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
     _jsp_string0 = "\r\n\r\n<html>\r\n<head>\r\n<title>\u4fee\u6539\u6587\u7ae0</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n<style type=\"text/css\">\r\n</style>\r\n".toCharArray();
+    _jsp_string8 = "\r\n	</select>\r\n	</div>\r\n	<input type=\"hidden\" id=\"imgpath\" name=\"imgpath\" value=\"".toCharArray();
+    _jsp_string19 = "/js/ajaxupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
+    _jsp_string1 = "\r\n</head>\r\n<body>\r\n	<input type=\"hidden\" id=\"articleId\" value=\"".toCharArray();
   }
 }
