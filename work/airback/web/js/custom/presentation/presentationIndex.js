@@ -79,7 +79,7 @@ var presentationIndex=function(){
 			$("#imagePanel").hide();
 		},
 		getContent:function(){
-			var content=contentEditor.getContentTxt();
+			var content=contentEditor.getContent();
 			return content;
 		}
 	}

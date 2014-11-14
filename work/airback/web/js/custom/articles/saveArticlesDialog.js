@@ -7,7 +7,7 @@ var saveArticleDialog=function(){
 		},
 		getContent:function(){
 			var title=$("#title").val();
-			var content=contentEditor.getContentTxt();
+			var content=contentEditor.getContent();
 			return content;
 		}
 	}
