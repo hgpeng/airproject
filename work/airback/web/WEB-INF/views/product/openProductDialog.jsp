@@ -33,7 +33,7 @@
 	产品类别:
 	<select id="serials" style="width:150px;">
 		<c:forEach items="${serials }" var="item">
-			<option value="${item.id }">${item.name }</option>
+			<option value="${item.id }" <c:if test="${product.basedataId==item.id }">selected</c:if>>${item.name }</option>
 		</c:forEach>
 	</select>
 	</div>

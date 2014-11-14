@@ -81,6 +81,7 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 		p.setCreateTime(rs.getDate("createTime"));
 		p.setCreateMan(rs.getString("createMan"));
 		p.setTypeId(rs.getInt("typeId"));
+		p.setBasedataId(rs.getInt("basedataId"));
 		return p;
 	}
 
