@@ -40,7 +40,7 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 	@Override
 	public Pagination<Product> getProducts(Pagination<Product> page,
 			Map<String, Object> query) {
-		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,name,descr,mainPhoto,status,templateId,createTime,createMan from product where 1=1 ");
+		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,name,typeId,descr,mainPhoto,status,basedataId,createTime,createMan from product where 1=1 ");
 		List<Object> args=new ArrayList<Object>();
 		return SQLHelpers.getRowSize(sql.toString(), airDataSource, args.toArray(), page, new PageMapper<Product>(){
 
@@ -59,7 +59,7 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 
 	@Override
 	public Product getProduct(int id) {
-		String sql="select id,name,descr,mainPhoto,status,templateId,createTime,createMan from product where id=?";
+		String sql="select id,name,typeId,descr,mainPhoto,status,basedataId,createTime,createMan from product where id=?";
 		
 		return airJdbcTemplate.queryForObject(sql,new Object[]{ id},new RowMapper<Product>() {
 
@@ -77,9 +77,10 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 		p.setDesc(rs.getString("descr"));
 		p.setMainPhoto(rs.getString("mainPhoto"));
 		p.setStatus(rs.getInt("status"));
-		p.setTemplateId(rs.getInt("templateId"));
+		p.setBasedataId(rs.getInt("basedataId"));
 		p.setCreateTime(rs.getDate("createTime"));
 		p.setCreateMan(rs.getString("createMan"));
+		p.setTypeId(rs.getInt("typeId"));
 		return p;
 	}
 

@@ -180,7 +180,7 @@ public class _savearticlesdialog__jsp extends com.caucho.jsp.JavaPage
     String resourcePath = loader.getResourcePathSpecificFirst();
     mergePath.addClassPath(resourcePath);
     com.caucho.vfs.Depend depend;
-    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/article/saveArticlesDialog.jsp"), 1430611004844233561L, false);
+    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/article/saveArticlesDialog.jsp"), 5592689790567951101L, false);
     com.caucho.jsp.JavaPage.addDepend(_caucho_depends, depend);
   }
 
@@ -211,11 +211,11 @@ public class _savearticlesdialog__jsp extends com.caucho.jsp.JavaPage
   private final static char []_jsp_string17;
   private final static char []_jsp_string20;
   private final static char []_jsp_string10;
+  private final static char []_jsp_string13;
   private final static char []_jsp_string7;
   private final static char []_jsp_string15;
   private final static char []_jsp_string3;
   private final static char []_jsp_string2;
-  private final static char []_jsp_string13;
   private final static char []_jsp_string5;
   private final static char []_jsp_string18;
   private final static char []_jsp_string4;
@@ -234,11 +234,11 @@ public class _savearticlesdialog__jsp extends com.caucho.jsp.JavaPage
     _jsp_string17 = "/js/artDialog/artDialog.js?skin=blue\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
     _jsp_string20 = "/js/common.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
     _jsp_string10 = "\r\n	<img style='width:100px;' path='\"+json.PATH+\"' src=\"".toCharArray();
+    _jsp_string13 = "\r\n	</div>\r\n	</div>\r\n	<div style=\"width:90%\">\r\n	<script type=\"text/plain\" id=\"content\" name=\"content\">".toCharArray();
     _jsp_string7 = ")</option>\r\n	".toCharArray();
     _jsp_string15 = "/js/ueditor/ueditor.config.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
     _jsp_string3 = "\"/>\r\n	<div style=\"clear:both;margin:5px;\"></div>\r\n	</div>\r\n	<div>\r\n	\u7c7b\u578b:<select name=\"type\" id=\"type\">\r\n	".toCharArray();
     _jsp_string2 = "\"/>\r\n	<div>\r\n	\u6807\u9898:<input type=\"text\" id=\"title\" style=\"width:80%\" value=\"".toCharArray();
-    _jsp_string13 = "\r\n	</div>\r\n	</div>\r\n	<div>\r\n	<script type=\"text/plain\" id=\"content\" name=\"content\">".toCharArray();
     _jsp_string5 = "\"\r\n	".toCharArray();
     _jsp_string18 = "/js/artDialog/plugins/iframeTools.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
     _jsp_string4 = "\r\n	<option value=\"".toCharArray();

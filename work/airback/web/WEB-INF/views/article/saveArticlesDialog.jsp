@@ -32,7 +32,7 @@
 	</c:forEach>
 	</div>
 	</div>
-	<div style="width:550px;">
+	<div style="width:90%">
 	<script type="text/plain" id="content" name="content">${article.content}</script>
 	</div>
 <script type="text/javascript" src="${base }/js/ueditor/ueditor.config.js"></script>

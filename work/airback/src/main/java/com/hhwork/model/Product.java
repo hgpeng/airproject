@@ -21,7 +21,7 @@ public class Product {
 	
 	private int status;
 	
-	private int templateId;
+	private int basedataId;
 	
 	private Date createTime;
 	
@@ -67,12 +67,14 @@ public class Product {
 		this.status = status;
 	}
 
-	public int getTemplateId() {
-		return templateId;
+	
+
+	public int getBasedataId() {
+		return basedataId;
 	}
 
-	public void setTemplateId(int templateId) {
-		this.templateId = templateId;
+	public void setBasedataId(int basedataId) {
+		this.basedataId = basedataId;
 	}
 
 	public Date getCreateTime() {

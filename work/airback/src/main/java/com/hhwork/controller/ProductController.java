@@ -2,6 +2,7 @@ package com.hhwork.controller;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -17,7 +18,9 @@ import com.d3.d396333.common.util.ResponseUtils;
 import com.dingjian.base.util.StringUtils;
 import com.hhwork.common.Constants;
 import com.hhwork.common.Pagination;
+import com.hhwork.model.BaseData;
 import com.hhwork.model.Product;
+import com.hhwork.service.BaseDataService;
 import com.hhwork.service.ProductService;
 
 @Controller
@@ -27,6 +30,9 @@ public class ProductController extends BaseController {
 	
 	@Resource
 	protected ProductService productService;
+	
+	@Resource
+	protected BaseDataService baseDataService;
 	
 	@RequestMapping("productIndex")
 	public String productIndex(ModelMap modelMap){
@@ -48,6 +54,8 @@ public class ProductController extends BaseController {
 			Product product=productService.getProduct(productId);
 			modelMap.put("product", product);
 		}
+		List<BaseData> productSerial=baseDataService.getBaseDataByBaseTypeId(Constants.BaseType.PRODUCT_SERIAL);
+		modelMap.put("serials", productSerial);
 		return "/product/openProductDialog";
 	}
 	
@@ -65,7 +73,8 @@ public class ProductController extends BaseController {
 			desc="";
 		}
 		if(StringUtils.isEmpty(mainPhoto)){
-			mainPhoto="";
+			//不更新该字段
+			mainPhoto=null;
 		}
 		Product p=new Product();
 		int productId=getInt("id",-1);
@@ -76,6 +85,8 @@ public class ProductController extends BaseController {
 		if(typeId!=-1){
 			p.setTypeId(typeId);
 		}
+		int basedataId=getInt("basedataId",-1);
+		p.setBasedataId(basedataId);
 		p.setCreateTime(new Date());
 		p.setName(name);
 		p.setDesc(desc);

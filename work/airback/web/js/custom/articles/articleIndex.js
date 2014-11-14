@@ -1,6 +1,7 @@
 var article=function(){
 	var grid;
 	var _this;
+	var document;
 	
 	function reload(){
 		var param=_this.getParam();
@@ -9,8 +10,9 @@ var article=function(){
 	}
 	
 	return {
-		init:function(){
+		init:function(doc){
 			_this=this;
+			document=doc;
 			grid=$("#tableGrid").ligerGrid({
 				columns: [ 
 	            {display: '主键', name: 'id', align: 'center', width: '5%' },
@@ -37,11 +39,13 @@ var article=function(){
 
 		},
 		add:function(id){
+			var width=$(document).width()-50;
+			var height=$(document).height()*0.8;
 			art.dialog.open('/articles/saveArticlesDialog.jsps?articleId='+id,{
 				id:"saveBaseType",
 				title:'保存文章',
-				width: 600,
-				height: 450,
+				width: width,
+				height: height,
 				resizable: false,
 				lock:true,
 				okVal:'保存',
@@ -98,5 +102,5 @@ function deleteArticle(id){
 	article.delete(id);
 }
 $(function(){
-	article.init();
+	article.init(document);
 });

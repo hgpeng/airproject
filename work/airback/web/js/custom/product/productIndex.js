@@ -164,6 +164,12 @@ var productIndex=function(){
 						alert("请选择产品展示类型");
 						return false;
 					}
+					var basedataId=page.find("#serials >option:selected").val();
+					if(!basedataId){
+						alert("请选择产品类别");
+						return false;
+					}
+					params.basedataId=basedataId;
 					params.typeId=typeId;
 					$.ajax({
 						url:base+'/product/saveProduct.jsps',
