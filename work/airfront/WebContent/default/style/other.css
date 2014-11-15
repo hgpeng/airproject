@@ -151,4 +151,9 @@ visibility:hidden;}
 .news-more{background:#00a0e9; line-height:43px; height:43px; border-radius:3px; display:inline-block; padding:0px 30px;}
 .news-more:hover{background:#0385c1;}
 
-
+.video{margin-left:-107px;}
+.video ul li{width:320px; height:220px; float:left; color:#333; margin:0px 0px 50px 115px;}
+.videoin{width:320px; height:180px; position:relative;}
+.videoin.video-hover{width:320px; height:240px; display:none;}
+.videoin:hover .video-hover{width:320px; height:240px; background:url(images/other/video-hover1.png) no-repeat; position: absolute; left:0px; top:0px; z-index:11;}
+.video ul li p{padding-top:10px;}

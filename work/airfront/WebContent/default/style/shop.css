@@ -1,10 +1,3 @@
-.shop_01 i{ width:110px; height:91px; display:block; background:url(../img/shop_09.png) no-repeat left top; margin:10px 0;}
-.shop_01:hover i{ background-position: left -91px;}
-.shop_02 i{ width:110px; height:91px; display:block; background:url(../img/shop_10.png) no-repeat left top; margin:10px 0;}
-.shop_02:hover i{ background-position: left -91px;}
-.shop_03 i{ width:110px; height:91px; display:block; background:url(../img/shop_11.png) no-repeat left top; margin:10px 0;}
-.shop_03:hover i{ background-position: left -91px;}
-
 .shop_box01 { width:100%; background:#fff; height:700px; overflow:hidden;}
 .box01-main { width:1200px;height:700px; margin:0 auto; position:relative;}
 .box01-img01 { margin:95px 0 0 40px;}
@@ -13,10 +6,10 @@
 .box01-wenzi { position:absolute; width:376px; height:225px; right:0; top:190px;}
 .wenzi_01 { font-size:30px; line-height:48px; color:#626262;}
 .wenzi_02 { font-size:30px; line-height:48px; color:#f39700;}
-.goumai { width:132px; height:35px; text-align:center; line-height:32px; color:#fff; font-size:14px; display:block; background:url(../img/shop_03.png) no-repeat; margin-top:20px;}
+.goumai { width:132px; height:35px; text-align:center; line-height:32px; color:#fff; font-size:14px; display:block; background:url(images/other/shop_03.png) no-repeat; margin-top:20px;}
 .goumai:hover { color:#fff; text-decoration:none; opacity:0.8;}
 
-.shop_box02 { width:100%; height:700px; overflow:hidden; background:#f2f2f2 url(../img/shop_01.jpg) no-repeat center bottom;}
+.shop_box02 { width:100%; height:700px; overflow:hidden; background:#f2f2f2 url(images/other/shop_01.jpg) no-repeat center bottom;}
 .box02-img01 { position:absolute; right:98px; top:40px;-webkit-transform: translateY(-2000px);transform: translateY(-2000px);}
 .box02-wenzi { top:200px; position:absolute; left:50px;-webkit-transform: translateX(-2000px);transform: translateX(-2000px);}
 .shop_box03 {width:100%; height:700px; overflow:hidden;}

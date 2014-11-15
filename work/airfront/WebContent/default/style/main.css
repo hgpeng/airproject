@@ -45,7 +45,7 @@ transition-delay:0; height:0; overflow:hidden;z-index:9999;}
 .nav li .two-nav { color:#008bd6; position:relative;}
 
 /*右边menu*/
-#contro{position:fixed; top:50%; right:0px; margin-top:-250px; width:110px; z-index:1200;}
+#contro{background:url(images/rightlogo.jpg) repeat scroll 0 0;position:fixed; top:50%; right:0px; margin-top:-250px; width:110px; z-index:1200;}
 .imgp{background-position:50% 50%; background-size:cover; background-repeat:no-repeat; height:100%; min-height:100%;}
 .logobox{width:110px; height:110px; padding:0 0 1px 0;}
 .conbox{width:110px; height:auto; background:url(images/rightmenu.jpg);}
@@ -110,9 +110,9 @@ transition-delay:0; height:0; overflow:hidden;z-index:9999;}
 .pagebody{ width:1024px; margin:auto; overflow:hidden;}
 .pageleft{ float:left; width:253px; padding:100px 0 0 0;}
 .pageright{ float:left; width:771px; padding:5px 0 0 0;}
-.pagetitle{ font-size:37px; color:#FFF; height:105px; line-height:105px; font-weight:normal; text-align:right;}
+.pagetitle{ font-size:37px; color:#FFF; height:105px; padding-bottom:20px;line-height:105px; font-weight:normal; text-align:right;}
 
-.Tab{ background:url(images/titlebg.png) right 108px no-repeat; height:138px; padding:0 0 9px 21px;overflow:hidden;}
+.Tab{ background:url(images/titlebg.png) right 108px no-repeat; height:138px; padding:0 0 9px 21px;}
 
 .Tab ul li{ background:url(images/ico3.png) 44px 106px no-repeat; float:left; width:114px; padding:0 10px 0 0; font-size:18px; text-align:center;height:138px;}
 
@@ -124,13 +124,6 @@ transition-delay:0; height:0; overflow:hidden;z-index:9999;}
 	-moz-transition:all 1.2s; 	/* Firefox */
 	-webkit-transition:all 1.2s; /* Safari 和 Chrome */
 	-o-transition:all 1.2s;
-	}
-#tags a:hover img{
-	transform:scale(1.1);
-	-ms-transform:scale(1.1); 	/* IE 9 */
-	-moz-transform:scale(1.1); 	/* Firefox */
-	-webkit-transform:scale(1.1); /* Safari 和 Chrome */
-	-o-transform:scale(1.1);
 	}
 #tagContent0 .pageico{ left:48px;}
 #tagContent1 .pageico{ left:171px;}
@@ -379,3 +372,10 @@ img.pgymove{
 	-webkit-transition:all 1.2s; Safari 和 Chrome
 	-o-transition:all 1.2s;
 } */
+
+.shop_01 i{ width:110px; height:91px; display:block; background:url(images/other/shop_09.png) no-repeat left top; margin:10px 0;}
+.shop_01:hover i{ background-position: left -91px;}
+.shop_02 i{ width:110px; height:91px; display:block; background:url(images/other/shop_10.png) no-repeat left top; margin:10px 0;}
+.shop_02:hover i{ background-position: left -91px;}
+.shop_03 i{ width:110px; height:91px; display:block; background:url(images/other/shop_11.png) no-repeat left top; margin:10px 0;}
+.shop_03:hover i{ background-position: left -91px;}

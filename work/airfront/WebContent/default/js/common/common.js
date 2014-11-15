@@ -31,3 +31,7 @@
             $obj.stop().animate(css, 500)
         }
     }
+    
+    function openurl(url){
+    	window.location.href = url;
+    }
