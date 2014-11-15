@@ -26,7 +26,8 @@
 		}); */
 		
 		$("div.example4").slide({mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:8});
-		
+		$("div.btn-group").find("a.prevPage").css("left","0");
+		$("div.btn-group").find("a.nextPage").css("right","0");
 	});
 	
 	
@@ -82,192 +83,28 @@
         </div>
         <div class="pro-box">
         	<div class="pro-boxlist">
-            	<ul class="c" id="myTab2_Content0">
-                	<li >
-                    	<a class="newsin" href="${base }/product">
-                        	<img src="${base}/default/style/images/product/product_06.jpg" />
-                            <p>空气眼</p>
+        	
+        		<c:forEach items="${bdlist }" var="seriitem" varStatus="status">
+        			<ul class="c" id="myTab2_Content${status.index}"  <c:if test="${status.index>0 }">style="display:none"</c:if> >
+        				<c:forEach items="${prolist }" var="item" varStatus="status">
+        				<c:if test="${item.templateId==seriitem.id }">
+            			<li >
+                    	<a class="newsin" href="${base }/productDetail?id=${item.id}">
+                        	<img src="${base}/images/${item.mainPhoto}" />
+                            <p>${item.name }</p>
                              <div class="newinbg">
                            
 		                       <div class="newsinadd"></div>
 		                       </div>
                         </a>
                     </li>
-                    <li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_07.jpg" />
-                            <p>空气侠</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_08.jpg" />
-                            <p>除味剂</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#" class="demo-test"><img src="${base}/default/style/images/product/product_09.jpg" /></a>
-                    </li>
-                    <li></li>
-                    <li></li>
-                </ul>
-                
-                <ul class="c" id="myTab2_Content1" style="display:none">
-                	<li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_08.jpg" />
-                            <p>空气净化器</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_06.jpg" />
-                            <p>空气净化器</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_07.jpg" />
-                            <p>空气净化器</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#" class="demo-test"><img src="${base}/default/style/images/product/product_09.jpg" /></a>
-                    </li>
-                    <li></li>
-                    <li></li>
-                </ul>
-                
-                <ul class="c" id="myTab2_Content2" style="display:none">
-                	<li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_06.jpg" />
-                            <p>红外模块</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_07.jpg" />
-                            <p>红外模块</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_08.jpg" />
-                            <p>红外模块</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#" class="demo-test"><img src="${base}/default/style/images/product/product_09.jpg" /></a>
-                    </li>
-                    <li></li>
-                    <li></li>
-                </ul>
-                
-                <ul class="c" id="myTab2_Content3" style="display:none">
-                	<li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_08.jpg" />
-                            <p>智能开关</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_06.jpg" />
-                            <p>智能开关</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_07.jpg" />
-                            <p>智能开关</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#" class="demo-test"><img src="${base}/default/style/images/product/product_09.jpg" /></a>
-                    </li>
-                    <li></li>
-                    <li></li>
-                </ul>
-                
-                <ul class="c" id="myTab2_Content4" style="display:none">
-                	<li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_06.jpg" />
-                            <p>净化产品</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_07.jpg" />
-                            <p>净化产品</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_08.jpg" />
-                            <p>净化产品</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#" class="demo-test"><img src="${base}/default/style/images/product/product_09.jpg" /></a>
-                    </li>
-                    <li></li>
-                    <li></li>
-                </ul>
-                
-                <ul class="c" id="myTab2_Content5" style="display:none">
-                	<li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_06.jpg" />
-                            <p>APP</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_07.jpg" />
-                            <p>APP</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_08.jpg" />
-                            <p>APP</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#" class="demo-test"><img src="${base}/default/style/images/product/product_09.jpg" /></a>
-                    </li>
-                    <li></li>
-                    <li></li>
-                </ul>
-                
-                <ul class="c" id="myTab2_Content6" style="display:none">
-                	<li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_06.jpg" />
-                            <p>APP</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_07.jpg" />
-                            <p>APP</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#">
-                        	<img src="${base}/default/style/images/product/product_08.jpg" />
-                            <p>APP</p>
-                        </a>
-                    </li>
-                    <li>
-                    	<a href="#" class="demo-test"><img src="${base}/default/style/images/product/product_09.jpg" /></a>
-                    </li>
-                    <li></li>
-                    <li></li>
-                </ul>
-                
+                    </c:if>
+            		</c:forEach>
+        			</ul>
+        		</c:forEach>
+        	
+            	
+              
             </div>
             <div class="pro-more">
             	<a href="#"><img src="${base}/default/style/images/product/product_10.jpg" /> 更多>></a>
@@ -275,7 +112,10 @@
         </div>
     </div>
     
-	<div class="section">
+	
+</div>
+
+<div class="section">
     <div class="homemenu">
       <ul>
         <li><a href="#">了解德士特</a></li>
@@ -345,7 +185,7 @@
       
     </div>
     </div> 
-</div>
+
 </div>
 <script type="text/javascript"  src="${base}/default/js/module/banner.js"></script>
 <script type="text/javascript">

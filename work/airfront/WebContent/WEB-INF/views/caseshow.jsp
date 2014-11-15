@@ -8,6 +8,7 @@
 <meta name="renderer" content="webkit">
 <jsp:include page="common/commonHead.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="${base }/default/style/case-show.css"/>
+<link rel="stylesheet" type="text/css" href="${base }/default/style/product-show.css"/>
 <script type="text/javascript" src="${base}/default/js/control/superslider.js"></script>
 <title>工程案例</title>
 </head>
@@ -20,14 +21,10 @@
 		
 			<div class="bd">
 				<ul>
-				<c:if test="{!empty cplist}">
 				<c:forEach items="${cplist }" var="item"  varStatus="status">
-					<li _src="url(${base}/images/${item.path}" style="background:#e6e6e6 center center no-repeat;background-size:1440px auto"></li>				
+					<li _src="url(${base}/images/${item.path})" style="background:#e6e6e6 center center no-repeat;background-size:1440px auto"></li>	
 				</c:forEach>
-				</c:if>
-					<li _src="url(${base}/default/style/images/case/case01.jpg)" style="background:#e6e6e6 center center no-repeat;background-size:1440px auto"></li>
-					<li _src="url(${base}/default/style/images/case/case03.jpg)" style="background:#e6e6e6 center center no-repeat;background-size:1440px auto"></li>
-				
+						
 				</ul>
 			</div>
 		

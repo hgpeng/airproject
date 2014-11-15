@@ -11,7 +11,7 @@
     					<ul>
     					<c:forEach items="${celist }" var="item">
     						<li>
-    							<a href="#">
+    							<a href="${base}/caseclass?type=${item.id}">
     								<img src="${base}/images/${item.icon}"/>
     								${item.name }
     							</a>

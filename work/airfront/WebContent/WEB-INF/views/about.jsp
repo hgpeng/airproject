@@ -91,7 +91,7 @@
      	<div id="about${item.id }" class="about-list">
           <p class="blue">${fn:substring(item.basedata.name,0,4)}</p>
           <p class="font24 pt10 pb15">${fn:substring(item.basedata.name,4,-1)}</p>
-          <div class="combox">
+          <div class="combox" >
                <div class="about-listl"><img src="${base}/images/${item.basedata.icon}"></div>
                <div class="about-listr">
                     <h1 class="nobold">${item.title }</h1>
@@ -104,7 +104,7 @@
            <!------展开div------->
           <div class="about-expansion" style="display:none;">
                
-               <div class="coombox pt40">
+               <div class="coombox pt40"  style="border-top:1px solid #ccc; margin-top:20px; padding-top:20px;">
                     ${item.content }
                </div>
           

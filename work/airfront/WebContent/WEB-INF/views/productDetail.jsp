@@ -37,7 +37,22 @@
 				anchors: ancary,
 				navigation: true,
 				navigationPosition: 'left',
-				easing :'easeInOutQuart'
+				easing :'easeInOutQuart',
+				onLeave:function(index,nextIndex,direction ){
+					if(index==ancary.length){
+						$("#boxwarp").css("margin-top","0");
+						$("#boxwarp").css("transition-duration","0");
+					}
+				},
+				afterLoad: function(anchorLink, index){
+					if(index==ancary.length){
+			        	 if(mgheight>0)
+			        	 	$("#boxwarp").trans({"margin-top":"-"+mgheight+"px","transition-duration":"0.5s"});
+			         }	
+			         if(index==1){
+			        	 $("#boxwarp").css("top","0");
+			         }
+				}
 			});
 		 var _autoPlayIndex = 1;
 		 var maxPlay = $("#section1 .slide").length;
@@ -59,8 +74,14 @@
 		
 		
 		imgSize(winWidth,winHeight);
-		$("#boxwarp .header").css("position","relative");	
-
+		//$("#boxwarp .header").css("position","relative");	
+		if(winHeight>(575+40)){
+			$("div .homemenu").css("padding-top",(winHeight-615)/2).css("padding-bottom",(winHeight-615)/2);
+		}else{
+			mgheight = 615+60-winHeight;
+			$("div .homemenu").css("padding","30px 0");
+		}
+		
 		$("div[name='flashdiv']").height(winHeight).width(winWidth);
 	})
 
@@ -84,6 +105,11 @@
        
 
     }
+    
+    function showDetail(id){
+    	if(id=='0')return;
+    	window.location.href = base+"/productDetail?id="+id;
+    }
 	
 </script>
 <title>首页</title>
@@ -95,10 +121,14 @@
   
    <c:forEach items="${prelist }" var="item"  varStatus="status">
    		<div id="section${status.index+1}" class="section">
+   		   <div style="width:100%;height:100%;" <c:if test="${! empty item.detail }">onclick="showDetail('${item.detail}')"</c:if> >
+   		
    			${item.html}
+   			</div>
    		</div>
+   		
    </c:forEach>
-  
+
   <div id="section${prelength+1 }" style=" height:inherit; background:#FFF;" class="section">
     <div class="homemenu">
       <ul>
@@ -109,7 +139,7 @@
     </div>
     <div class="homebody">
       <div style="height:486px;">
-      <div class="centerbody bounceInUp animation-mark" style="display:none;">
+      <div class="centerbody bounceInUp animation-mark" style="display:block;">
         <div class="leftnews"><img class="newslogo" src="${base }/default/style/images/newslogo.png" alt=""/>
           <dl>
             <dt>2014/09<span>28</span></dt>

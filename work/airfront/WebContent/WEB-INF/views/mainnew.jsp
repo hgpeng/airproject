@@ -269,51 +269,52 @@
   <div id="section2" style="border-bottom:1px solid #FFF;" class="section">
   <img  class="bgimg" src="${base }/default/style/images/bg2.jpg" alt="">
     <div class="pagebody">
-    <div class="pageleft"><img src="${base }/default/style/images/pageimg.png" alt=""/></div>
+    <div class="pageleft"><img src="${base }/default/style/images/newhome/title7.png" alt=""/></div>
     <div class="pageright">
     <h3 class="pagetitle">六大核心技术</h3>
     <div class="Tab">
 <ul id=tags>
 <li class="selectTag">
 <a onmouseover="selectTag('tagContent0',this)"  href="javascript:void(0)" title="微生物技术">
-<img class="animation-mark rollIn"  style="animation-delay:0.5s;-webkit-animation-delay:0.5s;" src="${base }/default/style/images/title1.png" alt="微生物技术"/></a></li>
+<img class="animation-mark rollIn"  style="margin-left:-15px;margin-top:-25px;animation-delay:0.5s;-webkit-animation-delay:0.5s;" src="${base }/default/style/images/newhome/title1.png" alt="微生物技术"/></a></li>
 <li ><a onmouseover="selectTag('tagContent1',this)"   href="javascript:void(0)" title="低温等离子">
-<img  class="animation-mark rollIn" style="animation-delay:0.7s;-webkit-animation-delay:0.7s;" src="${base }/default/style/images/title2.png" alt="低温等离子"/>
+<img  class="animation-mark rollIn" style="margin-left:-10px;margin-top:-25px;animation-delay:0.7s;-webkit-animation-delay:0.7s;" src="${base }/default/style/images/newhome/title2.png" alt="低温等离子"/>
 </a></li>
 <li ><a onmouseover="selectTag('tagContent2',this)"  href="javascript:void(0)" title="负离子技术">
-<img  class="animation-mark rollIn" style="animation-delay:0.9s;-webkit-animation-delay:0.9s;" src="${base }/default/style/images/title3.png" alt="负离子技术"/> </a></li>
+<img  class="animation-mark rollIn" style="margin-left:-15px;margin-top:-25px;animation-delay:0.9s;-webkit-animation-delay:0.9s;" src="${base }/default/style/images/newhome/title3.png" alt="负离子技术"/> </a></li>
 <li ><a onmouseover="selectTag('tagContent3',this)"  href="javascript:void(0)" title="光触媒技术">
-<img  class="animation-mark rollIn" style="animation-delay:1.1s;-webkit-animation-delay:1.1s;" src="${base }/default/style/images/title4.png" alt="光触媒技术"/></a></li>
+<img  class="animation-mark rollIn" style="margin-left:-15px;margin-top:-25px;animation-delay:1.1s;-webkit-animation-delay:1.1s;" src="${base }/default/style/images/newhome/title4.png" alt="光触媒技术"/></a></li>
 <li ><a onmouseover="selectTag('tagContent4',this)"  href="javascript:void(0)" title="智能新风系统">
-<img  class="animation-mark rollIn" style="animation-delay:1.3s;-webkit-animation-delay:1.3s;" src="${base }/default/style/images/title5.png" alt="智能新风系统"/></a></li>
+<img  class="animation-mark rollIn" style="margin-left:-15px;margin-top:-25px;animation-delay:1.3s;-webkit-animation-delay:1.3s;" src="${base }/default/style/images/newhome/title5.png" alt="智能新风系统"/></a></li>
 <li ><a onmouseover="selectTag('tagContent5',this)"  href="javascript:void(0)" title="分布式加湿">
-<img  class="animation-mark rollIn" style="animation-delay:1.5s;-webkit-animation-delay:1.5s;" src="${base }/default/style/images/title6.png" alt="分布式加湿"/></a></li>
+<img  class="animation-mark rollIn" style="margin-left:-15px;margin-top:-25px;animation-delay:1.5s;-webkit-animation-delay:1.5s;" src="${base }/default/style/images/newhome/title6.png" alt="分布式加湿"/></a></li>
 </ul>
 </div>
 <div id="tagContent"> 
 <div class="tagContent" id="tagContent0">
 <img class="pageico" src="${base }/default/style/images/pageico.png" alt="三角形"/>
 <h3 class="title1">微生物（生物酶）技术</h3>
-DST生物酶技术是从自然微生物中分离提纯出对人体有益的微生物制成产品，具有更安全更高效的
-除污、治污、防污能力，在治理室内装修污染领域，通过吞噬、分解来消除空气中的有毒有害物质。
-微生物能够精准锁定异味产生源，快速持久的捕捉、隔绝和消除空气中的异味分子。有别于传统空
-气清新剂、环境香水等嗅觉麻痹式化学掩盖类产品，生物酶技术可快速分解空气中的异味，减少细
-菌滋生，解决因室内异味带来的健康危害和烦恼。</div>
+生物酶净化技术的基础学科依据是通过酶的作用使污染气体如甲醛、笨、TVOC及其他异味气体得到充分分解</div>
 <div class="tagContent" id="tagContent1" style="display:none;">
 <img class="pageico" src="${base }/default/style/images/pageico.png" alt="三角形"/>
-<h3 class="title1">低温等离子</h3></div>
+<h3 class="title1">低温等离子</h3>稳定的等离子体整体显电中性，其内部主要成分为电子、正离子、负离子、激活态原子或分子、自由基，其中自由基具有极强活性，能够迅速分解甲醛、笨、TVOC及其他异味气体。_清华大学环境科学与工程研究院院长 工程院院士 郝吉明
+</div>
 <div class="tagContent" id="tagContent2" style="display:none;">
 <img class="pageico" src="${base }/default/style/images/pageico.png" alt="三角形"/>
-<h3 class="title1">负离子技术</h3></div>
+<h3 class="title1">净离子技术</h3>DST净离子技术，通过放电产生纯净负离子，能够消除正电荷，增加空气新鲜度；沉降空气中的PM2.5
+</div>
 <div class="tagContent" id="tagContent3" style="display:none;">
 <img class="pageico" src="${base }/default/style/images/pageico.png" alt="三角形"/>
-<h3 class="title1">光触媒技术</h3></div>
+<h3 class="title1">光触媒技术</h3>光触媒通过紫外光激发，能够把水分子H2O分解为活性氧原子和OH基，活性氧和OH基能够把甲醛、笨、TVOC及其他异味气体分解为水和二氧化碳——华中科技大学教授、博士生导师，华中科技大学环境科学研究所所长。
+</div>
 <div class="tagContent" id="tagContent4" style="display:none;">
 <img class="pageico" src="${base }/default/style/images/pageico.png" alt="三角形"/>
-<h3 class="title1">智能新风系统</h3></div>
+<h3 class="title1">智能新风系统</h3>领先的IFD技术(除pm0.1)+光触媒(除异味)+加湿/除湿+负离子
+</div>
 <div class="tagContent" id="tagContent5" style="display:none;">
 <img class="pageico" src="${base }/default/style/images/pageico.png" alt="三角形"/>
-<h3 class="title1">分布式加湿</h3></div>
+<h3 class="title1">分布式加湿</h3>多点分布式均匀加湿，整个房间都湿润舒适
+</div>
 </div>
     </div>
      </div>
