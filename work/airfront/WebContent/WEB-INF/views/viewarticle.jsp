@@ -22,14 +22,14 @@
                     </c:if>
                 	<h3 class="about-h3">${data.title }</h3>
                     
-                    <div class="slyWrap example12">
+                    <div class="slyWrap example12" style="height:80%;">
 		
-                        <div class="scrollbar">
+                        <!-- <div class="scrollbar">
                             <div class="handle"></div>
-                        </div>
+                        </div> -->
                     
                         <div class="sly" data-options='{ "scrollBy": 100, "startAt": 0 }'>
-                            <div>
+                            <div  style="height:40000px;width:100%;">
                             	${data.content }
                             </div>
                         </div>

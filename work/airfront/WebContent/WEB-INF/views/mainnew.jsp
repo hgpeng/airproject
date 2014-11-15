@@ -194,14 +194,11 @@
   <div id="section1" class="section">
   <div class="slide" id="slider1" style="cursor: pointer;">
 	    <div class="banner" style="height: 100%;margin: 0;padding: 0;background-color: #F1F1F1F1;">
-	    <div name="bannertxtdiv" class="bannertxt animation-mark bounceInRight" style="position:absolute;padding:0;top:30px;right:150px;">
-	    <dl><dd><img src="${base }/default/style/images/banntxt.png" alt=""/><h3>智能空气监测仪</h3><h4>看的见 才安全</h4></dd>
-	    <dd><a href="#">了解更多 ></a><a href="javascript:void(0)" onclick="showvideo()"　class="Video">观看影片</a></dd></dl>
-	    </div>
-	   <div name="flashdiv" style="z-index:-1;">
+
+	   <p name="flashdiv" style="z-index:-1;">
 	    <object type="application/x-shockwave-flash" id="flashcontent" name="flashcontent" 
-	    data="${base }/default/style/01.swf" width="100%" height="100%" 
-	    style="z-index:-1;visibility: visible; width: 100%; left: auto; margin-top:-99px;margin-left: 0px; top: auto; padding-bottom: 0px;">
+	    data="${base }/default/style/sy_kqy1920.swf" width="100%" height="100%" 
+	    style="z-index:-1;visibility: visible; width: 100%; left: auto; margin-left: 0px; top: auto; padding-bottom: 0px;">
 	    <param name="movie" value="${base }/default/style/01.swf">
 	    <param name="quality" value="high">
 	    <param name="scale" value="noscale">
@@ -209,7 +206,7 @@
 	    <param name="allowscriptaccess" value="always">
 	    <param name="bgcolor" value="#F1F1F1F1">
 	    <param name="flashvars" value="siteXML=xml/site.xml"></object>
-	  </div>
+	  </p>
 	    
 	    </div>
     </div>
@@ -217,15 +214,11 @@
    
      <div class="banner">
 	   
-	    <div name="bannertxtdiv" class="bannertxt animation-mark bounceInRight" style="position:absolute;padding:0;top:30px;right:150px;">
-	    <dl><dd><img src="${base }/default/style/images/banntxt.png" alt=""/><h3>智能空气监测仪</h3><h4>看的见 才安全</h4></dd>
-	    <dd><a href="#">了解更多 ></a><a href="javascript:void(0)" onclick="showvideo()"　class="Video">观看影片</a></dd></dl>
-	    </div>
 	   <div name="flashdiv" style="z-index:-1;">
 	    <object type="application/x-shockwave-flash" id="flashcontent" name="flashcontent" 
-	    data="${base }/default/style/01.swf" width="100%" height="100%" 
-	    style="z-index:-1;visibility: visible; width: 100%; left: auto; margin-top:-99px;margin-left: 0px; top: auto; padding-bottom: 0px;">
-	    <param name="movie" value="${base }/default/style/01.swf">
+	    data="${base }/default/style/sy_jjfa1920.swf" width="100%" height="100%" 
+	    style="z-index:-1;visibility: visible; width: 100%; left: auto;  margin-left: 0px; top: auto; padding-bottom: 0px;">
+	    <param name="movie" value="${base }/default/style/sy_jjfa.swf">
 	    <param name="quality" value="high">
 	    <param name="scale" value="noscale">
 	    <param name="wmode" value="transparent" />
@@ -239,15 +232,12 @@
     <div class="slide" id="slider3" style="cursor: pointer;">
    
     <div class="banner">
-	    <div name="bannertxtdiv" class="bannertxt animation-mark bounceInRight" style="position:absolute;padding:0;top:30px;right:150px;">
-	    <dl><dd><img src="${base }/default/style/images/banntxt.png" alt=""/><h3>智能空气监测仪</h3><h4>看的见 才安全</h4></dd>
-	    <dd><a href="#">了解更多 ></a><a href="javascript:void(0)" onclick="showvideo()"　class="Video">观看影片</a></dd></dl>
-	    </div>
+	   
 	   <div name="flashdiv" style="z-index:-1;">
 	    <object type="application/x-shockwave-flash" id="flashcontent" name="flashcontent" 
-	    data="${base }/default/style/01.swf" width="100%" height="100%" 
-	    style="z-index:-1;visibility: visible; width: 100%; left: auto; margin-top:-99px;margin-left: 0px; top: auto; padding-bottom: 0px;">
-	    <param name="movie" value="${base }/default/style/01.swf">
+	    data="${base }/default/style/sy_zl1920.swf" width="100%" height="100%" 
+	    style="z-index:-1;visibility: visible; width: 100%; left: auto; margin-left: 0px; top: auto; padding-bottom: 0px;">
+	    <param name="movie" value="${base }/default/style/sy_zl.swf">
 	    <param name="quality" value="high">
 	    <param name="scale" value="noscale">
 	    <param name="wmode" value="transparent" />
@@ -258,10 +248,42 @@
 	    
 	    </div>
     </div> 
+    
+    <div class="slide" id="slider4" style="cursor: pointer;">
+   
+    	<div style="background:url(${base }/default/style/images/newhome/slider4.jpg) center no-repeat;margin:0 auto;overflow:hidden;height:100%;">
+    	</div>
+    
+    </div>
+    
+    <div class="slide" id="slider5" style="cursor: pointer;">
+   
+    	<div style="background:url(${base }/default/style/images/newhome/slider5.jpg) center no-repeat;margin:0 auto;overflow:hidden;height:100%;">
+    	</div>
+    
+    </div>
+    <div class="slide" id="slider6" style="cursor: pointer;">
+   
+    	<div style="background:url(${base }/default/style/images/newhome/slider6.jpg) center no-repeat;margin:0 auto;overflow:hidden;height:100%;">
+    	</div>
+    
+    </div>
+    <div class="slide" id="slider7" style="cursor: pointer;">
+   
+    	<div style="background:url(${base }/default/style/images/newhome/slider7.jpg) center no-repeat;margin:0 auto;overflow:hidden;height:100%;">
+    	</div>
+    
+    </div>
      <div>
     	    <ul class="bannerico" style="bottom:125px;">
     	    <li><a key="1" class="now" href="#"><span>1</span></a></li><li>
-    	    <a key="2" href="#" ><span>2</span></a></li><li><a key="3" href="#"><span>3</span></a></li></ul>
+    	    <a key="2" href="#" ><span>2</span></a></li>
+    	    <li><a key="3" href="#"><span>3</span></a></li>
+    	    <li><a key="4" href="#"><span>4</span></a></li>
+    	    <li><a key="5" href="#"><span>5</span></a></li>
+    	    <li><a key="6" href="#"><span>6</span></a></li>
+    	    <li><a key="7" href="#"><span>7</span></a></li>
+    	    </ul>
     
     </div> 
     
@@ -275,19 +297,21 @@
     <div class="Tab">
 <ul id=tags>
 <li class="selectTag">
-<a onmouseover="selectTag('tagContent0',this)"  href="javascript:void(0)" title="微生物技术">
-<img class="animation-mark rollIn"  style="margin-left:-15px;margin-top:-25px;animation-delay:0.5s;-webkit-animation-delay:0.5s;" src="${base }/default/style/images/newhome/title1.png" alt="微生物技术"/></a></li>
-<li ><a onmouseover="selectTag('tagContent1',this)"   href="javascript:void(0)" title="低温等离子">
-<img  class="animation-mark rollIn" style="margin-left:-10px;margin-top:-25px;animation-delay:0.7s;-webkit-animation-delay:0.7s;" src="${base }/default/style/images/newhome/title2.png" alt="低温等离子"/>
+<a onmouseover="selectTag('tagContent0',this)"  style="display:block; margin-top:-25px; font-size:14px; color:#fff;" href="javascript:void(0)" title="微生物技术">
+<img class="animation-mark rollIn"  style="animation-delay:0.5s;-webkit-animation-delay:0.5s;" src="${base }/default/style/images/newhome/title1.png" alt="微生物技术"/>
+微生物技术
 </a></li>
-<li ><a onmouseover="selectTag('tagContent2',this)"  href="javascript:void(0)" title="负离子技术">
-<img  class="animation-mark rollIn" style="margin-left:-15px;margin-top:-25px;animation-delay:0.9s;-webkit-animation-delay:0.9s;" src="${base }/default/style/images/newhome/title3.png" alt="负离子技术"/> </a></li>
-<li ><a onmouseover="selectTag('tagContent3',this)"  href="javascript:void(0)" title="光触媒技术">
-<img  class="animation-mark rollIn" style="margin-left:-15px;margin-top:-25px;animation-delay:1.1s;-webkit-animation-delay:1.1s;" src="${base }/default/style/images/newhome/title4.png" alt="光触媒技术"/></a></li>
-<li ><a onmouseover="selectTag('tagContent4',this)"  href="javascript:void(0)" title="智能新风系统">
-<img  class="animation-mark rollIn" style="margin-left:-15px;margin-top:-25px;animation-delay:1.3s;-webkit-animation-delay:1.3s;" src="${base }/default/style/images/newhome/title5.png" alt="智能新风系统"/></a></li>
-<li ><a onmouseover="selectTag('tagContent5',this)"  href="javascript:void(0)" title="分布式加湿">
-<img  class="animation-mark rollIn" style="margin-left:-15px;margin-top:-25px;animation-delay:1.5s;-webkit-animation-delay:1.5s;" src="${base }/default/style/images/newhome/title6.png" alt="分布式加湿"/></a></li>
+<li ><a onmouseover="selectTag('tagContent1',this)"  style="display:block; margin-top:-25px; font-size:14px; color:#fff;"   href="javascript:void(0)" title="低温等离子">
+<img  class="animation-mark rollIn" style="animation-delay:0.7s;-webkit-animation-delay:0.7s;" src="${base }/default/style/images/newhome/title2.png" alt="低温等离子"/>
+低温等离子净化技术</a></li>
+<li ><a onmouseover="selectTag('tagContent2',this)"  style="display:block; margin-top:-25px; font-size:14px; color:#fff;"  href="javascript:void(0)" title="负离子技术">
+<img  class="animation-mark rollIn" style="animation-delay:0.9s;-webkit-animation-delay:0.9s;" src="${base }/default/style/images/newhome/title3.png" alt="负离子技术"/>净离子技术 </a></li>
+<li ><a onmouseover="selectTag('tagContent3',this)"  style="display:block; margin-top:-25px; font-size:14px; color:#fff;"  href="javascript:void(0)" title="光触媒技术">
+<img  class="animation-mark rollIn" style="animation-delay:1.1s;-webkit-animation-delay:1.1s;" src="${base }/default/style/images/newhome/title4.png" alt="光触媒技术"/>光触媒技术</a></li>
+<li ><a onmouseover="selectTag('tagContent4',this)"  style="display:block; margin-top:-25px; font-size:14px; color:#fff;"  href="javascript:void(0)" title="智能新风系统">
+<img  class="animation-mark rollIn" style="animation-delay:1.3s;-webkit-animation-delay:1.3s;" src="${base }/default/style/images/newhome/title5.png" alt="智能新风系统"/>智能新风系统</a></li>
+<li ><a onmouseover="selectTag('tagContent5',this)"  style="display:block; margin-top:-25px; font-size:14px; color:#fff;"  href="javascript:void(0)" title="分布式加湿">
+<img  class="animation-mark rollIn" style="animation-delay:1.5s;-webkit-animation-delay:1.5s;" src="${base }/default/style/images/newhome/title6.png" alt="分布式加湿"/>分布式加湿</a></li>
 </ul>
 </div>
 <div id="tagContent"> 
@@ -321,7 +345,9 @@
   </div>
   <div id="section3" style=" border-bottom:1px solid #FFF;" class="section">
   <img  class="bgimg" src="${base }/default/style/images/bg3.jpg" alt="">
-        
+       <div style="text-align: center; font-size: 30px; color:#fff; padding: 10px 0px 60px;">
+        <span>DST健康空气 生态圈</span>
+        </div>
      <div class="Circlebody">
     <img src="${base }/default/style/images/proimg1.png" class="Circleimg proimg1" alt=""/>
     <img src="${base }/default/style/images/proimg2.png" class="Circleimg proimg2" alt=""/>
@@ -364,9 +390,9 @@
   <div id="section5" style=" height:inherit; background:#FFF;" class="section">
     <div class="homemenu">
       <ul>
-        <li><a href="#">了解德士特</a></li>
-        <li><a href="#">解决方案</a></li>
-        <li><a href="#">治理服务</a></li>
+        <li><a href="${base }/about">了解德士特</a></li>
+        <li><a href="${base }/solution">解决方案</a></li>
+        <li><a href="${base }/greenService">治理服务</a></li>
       </ul>
     </div>
     <div class="homebody">
@@ -425,7 +451,7 @@
       </div>
       <div class="footer">
       <div class="footerbody"> <a href="#" class="footerShare"><img src="${base }/default/style/images/Share.png" alt=""></a>
-        <div class="footermenu"><a href="#">关于德士特</a><a href="#">新闻动态</a><a href="#">联系我们</a><a href="#">产权声明</a></div>
+        <div class="footermenu"><a href="${base }/about">关于德士特</a><a href="${base }/news">新闻动态</a><a href="${base }/contact">联系我们</a><a href="#">产权声明</a></div>
         <img class="footerlogo" src="${base }/default/style/images/footerlogo.png" alt=""/>DST 粤ICP备14058502号</div>
     </div>
       

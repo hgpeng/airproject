@@ -22,9 +22,14 @@
     	},1000);
     	
     });
+    
+    function getNavProduct(){
+    	
+    }
+    
 </script>
   <div id="contro" style="display:none;">
-    <div class="logobox "></div>
+    <div class="logobox " onclick="openurl('${base}/index')"></div>
       <c:if test="${page=='other'}">
      <a href="${base }/index" style="text-align:center; width:110px; display:block; margin-bottom: 1px;height:90px;line-height:90px;  background:#3c3c3c; font-size:20px;  color:#fff;">HOME	</a>
     </c:if>
@@ -67,7 +72,7 @@
           </ul>
           
         </div>
-        <div class="logo"><img src="${base }/default/style/images/logo.png" alt=""/></div>
+        <div class="logo"><a href="${base }/index"><img src="${base }/default/style/images/logo.png" alt=""/></a></div>
         <ul class="nav">
           <li><a href="${base }/index" >概览</a></li>
           <li>
@@ -75,13 +80,13 @@
             <div class="two-menu">
             	<ul>
                 	<li>
-                    	<a href="#">
+                    	<a href="${base }/productDetail?id=1">
                     	<img src="${base}/default/style/images/product/products_14.png" />
                         <p>空气眼</p>
                         </a>
                     </li>
                     <li>
-                    	<a href="#">
+                    	<a href="${base }/productDetail?id=2">
                     	<img src="${base}/default/style/images/product/products_15.png" />
                         <p>空气侠</p>
                         </a>

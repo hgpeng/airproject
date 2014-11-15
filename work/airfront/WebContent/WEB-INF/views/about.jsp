@@ -92,7 +92,7 @@
           <p class="blue">${fn:substring(item.basedata.name,0,4)}</p>
           <p class="font24 pt10 pb15">${fn:substring(item.basedata.name,4,-1)}</p>
           <div class="combox" >
-               <div class="about-listl"><img src="${base}/images/${item.basedata.icon}"></div>
+               <div class="about-listl"><img src="${base}/images/${item.img}"></div>
                <div class="about-listr">
                     <h1 class="nobold">${item.title }</h1>
                     <div class="combox pt15">

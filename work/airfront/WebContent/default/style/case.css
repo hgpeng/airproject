@@ -78,6 +78,11 @@ html #boxwarp .header { position:absolute;}
 .jjfa .case-rul li.rlist_01 a { padding-left:65px;}
 .jjfa .case-rul li span { padding-top:6px; width:50px; display:inline-block; float:left;}
 
+.case-rbtn{width:40px; height:40px; background:#34a3e3; position:fixed; right:0px; top:200px; z-index:9999; border-left-top-radius:3px;  border-left-bottom-radius:3px;}
+.case-rbtn a{ background:url(images/case/case_07.png) no-repeat; display:inline-block; width:21px; height:17px; margin:10px 0px 0px 10px; }
+.case-r{width:280px; height:100%; position:fixed; background:#34a3e3 url(images/case/case02.jpg) no-repeat left bottom; right:0; top:0; box-sizing:border-box; padding:130px 0 0; color:#fff; font-size:14px; z-index:888;}
+
+
 
 
 

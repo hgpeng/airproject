@@ -28,6 +28,11 @@
 		$("div.example4").slide({mainCell:".bd ul",autoPage:true,effect:"left",autoPlay:true,vis:8});
 		$("div.btn-group").find("a.prevPage").css("left","0");
 		$("div.btn-group").find("a.nextPage").css("right","0");
+		var winHeight = $(window).height(),winWidth = $(window).width();
+		$("div[name='flashdiv']").height(winHeight);
+		if(winHeight>900){
+			$("object[name='flashcontent']").css("margin-top","-99px")
+		}
 	});
 	
 	
@@ -43,10 +48,51 @@
 		
 			<div class="bd">
 				<ul>
-					<li _src="url(${base}/default/style/images/product/productshow_01.jpg)" style="background:#eeeeee center 0 no-repeat;"></li>
-					<li _src="url(${base}/default/style/images/product/productshow_01.jpg)" style="background:#eeeeee center 0 no-repeat;"></li>
-					<li _src="url(${base}/default/style/images/product/productshow_01.jpg)" style="background:#eeeeee center 0 no-repeat;"></li>
-				</ul>
+					<li>
+						<div name="flashdiv" style="z-index:-1;">
+						    <object type="application/x-shockwave-flash" id="flashcontent" name="flashcontent" 
+						    data="${base }/default/style/cpzx_kqy.swf" width="100%" height="100%" 
+						    style="z-index:-1;visibility: visible; width: 100%; left: auto; margin-left: 0px; top: auto; padding-bottom: 0px;">
+						    <param name="movie" value="${base }/default/style/cpzx_kqy.swf">
+						    <param name="quality" value="high">
+						    <param name="scale" value="noscale">
+						    <param name="wmode" value="transparent" />
+						    <param name="allowscriptaccess" value="always">
+						    <param name="bgcolor" value="#F1F1F1F1">
+						    <param name="flashvars" value="siteXML=xml/site.xml"></object>
+	  				</div>
+					</li>
+					
+					<li>
+						<div name="flashdiv" style="z-index:-1;">
+						    <object type="application/x-shockwave-flash" id="flashcontent" name="flashcontent" 
+						    data="${base }/default/style/cpzx_kqy.swf" width="100%" height="100%" 
+						    style="z-index:-1;visibility: visible; width: 100%; left: auto; margin-left: 0px; top: auto; padding-bottom: 0px;">
+						    <param name="movie" value="${base }/default/style/cpzx_kqy.swf">
+						    <param name="quality" value="high">
+						    <param name="scale" value="noscale">
+						    <param name="wmode" value="transparent" />
+						    <param name="allowscriptaccess" value="always">
+						    <param name="bgcolor" value="#F1F1F1F1">
+						    <param name="flashvars" value="siteXML=xml/site.xml"></object>
+	  				</div>
+					</li>
+					
+					<li>
+						<div name="flashdiv" style="z-index:-1;">
+						    <object type="application/x-shockwave-flash" id="flashcontent" name="flashcontent" 
+						    data="${base }/default/style/cpzx_kqy.swf" width="100%" height="100%" 
+						    style="z-index:-1;visibility: visible; width: 100%; left: auto; margin-left: 0px; top: auto; padding-bottom: 0px;">
+						    <param name="movie" value="${base }/default/style/cpzx_kqy.swf">
+						    <param name="quality" value="high">
+						    <param name="scale" value="noscale">
+						    <param name="wmode" value="transparent" />
+						    <param name="allowscriptaccess" value="always">
+						    <param name="bgcolor" value="#F1F1F1F1">
+						    <param name="flashvars" value="siteXML=xml/site.xml"></object>
+	  				</div>
+					</li>
+						</ul>
 			</div>
 		
 			<div class="hd"><ul></ul></div>
@@ -106,9 +152,11 @@
             	
               
             </div>
+            
             <div class="pro-more">
             	<a href="#"><img src="${base}/default/style/images/product/product_10.jpg" /> 更多>></a>
             </div>
+            
         </div>
     </div>
     

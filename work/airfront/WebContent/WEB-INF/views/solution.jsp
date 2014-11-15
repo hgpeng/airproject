@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="${base }/default/style/case.css"/>
 <link rel="stylesheet" type="text/css" href="${base }/default/style/product-show.css"/>
 <script type="text/javascript" src="${base}/default/js/control/jquery.sly.js"></script>
-<title>产品</title>
+<title>解决方案</title>
 <script>
 	$(document).ready(function(){
 		var winwidth = $(window).width();	
@@ -19,11 +19,11 @@
 		var conleft = (winwidth-280)/10;
 		var contentwid = (winwidth-280)*8/10;
 		if(contentwid>1200) {
-			$("div.about-warp").width(1200);
+			//$("div.about-warp").width(1200);
 			//$("#h3div").width(1200);
 		}
 		//var tt = ((winwidth-280)*8/10-1200)/2;
-		$("div.about-warp").css("right",(conleft-hdleft)+"px");
+		//$("div.about-warp").css("right",(conleft-hdleft)+"px");
 		//$("#h3div").css("right",(conleft-hdleft)+"px");
 	});
 	
@@ -32,35 +32,47 @@
 <body>
 <div id="boxwarp" class="scrollbox">
    <jsp:include page="common/top.jsp"></jsp:include>
-    <div class="case-warp green">
+    <div class="case-warp green" style="padding-right:0px;">
     	<div class="case-list">
             <div class="about-green-box">
-            	<div class="about-warp">
+            	<div class="about-warp" style="width:1200px;">
                 	 
-                    <c:if test="${! empty art.imglist }">
-                    <div class="about-img">
-                        <c:forEach items="${art.imglist }" var="item">
-                    		<img src="${base}/images/${item}" />
-                    	</c:forEach>                  	
-                    </div>
-                    </c:if>
-                    <div  style="margin:0 auto;width:80%;text-align:center;padding:30px 0;overflow:hidden;">
-                    <div id="h3div" style="margin:0 auto;width:300px;text-align:center;padding:30px 0;">
-                	<h3 class="about-h3">${art.title }</h3>             	          	
-                	
-                    </div>
-                    <div style="margin:0 auto;width:750px;text-align:center;">
-                    <img src="${base }/default/style/images/newhome/line.png"/>
-                    </div>
-                    </div>
+                    
+                    <div style="margin: 0px auto; text-align: center; width: 1200px; padding: 20px 0px;">
+					    <h3 class="about-h3">${art.title }</h3>             	          	
+					</div>
                     <div class="slyWrap example14" style="height:80%;">
 		
-                        <div class="scrollbar">
+                        <!-- <div class="scrollbar">
                             <div class="handle"></div>
-                        </div>
+                        </div> -->
                     
                         <div class="sly" data-options='{ "scrollBy": 100, "startAt": 0 }'>
-                            <div style="height:40000px;">
+                            <div style="height:40000px;width:100%;">
+                            	<div name="flashdiv">
+						    <object type="application/x-shockwave-flash" id="flashcontent" name="flashcontent" 
+						    data="${base }/default/style/cpzx_hy.swf" width="100%" 
+						    style="visibility: visible; width: 100%;height:600px;">
+						    <param name="movie" value="${base }/default/style/cpzx_hy.swf">
+						    <param name="quality" value="high">
+						    <param name="scale" value="noscale">
+						    <param name="wmode" value="transparent" />
+						    <param name="allowscriptaccess" value="always">
+						    <param name="bgcolor" value="#F1F1F1F1">
+						    <param name="flashvars" value="siteXML=xml/site.xml"></object>
+	  				</div>
+	  				<div name="flashdiv">
+						    <object type="application/x-shockwave-flash" id="flashcontent" name="flashcontent" 
+						    data="${base }/default/style/cpzx_my.swf" width="100%" 
+						    style="visibility: visible; width: 100%;height:600px;">
+						    <param name="movie" value="${base }/default/style/cpzx_my.swf">
+						    <param name="quality" value="high">
+						    <param name="scale" value="noscale">
+						    <param name="wmode" value="transparent" />
+						    <param name="allowscriptaccess" value="always">
+						    <param name="bgcolor" value="#F1F1F1F1">
+						    <param name="flashvars" value="siteXML=xml/site.xml"></object>
+	  				</div>
                             	${art.content }
                             </div>
                         </div>
@@ -73,9 +85,15 @@
             
             
     	</div>
-    	<div class="case-r jjfa">
+    	
+    	<div class="case-rbtn">
+             <a href="javascript:void(0)" onclick="shownav()"></a>
+        </div>
+    	
+    	
+    	<div class="case-r jjfa" style="display:none;">
     		<ul class="case-rul">
-    			<li class="rlist_01"><a href="#">解决方案</a></li>
+    			<li class="rlist_01"><a href="javascript:void(0)" onclick="shownav()">解决方案</a></li>
     			 <c:forEach items="${bdlist}" var="item" varStatus="status">
     				<li <c:if test="${status.index==0 }">class="rlist_02"</c:if> >
     							<a href="${base }/solution?sid=${item.id}">
@@ -96,6 +114,13 @@
 $(document).ready(function(){
 	$("div.sly").sly({ "scrollBy": 100, "startAt": 0 });
 });
+
+function shownav(){
+	//if($("div.jjfa").is(":visible")){
+		$("div.jjfa").toggle();
+		$("div.case-rbtn").toggle();
+
+}
 </script>
 </body>
 </html>
