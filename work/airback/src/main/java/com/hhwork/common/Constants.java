@@ -46,6 +46,8 @@ public class Constants {
 		 * html脚本
 		 */
 		public static final int HTML=11;
+		
+		public static final int CASE=7;
 	}
 	
 	/**

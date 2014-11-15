@@ -54,4 +54,10 @@ public class AppCaseServiceImpl implements AppCaseService {
 		return appCaseDao.deleteAppCase(id);
 	}
 
+	@Override
+	public AppCase getAppCase(int id) {
+		
+		return appCaseDao.getAppCase(id);
+	}
+
 }

@@ -22,4 +22,6 @@ public Pagination<AppCase> getAppCase(Pagination<AppCase> page);
 	public List<CasePhoto> getCasePhoto(Map<String,Object> param);
 	
 	public int deleteAppCase(int id);
+	
+	public AppCase getAppCase(int id);
 }

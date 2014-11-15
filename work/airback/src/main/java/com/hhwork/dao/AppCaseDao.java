@@ -20,4 +20,6 @@ public interface AppCaseDao {
 	 * @return
 	 */
 	public int deleteAppCase(int id);
+	
+	public AppCase getAppCase(int id);
 }

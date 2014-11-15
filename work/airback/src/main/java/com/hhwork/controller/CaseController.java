@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,12 +18,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSONArray;
 import com.d3.d396333.common.util.ResponseUtils;
+import com.hhwork.common.Constants;
 import com.hhwork.common.Pagination;
 import com.hhwork.model.AppCase;
 import com.hhwork.model.Articles;
 import com.hhwork.model.BaseData;
 import com.hhwork.model.CasePhoto;
 import com.hhwork.service.AppCaseService;
+import com.hhwork.service.BaseDataService;
 
 @Controller
 @RequestMapping("/case/*")
@@ -31,6 +34,8 @@ public class CaseController  extends BaseController {
 	@Autowired
 	private AppCaseService appCaseService;
 	
+	@Resource
+	protected BaseDataService baseDataService;
 	
 	@RequestMapping("list")
 	public String menuIndex(){
@@ -52,12 +57,24 @@ public class CaseController  extends BaseController {
 	
 	@RequestMapping("saveCaseDialog")
 	public String saveCaseDialog(ModelMap modelMap){
+		List<BaseData> bdlist = 
+		baseDataService.getBaseDataByBaseTypeId(Constants.BaseType.CASE);
+		modelMap.put("bdlist", bdlist);
+		
+		int caseId=getInt("id",-1);
+		if(caseId!=-1){
+			AppCase app = 
+			appCaseService.getAppCase(caseId);
+			modelMap.put("data", app);
+		}
+		
 		return "/case/saveCaseDialog";
 	}
 	
 	@ResponseBody
 	@RequestMapping("saves")
 	public void saveAppCase(HttpServletResponse response){
+		 String id = this.getString("id");
 		 String name = this.getString("name");
 		 String area = this.getString("area");
 		 String addr = this.getString("addr");
@@ -65,11 +82,17 @@ public class CaseController  extends BaseController {
 		 int basedataId = Integer.parseInt(this.getString("basedataId"));
 		 String content = this.getString("content");
 		 String name_en = this.getString("name_en");
+		 String photo = this.getString("photo");
 		 AppCase app = new AppCase();	 
 		if(StringUtils.isBlank(name)){
 			ResponseUtils.renderJson(response, "{\"ret\":-1}");
 			return ;
 		}
+		
+		if(!StringUtils.isBlank(id)){
+			app = this.appCaseService.getAppCase(Integer.parseInt(id));
+		}
+		
 		app.setAddr(addr);
 		app.setArea(area);
 		app.setName(name);
@@ -77,6 +100,7 @@ public class CaseController  extends BaseController {
 		app.setContent(content);
 		app.setBasedataId(basedataId);
 		app.setName_en(name_en);
+		app.setPhoto(photo);
 		int ret=appCaseService.saveAppCase(app);
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
 	}
