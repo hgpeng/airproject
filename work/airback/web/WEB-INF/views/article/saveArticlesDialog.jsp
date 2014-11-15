@@ -28,7 +28,8 @@
 	图片:<input type="button" value="添加" id="upload"/>
 	<div id="imgdiv">
 	<c:forEach items="${imgList }" var="item">
-	<img style='width:100px;' path='"+json.PATH+"' src="${base}/uploadimages/${item}"/>
+	<p><img style='width:100px;' path='"+json.PATH+"' src="${base}/uploadimages/${item}"/>
+	<input type="button" onclick="deleteimg(this)" value="删除"/></p>
 	</c:forEach>
 	</div>
 	</div>
@@ -42,5 +43,10 @@
 <script type="text/javascript" src="${base }/js/ajaxupload.js"></script>
 <script type="text/javascript" src="${base }/js/common.js"></script>
 <script type="text/javascript" src="${base }/js/custom/articles/saveArticlesDialog.js"></script>
+<script type="text/javascript">
+ function deleteimg(obj){
+	 $(obj).parent().remove();
+ }
+</script>
 </body>
 </html>
