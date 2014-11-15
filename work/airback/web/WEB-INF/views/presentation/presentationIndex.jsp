@@ -23,7 +23,7 @@ request.setAttribute("imagepath", path +"/images");
 	<input type="hidden" id="presentationId" value="${presentation.id}"/>
 	标题:${product.name}　　 第<input type="text" id="num" value="${presentation.num }" style="width:30px;"/>屏
 	链接产品:<a href='javascript:void(0);' onclick='presentationIndex.selectProduct();'>选择产品</a>
-	<span id="productName"></span>
+	<span id="productName">${detailProduct.name }</span>
 	<input type="hidden" id="detail" value="${presentationIndex.detail }"/>
 	<input id="productId" type="hidden" value="${product.id }" name="productId"/>
 	<div style="clear:both;margin:5px;"></div>
@@ -52,7 +52,7 @@ request.setAttribute("imagepath", path +"/images");
 		<span id="uploadTxt">图片</span>:<input type="button" value="添加" id="upload"/>
 	</div>
 <script type="text/javascript" src="/js/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" src="/js/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" src="/js/ueditor/ueditor.all.js"></script>
 <script type="text/javascript" src="${base }/js/artDialog/artDialog.js?skin=blue"></script>
 <script type="text/javascript" src="${base }/js/artDialog/plugins/iframeTools.js"></script>
 <script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>

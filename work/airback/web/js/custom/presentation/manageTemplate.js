@@ -80,7 +80,7 @@ var manageTemplate=function(){
 						alert("屏数不能为空");
 						return false;
 					}
-					
+					params.detail=pagejq.find("#detail").val();
 					params.productId=pagejq.find("#productId").val();
 
 					
@@ -130,8 +130,8 @@ function showData(rowdata){
 	art.dialog.open('/presentation/showPreview.jsps?id='+rowdata,{
 		id:"previewDialog",
 		title:'预览',
-		width: 500,
-		height: 350,
+		width: 800,
+		height: 500,
 		resizable: false,
 		lock:true,
 	});

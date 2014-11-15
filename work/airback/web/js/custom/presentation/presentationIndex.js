@@ -11,6 +11,7 @@ var presentationIndex=function(){
 			if(presentationId && presentationId.length>0){
 				config.sourceEditorFirst=true;
 			}
+			config.options={removeFormatAttributes:{}};
 			contentEditor = UE.getEditor('content',config);
 			$("input[name=script]").change(function(){
 				var val=+this.value;

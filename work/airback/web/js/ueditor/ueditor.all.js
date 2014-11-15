@@ -6012,7 +6012,7 @@ var filterNode = UE.filterNode = function () {
 
 UE.plugins['defaultfilter'] = function () {
     var me = this;
-    me.setOpt('allowDivTransToP',true);
+    me.setOpt('allowDivTransToP',false);
     //默认的过滤处理
     //进入编辑器的内容处理
     me.addInputRule(function (root) {
