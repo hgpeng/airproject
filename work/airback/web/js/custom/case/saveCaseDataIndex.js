@@ -22,5 +22,5 @@ var saveBaseDataDialog=function(){
 }();
 
 $(function(){
-	saveBaseDataDialog.init();
+	//saveBaseDataDialog.init();
 })

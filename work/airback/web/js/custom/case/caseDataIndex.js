@@ -37,8 +37,9 @@ var baseDataIndex=function(){
 
 		},
 		oprender:function(data,filterData){
-			return '<a href="javascript:void(0)" onclick=uploadphoto("'+data.id+'")>图片管理</a>'
-			+'<a href="javascript:void(0)" onclick=baseDataIndex.deleteCase("'+data.id+'")>|删除</a>';
+			return '<a href="javascript:void(0)" onclick=modify("'+data.id+'")>修改</a>'+
+			'<a href="javascript:void(0)" onclick=uploadphoto("'+data.id+'")>|图片管理</a>'+
+			'<a href="javascript:void(0)" onclick=baseDataIndex.deleteCase("'+data.id+'")>|删除</a>';
 		},
 		add:function(){
 			art.dialog.open('/case/saveCaseDialog.jsps',{
@@ -83,6 +84,9 @@ var baseDataIndex=function(){
 							art.dialog.alert("删除成功");
 							reload();
 			},'json');
+		},
+		reloadgrid:function(){
+			reload();
 		}
 	}
 }();
@@ -103,6 +107,41 @@ uploadphoto=function(id){
 			var page=$(contentWindow.document);
 			
 			
+		}
+	});
+}
+
+modify = function(id){
+	art.dialog.open(base+'/case/saveCaseDialog.jsps?id='+id,{
+		id:"saveBaseType",
+		title:'保存应用案例',
+		width: 500,
+		height: 250,
+		resizable: false,
+		lock:true,
+		okVal:'保存',
+		ok:function(contentWindow){
+			var page=$(contentWindow.document);
+			var name=page.find("#name").val();
+			var id=page.find("#dataId").val();
+			var basedataId=page.find("#basedataId").val();
+			if(!name || name.length==0){
+				art.dialog.alert("请输入名称");
+				return false;
+			}
+			$.ajax({
+				url:'/case/saves.jsps',
+				type:'post',
+				data:$(page.find("form")[0]).serialize(),
+				success:function(ret){
+					if(ret.ret==-1){
+						art.dialog.alert("修改失败");
+						return false;
+					}
+					art.dialog.alert("修改成功");
+					baseDataIndex.reloadgrid();
+				}
+			})
 		}
 	});
 }
