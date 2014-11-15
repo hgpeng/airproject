@@ -117,6 +117,19 @@ public class IndexController extends BaseController {
 		return "news"; 
     }
 	
+	@RequestMapping({"newsDetail"})
+	public String newsDetail(ModelMap model) {
+		
+		String id = this.getString("id");
+		Map<String,Object> param = new HashMap<String,Object>();
+		param.put("id", id);
+		List<Articles> adlist = 
+				this.queryExecutor.execQuery("com.hhwork.dao.BaseDataDao.selectArticle", param, Articles.class);
+		if(adlist.size()>0)
+			model.put("data", adlist.get(0));
+		return "newsDetail"; 
+    }
+	
 	@RequestMapping({"video"})
 	public String video(ModelMap model) {
 		model.put("page", "other");
