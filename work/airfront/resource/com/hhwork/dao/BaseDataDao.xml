@@ -34,6 +34,7 @@
 	     a.preview,
 	     a.type,
 	     a.status,
+	     a.createTime,
 	     b.id as "basedata.id",
 	     b.name as "basedata.name",
 	     b.name_en as "basedata.name_en",
