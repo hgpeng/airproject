@@ -19,7 +19,7 @@ initajaxupload("upload","/imgupload/upload.jsps?direct=article",afterupload,null
 	
 	function afterupload(json,data){
 		if(json.STATE=='SUCCESS'){
-			var html = "<img style='width:100px;' path='"+json.PATH+"' src='"+base+"/uploadimages/"+json.PATH+"'/>";
+			var html = "<p><img style='width:100px;' path='"+json.PATH+"' src='"+base+"/uploadimages/"+json.PATH+"'/><input type='button' onclick='deleteimg(this)' value='删除'/></p>";
 			$("#imgdiv").append(html);		
 			art.dialog.alert("上传成功");
 		}else{
