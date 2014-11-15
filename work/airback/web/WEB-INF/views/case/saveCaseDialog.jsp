@@ -9,8 +9,28 @@
 </head>
 <body>
 <form id="saveBaseTypeForm">
+	<input type="hidden" name="id" id="dataId" value="${data.id }"/>
+	<table>
+	<tr>
+		<td style="width:30%;">名称:</td><td><input type="text" id="name" name="name" value="${data.name }"/></td></tr><tr>
+		<td style="width:30%;">英文名称:</td><td><input type="text" id="name_en" name="name_en" value="${data.name_en }"/></td></tr><tr>
+		<td style="width:30%;">封面图:</td><td><input type="text" id="photo" name="photo" readonly="readonly" value="${data.photo }"/><input id="upload" type="button" value="添加封面图"/></td></tr><tr>
+		<td style="width:30%;">面积:</td><td><input type="text" id="area" name="area" value="${data.area }"/></td></tr><tr>
+		<td style="width:30%;">地址:</td><td><input type="text" id="addr" name="addr" value="${data.addr }"/></td></tr><tr>
+		<td style="width:30%;">时间:</td><td><input type="text" id="buildtime"  name="buildtime" value="${data.buildtime }"/></td></tr><tr>
+		<td style="width:30%;">基本类型:</td><td>
+		<select name="basedataId" id="basedataId">
+			<c:forEach items="${bdlist }" var="item">
+				<option value="${item.id}" <c:if test="${data.basedataId == item.id }">selected</c:if> >${item.name }(${item.baseType })</option>
+			</c:forEach>
+			
+		</select>
+		</td></tr><tr>
+		<td style="width:30%;">备注:</td><td><textarea style="width:400px;" rows="3" cols="8" name="content">${data.content }</textarea></td>
+	</tr>
+	</table>
 </form>
-<input id="upload" type="button" value="添加图标"/>
+
 <script src="${base }/js/ligerUI/js/core/base.js" type="text/javascript"></script>
 <script type="text/javascript" src="${base }/js/ligerUI/js/plugins/ligerForm.js"></script>
 <script src="${base }/js/ligerUI/js/plugins/ligerTextBox.js" type="text/javascript"></script>
@@ -25,7 +45,7 @@
 	function afterupload(json,data){
 		if(json.STATE=='SUCCESS'){
 			
-			$("#photos").val(json.PATH);
+			$("#photo").val(json.PATH);
 			
 		}else{
 			art.dialog.alert("上传失败");
