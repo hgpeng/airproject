@@ -44,14 +44,14 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 
 	@Override
 	public int deleteMenuItem(int id) {
-		StringBuilder sql=new StringBuilder("delete from menu_item where id=?");
+		StringBuilder sql=new StringBuilder("delete from basedata where id=?");
 		sql.append(id);
 		return airJdbcTemplate.update(sql.toString(), id);
 	}
 
 	@Override
 	public List<BaseData> getAllMenus() {
-		String sql="select id,parentId,typeId,name,url,descr,createTime,createMan from basedata where typeId=1 or typeId=2 ";
+		String sql="select id,parentId,typeId,name,icon,url,descr,createTime,createMan from basedata where typeId=1 or typeId=2 ";
 		List<Map<String,Object>> list=airJdbcTemplate.queryForList(sql);
 		if(list==null || list.size()==0){
 			return null;
@@ -68,6 +68,7 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 			e.setDesc(String.valueOf(data.get("descr")));
 			e.setCreateTime((Date)data.get("createTime"));
 			e.setCreateMan(String.valueOf(data.get("createMan")));
+			e.setIcon(String.valueOf(data.get("icon")));
 			items.add(e);
 		}
 		return items;
@@ -76,7 +77,7 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 	@Override
 	public Pagination<BaseData> getBaseData(Pagination<BaseData> page,
 			Map<String, Object> query) {
-		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,name,typeId,parentId,url,descr,createTime,createMan");
+		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,name,icon,typeId,parentId,url,descr,createTime,createMan");
 		sql.append(" from basedata where 1=1 ");
 		if(null!=query.get("type")){
 			sql.append("and typeId= '"+query.get("type").toString()+"'");
@@ -96,6 +97,7 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 				baseData.setDesc(rs.getString("descr"));
 				baseData.setCreateTime(rs.getDate("createTime"));
 				baseData.setCreateMan(rs.getString("createMan"));
+				baseData.setIcon(rs.getString("icon"));
 				return baseData;
 			}
 			
@@ -104,7 +106,7 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 
 	@Override
 	public List<BaseData> getAllBaseData(Map<String,Object> param) {
-		String sql="select b.id,b.parentId,b.typeId,b.name,b.url,b.descr,b.createTime,b.createMan,t.name basetype from basedata b left join basetype t on b.typeid = t.id where 1=1 ";
+		String sql="select b.id,b.parentId,b.typeId,b.name,b.url,b.descr,b.icon,b.createTime,b.createMan,t.name basetype from basedata b left join basetype t on b.typeid = t.id where 1=1 ";
 		if(null!=param.get("type")){
 			sql += "and b.typeId= '"+param.get("type").toString()+"'";
 		}
@@ -122,6 +124,7 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 			e.setParentId((Integer)data.get("parentId"));
 			e.setUrl(null==data.get("url")?"":data.get("url").toString());
 			e.setDesc(null==data.get("descr")?"":data.get("descr").toString());	
+			e.setIcon(null==data.get("icon")?"":data.get("icon").toString());
 			e.setBaseType(null==data.get("basetype")?"":data.get("basetype").toString());	
 			items.add(e);
 		}
@@ -130,7 +133,7 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 
 	@Override
 	public BaseData getBaseDataById(int id) {
-		String sql="select id,name,typeId,parentId,url,descr,createTime,createMan from basedata where id="+id;
+		String sql="select id,name,typeId,parentId,icon,url,descr,createTime,createMan from basedata where id="+id;
 		List<Object> args=new ArrayList<Object>();
 		return airJdbcTemplate.queryForObject(sql, args.toArray(), new RowMapper<BaseData>(){
 
@@ -152,7 +155,8 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 		baseData.setUrl(rs.getString("url"));
 		baseData.setDesc(rs.getString("descr"));
 		baseData.setCreateTime(rs.getDate("createTime"));
-		baseData.setCreateMan(rs.getString("createMan"));	
+		baseData.setCreateMan(rs.getString("createMan"));
+		baseData.setIcon(rs.getString("icon"));
 		return baseData;
 	}
 

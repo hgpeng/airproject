@@ -74,7 +74,12 @@ var baseDataIndex=function(){
 
 		},
 		oprender:function(data,filterData){
-			return '<a href="javascript:void(0)" onclick=deletebase("'+data.id+'")>删除</a>';
+			var str="<a href='javascript:void(0);' onclick='modify("+data.id+")'>修改</a>  ";
+			str+='<a href="javascript:void(0)" onclick=deletebase("'+data.id+'")>删除</a>';
+			return str;
+		},
+		reloadData:function(){
+			reload();
 		},
 		add:function(){
 			art.dialog.open(base+'/baseData/saveBaseDataDialog.jsps',{
@@ -149,8 +154,9 @@ function modify(id){
 						art.dialog.alert("修改失败");
 						return false;
 					}
-					art.dialog.alert("修改成功");
-					baseDataIndex.reload();
+					art.dialog.alert("修改成功",function(){
+						baseDataIndex.reloadData();
+					});
 				}
 			})
 		}

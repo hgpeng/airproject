@@ -19,7 +19,7 @@
 	类型:<select name="type" id="type">
 	<c:forEach items="${bdlist}" var="item">
 	<option value="${item.id }"
-	<c:if test="${article.type==item.id }"></c:if> 
+	<c:if test="${article.type==item.id }">selected</c:if> 
 	>${item.name }(${item.baseType })</option>
 	</c:forEach>
 	</select>

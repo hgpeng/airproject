@@ -3,7 +3,7 @@ var saveArticleDialog=function(){
 
 	return {
 		init:function(){
-			contentEditor = UE.getEditor('content',{initialFrameHeight:500,initialFrameWidth:'90%'});
+			contentEditor = UE.getEditor('content',{initialFrameHeight:350,initialFrameWidth:'90%'});
 		},
 		getContent:function(){
 			var title=$("#title").val();

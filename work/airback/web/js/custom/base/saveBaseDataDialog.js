@@ -20,7 +20,7 @@ var saveBaseDataDialog=function(){
             $("#icon").val($("#iconId").val());
             $("#url").val($("#urlId").val());
             $("#id").val($("#dataId").val());
-            
+            $("#baseTypeId").val($("#typeId").val());
 		}
 	}
 }();

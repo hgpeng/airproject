@@ -13,12 +13,13 @@
 <input type="hidden" id="name_enId" value="${baseData.name_en }"/>
 <input type="hidden" id="iconId" value="${baseData.icon }"/>
 <input type="hidden" id="urlId" value="${baseData.url }"/>
+<input type="hidden" id="typeId" value="${baseData.typeId }"/>
 
 <form id="saveBaseTypeForm">
 </form>
+<div style="clear:both"></div>
 <input id="upload" type="button" value="添加图标"/>
 <jsp:include page="../common.jsp"></jsp:include>
-<script src="${base }/js/ligerUI/js/core/base.js" type="text/javascript"></script>
 <script type="text/javascript" src="${base }/js/ligerUI/js/plugins/ligerForm.js"></script>
 <script src="${base }/js/ligerUI/js/plugins/ligerTextBox.js" type="text/javascript"></script>
 <script src="${base }/js/ligerUI/js/plugins/ligerComboBox.js" type="text/javascript"></script>
@@ -32,7 +33,9 @@
 	function afterupload(json,data){
 		if(json.STATE=='SUCCESS'){
 			
-			$("#icon").val(json.PATH);
+			art.dialog.alert("上传成功",function(){
+				$("#icon").val(json.PATH);
+			});
 			
 		}else{
 			art.dialog.alert("上传失败");
