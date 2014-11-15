@@ -19,6 +19,11 @@ public class Presentation implements Serializable{
 	
 	private int productId;
 	
+	/**
+	 * 关联的产品
+	 */
+	private Integer detail;
+	
 	private String num;
 	
 	private String html;
@@ -84,6 +89,14 @@ public class Presentation implements Serializable{
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	public Integer getDetail() {
+		return detail;
+	}
+
+	public void setDetail(Integer detail) {
+		this.detail = detail;
 	}
 	
 	

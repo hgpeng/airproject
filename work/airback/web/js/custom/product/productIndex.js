@@ -115,6 +115,8 @@ var productIndex=function(){
 					params.productId=pagejq.find("#productId").val();
 					
 					params.num=pagejq.find("#num").val();
+					params.detail=pagejq.find("#detail").val();
+
 					$.ajax({
 						url:base+'/presentation/savePresentation.jsps',
 						type:'post',

@@ -60,6 +60,8 @@
 	<script type="text/javascript"
 		src="${base }/js/custom/product/saveProductDialog.js"></script>
 		<script type="text/javascript" src="${base }/js/ajaxupload.js"></script>
+		<script type="text/javascript" src="/js/artDialog/artDialog.js?skin=blue"></script>
+<script type="text/javascript" src="/js/artDialog/plugins/iframeTools.js"></script>
 <script type="text/javascript" src="${base }/js/common.js"></script>
 <script type="text/javascript">
 	initajaxupload("upload","/imgupload/upload.jsps?direct=product",afterupload,null,null);

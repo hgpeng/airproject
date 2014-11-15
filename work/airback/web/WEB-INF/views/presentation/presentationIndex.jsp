@@ -22,6 +22,9 @@ request.setAttribute("imagepath", path +"/images");
 	<div>
 	<input type="hidden" id="presentationId" value="${presentation.id}"/>
 	标题:${product.name}　　 第<input type="text" id="num" value="${presentation.num }" style="width:30px;"/>屏
+	链接产品:<a href='javascript:void(0);' onclick='presentationIndex.selectProduct();'>选择产品</a>
+	<span id="productName"></span>
+	<input type="hidden" id="detail" value="${presentationIndex.detail }"/>
 	<input id="productId" type="hidden" value="${product.id }" name="productId"/>
 	<div style="clear:both;margin:5px;"></div>
 	<label>

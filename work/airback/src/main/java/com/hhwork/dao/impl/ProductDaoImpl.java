@@ -42,6 +42,11 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 			Map<String, Object> query) {
 		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,name,typeId,descr,mainPhoto,status,basedataId,createTime,createMan from product where 1=1 ");
 		List<Object> args=new ArrayList<Object>();
+		Object typeId=query.get("typeId");
+		if(typeId!=null){
+			sql.append(" and typeId=? ");
+			args.add(typeId);
+		}
 		return SQLHelpers.getRowSize(sql.toString(), airDataSource, args.toArray(), page, new PageMapper<Product>(){
 
 			@Override

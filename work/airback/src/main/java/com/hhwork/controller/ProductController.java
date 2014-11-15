@@ -43,6 +43,10 @@ public class ProductController extends BaseController {
 	public void getProductList(HttpServletRequest request,
 			HttpServletResponse response,Pagination<Product> page){
 		Map<String,Object> query=new HashMap<String,Object>();
+		int typeId=getInt("typeId",-1);
+		if(typeId!=-1){
+			query.put("typeId", typeId);
+		}
 		Pagination<Product> res=productService.getProductList(page, query);
 		outPrint(response,JSONArray.toJSON(res) );
 	}
@@ -127,4 +131,12 @@ public class ProductController extends BaseController {
 		int ret=productService.deleteProduct(productId);
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
 	}
+	
+	@RequestMapping("getProductSerials")
+	public String getProductSerials(ModelMap modelMap){
+		int productType=getInt("typeId");
+		modelMap.put("productType", productType);
+		return "/product/getProductSerials";
+	}
+	
 }
