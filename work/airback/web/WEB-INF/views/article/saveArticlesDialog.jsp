@@ -19,7 +19,7 @@
 	类型:<select name="type" id="type">
 	<c:forEach items="${bdlist}" var="item">
 	<option value="${item.id }"
-	<c:if test="${article.type==item.id }"></c:if> 
+	<c:if test="${article.type==item.id }">selected</c:if> 
 	>${item.name }(${item.baseType })</option>
 	</c:forEach>
 	</select>
@@ -32,7 +32,7 @@
 	</c:forEach>
 	</div>
 	</div>
-	<div style="width:550px;">
+	<div style="width:90%">
 	<script type="text/plain" id="content" name="content">${article.content}</script>
 	</div>
 <script type="text/javascript" src="${base }/js/ueditor/ueditor.config.js"></script>

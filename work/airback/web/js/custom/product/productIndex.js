@@ -115,6 +115,8 @@ var productIndex=function(){
 					params.productId=pagejq.find("#productId").val();
 					
 					params.num=pagejq.find("#num").val();
+					params.detail=pagejq.find("#detail").val();
+
 					$.ajax({
 						url:base+'/presentation/savePresentation.jsps',
 						type:'post',
@@ -164,6 +166,12 @@ var productIndex=function(){
 						alert("请选择产品展示类型");
 						return false;
 					}
+					var basedataId=page.find("#serials >option:selected").val();
+					if(!basedataId){
+						alert("请选择产品类别");
+						return false;
+					}
+					params.basedataId=basedataId;
 					params.typeId=typeId;
 					$.ajax({
 						url:base+'/product/saveProduct.jsps',

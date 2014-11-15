@@ -79,8 +79,24 @@ var presentationIndex=function(){
 			$("#imagePanel").hide();
 		},
 		getContent:function(){
-			var content=contentEditor.getContentTxt();
+			var content=contentEditor.getContent();
 			return content;
+		},
+		selectProduct:function(){
+			art.dialog.open(base+'/product/getProductSerials.jsps?typeId=3',{
+				id:"selectProduct",
+				title:'双击选择产品',
+				width: 700,
+				height: 360,
+				resizable: false,
+				lock:true,
+				cancel:true,
+				close:function(){
+					var params=art.dialog.data("data");
+					$("#detail").val(params.id);
+					$("#productName").text(params.name);
+				}
+			});
 		}
 	}
 }();

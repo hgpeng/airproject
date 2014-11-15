@@ -3,11 +3,11 @@ var saveArticleDialog=function(){
 
 	return {
 		init:function(){
-			contentEditor = UE.getEditor('content',{initialFrameHeight:320});
+			contentEditor = UE.getEditor('content',{initialFrameHeight:350,initialFrameWidth:'90%'});
 		},
 		getContent:function(){
 			var title=$("#title").val();
-			var content=contentEditor.getContentTxt();
+			var content=contentEditor.getContent();
 			return content;
 		}
 	}

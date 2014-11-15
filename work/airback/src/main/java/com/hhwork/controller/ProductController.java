@@ -2,6 +2,7 @@ package com.hhwork.controller;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -17,7 +18,9 @@ import com.d3.d396333.common.util.ResponseUtils;
 import com.dingjian.base.util.StringUtils;
 import com.hhwork.common.Constants;
 import com.hhwork.common.Pagination;
+import com.hhwork.model.BaseData;
 import com.hhwork.model.Product;
+import com.hhwork.service.BaseDataService;
 import com.hhwork.service.ProductService;
 
 @Controller
@@ -28,6 +31,9 @@ public class ProductController extends BaseController {
 	@Resource
 	protected ProductService productService;
 	
+	@Resource
+	protected BaseDataService baseDataService;
+	
 	@RequestMapping("productIndex")
 	public String productIndex(ModelMap modelMap){
 		return "/product/productIndex";
@@ -37,6 +43,10 @@ public class ProductController extends BaseController {
 	public void getProductList(HttpServletRequest request,
 			HttpServletResponse response,Pagination<Product> page){
 		Map<String,Object> query=new HashMap<String,Object>();
+		int typeId=getInt("typeId",-1);
+		if(typeId!=-1){
+			query.put("typeId", typeId);
+		}
 		Pagination<Product> res=productService.getProductList(page, query);
 		outPrint(response,JSONArray.toJSON(res) );
 	}
@@ -48,6 +58,8 @@ public class ProductController extends BaseController {
 			Product product=productService.getProduct(productId);
 			modelMap.put("product", product);
 		}
+		List<BaseData> productSerial=baseDataService.getBaseDataByBaseTypeId(Constants.BaseType.PRODUCT_SERIAL);
+		modelMap.put("serials", productSerial);
 		return "/product/openProductDialog";
 	}
 	
@@ -65,7 +77,8 @@ public class ProductController extends BaseController {
 			desc="";
 		}
 		if(StringUtils.isEmpty(mainPhoto)){
-			mainPhoto="";
+			//不更新该字段
+			mainPhoto=null;
 		}
 		Product p=new Product();
 		int productId=getInt("id",-1);
@@ -76,6 +89,8 @@ public class ProductController extends BaseController {
 		if(typeId!=-1){
 			p.setTypeId(typeId);
 		}
+		int basedataId=getInt("basedataId",-1);
+		p.setBasedataId(basedataId);
 		p.setCreateTime(new Date());
 		p.setName(name);
 		p.setDesc(desc);
@@ -116,4 +131,12 @@ public class ProductController extends BaseController {
 		int ret=productService.deleteProduct(productId);
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
 	}
+	
+	@RequestMapping("getProductSerials")
+	public String getProductSerials(ModelMap modelMap){
+		int productType=getInt("typeId");
+		modelMap.put("productType", productType);
+		return "/product/getProductSerials";
+	}
+	
 }

@@ -17,17 +17,25 @@
 	<div style="clear:both"></div>
 	<div style="padding-left:20px;">
 	<label>
-	<input type="radio" name="baseType" value="1"/>
+	<input type="radio" name="baseType" value="1" <c:if test="${product.typeId==1 }">checked</c:if> />
 	首页
 	</label>
 	<label>
-	<input type="radio" name="baseType" value="2"/>
+	<input type="radio" name="baseType" value="2" <c:if test="${product.typeId==2 }">checked</c:if> />
 	产品
 	</label>
 	<label>
-	<input type="radio" name="baseType" value="3"/>
+	<input type="radio" name="baseType" value="3" <c:if test="${product.typeId==3 }">checked</c:if> />
 	产品详情
 	</label>
+	</div>
+	<div style="margin-top:5px;margin-left:20px;">
+	产品类别:
+	<select id="serials" style="width:150px;">
+		<c:forEach items="${serials }" var="item">
+			<option value="${item.id }" <c:if test="${product.basedataId==item.id }">selected</c:if>>${item.name }</option>
+		</c:forEach>
+	</select>
 	</div>
 	<div style="clear:both;">
 	</div> 
@@ -52,6 +60,8 @@
 	<script type="text/javascript"
 		src="${base }/js/custom/product/saveProductDialog.js"></script>
 		<script type="text/javascript" src="${base }/js/ajaxupload.js"></script>
+		<script type="text/javascript" src="/js/artDialog/artDialog.js?skin=blue"></script>
+<script type="text/javascript" src="/js/artDialog/plugins/iframeTools.js"></script>
 <script type="text/javascript" src="${base }/js/common.js"></script>
 <script type="text/javascript">
 	initajaxupload("upload","/imgupload/upload.jsps?direct=product",afterupload,null,null);

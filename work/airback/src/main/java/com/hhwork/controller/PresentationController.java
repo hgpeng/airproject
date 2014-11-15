@@ -74,6 +74,7 @@ public class PresentationController extends BaseController {
 		int productId=getInt("productId",-1);
 		String num=getString("num");
 		String html=getString("html");
+		int detail=getInt("detail",-1);
 		int presentationId=getInt("presentationId",-1);
 		if(productId<=0 || StringUtils.isBlank(html) || StringUtils.isBlank(num)){
 			ResponseUtils.renderJson(response, "{\"ret\":-1}");
@@ -91,11 +92,17 @@ public class PresentationController extends BaseController {
 			String path = request.getScheme()+"://"+request.getServerName() + ((("http".equals(scheme) && port == 80) ||("https".equals(scheme)  && port == 443)) ? "" : ":" + port) + request.getContextPath();
 			String basePath=path+"/uploadimages/";
 			html=html.replaceAll("\\$\\{imgPath\\}", basePath+imagePath);
+			presentation.setHtml(html);
+		}else if(StringUtils.isNotBlank(html)){
+			presentation.setHtml(html);
 		}
 			
 		presentation.setProductId(productId);
-		presentation.setHtml(html);
+		
 		presentation.setNum(num);
+		if(detail!=-1){
+			presentation.setDetail(detail);
+		}
 		int ret=presentationService.savePresentation(presentation);
 		
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");

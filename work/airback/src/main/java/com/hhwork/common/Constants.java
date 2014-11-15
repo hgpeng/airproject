@@ -33,6 +33,11 @@ public class Constants {
 		public static final int MENUITEM=2;
 		
 		/**
+		 * 产品系列
+		 */
+		public static final int PRODUCT_SERIAL=6;
+		
+		/**
 		 * flash脚本
 		 */
 		public static final int FLASH=10;
