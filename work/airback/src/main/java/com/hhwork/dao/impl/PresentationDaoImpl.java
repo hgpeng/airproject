@@ -71,7 +71,7 @@ public class PresentationDaoImpl extends BaseDaoImpl implements PresentationDao 
 
 	@Override
 	public Presentation getPresentationById(int id) {
-		StringBuilder sql=new StringBuilder("select p.id presentId,p.productId,p.num,p.html,p.createTime,p.createMan,pro.name proName ");
+		StringBuilder sql=new StringBuilder("select p.id presentId,p.detail,p.productId,p.num,p.html,p.createTime,p.createMan,pro.name proName ");
 		sql.append(" from presentation p,product pro where p.productId=pro.id and p.id=?");
 		List<Object> args=new ArrayList<Object>();
 		args.add(id);
@@ -88,6 +88,10 @@ public class PresentationDaoImpl extends BaseDaoImpl implements PresentationDao 
 		pre.setHtml(map.get("html").toString());
 		pre.setCreateTime((Date)map.get("createTime"));
 		pre.setCreateMan(map.get("createMan").toString());
+		Object detailObj=map.get("detail");
+		if(detailObj!=null){
+			pre.setDetail(Integer.parseInt(detailObj.toString()));
+		}
 		return pre;
 	}
 

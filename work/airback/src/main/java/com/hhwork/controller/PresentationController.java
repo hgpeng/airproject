@@ -48,6 +48,10 @@ public class PresentationController extends BaseController {
 			Presentation pre=presentationService.getPresentation(id);
 			modelMap.put("presentation", pre);
 			product=pre.getProduct();
+			Integer detailId=pre.getDetail();
+			if(detailId!=null){
+				modelMap.put("detailProduct", productService.getProduct(detailId));
+			}
 		}else{
 			product=productService.getProduct(productId);
 		}
