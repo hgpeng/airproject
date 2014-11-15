@@ -44,11 +44,14 @@
                     	</c:forEach>                  	
                     </div>
                     </c:if>
+                    <div  style="margin:0 auto;width:80%;text-align:center;padding:30px 0;overflow:hidden;">
                     <div id="h3div" style="margin:0 auto;width:300px;text-align:center;padding:30px 0;">
-                	<h3 class="about-h3">${art.title }</h3>
+                	<h3 class="about-h3">${art.title }</h3>             	          	
                 	
-                	<p style="padding:5px 0;"><img src="${base }/default/style/images/newhome/line.png"/></p>
-                	
+                    </div>
+                    <div style="margin:0 auto;width:750px;text-align:center;">
+                    <img src="${base }/default/style/images/newhome/line.png"/>
+                    </div>
                     </div>
                     <div class="slyWrap example14" style="height:80%;">
 		

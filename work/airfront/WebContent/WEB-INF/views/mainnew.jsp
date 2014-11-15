@@ -271,7 +271,7 @@
     <div class="pagebody">
     <div class="pageleft"><img src="${base }/default/style/images/newhome/title7.png" alt=""/></div>
     <div class="pageright">
-    <h3 class="pagetitle">六大核心技术</h3>
+    <h3 class="pagetitle"></h3>
     <div class="Tab">
 <ul id=tags>
 <li class="selectTag">

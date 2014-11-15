@@ -71,7 +71,7 @@
         <ul class="nav">
           <li><a href="${base }/index" >概览</a></li>
           <li>
-          	<a href="${base }/productcenter" class="<c:if test="${pagename=='productcenter' }">now</c:if> two-nav">产品中心</a>
+          	<a href="${base }/productcenter" class="<c:if test="${pagename=='productcenter' }">now</c:if>">产品中心</a>
             <div class="two-menu">
             	<ul>
                 	<li>
