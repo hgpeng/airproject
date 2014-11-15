@@ -23,6 +23,8 @@ public class Presentation implements Serializable{
 
 	private Product product;
 	
+	private int detail;
+	
 	public int getId() {
 		return id;
 	}
@@ -77,6 +79,14 @@ public class Presentation implements Serializable{
 
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+	public int getDetail() {
+		return detail;
+	}
+
+	public void setDetail(int detail) {
+		this.detail = detail;
 	}
 	
 	

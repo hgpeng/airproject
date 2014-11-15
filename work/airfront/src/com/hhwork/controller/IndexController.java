@@ -15,6 +15,7 @@ import com.hhwork.model.Articles;
 import com.hhwork.model.BaseData;
 import com.hhwork.model.CasePhoto;
 import com.hhwork.model.Presentation;
+import com.hhwork.model.Product;
 import com.hhwork.util.BaseConstants;
 
 @Controller
@@ -26,6 +27,7 @@ public class IndexController extends BaseController {
 	
 	@RequestMapping({"product"})
 	public String product(ModelMap model) { 
+		
 		return "product"; 
     }
 	
@@ -37,6 +39,12 @@ public class IndexController extends BaseController {
 		List<BaseData> bdlist 
 				= this.queryExecutor.execQuery("com.hhwork.dao.BaseDataDao.select", param, BaseData.class);
 		model.put("bdlist", bdlist);
+		model.put("pagename", "productcenter");
+		
+		param.put("typeId", 2);
+		List<Product> prolist
+		 = this.queryExecutor.execQuery("com.hhwork.dao.ProductDao.select", param, Product.class);
+		model.put("prolist", prolist);
 		return "productcenter"; 
     }
 	
@@ -58,18 +66,19 @@ public class IndexController extends BaseController {
 				this.queryExecutor.execQuery("com.hhwork.dao.BaseDataDao.selectArticle", param, Articles.class);
 		if(adlist.size()>0) art = adlist.get(0);
 		model.put("art", art);
+		model.put("pagename", "solution");
 		return "solution"; 
     }
 	
 	@RequestMapping({"download"})
 	public String download(ModelMap model) { 
-		
+		model.put("pagename", "download");
 		return "download"; 
     }
 	
 	@RequestMapping({"online"})
 	public String online(ModelMap model) {
-		
+		model.put("pagename", "online");
 		return "online"; 
     }
 	
@@ -98,6 +107,13 @@ public class IndexController extends BaseController {
 		model.put("page", "other");
 		model.put("pagename", "news");
 		model.put("type", type);
+		
+		Map<String,Object> param = new HashMap<String,Object>();
+		param.put("type", BaseConstants.NEWSDATA);
+		List<Articles> adlist = 
+				this.queryExecutor.execQuery("com.hhwork.dao.BaseDataDao.selectArticle", param, Articles.class);
+		model.put("adlist", adlist);
+	
 		return "news"; 
     }
 	
@@ -106,7 +122,7 @@ public class IndexController extends BaseController {
 		model.put("page", "other");
 		model.put("pagename", "video");
 		model.put("type", 2);
-		return "news"; 
+		return "video"; 
     }
 	
 	@RequestMapping({"greenService"})
@@ -142,6 +158,24 @@ public class IndexController extends BaseController {
 		return "caselistnew";
     }
 	
+	@RequestMapping(value="caseclass")
+	public String caseclass(ModelMap model) { 
+		Map<String,Object> param = new HashMap<String,Object>();
+		//查工程系列
+		param.put("type", BaseConstants.CASEENVIRONMENT);
+		List<BaseData> celist 
+				= this.queryExecutor.execQuery("com.hhwork.dao.BaseDataDao.select", param, BaseData.class);
+		model.put("celist", celist);
+		model.put("page", "case");
+		
+		String type = this.getString("type");
+		param.put("type", type);
+		List<AppCase> aclist 
+			= this.queryExecutor.execQuery("com.hhwork.dao.CaseDao.select", param, AppCase.class);
+		model.put("aclist", aclist);
+		return "caselistnew";
+    }
+	
 	@RequestMapping(value="caseshow")
 	public String caseshow(ModelMap model) { 
 		int id = this.getInt("id");
@@ -151,8 +185,9 @@ public class IndexController extends BaseController {
 		this.queryExecutor.execQuery("com.hhwork.dao.CaseDao.select", param, AppCase.class);
 		
 		if(bdlist.size()>0){
+			param.put("caseid", id);
 			List<CasePhoto> cplist = 
-					this.queryExecutor.execQuery("com.hhwork.dao.CaseDao.select", param, CasePhoto.class);
+					this.queryExecutor.execQuery("com.hhwork.dao.CaseDao.selectPhoto", param, CasePhoto.class);
 			model.put("data", bdlist.get(0));
 			model.put("cplist", cplist);		
 		}else{
@@ -163,7 +198,7 @@ public class IndexController extends BaseController {
 	
 	@RequestMapping(value="caseproduct")
 	public String productshow(ModelMap model) { 
-		
+		model.put("pagename", "caseproduct");
 		return "caseproduct";
     }
 	
@@ -184,13 +219,15 @@ public class IndexController extends BaseController {
 	
 	@RequestMapping(value="productDetail")
 	public String productDetail(ModelMap model) { 
-		String pid = this.getString("pid");
+		String pid = this.getString("id");
 		Map<String,Object> param = new HashMap<String,Object>();
 		param.put("productId", pid);
 		List<Presentation> plist = 
 		this.queryExecutor.execQuery("com.hhwork.dao.ProductDao.selectPresention", param, Presentation.class);
+		
 		model.put("prelist", plist);
 		model.put("prelength", plist.size());
+		model.put("pagename", "productDetail");
 		return "productDetail";
     }
 }

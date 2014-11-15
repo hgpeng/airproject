@@ -7,4 +7,7 @@ public class BaseConstants {
 	public static String CASEENVIRONMENT = "7";
 	public static String ABOUT = "8";
 	public static String NEWS = "9";
+	public static String NEWSDATA = "50";
+	public static String INFODATA = "51";
+	public static String VIDEODATA = "52";
 }	
