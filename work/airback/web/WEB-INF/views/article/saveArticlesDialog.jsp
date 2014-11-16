@@ -12,7 +12,7 @@
 <body>
 	<input type="hidden" id="articleId" value="${article.id }"/>
 	<div>
-	标题:<input type="text" id="title" style="width:80%" value="${article.title }"/>
+	标题:<input type="text" id="title" style="width:300px;" value="${article.title }"/>
 	<div style="clear:both;margin:5px;"></div>
 	</div>
 	<div>
@@ -33,7 +33,7 @@
 	</c:forEach>
 	</div>
 	</div>
-	<div style="width:90%">
+	<div style="width:800px;">
 	<script type="text/plain" id="content" name="content">${article.content}</script>
 	</div>
 <script type="text/javascript" src="${base }/js/ueditor/ueditor.config.js"></script>
