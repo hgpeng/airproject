@@ -173,6 +173,11 @@ var productIndex=function(){
 					}
 					params.basedataId=basedataId;
 					params.typeId=typeId;
+					
+					var recommend=page.find("#recommend >option:selected").val();
+					var recPhoto=page.find("#recPhoto").val();
+					params.recommend = recommend;
+					params.recPhoto = recPhoto;
 					$.ajax({
 						url:base+'/product/saveProduct.jsps',
 						type:'post',
