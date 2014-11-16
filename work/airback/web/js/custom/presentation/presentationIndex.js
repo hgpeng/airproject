@@ -94,8 +94,10 @@ var presentationIndex=function(){
 				cancel:true,
 				close:function(){
 					var params=art.dialog.data("data");
+					if(params){
 					$("#detail").val(params.id);
 					$("#productName").text(params.name);
+					}
 				}
 			});
 		}
