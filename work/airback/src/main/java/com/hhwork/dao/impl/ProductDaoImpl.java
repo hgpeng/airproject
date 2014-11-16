@@ -40,7 +40,7 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 	@Override
 	public Pagination<Product> getProducts(Pagination<Product> page,
 			Map<String, Object> query) {
-		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,name,typeId,descr,mainPhoto,status,basedataId,createTime,createMan from product where 1=1 ");
+		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,name,typeId,descr,mainPhoto,status,basedataId,createTime,createMan,recommend,recphoto from product where 1=1 ");
 		List<Object> args=new ArrayList<Object>();
 		Object typeId=query.get("typeId");
 		if(typeId!=null){
@@ -64,7 +64,7 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 
 	@Override
 	public Product getProduct(int id) {
-		String sql="select id,name,typeId,descr,mainPhoto,status,basedataId,createTime,createMan from product where id=?";
+		String sql="select id,name,typeId,descr,mainPhoto,status,basedataId,createTime,createMan,recommend,recphoto from product where id=?";
 		
 		return airJdbcTemplate.queryForObject(sql,new Object[]{ id},new RowMapper<Product>() {
 
@@ -87,6 +87,8 @@ public class ProductDaoImpl extends BaseDaoImpl implements ProductDao {
 		p.setCreateMan(rs.getString("createMan"));
 		p.setTypeId(rs.getInt("typeId"));
 		p.setBasedataId(rs.getInt("basedataId"));
+		p.setRecommend(rs.getString("recommend"));
+		p.setRecPhoto(rs.getString("recphoto"));
 		return p;
 	}
 

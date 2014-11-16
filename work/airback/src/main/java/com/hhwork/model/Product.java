@@ -27,6 +27,10 @@ public class Product {
 	
 	private String createMan;
 
+	private String recPhoto;
+	
+	private String recommend;
+	
 	public int getId() {
 		return id;
 	}
@@ -99,6 +103,22 @@ public class Product {
 
 	public void setTypeId(int typeId) {
 		this.typeId = typeId;
+	}
+
+	public String getRecPhoto() {
+		return recPhoto;
+	}
+
+	public void setRecPhoto(String recPhoto) {
+		this.recPhoto = recPhoto;
+	}
+
+	public String getRecommend() {
+		return recommend;
+	}
+
+	public void setRecommend(String recommend) {
+		this.recommend = recommend;
 	}
 	
 	

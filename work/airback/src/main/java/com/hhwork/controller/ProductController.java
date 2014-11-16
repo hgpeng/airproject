@@ -69,6 +69,8 @@ public class ProductController extends BaseController {
 		String name=getString("name");
 		String desc=getString("desc");
 		String mainPhoto=getString("mainPhoto");
+		String recPhoto=getString("recPhoto");
+		String recommend=getString("recommend");
 		if(StringUtils.isEmpty(name)){
 			ResponseUtils.renderJson(response, "{\"ret\":-1}");
 			return;
@@ -95,6 +97,8 @@ public class ProductController extends BaseController {
 		p.setName(name);
 		p.setDesc(desc);
 		p.setMainPhoto(mainPhoto);
+		p.setRecommend(recommend);
+		p.setRecPhoto(recPhoto);
 		//默认下架
 		p.setStatus(Constants.ProductStatus.OffShelves);
 		p.setCreateMan(Constants.ADMIN);
