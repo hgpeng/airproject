@@ -37,8 +37,8 @@
 		</c:forEach>
 	</select>
 	</div>
-	<div style="clear:both;">
-	</div> 
+	<div style="margin-top:5px;margin-left:20px;">
+	产品图片:
 	<input type="hidden" id="mainPhoto" name="mainPhoto" value="${product.mainPhoto }"/>
 	<input id="upload" type="button" value="添加图片"/>
 	<div id="imgdiv">
@@ -46,6 +46,30 @@
 		<img style='width:200px;' src='${base}/uploadimages/${product.mainPhoto}'/>
 		</c:if>
 	</div>
+	</div>
+	<div style="margin-top:5px;margin-left:20px;">
+	推荐级别:
+	<select id="recommend" style="width:150px;">
+		<c:forEach var="s"  begin="0" end="9">
+			<option value="${s }" <c:if test="${product.recommend==s }">selected</c:if>>${s}</option>
+			</c:forEach>
+	</select>
+	(0表示不推荐)
+	</div>
+	<div style="margin-top:5px;margin-left:20px;">
+	推荐图片:
+	<input type="hidden" id="recPhoto" name="recPhoto" value="${product.recPhoto }"/>
+	<input id="recupload" type="button" value="添加图片"/>
+	<div id="recimgdiv">
+		<c:if test="${! empty product.recPhoto }">
+		<img style='width:200px;' src='${base}/uploadimages/${product.recPhoto}'/>
+		</c:if>
+	</div>
+	</div>
+	<div style="clear:both;">
+	</div> 
+	
+	
 	<jsp:include page="../common.jsp"></jsp:include>
 	<script src="${base }/js/ligerUI/js/core/base.js"
 		type="text/javascript"></script>
@@ -65,6 +89,7 @@
 <script type="text/javascript" src="${base }/js/common.js"></script>
 <script type="text/javascript">
 	initajaxupload("upload","/imgupload/upload.jsps?direct=product",afterupload,null,null);
+	initajaxupload("recupload","/imgupload/upload.jsps?direct=product",afterrecupload,null,null);
 	
 	function afterupload(json,data){
 		if(json.STATE=='SUCCESS'){
@@ -73,6 +98,19 @@
 			$("#imgdiv").html(html);
 			
 			$("#mainPhoto").val(json.PATH);
+			
+		}else{
+			art.dialog.alert("上传失败");
+		}
+	}
+	
+	function afterrecupload(json,data){
+		if(json.STATE=='SUCCESS'){
+			art.dialog.tips("上传成功");
+			var html = "<img style='width:200px;' src='${base}/uploadimages/"+json.PATH+"'/>";
+			$("#recimgdiv").html(html);
+			
+			$("#recPhoto").val(json.PATH);
 			
 		}else{
 			art.dialog.alert("上传失败");
