@@ -1,6 +1,8 @@
 package com.hhwork.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -119,7 +121,12 @@ public class BaseDataController extends BaseController {
 	@RequestMapping("getAllBaseTypes")
 	public void getAllBaseTypes(HttpServletRequest request,
 			HttpServletResponse response){
-		outPrint(response,JSONArray.toJSON(baseDataService.getAllBaseTypes()));
+		int article=getInt("article",-1);
+		Map<String,Object> params=new HashMap<String,Object>();
+		if(article!=-1){
+			params.put("article", article);
+		}
+		outPrint(response,JSONArray.toJSON(baseDataService.getAllBaseTypes(params)));
 	}
 	
 	@RequestMapping("saveBaseData")

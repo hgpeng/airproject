@@ -47,10 +47,16 @@ public class BaseTypeDaoImpl extends BaseDaoImpl implements BaseTypeDao {
 	}
 
 	@Override
-	public List<BaseType> getBaseTypeList() {
+	public List<BaseType> getBaseTypeList(Map<String,Object> params) {
 		StringBuilder sql=new StringBuilder("select id,name from basetype where 1=1 ");
-		
-		return airJdbcTemplate.query(sql.toString(), new RowMapper<BaseType>(){
+		List<Object> args=new ArrayList<Object>();
+		Object article=params.get("article");
+		if(article!=null){
+			sql.append(" and id>=? and id<=? ");
+			args.add(4);
+			args.add(9);
+		}
+		return airJdbcTemplate.query(sql.toString(),args.toArray(), new RowMapper<BaseType>(){
 
 			@Override
 			public BaseType mapRow(ResultSet rs, int arg1)

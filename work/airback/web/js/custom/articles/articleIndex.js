@@ -13,13 +13,57 @@ var article=function(){
 		init:function(doc){
 			_this=this;
 			document=doc;
+			var h=$(document).height();
+			$("#main").ligerLayout({height:h*0.9+'',leftWidth:200,minLeftWidth:200,allowLeftCollapse:true,allowLeftResize:true});
+			
+			var setting = {
+		            data: {
+		                simpleData: {
+		                	idKey:"id",
+		                    enable: true
+		                },
+		                key:{
+		            		url:"",
+		            		name:"name"
+		            	}
+		            },
+		            check: {
+		                enable: true
+		            },
+		            async: {//异步加载节点数据
+		                enable: true,
+		                url: "/baseData/getAllBaseTypes.jsps?article=1"
+		            },
+		            callback: {//绑定回调函数
+		            	onAsyncSuccess:function(event,treeId,treeNode,msg){
+
+		            	},
+		                onClick: function(event, treeId, treeNode, msg){
+		                	var param={};
+		                	param.baseTypeId = treeNode.id;
+		                	$("#baseTypeId").val(param.baseTypeId);
+		                	$("#baseTypeName").val(treeNode.name);
+		                	if(!grid){
+		                		_this.initGrid();
+		                	}
+		                	grid.options.parms=param;
+		            		grid.loadData();
+		                }//点击绑定事件
+		            }
+
+		        };  
+		        $.fn.zTree.init($("#leftTree"), setting, []); 
+			
+		},
+		initGrid:function(){
 			grid=$("#tableGrid").ligerGrid({
 				columns: [ 
 	            {display: '主键', name: 'id', align: 'center', width: '5%' },
 	            {display:'内容',name:'preview',align:'left',width:'60%'},
 	            {display:'操作',name:'operation',align:'center',render:function(rowdata, index, value){
 	            	var str="<a href='javascript:void(0);' onclick='edit("+rowdata.id+")'>修改</a>   ";
-	            	str+="<a href='javascript:void(0);' onclick='deleteArticle("+rowdata.id+")'>删除</a>";
+	            	str+="<a href='javascript:void(0);' onclick='deleteArticle("+rowdata.id+")'>删除</a>  ";
+	            	//str+="<a href='javascript:void(0);' onclick='inputSort("+rowdata.id+")'>输入序号</a>";
 	            	return str;
 	            }}
 	            ], 
@@ -36,14 +80,17 @@ var article=function(){
 			});
 		},
 		getParam:function(){
-
+			var baseTypeId=$("#baseTypeId").val();
+			return {baseTypeId:baseTypeId};
 		},
 		add:function(id){
 			var width=$(document).width()-50;
 			var height=$(document).height()*0.8;
-			art.dialog.open('/articles/saveArticlesDialog.jsps?articleId='+id,{
+			var name=$("#baseTypeName").val();
+			var url='/articles/saveArticlesDialog.jsps?articleId='+id+'&typeId='+$("#baseTypeId").val();
+			art.dialog.open(url,{
 				id:"saveBaseType",
-				title:'保存文章',
+				title:'保存'+name,
 				width: width,
 				height: height,
 				resizable: false,
@@ -77,6 +124,20 @@ var article=function(){
 				cancel:true
 			});
 		},
+		inputSort:function(id){
+			art.dialog.open('/sort/inputSort?id='+id+'&name=article',{
+				id:"inputSort",
+				title:'设置排序',
+				width: width,
+				height: height,
+				resizable: false,
+				lock:true,
+				okVal:'保存',
+				ok:function(contentWindow,target){
+				},
+				cancel:true
+			});
+		},
 		delete:function(id){
 			art.dialog.confirm("确定要删除该产品吗?",function(){
 				$.ajax({
@@ -100,6 +161,9 @@ function edit(id){
 }
 function deleteArticle(id){
 	article.delete(id);
+}
+function inputSort(id){
+	article.inputSort(id);
 }
 $(function(){
 	article.init(document);

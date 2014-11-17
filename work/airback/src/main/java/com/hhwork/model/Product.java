@@ -31,6 +31,8 @@ public class Product {
 	
 	private String recommend;
 	
+	private Integer sortorder;
+	
 	public int getId() {
 		return id;
 	}
@@ -119,6 +121,14 @@ public class Product {
 
 	public void setRecommend(String recommend) {
 		this.recommend = recommend;
+	}
+
+	public Integer getSortorder() {
+		return sortorder;
+	}
+
+	public void setSortorder(Integer sortorder) {
+		this.sortorder = sortorder;
 	}
 	
 	

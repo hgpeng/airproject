@@ -61,8 +61,8 @@ public class BaseDataServiceImpl implements BaseDataService {
 	}
 
 	@Override
-	public List<BaseType> getAllBaseTypes() {
-		return baseTypeDao.getBaseTypeList();
+	public List<BaseType> getAllBaseTypes(Map<String,Object> params) {
+		return baseTypeDao.getBaseTypeList(params);
 	}
 
 	@Override

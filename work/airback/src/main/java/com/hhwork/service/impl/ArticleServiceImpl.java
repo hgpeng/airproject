@@ -1,6 +1,7 @@
 package com.hhwork.service.impl;
 
 import java.util.Date;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -21,8 +22,8 @@ public class ArticleServiceImpl implements ArticleService {
 	protected ArticlesDao articlesDao;
 	
 	@Override
-	public Pagination<Articles> getArticles(Pagination<Articles> page) {
-		return articlesDao.getArticles(page);
+	public Pagination<Articles> getArticles(Pagination<Articles> page,Map<String,Object> params) {
+		return articlesDao.getArticles(page,params);
 	}
 
 	@Override

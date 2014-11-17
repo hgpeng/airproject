@@ -16,13 +16,7 @@
 	<div style="clear:both;margin:5px;"></div>
 	</div>
 	<div>
-	类型:<select name="type" id="type">
-	<c:forEach items="${bdlist}" var="item">
-	<option value="${item.id }"
-	<c:if test="${article.type==item.id }">selected</c:if> 
-	>${item.name }(${item.baseType })</option>
-	</c:forEach>
-	</select>
+		<input type="hidden" id="type" name="type" value="${typeId }"/>
 	</div>
 	<input type="hidden" id="imgpath" name="imgpath" value="${article.img }"/>
 	图片:<input type="button" value="添加" id="upload"/>
@@ -33,7 +27,7 @@
 	</c:forEach>
 	</div>
 	</div>
-	<div style="width:800px;">
+	<div style="width:100%;height:240px;">
 	<script type="text/plain" id="content" name="content">${article.content}</script>
 	</div>
 <script type="text/javascript" src="${base }/js/ueditor/ueditor.config.js"></script>

@@ -67,4 +67,10 @@ public class Constants {
 		public static final int OffShelves=2;
 	}
 	
+	public static final class SortClass{
+		public static final String ARTICLE="article";
+		
+		public static final String PRODUCT="product";
+	}
+	
 }

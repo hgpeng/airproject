@@ -8,7 +8,19 @@
 
 </head>
 <body>
-<div id="tableGrid"></div>
+<input type="hidden" id="baseTypeId" value="${baseType.id }"/>
+<input type="hidden" id="baseTypeName" />
+<div id="main">
+		<div position="left">
+			<div id="leftToolBar"></div>
+			<ul id="leftTree" class="ztree"></ul>
+		</div>
+		<div position="center">
+		
+			<div id="tableGrid">
+			</div>
+	    </div>
+</div>
 <jsp:include page="../common.jsp"></jsp:include>
 <script type="text/javascript" src="/js/artDialog/artDialog.js?skin=blue"></script>
 <script type="text/javascript" src="/js/artDialog/plugins/iframeTools.js"></script>

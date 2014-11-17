@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -24,10 +25,15 @@ public class ArticlesDaoImpl extends BaseDaoImpl implements ArticlesDao {
 	ProxoolDataSource airDataSource;
 	
 	@Override
-	public Pagination<Articles> getArticles(Pagination<Articles> page) {
-		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,title,content,img,preview,type,status,createTime,createMan from articles ");
-		
-		return SQLHelpers.getRowSize(sql.toString(), airDataSource, null, page, new PageMapper<Articles>(){
+	public Pagination<Articles> getArticles(Pagination<Articles> page,Map<String,Object> params) {
+		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,title,content,img,preview,type,status,createTime,createMan from articles where 1=1 ");
+		List<Object> args=new ArrayList<Object>();
+		Object baseTypeIdObj=params.get("baseTypeId");
+		if(baseTypeIdObj!=null){
+			sql.append(" and type=? ");
+			args.add(baseTypeIdObj);
+		}
+		return SQLHelpers.getRowSize(sql.toString(), airDataSource, args.toArray(), page, new PageMapper<Articles>(){
 
 			@Override
 			public Articles toCustomizedBean(ResultSet rs) throws SQLException {

@@ -57,6 +57,10 @@ public class _savebasedatadialog__jsp extends com.caucho.jsp.JavaPage
       out.write(_jsp_string13, 0, _jsp_string13.length);
       _caucho_expr_6.print(out, _jsp_env, false);
       out.write(_jsp_string14, 0, _jsp_string14.length);
+      _caucho_expr_6.print(out, _jsp_env, false);
+      out.write(_jsp_string15, 0, _jsp_string15.length);
+      _caucho_expr_6.print(out, _jsp_env, false);
+      out.write(_jsp_string16, 0, _jsp_string16.length);
     } catch (java.lang.Throwable _jsp_e) {
       pageContext.handlePageException(_jsp_e);
     } finally {
@@ -138,7 +142,7 @@ public class _savebasedatadialog__jsp extends com.caucho.jsp.JavaPage
     String resourcePath = loader.getResourcePathSpecificFirst();
     mergePath.addClassPath(resourcePath);
     com.caucho.vfs.Depend depend;
-    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/base/saveBaseDataDialog.jsp"), -6287818434054628641L, false);
+    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/base/saveBaseDataDialog.jsp"), 8555961321905727771L, false);
     com.caucho.jsp.JavaPage.addDepend(_caucho_depends, depend);
   }
   private static com.caucho.el.Expr _caucho_expr_0;
@@ -149,36 +153,40 @@ public class _savebasedatadialog__jsp extends com.caucho.jsp.JavaPage
   private static com.caucho.el.Expr _caucho_expr_5;
   private static com.caucho.el.Expr _caucho_expr_6;
 
-  private final static char []_jsp_string14;
-  private final static char []_jsp_string6;
-  private final static char []_jsp_string10;
   private final static char []_jsp_string0;
-  private final static char []_jsp_string2;
   private final static char []_jsp_string7;
   private final static char []_jsp_string12;
-  private final static char []_jsp_string5;
   private final static char []_jsp_string11;
+  private final static char []_jsp_string3;
+  private final static char []_jsp_string2;
+  private final static char []_jsp_string14;
+  private final static char []_jsp_string10;
   private final static char []_jsp_string8;
-  private final static char []_jsp_string1;
   private final static char []_jsp_string9;
   private final static char []_jsp_string13;
-  private final static char []_jsp_string3;
+  private final static char []_jsp_string16;
+  private final static char []_jsp_string6;
+  private final static char []_jsp_string5;
+  private final static char []_jsp_string1;
+  private final static char []_jsp_string15;
   private final static char []_jsp_string4;
   static {
-    _jsp_string14 = "/js/common.js\"></script>\r\n<script type=\"text/javascript\">\r\n	initajaxupload(\"upload\",\"/imgupload/upload.jsps?direct=case\",afterupload,null,null);\r\n	\r\n	function afterupload(json,data){\r\n		if(json.STATE=='SUCCESS'){\r\n			\r\n			art.dialog.alert(\"\u4e0a\u4f20\u6210\u529f\",function(){\r\n				$(\"#icon\").val(json.PATH);\r\n			});\r\n			\r\n		}else{\r\n			art.dialog.alert(\"\u4e0a\u4f20\u5931\u8d25\");\r\n		}\r\n	}\r\n</script>\r\n</body>\r\n</html>".toCharArray();
-    _jsp_string6 = "\"/>\r\n\r\n<form id=\"saveBaseTypeForm\">\r\n</form>\r\n<div style=\"clear:both\"></div>\r\n<input id=\"upload\" type=\"button\" value=\"\u6dfb\u52a0\u56fe\u6807\"/>\r\n".toCharArray();
-    _jsp_string10 = "/js/ligerUI/js/plugins/ligerComboBox.js\" type=\"text/javascript\"></script>\r\n<script src=\"".toCharArray();
     _jsp_string0 = "\r\n\r\n<html>\r\n<head>\r\n<title>\u4fee\u6539\u57fa\u7840\u7c7b\u578b</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n</head>\r\n<body>\r\n<input type=\"hidden\" id=\"dataId\" value=\"".toCharArray();
-    _jsp_string2 = "\"/>\r\n<input type=\"hidden\" id=\"name_enId\" value=\"".toCharArray();
     _jsp_string7 = "\r\n<script type=\"text/javascript\" src=\"".toCharArray();
-    _jsp_string12 = "/js/custom/base/saveBaseDataDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
-    _jsp_string5 = "\"/>\r\n<input type=\"hidden\" id=\"typeId\" value=\"".toCharArray();
+    _jsp_string12 = "/js/artDialog/artDialog.js?skin=blue\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
     _jsp_string11 = "/js/ligerUI/js/plugins/ligerDateEditor.js\" type=\"text/javascript\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
-    _jsp_string8 = "/js/ligerUI/js/plugins/ligerForm.js\"></script>\r\n<script src=\"".toCharArray();
-    _jsp_string1 = "\"/>\r\n<input type=\"hidden\" id=\"nameId\" value=\"".toCharArray();
-    _jsp_string9 = "/js/ligerUI/js/plugins/ligerTextBox.js\" type=\"text/javascript\"></script>\r\n<script src=\"".toCharArray();
-    _jsp_string13 = "/js/ajaxupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
     _jsp_string3 = "\"/>\r\n<input type=\"hidden\" id=\"iconId\" value=\"".toCharArray();
+    _jsp_string2 = "\"/>\r\n<input type=\"hidden\" id=\"name_enId\" value=\"".toCharArray();
+    _jsp_string14 = "/js/custom/base/saveBaseDataDialog.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
+    _jsp_string10 = "/js/ligerUI/js/plugins/ligerComboBox.js\" type=\"text/javascript\"></script>\r\n<script src=\"".toCharArray();
+    _jsp_string8 = "/js/ligerUI/js/plugins/ligerForm.js\"></script>\r\n<script src=\"".toCharArray();
+    _jsp_string9 = "/js/ligerUI/js/plugins/ligerTextBox.js\" type=\"text/javascript\"></script>\r\n<script src=\"".toCharArray();
+    _jsp_string13 = "/js/artDialog/plugins/iframeTools.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
+    _jsp_string16 = "/js/common.js\"></script>\r\n<script type=\"text/javascript\">\r\n	initajaxupload(\"upload\",\"/imgupload/upload.jsps?direct=case\",afterupload,null,null);\r\n	\r\n	function afterupload(json,data){\r\n		if(json.STATE=='SUCCESS'){\r\n			\r\n			art.dialog.alert(\"\u4e0a\u4f20\u6210\u529f\",function(){\r\n				$(\"#icon\").val(json.PATH);\r\n			});\r\n			\r\n		}else{\r\n			art.dialog.alert(\"\u4e0a\u4f20\u5931\u8d25\");\r\n		}\r\n	}\r\n</script>\r\n</body>\r\n</html>".toCharArray();
+    _jsp_string6 = "\"/>\r\n\r\n<form id=\"saveBaseTypeForm\">\r\n</form>\r\n<div style=\"clear:both\"></div>\r\n<input id=\"upload\" type=\"button\" value=\"\u6dfb\u52a0\u56fe\u6807\"/>\r\n".toCharArray();
+    _jsp_string5 = "\"/>\r\n<input type=\"hidden\" id=\"typeId\" value=\"".toCharArray();
+    _jsp_string1 = "\"/>\r\n<input type=\"hidden\" id=\"nameId\" value=\"".toCharArray();
+    _jsp_string15 = "/js/ajaxupload.js\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
     _jsp_string4 = "\"/>\r\n<input type=\"hidden\" id=\"urlId\" value=\"".toCharArray();
   }
 }

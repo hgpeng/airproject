@@ -31,7 +31,7 @@ public interface BaseTypeDao {
 	 * 获取所有基本类型
 	 * @return
 	 */
-	public List<BaseType> getBaseTypeList();
+	public List<BaseType> getBaseTypeList(Map<String,Object> params);
 	
 	/**
 	 * 根据id获取BaseType

@@ -28,7 +28,7 @@ public interface BaseDataService {
 	 * 获取所有基本类型
 	 * @return
 	 */
-	public List<BaseType> getAllBaseTypes();
+	public List<BaseType> getAllBaseTypes(Map<String,Object> params);
 	
 	/**
 	 * 根据查询条件获取基础数据
