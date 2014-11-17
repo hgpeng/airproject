@@ -1,5 +1,0 @@
-INDEX VERSION 1.126
-I:\gitw3\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1491540879.index
-\air\src
-I:\gitw3\work\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1295550471.index
-\air\src
