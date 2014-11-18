@@ -14,45 +14,9 @@ var article=function(){
 			_this=this;
 			document=doc;
 			var h=$(document).height();
-			$("#main").ligerLayout({height:h*0.9+'',leftWidth:200,minLeftWidth:200,allowLeftCollapse:true,allowLeftResize:true});
+			//$("#main").ligerLayout({height:h*0.9+'',leftWidth:200,minLeftWidth:200,allowLeftCollapse:true,allowLeftResize:true});
 			
-			var setting = {
-		            data: {
-		                simpleData: {
-		                	idKey:"id",
-		                    enable: true
-		                },
-		                key:{
-		            		url:"",
-		            		name:"name"
-		            	}
-		            },
-		            check: {
-		                enable: true
-		            },
-		            async: {//异步加载节点数据
-		                enable: true,
-		                url: "/baseData/getAllBaseTypes.jsps?article=1"
-		            },
-		            callback: {//绑定回调函数
-		            	onAsyncSuccess:function(event,treeId,treeNode,msg){
-
-		            	},
-		                onClick: function(event, treeId, treeNode, msg){
-		                	var param={};
-		                	param.baseTypeId = treeNode.id;
-		                	$("#baseTypeId").val(param.baseTypeId);
-		                	$("#baseTypeName").val(treeNode.name);
-		                	if(!grid){
-		                		_this.initGrid();
-		                	}
-		                	grid.options.parms=param;
-		            		grid.loadData();
-		                }//点击绑定事件
-		            }
-
-		        };  
-		        $.fn.zTree.init($("#leftTree"), setting, []); 
+			_this.initGrid();
 			
 		},
 		initGrid:function(){

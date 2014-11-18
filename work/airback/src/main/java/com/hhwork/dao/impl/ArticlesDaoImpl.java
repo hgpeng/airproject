@@ -34,6 +34,7 @@ public class ArticlesDaoImpl extends BaseDaoImpl implements ArticlesDao {
 			sql.append(" and b.typeId=? ");
 			args.add(baseTypeIdObj);
 		}
+		System.out.println(sql.toString());
 		return SQLHelpers.getRowSize(sql.toString(), airDataSource, args.toArray(), page, new PageMapper<Articles>(){
 
 			@Override

@@ -37,7 +37,7 @@ public class ArticlesController extends BaseController {
 	
 	@RequestMapping("articleIndex")
 	public String articleIndex(ModelMap modelMap){
-		int typeId=getInt("type",-1);
+		int typeId=getInt("basedata",-1);
 		if(typeId!=-1){
 			BaseType baseType=baseDataService.getBaseTypeById(typeId);
 			modelMap.put("baseType", baseType);
