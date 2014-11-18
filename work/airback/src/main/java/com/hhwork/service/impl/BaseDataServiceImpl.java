@@ -94,4 +94,17 @@ public class BaseDataServiceImpl implements BaseDataService {
 		return baseDataDao.deleteBaseData(id);
 	}
 
+	@Override
+	public List<BaseData> getGreenSerial(int id) {
+		
+		return baseDataDao.getGreenSerial(id);
+	}
+
+	@Override
+	public Pagination<BaseData> getGreenProduct(Pagination<BaseData> page,
+			Map<String, Object> query) {
+		// TODO Auto-generated method stub
+		return baseDataDao.getGreenProduct(page, query);
+	}
+
 }

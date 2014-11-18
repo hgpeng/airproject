@@ -134,9 +134,11 @@ public class BaseDataController extends BaseController {
 		int id=getInt("id",-1);
 		String name=getString("name");
 		String name_en=getString("name_en");
+		String number=getString("number");
 		String icon = this.getString("icon");
 		String url=getString("url","");
 		int typeId=getInt("typeId",-1);
+		int parentId = getInt("parentId",0);
 		/**
 		 * 名称不能为空
 		 */
@@ -155,6 +157,8 @@ public class BaseDataController extends BaseController {
 		baseData.setTypeId(typeId);
 		baseData.setIcon(icon);
 		baseData.setName_en(name_en);
+		baseData.setNumber(number);
+		baseData.setParentId(parentId);
 		int ret=baseDataService.saveBaseData(baseData);
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
 	}

@@ -93,4 +93,8 @@ public interface BaseDataService {
 	 * @return
 	 */
 	public int deleteBaseData(int id);
+	
+	public List<BaseData> getGreenSerial(int id);
+	
+	public  Pagination<BaseData> getGreenProduct(Pagination<BaseData> page,Map<String,Object> query);
 }
