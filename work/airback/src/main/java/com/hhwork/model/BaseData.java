@@ -29,6 +29,7 @@ public class BaseData {
 	
 	private String createMan;
 	
+	private String number;
 	
 	@Column(ignore=true)
 	private List<BaseData> childrens;
@@ -130,6 +131,14 @@ public class BaseData {
 
 	public void setName_en(String name_en) {
 		this.name_en = name_en;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
 	}
 	
 	
