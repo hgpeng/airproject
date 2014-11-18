@@ -13,7 +13,9 @@
 <input type="hidden" id="dataid" value="${caseid}"/>
 <div id="imgdiv">
 	<c:forEach items="${cplist }" var="item">
+	<p>
 		<img style='width:200px;' src='${base}/uploadimages/${item.path}'/>
+		<input type="button" cpid="${item.id }" onclick="deleteimg(this)" value="删除"/></p>
 	</c:forEach>
 </div>
 <script type="text/javascript" src="${base }/js/artDialog/artDialog.js?skin=blue"></script>
@@ -44,6 +46,14 @@
 		}else{
 			art.dialog.alert("上传失败");
 		}
+	}
+	
+	function deleteimg(obj){
+		
+		$.post(base+"/case/delete.jsps",{id:$(obj).attr("cpid")},function(data){
+			
+		})
+		
 	}
 </script>
 </body>
