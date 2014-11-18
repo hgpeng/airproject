@@ -28,7 +28,7 @@ public interface BaseDataService {
 	 * 获取所有基本类型
 	 * @return
 	 */
-	public List<BaseType> getAllBaseTypes();
+	public List<BaseType> getAllBaseTypes(Map<String,Object> params);
 	
 	/**
 	 * 根据查询条件获取基础数据
@@ -60,4 +60,37 @@ public interface BaseDataService {
 	 * @return
 	 */
 	public int saveBaseData(BaseData baseData);
+	
+	/**
+	 * 
+	 */
+	public List<BaseData> getAllBaseData(Map<String,Object> param);
+	
+	/**
+	 * 根据id获取BaseType
+	 * @param id
+	 * @return
+	 */
+	public BaseType getBaseTypeById(int id);
+	
+	/**
+	 * 根据基本类型id获取基本数据
+	 * @param typeId
+	 * @return
+	 */
+	public List<BaseData> getBaseDataByBaseTypeId(int typeId);
+	
+	/**
+	 * 根据id获取BaseData
+	 * @param id
+	 * @return
+	 */
+	public BaseData getBaseDataById(int id);
+	
+	/**
+	 * 删除基本shuju
+	 * @param id
+	 * @return
+	 */
+	public int deleteBaseData(int id);
 }

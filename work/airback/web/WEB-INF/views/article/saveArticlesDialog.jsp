@@ -7,29 +7,50 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <style type="text/css">
 </style>
-<%
-int port = request.getServerPort();
-String scheme = request.getScheme();
-String path = request.getScheme()+"://"+request.getServerName() + ((("http".equals(scheme) && port == 80) ||("https".equals(scheme)  && port == 443)) ? "" : ":" + port) + request.getContextPath();
-request.setAttribute("base", path);
-request.setAttribute("imagepath", path +"/images");
-%>
-<script type='text/javascript'>
-	var base='${base}';
-</script>
+<jsp:include page="../common.jsp"></jsp:include>
 </head>
 <body>
+	<input type="hidden" id="articleId" value="${article.id }" />
 	<div>
-	标题:<input type="text" id="title" style="width:80%"/>
-	<div style="clear:both;margin:5px;"></div>
+		标题:<input type="text" id="title" style="width:300px;"
+			value="${article.title }" />
+		<div style="clear:both;margin:5px;"></div>
 	</div>
 	<div>
-	<script type="text/plain" id="content" name="content">${data.content}</script>
+		<input type="hidden" id="type" name="type" value="${typeId }" />
+		
 	</div>
-<script type="text/javascript" src="/js/ueditor/ueditor.config.js"></script>
-<script type="text/javascript" src="/js/ueditor/ueditor.all.min.js"></script>
-
-<script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="/js/custom/articles/saveArticlesDialog.js"></script>
+	<input type="hidden" id="imgpath" name="imgpath"
+		value="${article.img }" /> 图片:
+	<input type="button" value="添加" id="upload" />
+	<div id="imgdiv">
+		<c:forEach items="${imgList }" var="item">
+			<p>
+				<img style='width:100px;' path='"+json.PATH+"'
+					src="${base}/uploadimages/${item}" /> <input type="button"
+					onclick="deleteimg(this)" value="删除" />
+			</p>
+		</c:forEach>
+	</div>
+	<div style="width:100%;height:240px;">
+		<script type="text/plain" id="content" name="content">${article.content}</script>
+	</div>
+	<script type="text/javascript"
+		src="${base }/js/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript"
+		src="${base }/js/ueditor/ueditor.all.min.js"></script>
+	<script type="text/javascript"
+		src="${base }/js/artDialog/artDialog.js?skin=blue"></script>
+	<script type="text/javascript"
+		src="${base }/js/artDialog/plugins/iframeTools.js"></script>
+	<script type="text/javascript" src="${base }/js/ajaxupload.js"></script>
+	<script type="text/javascript" src="${base }/js/common.js"></script>
+	<script type="text/javascript"
+		src="${base }/js/custom/articles/saveArticlesDialog.js"></script>
+	<script type="text/javascript">
+		function deleteimg(obj) {
+			$(obj).parent().remove();
+		}
+	</script>
 </body>
 </html>

@@ -12,6 +12,6 @@
 <jsp:include page="../common.jsp"></jsp:include>
 <script type="text/javascript" src="/js/artDialog/artDialog.js?skin=blue"></script>
 <script type="text/javascript" src="/js/artDialog/plugins/iframeTools.js"></script>
-<script src="/js/custom/base/baseDataIndex.js"></script>
+<script src="/js/custom/case/caseDataIndex.js"></script>
 </body>
 </html>

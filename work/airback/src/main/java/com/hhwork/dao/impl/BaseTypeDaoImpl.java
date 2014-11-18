@@ -29,7 +29,7 @@ public class BaseTypeDaoImpl extends BaseDaoImpl implements BaseTypeDao {
 		if(baseType.getId()<=0){
 			return saveObject(baseType);
 		}else{
-			return 0;
+			return updateObject(baseType, baseType.getId());
 		}
 	}
 
@@ -47,18 +47,21 @@ public class BaseTypeDaoImpl extends BaseDaoImpl implements BaseTypeDao {
 	}
 
 	@Override
-	public List<BaseType> getBaseTypeList() {
+	public List<BaseType> getBaseTypeList(Map<String,Object> params) {
 		StringBuilder sql=new StringBuilder("select id,name from basetype where 1=1 ");
-		
-		return airJdbcTemplate.query(sql.toString(), new RowMapper<BaseType>(){
+		List<Object> args=new ArrayList<Object>();
+		Object article=params.get("article");
+		if(article!=null){
+			sql.append(" and id>=? and id<=? ");
+			args.add(4);
+			args.add(9);
+		}
+		return airJdbcTemplate.query(sql.toString(),args.toArray(), new RowMapper<BaseType>(){
 
 			@Override
 			public BaseType mapRow(ResultSet rs, int arg1)
 					throws SQLException {
-				BaseType res=new BaseType();
-				res.setId(rs.getInt("id"));
-				res.setName(rs.getString("name"));
-				return res;
+				return generateBaseType(rs);
 			}
 			
 		});
@@ -68,11 +71,31 @@ public class BaseTypeDaoImpl extends BaseDaoImpl implements BaseTypeDao {
 
 		@Override
 		public BaseType toCustomizedBean(ResultSet rs) throws SQLException {
-			BaseType res=new BaseType();
-			res.setId(rs.getInt("id"));
-			res.setName(rs.getString("name"));
-			return res;
+			return generateBaseType(rs);
 		}
 		
+	}
+	
+	private BaseType generateBaseType(ResultSet rs) throws SQLException{
+		BaseType res=new BaseType();
+		res.setId(rs.getInt("id"));
+		res.setName(rs.getString("name"));
+		return res;
+	}
+
+	@Override
+	public BaseType getBaseTypeById(int id) {
+		String sql="select id,name from basetype where id=?";
+		List<Object> args=new ArrayList<Object>();
+		args.add(id);
+		return airJdbcTemplate.queryForObject(sql, args.toArray(), new RowMapper<BaseType>(){
+
+			@Override
+			public BaseType mapRow(ResultSet rs, int arg1)
+					throws SQLException {
+				return generateBaseType(rs);
+			}
+			
+		});
 	}
 }

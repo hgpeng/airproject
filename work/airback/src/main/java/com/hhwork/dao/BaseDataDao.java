@@ -36,4 +36,20 @@ public interface BaseDataDao {
 	 * @return
 	 */
 	public Pagination<BaseData> getBaseData(Pagination<BaseData> page,Map<String,Object> query);
+	
+	public List<BaseData> getAllBaseData(Map<String,Object> param);
+	
+	/**
+	 * 根据id获取BaseData
+	 * @param id
+	 * @return
+	 */
+	public BaseData getBaseDataById(int id);
+	
+	/**
+	 * 删除基本shuju
+	 * @param id
+	 * @return
+	 */
+	public int deleteBaseData(int id);
 }

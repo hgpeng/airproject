@@ -1,5 +1,9 @@
 package com.hhwork.controller;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,6 +44,11 @@ public class BaseDataController extends BaseController {
 	
 	@RequestMapping("saveBaseTypeDialog")
 	public String saveBaseTypeDialog(ModelMap modelMap){
+		int typeId=getInt("id",-1);
+		if(typeId!=-1){
+			BaseType baseType=baseDataService.getBaseTypeById(typeId);
+			modelMap.put("baseType", baseType);
+		}
 		return "/base/saveBaseTypeDialog";
 	}
 
@@ -81,12 +90,30 @@ public class BaseDataController extends BaseController {
 	@RequestMapping("getBaseData")
 	public void getBaseData(HttpServletRequest request,
 			HttpServletResponse response,Pagination<BaseData> page){
-		Pagination<BaseData> res=baseDataService.getBaseData(page, null);
+		Pagination<BaseData> res=baseDataService.getBaseData(page, this.getParaMap());
+		outPrint(response, JSONArray.toJSON(res));
+	}
+	
+	/**
+	 * 获取基础数据
+	 * @param request
+	 * @param response
+	 * @param page
+	 */
+	@RequestMapping("getAllBaseData")
+	public void getAllBaseData(HttpServletRequest request,
+			HttpServletResponse response){
+		List<BaseData> res=baseDataService.getAllBaseData(this.getParaMap());
 		outPrint(response, JSONArray.toJSON(res));
 	}
 	
 	@RequestMapping("saveBaseDataDialog")
 	public String saveBaseDataDialog(ModelMap modelMap){
+		int id=getInt("id",-1);
+		if(id!=-1){
+			BaseData baseData=baseDataService.getBaseDataById(id);
+			modelMap.put("baseData", baseData);
+		}
 		return "/base/saveBaseDataDialog";
 	}
 	
@@ -94,13 +121,20 @@ public class BaseDataController extends BaseController {
 	@RequestMapping("getAllBaseTypes")
 	public void getAllBaseTypes(HttpServletRequest request,
 			HttpServletResponse response){
-		outPrint(response,JSONArray.toJSON(baseDataService.getAllBaseTypes()));
+		int article=getInt("article",-1);
+		Map<String,Object> params=new HashMap<String,Object>();
+		if(article!=-1){
+			params.put("article", article);
+		}
+		outPrint(response,JSONArray.toJSON(baseDataService.getAllBaseTypes(params)));
 	}
 	
 	@RequestMapping("saveBaseData")
 	public void saveBaseData(HttpServletResponse response){
 		int id=getInt("id",-1);
 		String name=getString("name");
+		String name_en=getString("name_en");
+		String icon = this.getString("icon");
 		String url=getString("url","");
 		int typeId=getInt("typeId",-1);
 		/**
@@ -119,7 +153,16 @@ public class BaseDataController extends BaseController {
 		baseData.setName(name);
 		baseData.setUrl(url);
 		baseData.setTypeId(typeId);
+		baseData.setIcon(icon);
+		baseData.setName_en(name_en);
 		int ret=baseDataService.saveBaseData(baseData);
+		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
+	}
+	
+	@RequestMapping("deleteBaseData")
+	public void deleteBaseData(HttpServletResponse response){
+		int id=getInt("id",-1);
+		int ret=baseDataService.deleteBaseData(id);
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
 	}
 }

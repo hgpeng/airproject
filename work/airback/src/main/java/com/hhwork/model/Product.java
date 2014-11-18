@@ -17,14 +17,22 @@ public class Product {
 	
 	private String mainPhoto;
 	
+	private int typeId;
+	
 	private int status;
 	
-	private int templateId;
+	private int basedataId;
 	
 	private Date createTime;
 	
 	private String createMan;
 
+	private String recPhoto;
+	
+	private String recommend;
+	
+	private Integer sortorder;
+	
 	public int getId() {
 		return id;
 	}
@@ -65,12 +73,14 @@ public class Product {
 		this.status = status;
 	}
 
-	public int getTemplateId() {
-		return templateId;
+	
+
+	public int getBasedataId() {
+		return basedataId;
 	}
 
-	public void setTemplateId(int templateId) {
-		this.templateId = templateId;
+	public void setBasedataId(int basedataId) {
+		this.basedataId = basedataId;
 	}
 
 	public Date getCreateTime() {
@@ -87,6 +97,38 @@ public class Product {
 
 	public void setCreateMan(String createMan) {
 		this.createMan = createMan;
+	}
+
+	public int getTypeId() {
+		return typeId;
+	}
+
+	public void setTypeId(int typeId) {
+		this.typeId = typeId;
+	}
+
+	public String getRecPhoto() {
+		return recPhoto;
+	}
+
+	public void setRecPhoto(String recPhoto) {
+		this.recPhoto = recPhoto;
+	}
+
+	public String getRecommend() {
+		return recommend;
+	}
+
+	public void setRecommend(String recommend) {
+		this.recommend = recommend;
+	}
+
+	public Integer getSortorder() {
+		return sortorder;
+	}
+
+	public void setSortorder(Integer sortorder) {
+		this.sortorder = sortorder;
 	}
 	
 	

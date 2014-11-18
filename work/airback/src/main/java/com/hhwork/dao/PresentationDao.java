@@ -20,4 +20,18 @@ public interface PresentationDao {
 	 * @return
 	 */
 	public Pagination<Presentation> getPresentationList(Pagination<Presentation> page,Map<String,Object>query);
+	
+	/**
+	 * 删除模板
+	 * @param presentation
+	 * @return
+	 */
+	public int deletePresentation(Presentation presentation);
+	
+	/**
+	 * 根据模板id
+	 * @param id
+	 * @return
+	 */
+	public Presentation getPresentationById(int id);
 }

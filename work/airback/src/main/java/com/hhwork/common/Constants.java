@@ -31,6 +31,23 @@ public class Constants {
 		 * 菜单项
 		 */
 		public static final int MENUITEM=2;
+		
+		/**
+		 * 产品系列
+		 */
+		public static final int PRODUCT_SERIAL=6;
+		
+		/**
+		 * flash脚本
+		 */
+		public static final int FLASH=10;
+		
+		/**
+		 * html脚本
+		 */
+		public static final int HTML=11;
+		
+		public static final int CASE=7;
 	}
 	
 	/**
@@ -49,4 +66,11 @@ public class Constants {
 		 */
 		public static final int OffShelves=2;
 	}
+	
+	public static final class SortClass{
+		public static final String ARTICLE="article";
+		
+		public static final String PRODUCT="product";
+	}
+	
 }

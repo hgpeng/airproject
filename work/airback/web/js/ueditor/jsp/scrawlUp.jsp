@@ -1,4 +1,6 @@
-    <%@page import="com.dingjian.framework.util.Uploader"%>
+<%@page import="com.hhwork.controller.ueditor.Uploader"%>
+<%@page import="com.dingjian.base.util.StringUtils"%>
+<%@page import="com.dingjian.base.util.SystemConfig"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
         pageEncoding="utf-8"%>
         <%@ page import="java.io.BufferedReader"%>
@@ -16,8 +18,8 @@
 	
 	String param = request.getParameter("action");
     Uploader up = new Uploader(request);
-    String path = "upload";
-    up.setSavePath(path);
+    String direct = request.getParameter("direct");
+    up.setSavePath(SystemConfig.getParameter("image_path") + (StringUtils.isEmpty(direct)?"":("/"+direct)));
     String[] fileType = {".gif" , ".png" , ".jpg" , ".jpeg" , ".bmp"};
     up.setAllowFiles(fileType);
     up.setMaxSize(10000); //单位KB

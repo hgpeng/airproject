@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       out.print((basePath));
       out.write(_jsp_string2, 0, _jsp_string2.length);
       
-response.sendRedirect("/index/index.html");
+response.sendRedirect("/index/index.jsps");
 
       out.write(_jsp_string3, 0, _jsp_string3.length);
     } catch (java.lang.Throwable _jsp_e) {
@@ -115,7 +115,7 @@ response.sendRedirect("/index/index.html");
     String resourcePath = loader.getResourcePathSpecificFirst();
     mergePath.addClassPath(resourcePath);
     com.caucho.vfs.Depend depend;
-    depend = new com.caucho.vfs.Depend(appDir.lookup("index.jsp"), 1152389634169806832L, false);
+    depend = new com.caucho.vfs.Depend(appDir.lookup("index.jsp"), -928523120252914999L, false);
     com.caucho.jsp.JavaPage.addDepend(_caucho_depends, depend);
   }
 

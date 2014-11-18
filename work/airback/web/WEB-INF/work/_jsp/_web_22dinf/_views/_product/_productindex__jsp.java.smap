@@ -1,0 +1,15 @@
+SMAP
+_productindex__jsp.java
+JSP
+*S JSP
+*F
++ 1 productIndex.jsp
+WEB-INF/views/product/productIndex.jsp
+*L
+2#1:31
+12#1,2:32,2
+13#1,2:35
+14#1,2:37
+15#1:39
+17#1:40
+*E

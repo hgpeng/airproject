@@ -1,6 +1,7 @@
 package com.hhwork.model;
 
 import java.io.Serializable;
+
 import java.util.Date;
 
 import com.hhwork.annotation.Column;

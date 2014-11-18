@@ -19,6 +19,9 @@
 	 <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+    <bean id="systemConfig" class="com.dingjian.base.util.SystemConfig">
+    	<property name="resource" value="/WEB-INF/config/system.properties"></property>
+    </bean>
 	<tx:annotation-driven transaction-manager="transactionManager"  /> 
 	<aop:aspectj-autoproxy />
 </beans>

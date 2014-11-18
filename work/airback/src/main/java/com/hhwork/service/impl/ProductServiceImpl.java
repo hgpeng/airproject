@@ -24,8 +24,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public int putProductOffShelves(Product p) {
-		p.setStatus(Constants.ProductStatus.OffShelves);
+	public int putProductOnOrOffShelves(Product p) {
 		return productDao.putProductOffShelves(p);
 	}
 
@@ -33,6 +32,18 @@ public class ProductServiceImpl implements ProductService {
 	public Pagination<Product> getProductList(Pagination<Product> page,
 			Map<String, Object> query) {
 		return productDao.getProducts(page, query);
+	}
+
+	@Override
+	public Product getProduct(int id) {
+		return productDao.getProduct(id);
+	}
+
+	@Override
+	public int deleteProduct(int id) {
+		Product p=new Product();
+		p.setId(id);
+		return productDao.deleteProduct(p);
 	}
 
 }

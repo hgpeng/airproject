@@ -8,8 +8,9 @@
 
 </head>
 <body>
+<input type="hidden" id="baseTypeName" value="${baseType.name }"/>
 <form id="saveBaseTypeForm">
-<input type="hidden" id="typeId"/>
+<input type="hidden" id="typeId" value="${baseType.id }"/>
 </form>
 <select id="baseTypes" style="display:none;">
 <c:forEach items="${baseTypes}" var="item">

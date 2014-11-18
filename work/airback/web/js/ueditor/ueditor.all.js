@@ -4112,7 +4112,8 @@ var fillCharReg = new RegExp(domUtils.fillChar, 'g');///import editor.js
                 textarea.style.display = ''
             }
 
-            textarea.style.width = me.iframe.offsetWidth + 'px';
+            //textarea.style.width = me.iframe.offsetWidth + 'px';
+            textarea.style.width = '500px';
             textarea.style.height = me.iframe.offsetHeight + 'px';
             textarea.value = me.getContent();
             textarea.id = me.key;
@@ -6011,7 +6012,7 @@ var filterNode = UE.filterNode = function () {
 
 UE.plugins['defaultfilter'] = function () {
     var me = this;
-    me.setOpt('allowDivTransToP',true);
+    me.setOpt('allowDivTransToP',false);
     //默认的过滤处理
     //进入编辑器的内容处理
     me.addInputRule(function (root) {

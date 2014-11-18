@@ -1,11 +1,13 @@
 package com.hhwork.dao;
 
+import java.util.Map;
+
 import com.hhwork.common.Pagination;
 import com.hhwork.model.Articles;
 
 public interface ArticlesDao {
 
-	public Pagination<Articles> getArticles(Pagination<Articles> page);
+	public Pagination<Articles> getArticles(Pagination<Articles> page,Map<String,Object> params);
 	
 	/**
 	 * 保存文章
@@ -20,4 +22,11 @@ public interface ArticlesDao {
 	 * @return
 	 */
 	public int deleteArticles(int id);
+	
+	/**
+	 * 根据id获取文章
+	 * @param id
+	 * @return
+	 */
+	public Articles getArticleById(int id);
 }

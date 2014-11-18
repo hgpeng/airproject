@@ -4,15 +4,15 @@ import com.hhwork.annotation.Table;
 
 @Table(value="casephoto")
 public class CasePhoto {
-	private String id;
+	private int id;
 	private String name;
 	private String path;
 	private int caseid;
 	
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {

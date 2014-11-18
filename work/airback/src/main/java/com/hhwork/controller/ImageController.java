@@ -1,9 +1,16 @@
+/**
+ * com.dingjian.framework.compoment.ImageController.java
+ */
 package com.hhwork.controller;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,9 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.alibaba.fastjson.JSONObject;
+import com.dingjian.base.common.ImageAttribute;
+import com.dingjian.base.util.ImageUtil;
 import com.dingjian.base.util.StringUtils;
 import com.dingjian.base.util.SystemConfig;
-
 
 /**
  * 图片处理Controller
@@ -25,7 +33,7 @@ import com.dingjian.base.util.SystemConfig;
  * @since 2012-10-29
  */
 @Controller
-@RequestMapping(value="framework/images/*")
+@RequestMapping(value="/imgupload/*")
 public class ImageController extends BaseController {
 	
 	/**
@@ -75,4 +83,47 @@ public class ImageController extends BaseController {
 		}
 		outPrint(response, JSONObject.toJSON(getOutputMsg()));
 	}
+	
+	@RequestMapping(value={"compressUpload"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
+	  public void compressUpload(@RequestParam("image") MultipartFile file, 
+			  @RequestParam(value="fileName", required=false) String ordingName, 
+			  @RequestParam(value="direct", required=true) String dir, 
+			  HttpServletResponse response)
+	    throws IOException, InterruptedException, ExecutionException
+	  {
+	    byte[] bytes = file.getBytes();
+	    String fileName = file.getOriginalFilename();
+	    String path = new StringBuilder().append(SystemConfig.getParameter("image_path")).append(dir).toString();
+	    String suffix = fileName.substring(fileName.lastIndexOf("."));
+	    File folder = new File(new StringBuilder().append(SystemConfig.getParameter("image_path")).append(dir).toString());
+	    if (!folder.exists()) {
+	      folder.mkdirs();
+	    }
+
+	    List list = new ArrayList();
+
+	    ImageAttribute imgattr = new ImageAttribute(null, null, true);
+	    list.add(imgattr);
+
+	    if (dir.indexOf("myProject") > -1) {
+	      imgattr = new ImageAttribute(Integer.valueOf(75), Integer.valueOf(75), true);
+	      list.add(imgattr);
+	      imgattr = new ImageAttribute(Integer.valueOf(900), Integer.valueOf(600), true);
+	      list.add(imgattr);
+	      imgattr = new ImageAttribute(Integer.valueOf(300), Integer.valueOf(200), true);
+	      list.add(imgattr);
+	    }
+
+	    String url = ImageUtil.compressSave(bytes, path, suffix, list);
+
+	    getOutputMsg().put("STATE", "SUCCESS");
+	    getOutputMsg().put("MSG", "上传文件成功");
+
+	    getOutputMsg().put("PATH", new StringBuilder().append(dir).append("/").append(url).append("_size").append(suffix).toString());
+	    getOutputMsg().put("TARGET_EL", getString("TARGET_EL"));
+	    response.setContentType("text/html");
+	    outPrint(response, JSONObject.toJSON(getOutputMsg()));
+	  }
+	
+	
 }

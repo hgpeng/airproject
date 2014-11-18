@@ -1,5 +1,6 @@
 package com.hhwork.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import com.hhwork.annotation.Table;
@@ -10,7 +11,12 @@ import com.hhwork.annotation.Table;
  *
  */
 @Table(value="leaves")
-public class Leaves {
+public class Leaves implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4667614016583444204L;
 
 	private int id;
 	
@@ -23,6 +29,8 @@ public class Leaves {
 	private Date createTime;
 	
 	private String replyMan;
+	
+	private String replyContent;
 
 	public int getId() {
 		return id;
@@ -70,6 +78,14 @@ public class Leaves {
 
 	public void setReplyMan(String replyMan) {
 		this.replyMan = replyMan;
+	}
+
+	public String getReplyContent() {
+		return replyContent;
+	}
+
+	public void setReplyContent(String replyContent) {
+		this.replyContent = replyContent;
 	}
 	
 	

@@ -17,6 +17,8 @@ public class BaseData {
 	
 	private String name;
 	
+	private String name_en;
+	
 	private String icon;
 	
 	private String url;
@@ -27,9 +29,13 @@ public class BaseData {
 	
 	private String createMan;
 	
+	
 	@Column(ignore=true)
 	private List<BaseData> childrens;
 
+	@Column(ignore=true)
+	private String baseType;
+	
 	public int getId() {
 		return id;
 	}
@@ -108,6 +114,22 @@ public class BaseData {
 
 	public void setIcon(String icon) {
 		this.icon = icon;
+	}
+
+	public String getBaseType() {
+		return baseType;
+	}
+
+	public void setBaseType(String baseType) {
+		this.baseType = baseType;
+	}
+
+	public String getName_en() {
+		return name_en;
+	}
+
+	public void setName_en(String name_en) {
+		this.name_en = name_en;
 	}
 	
 	

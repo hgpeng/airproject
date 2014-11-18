@@ -19,7 +19,12 @@ public class Presentation implements Serializable{
 	
 	private int productId;
 	
-	private int num;
+	/**
+	 * 关联的产品
+	 */
+	private Integer detail;
+	
+	private String num;
 	
 	private String html;
 	
@@ -27,6 +32,9 @@ public class Presentation implements Serializable{
 	
 	private String createMan;
 
+	@Column(ignore=true)
+	private Product product;
+	
 	public int getId() {
 		return id;
 	}
@@ -43,11 +51,11 @@ public class Presentation implements Serializable{
 		this.productId = productId;
 	}
 
-	public int getNum() {
+	public String getNum() {
 		return num;
 	}
 
-	public void setNum(int num) {
+	public void setNum(String num) {
 		this.num = num;
 	}
 
@@ -73,6 +81,22 @@ public class Presentation implements Serializable{
 
 	public void setCreateMan(String createMan) {
 		this.createMan = createMan;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public Integer getDetail() {
+		return detail;
+	}
+
+	public void setDetail(Integer detail) {
+		this.detail = detail;
 	}
 	
 	

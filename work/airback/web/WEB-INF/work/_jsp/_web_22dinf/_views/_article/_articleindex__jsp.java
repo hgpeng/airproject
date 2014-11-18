@@ -29,8 +29,10 @@ public class _articleindex__jsp extends com.caucho.jsp.JavaPage
     request.setCharacterEncoding("UTF-8");
     try {
       out.write(_jsp_string0, 0, _jsp_string0.length);
-      pageContext.include("../common.jsp", false);
+      _caucho_expr_0.print(out, _jsp_env, false);
       out.write(_jsp_string1, 0, _jsp_string1.length);
+      pageContext.include("../common.jsp", false);
+      out.write(_jsp_string2, 0, _jsp_string2.length);
     } catch (java.lang.Throwable _jsp_e) {
       pageContext.handlePageException(_jsp_e);
     } finally {
@@ -85,6 +87,7 @@ public class _articleindex__jsp extends com.caucho.jsp.JavaPage
     com.caucho.jsp.TaglibManager manager = webApp.getJspApplicationContext().getTaglibManager();
     manager.addTaglibFunctions(_jsp_functionMap, "c", "http://java.sun.com/jsp/jstl/core");
     com.caucho.jsp.PageContextImpl pageContext = new com.caucho.jsp.PageContextImpl(webApp, this);
+    _caucho_expr_0 = com.caucho.jsp.JspUtil.createExpr(pageContext.getELContext(), "${baseType.id }");
   }
 
   public void destroy()
@@ -105,14 +108,17 @@ public class _articleindex__jsp extends com.caucho.jsp.JavaPage
     String resourcePath = loader.getResourcePathSpecificFirst();
     mergePath.addClassPath(resourcePath);
     com.caucho.vfs.Depend depend;
-    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/article/articleIndex.jsp"), -3338381307428114016L, false);
+    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/article/articleIndex.jsp"), 7209440442413789918L, false);
     com.caucho.jsp.JavaPage.addDepend(_caucho_depends, depend);
   }
+  private static com.caucho.el.Expr _caucho_expr_0;
 
-  private final static char []_jsp_string0;
   private final static char []_jsp_string1;
+  private final static char []_jsp_string2;
+  private final static char []_jsp_string0;
   static {
-    _jsp_string0 = "\r\n\r\n<html>\r\n<head>\r\n<title>\u6587\u7ae0\u9875\u9762</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n</head>\r\n<body>\r\n<div id=\"tableGrid\"></div>\r\n".toCharArray();
-    _jsp_string1 = "\r\n<script type=\"text/javascript\" src=\"/js/artDialog/artDialog.js?skin=blue\"></script>\r\n<script type=\"text/javascript\" src=\"/js/artDialog/plugins/iframeTools.js\"></script>\r\n<script src=\"/js/custom/articles/articleIndex.js\"></script>\r\n</body>\r\n</html>".toCharArray();
+    _jsp_string1 = "\"/>\r\n<input type=\"hidden\" id=\"baseTypeName\" />\r\n<div id=\"main\">\r\n		<div position=\"left\">\r\n			<div id=\"leftToolBar\"></div>\r\n			<ul id=\"leftTree\" class=\"ztree\"></ul>\r\n		</div>\r\n		<div position=\"center\">\r\n		\r\n			<div id=\"tableGrid\">\r\n			</div>\r\n	    </div>\r\n</div>\r\n".toCharArray();
+    _jsp_string2 = "\r\n<script type=\"text/javascript\" src=\"/js/artDialog/artDialog.js?skin=blue\"></script>\r\n<script type=\"text/javascript\" src=\"/js/artDialog/plugins/iframeTools.js\"></script>\r\n<script src=\"/js/custom/articles/articleIndex.js\"></script>\r\n</body>\r\n</html>".toCharArray();
+    _jsp_string0 = "\r\n\r\n<html>\r\n<head>\r\n<title>\u6587\u7ae0\u9875\u9762</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n</head>\r\n<body>\r\n<input type=\"hidden\" id=\"baseTypeId\" value=\"".toCharArray();
   }
 }

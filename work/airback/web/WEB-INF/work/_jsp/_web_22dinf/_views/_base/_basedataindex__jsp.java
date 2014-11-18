@@ -105,14 +105,14 @@ public class _basedataindex__jsp extends com.caucho.jsp.JavaPage
     String resourcePath = loader.getResourcePathSpecificFirst();
     mergePath.addClassPath(resourcePath);
     com.caucho.vfs.Depend depend;
-    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/base/baseDataIndex.jsp"), -218509800357718190L, false);
+    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/base/baseDataIndex.jsp"), 6906250852072681427L, false);
     com.caucho.jsp.JavaPage.addDepend(_caucho_depends, depend);
   }
 
-  private final static char []_jsp_string0;
   private final static char []_jsp_string1;
+  private final static char []_jsp_string0;
   static {
-    _jsp_string0 = "\r\n\r\n<html>\r\n<head>\r\n<title>\u57fa\u7840\u6570\u636e</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n</head>\r\n<body>\r\n<div id=\"tableGrid\"></div>\r\n".toCharArray();
     _jsp_string1 = "\r\n<script type=\"text/javascript\" src=\"/js/artDialog/artDialog.js?skin=blue\"></script>\r\n<script type=\"text/javascript\" src=\"/js/artDialog/plugins/iframeTools.js\"></script>\r\n<script src=\"/js/custom/base/baseDataIndex.js\"></script>\r\n</body>\r\n</html>".toCharArray();
+    _jsp_string0 = "\r\n\r\n<html>\r\n<head>\r\n<title>\u57fa\u7840\u6570\u636e</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n</head>\r\n<body>\r\n<div id=\"main\">\r\n		<div position=\"left\">\r\n			<div id=\"leftToolBar\"></div>\r\n			<ul id=\"leftTree\" class=\"ztree\"></ul>\r\n		</div>\r\n		<div position=\"center\">\r\n		\r\n			<div id=\"tableGrid\">\r\n			</div>\r\n	    </div>\r\n    </div>\r\n".toCharArray();
   }
 }
