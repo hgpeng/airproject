@@ -14,8 +14,9 @@ var baseDataIndex=function(){
 			grid=$("#tableGrid").ligerGrid({
 				columns: [ 
 	            {display:'标题',name:'name',align:'center',width:'20%'},
-	            {display:'时间',name:'buildtime',align:'center',width:'20%'},
-	            {display:'面积',name:'area',align:'center',width:'20%'},
+	            {display:'编号',name:'number',align:'center',width:'10%'},
+	            {display:'时间',name:'buildtime',align:'center',width:'10%'},
+	            {display:'面积',name:'area',align:'center',width:'10%'},
 	            {display:'地址',name:'addr',align:'center',width:'20%'},
 	            {display:'操作',name:'operate',align:'center',width:'20%',render:_this.oprender}
 	            ], 
@@ -27,8 +28,7 @@ var baseDataIndex=function(){
 	            toolbar: {
                     items: [
                     { text: '增加', click: _this.add, icon: 'add' },
-                    { line: true },
-                    { text: '修改', click: null, icon: 'modify' }
+                    { line: true }
                     ]
                 }
 			});
@@ -45,8 +45,8 @@ var baseDataIndex=function(){
 			art.dialog.open('/case/saveCaseDialog.jsps',{
 				id:"saveBaseType",
 				title:'保存应用案例',
-				width: 500,
-				height: 250,
+				width: 900,
+				height: 600,
 				resizable: false,
 				lock:true,
 				okVal:'保存',
@@ -98,8 +98,8 @@ uploadphoto=function(id){
 	art.dialog.open('/case/uploadphoto.jsps?id='+id,{
 		id:"saveBaseType",
 		title:'图片管理',
-		width: 500,
-		height: 250,
+		width: 900,
+		height: 600,
 		resizable: false,
 		lock:true,
 		okVal:'保存',
@@ -115,8 +115,8 @@ modify = function(id){
 	art.dialog.open(base+'/case/saveCaseDialog.jsps?id='+id,{
 		id:"saveBaseType",
 		title:'保存应用案例',
-		width: 500,
-		height: 250,
+		width: 900,
+		height: 600,
 		resizable: false,
 		lock:true,
 		okVal:'保存',

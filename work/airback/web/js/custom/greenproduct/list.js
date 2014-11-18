@@ -1,4 +1,4 @@
-var baseDataIndex=function(){
+var greenDataIndex=function(){
 	var _this;
 	var grid;
 
@@ -12,9 +12,8 @@ var baseDataIndex=function(){
 	return {
 		init:function(){
 			_this=this;
-			var h = $(top).height();
 			
-			$("#main").ligerLayout({height:h*0.9+'',leftWidth:200,minLeftWidth:200,allowLeftCollapse:true,allowLeftResize:true});
+			$("#main").ligerLayout({leftWidth:200,minLeftWidth:200,allowLeftCollapse:true,allowLeftResize:true});
 			
 			var setting = {
 		            data: {
@@ -32,7 +31,7 @@ var baseDataIndex=function(){
 		            },
 		            async: {//异步加载节点数据
 		                enable: true,
-		                url: "/baseData/getAllBaseTypes.jsps"
+		                url: base+"/greenproduct/getAllProductSerial.jsps"
 		            },
 		            callback: {//绑定回调函数
 		            	onAsyncSuccess:function(event,treeId,treeNode,msg){
@@ -40,7 +39,7 @@ var baseDataIndex=function(){
 		            	},
 		                onClick: function(event, treeId, treeNode, msg){
 		                	var param={};
-		                	param.type = treeNode.id;
+		                	param.parent = treeNode.id;
 		                	grid.options.parms=param;
 		            		grid.loadData();
 		                }//点击绑定事件
@@ -48,14 +47,14 @@ var baseDataIndex=function(){
 
 		        };  
 		        $.fn.zTree.init($("#leftTree"), setting, []); 
-			
+		      
 			grid=$("#tableGrid").ligerGrid({
 				columns: [ 
 	            {display:'名称',name:'name',align:'center',width:'30%'},
-	            {display:'编号',name:'number',align:'center',width:'30%'},
+	            {display:'编号',name:'number',align:'center',width:'30%'},		           
 	            {display:'操作',name:'name',align:'center',width:'30%',render:_this.oprender}
 	            ], 
-	            url:'/baseData/getBaseData.jsps', 
+	            url:'/greenproduct/getGreenProduct.jsps', 
                 pageSize: 20,
                 delayLoad:true,
                 rownumbers:true,
@@ -69,20 +68,19 @@ var baseDataIndex=function(){
                 }
 			});
 			
-			/*var tree = $.fn.zTree.getZTreeObj("leftTree");
-			var nodeary = tree.getNodes();
-			nodeary[0].click();*/
+			reload();
 			
 		},
 		getParam:function(){
 			var param = {};
 			var tree = $.fn.zTree.getZTreeObj("leftTree");
 			var node = tree.getSelectedNodes();
-			param.type = node[0].id;
+			param.parent = node[0].id;
 			return param;
 		},
 		oprender:function(data,filterData){
 			var str="<a href='javascript:void(0);' onclick='modify("+data.id+")'>修改</a>  ";
+			str +="<a href='javascript:void(0);' onclick='addarticle("+data.id+")'>添加文章</a>  ";
 			str+='<a href="javascript:void(0)" onclick=deletebase("'+data.id+'")>删除</a>';
 			return str;
 		},
@@ -90,11 +88,11 @@ var baseDataIndex=function(){
 			reload();
 		},
 		add:function(){
-			art.dialog.open(base+'/baseData/saveBaseDataDialog.jsps',{
+			art.dialog.open(base+'/greenproduct/add.jsps',{
 				id:"saveBaseType",
-				title:'保存基础类型',
-				width: 500,
-				height: 250,
+				title:'保存产品',
+				width: 700,
+				height: 500,
 				resizable: false,
 				lock:true,
 				okVal:'保存',
@@ -107,6 +105,7 @@ var baseDataIndex=function(){
 					var icon=page.find("#icon").val();
 					var name_en = page.find("#name_en").val();
 					var basetypeId=page.find("#baseTypeId").val();
+					var parentId = page.find("#parentId").val();
 					if(!name || name.length==0){
 						art.dialog.alert("请输入类型名");
 						return false;
@@ -114,7 +113,7 @@ var baseDataIndex=function(){
 					$.ajax({
 						url:base+'/baseData/saveBaseData.jsps',
 						type:'post',
-						data:{name:name,number:number,url:url,id:id,typeId:basetypeId,icon:icon,name_en:name_en},
+						data:{parentId:parentId,number:number,name:name,url:url,id:id,typeId:basetypeId,icon:icon,name_en:name_en},
 						success:function(ret){
 							if(ret.ret==-1){
 								art.dialog.alert("修改失败");
@@ -130,27 +129,27 @@ var baseDataIndex=function(){
 	}
 }();
 $(function(){
-	baseDataIndex.init();
+	greenDataIndex.init();
 })
 
 function modify(id){
-	art.dialog.open(base+'/baseData/saveBaseDataDialog.jsps?id='+id,{
+	art.dialog.open(base+'/greenproduct/add.jsps?id='+id,{
 		id:"saveBaseType",
-		title:'修改基础类型',
-		width: 500,
-		height: 250,
+		title:'修改产品',
+		width: 700,
+		height: 500,
 		resizable: false,
 		lock:true,
 		okVal:'保存',
 		ok:function(contentWindow){
 			var page=$(contentWindow.document);
 			var name=page.find("#name").val();
-			var number=page.find("#number").val();
 			var id=page.find("#id").val();
 			var url=page.find("#url").val();
 			var icon=page.find("#icon").val();
 			var name_en = page.find("#name_en").val();
 			var basetypeId=page.find("#baseTypeId").val();
+			var parentId = page.find("#parentId").val();
 			if(!name || name.length==0){
 				art.dialog.alert("请输入类型名");
 				return false;
@@ -158,19 +157,59 @@ function modify(id){
 			$.ajax({
 				url:base+'/baseData/saveBaseData.jsps',
 				type:'post',
-				data:{name:name,number:number,url:url,id:id,typeId:basetypeId,icon:icon,name_en:name_en},
+				data:{parentId:parentId,name:name,url:url,id:id,typeId:basetypeId,icon:icon,name_en:name_en},
 				success:function(ret){
 					if(ret.ret==-1){
 						art.dialog.alert("修改失败");
 						return false;
 					}
 					art.dialog.alert("修改成功",function(){
-						baseDataIndex.reloadData();
+						greenDataIndex.reloadData();
 					});
 				}
 			})
 		}
 	});
+}
+
+function addarticle(id){
+	var url=base+'/articles/saveArticlesDialog.jsps?basedataId='+id;
+	art.dialog.open(url,{
+		id:"saveBaseType",
+		title:'保存'+name,
+		width: 1000,
+		height: 900,
+		resizable: false,
+		lock:true,
+		okVal:'保存',
+		ok:function(contentWindow,target){
+			var page=contentWindow.window;
+			var content=page.saveArticleDialog.getContent();
+			var pagejq=$(contentWindow.document);
+			var articleId=pagejq.find("#articleId").val();
+			var type = pagejq.find("#type").val();
+			var tilte = pagejq.find("#title").val();
+			var imgpath = '';
+			$.each(pagejq.find("#imgdiv img"),function(i,item){
+				imgpath += $(item).attr("path")+",";
+			})
+			if(imgpath) imgpath = imgpath.substring(0,imgpath.length-1);
+			var params={content:content,type:type,title:tilte,img:imgpath};
+			if(articleId){
+				params.id=articleId;
+			}
+			$.ajax({
+				url:base+'/articles/saves.jsps',
+				type:'post',
+				data:params,
+				success:function(ret){
+					greenDataIndex.reload();
+				}
+			});
+		},
+		cancel:true
+	});
+
 }
 
 function deletebase(id){
@@ -180,6 +219,6 @@ function deletebase(id){
 						return false;
 					}
 					art.dialog.alert("删除成功");
-					baseDataIndex.reload();
+					greenDataIndex.reload();
 	},'json')
 }
