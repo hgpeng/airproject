@@ -14,7 +14,7 @@
 <input type="hidden" id="name_enId" value="${baseData.name_en }"/>
 <input type="hidden" id="iconId" value="${baseData.icon }"/>
 <input type="hidden" id="urlId" value="${baseData.url }"/>
-<input type="hidden" id="typeId" value="${baseData.typeId }"/>
+<input type="hidden" id="typeId" value="${typeId }"/>
 
 <form id="saveBaseTypeForm">
 </form>
