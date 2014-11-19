@@ -7,7 +7,10 @@ var leavesIndex=function(){
 			_this=this;
 			grid=$("#tableGrid").ligerGrid({
 				columns: [ 
-	            {display: '留言', name: 'content', align: 'center', width: '60%' },
+				{display: '联系人', name: 'contact', align: 'center', width: '20%' },
+				{display: '电话', name: 'phone', align: 'center', width: '20%' },
+				{display: '邮箱', name: 'mail', align: 'center', width: '20%' },
+	            {display: '留言', name: 'content', align: 'center', width: '20%' },
 	            {display:'回复状态',name:'replyStatus',align:'center',render:function(rowdata, index, value){
 	            	
 	            }} 

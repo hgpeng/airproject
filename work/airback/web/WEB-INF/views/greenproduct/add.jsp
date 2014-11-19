@@ -9,14 +9,15 @@
 </head>
 <body>
 <input type="hidden" id="dataId" value="${baseData.id }"/>
-<input type="hidden" id="numberId" value="${baseData.number }"/>
 <input type="hidden" id="nameId" value="${baseData.name }"/>
 <input type="hidden" id="name_enId" value="${baseData.name_en }"/>
 <input type="hidden" id="iconId" value="${baseData.icon }"/>
 <input type="hidden" id="urlId" value="${baseData.url }"/>
-<input type="hidden" id="typeId" value="${typeId }"/>
+<input type="hidden" id="parentTypeId" value="${baseData.parentId }"/>
+
 
 <form id="saveBaseTypeForm">
+<input type="hidden" id="baseTypeId" value="${typeId }"/>
 </form>
 <div style="clear:both"></div>
 <input id="upload" type="button" value="添加图标"/>
@@ -27,7 +28,7 @@
 <script src="${base }/js/ligerUI/js/plugins/ligerDateEditor.js" type="text/javascript"></script>
 <script type="text/javascript" src="${base }/js/artDialog/artDialog.js?skin=blue"></script>
 <script type="text/javascript" src="${base }/js/artDialog/plugins/iframeTools.js"></script>
-<script type="text/javascript" src="${base }/js/custom/base/saveBaseDataDialog.js"></script>
+<script type="text/javascript" src="${base }/js/custom/greenproduct/add.js"></script>
 <script type="text/javascript" src="${base }/js/ajaxupload.js"></script>
 <script type="text/javascript" src="${base }/js/common.js"></script>
 <script type="text/javascript">

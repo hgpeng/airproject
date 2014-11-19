@@ -27,7 +27,7 @@ public class AppCaseDaoImpl extends BaseDaoImpl implements AppCaseDao {
 	@Override
 	public Pagination<AppCase> getAppCase(Pagination<AppCase> page) {
 		
-		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,addr,content,area,buildtime,name,name_en,basedataid from appcase ");
+		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,number,addr,content,area,buildtime,name,name_en,basedataid from appcase ");
 		
 		return SQLHelpers.getRowSize(sql.toString(), airDataSource, null, page, new PageMapper<AppCase>(){
 
@@ -35,6 +35,7 @@ public class AppCaseDaoImpl extends BaseDaoImpl implements AppCaseDao {
 			public AppCase toCustomizedBean(ResultSet rs) throws SQLException {
 				AppCase res=new AppCase();
 				res.setId(rs.getInt("id"));
+				res.setNumber(rs.getString("number"));
 				res.setAddr(rs.getString("addr"));
 				res.setArea(rs.getString("area"));
 				res.setBuildtime(rs.getString("buildtime"));
@@ -65,7 +66,7 @@ public class AppCaseDaoImpl extends BaseDaoImpl implements AppCaseDao {
 
 	@Override
 	public AppCase getAppCase(int id) {
-		String sql="select id,addr,content,area,buildtime,photo,name,name_en,basedataid from appcase where id=? ";
+		String sql="select id,addr,number,content,area,buildtime,photo,name,name_en,basedataid from appcase where id=? ";
 		List<Object> args=new ArrayList<Object>();
 		args.add(id);
 		return airJdbcTemplate.queryForObject(sql, args.toArray(), new RowMapper<AppCase>(){
@@ -75,6 +76,7 @@ public class AppCaseDaoImpl extends BaseDaoImpl implements AppCaseDao {
 					throws SQLException {
 				AppCase res=new AppCase();
 				res.setId(rs.getInt("id"));
+				res.setNumber(rs.getString("number"));
 				res.setAddr(rs.getString("addr"));
 				res.setArea(rs.getString("area"));
 				res.setBuildtime(rs.getString("buildtime"));

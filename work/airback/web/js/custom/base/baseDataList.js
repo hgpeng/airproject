@@ -14,41 +14,8 @@ var baseDataIndex=function(){
 			_this=this;
 			var h = $(top).height();
 			
-			$("#main").ligerLayout({height:h*0.9+'',leftWidth:200,minLeftWidth:200,allowLeftCollapse:true,allowLeftResize:true});
-			
-			var setting = {
-		            data: {
-		                simpleData: {
-		                	idKey:"id",
-		                    enable: true
-		                },
-		                key:{
-		            		url:"",
-		            		name:"name"
-		            	}
-		            },
-		            check: {
-		                enable: true
-		            },
-		            async: {//异步加载节点数据
-		                enable: true,
-		                url: "/baseData/getAllBaseTypes.jsps"
-		            },
-		            callback: {//绑定回调函数
-		            	onAsyncSuccess:function(event,treeId,treeNode,msg){
-
-		            	},
-		                onClick: function(event, treeId, treeNode, msg){
-		                	var param={};
-		                	param.type = treeNode.id;
-		                	grid.options.parms=param;
-		            		grid.loadData();
-		                }//点击绑定事件
-		            }
-
-		        };  
-		        $.fn.zTree.init($("#leftTree"), setting, []); 
-			
+			//$("#main").ligerLayout({height:h*0.9+'',leftWidth:200,minLeftWidth:200,allowLeftCollapse:true,allowLeftResize:true});
+						
 			grid=$("#tableGrid").ligerGrid({
 				columns: [ 
 	            {display:'名称',name:'name',align:'center',width:'30%'},
@@ -57,6 +24,7 @@ var baseDataIndex=function(){
 	            ], 
 	            url:'/baseData/getBaseData.jsps', 
                 pageSize: 20,
+                height:600,
                 delayLoad:true,
                 rownumbers:true,
 	            fixedCellHeight:false,
@@ -68,17 +36,13 @@ var baseDataIndex=function(){
                     ]
                 }
 			});
-			
-			/*var tree = $.fn.zTree.getZTreeObj("leftTree");
-			var nodeary = tree.getNodes();
-			nodeary[0].click();*/
+			reload();
+
 			
 		},
 		getParam:function(){
 			var param = {};
-			var tree = $.fn.zTree.getZTreeObj("leftTree");
-			var node = tree.getSelectedNodes();
-			param.type = node[0].id;
+			param.type = $("#basetypeinp").val();
 			return param;
 		},
 		oprender:function(data,filterData){
@@ -90,9 +54,9 @@ var baseDataIndex=function(){
 			reload();
 		},
 		add:function(){
-			art.dialog.open(base+'/baseData/saveBaseDataDialog.jsps',{
+			art.dialog.open(base+'/baseData/saveBaseDataDialog.jsps?basetype='+$("#basetypeinp").val(),{
 				id:"saveBaseType",
-				title:'保存基础类型',
+				title:'保存'+$("#basetypename").val(),
 				width: 500,
 				height: 250,
 				resizable: false,
@@ -136,7 +100,7 @@ $(function(){
 function modify(id){
 	art.dialog.open(base+'/baseData/saveBaseDataDialog.jsps?id='+id,{
 		id:"saveBaseType",
-		title:'修改基础类型',
+		title:'修改'+$("#basetypename").val(),
 		width: 500,
 		height: 250,
 		resizable: false,

@@ -13,6 +13,7 @@
 	<table>
 	<tr>
 		<td style="width:30%;">名称:</td><td><input type="text" id="name" name="name" value="${data.name }"/></td></tr><tr>
+		<td style="width:30%;">编号:</td><td><input type="text" id="number" name="number" value="${data.number }"/></td></tr><tr>	
 		<td style="width:30%;">英文名称:</td><td><input type="text" id="name_en" name="name_en" value="${data.name_en }"/></td></tr><tr>
 		<td style="width:30%;">封面图:</td><td><input type="text" id="photo" name="photo" readonly="readonly" value="${data.photo }"/><input id="upload" type="button" value="添加封面图"/></td></tr><tr>
 		<td style="width:30%;">面积:</td><td><input type="text" id="area" name="area" value="${data.area }"/></td></tr><tr>
@@ -26,7 +27,7 @@
 			
 		</select>
 		</td></tr><tr>
-		<td style="width:30%;">备注:</td><td><textarea style="width:400px;" rows="3" cols="8" name="content">${data.content }</textarea></td>
+		<td style="width:30%;">备注:</td><td><textarea style="width:600px;" rows="10" cols="8" name="content">${data.content }</textarea></td>
 	</tr>
 	</table>
 </form>
