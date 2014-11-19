@@ -80,7 +80,7 @@ var greenDataIndex=function(){
 		},
 		oprender:function(data,filterData){
 			var str="<a href='javascript:void(0);' onclick='modify("+data.id+")'>修改</a>  ";
-			str +="<a href='javascript:void(0);' onclick='addarticle("+data.id+")'>添加文章</a>  ";
+			str +="<a href='javascript:void(0);' onclick='addarticle(12)'>添加文章</a>  ";
 			str+='<a href="javascript:void(0)" onclick=deletebase("'+data.id+'")>删除</a>';
 			return str;
 		},
