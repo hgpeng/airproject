@@ -144,6 +144,7 @@ function modify(id){
 		ok:function(contentWindow){
 			var page=$(contentWindow.document);
 			var name=page.find("#name").val();
+			var number=page.find("#number").val();
 			var id=page.find("#id").val();
 			var url=page.find("#url").val();
 			var icon=page.find("#icon").val();
@@ -157,7 +158,7 @@ function modify(id){
 			$.ajax({
 				url:base+'/baseData/saveBaseData.jsps',
 				type:'post',
-				data:{parentId:parentId,name:name,url:url,id:id,typeId:basetypeId,icon:icon,name_en:name_en},
+				data:{parentId:parentId,name:name,number:number,url:url,id:id,typeId:basetypeId,icon:icon,name_en:name_en},
 				success:function(ret){
 					if(ret.ret==-1){
 						art.dialog.alert("修改失败");
@@ -173,7 +174,7 @@ function modify(id){
 }
 
 function addarticle(id){
-	var url=base+'/articles/saveArticlesDialog.jsps?basedataId='+id;
+	var url=base+'/articles/saveArticlesDialog.jsps?typeId='+id;
 	art.dialog.open(url,{
 		id:"saveBaseType",
 		title:'保存'+name,
