@@ -109,10 +109,13 @@ public class BaseDataController extends BaseController {
 	
 	@RequestMapping("saveBaseDataDialog")
 	public String saveBaseDataDialog(ModelMap modelMap){
+		int typeId=getInt("basetype",-1);
+		modelMap.put("typeId", typeId);
 		int id=getInt("id",-1);
 		if(id!=-1){
 			BaseData baseData=baseDataService.getBaseDataById(id);
 			modelMap.put("baseData", baseData);
+			modelMap.put("typeId", baseData.getTypeId());
 		}
 		return "/base/saveBaseDataDialog";
 	}
@@ -168,5 +171,14 @@ public class BaseDataController extends BaseController {
 		int id=getInt("id",-1);
 		int ret=baseDataService.deleteBaseData(id);
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
+	}
+	
+	@RequestMapping("baseDataList")
+	public String baseDataList(ModelMap modelMap){
+		String basetype = this.getString("basetype");
+		BaseType b = 
+		this.baseDataService.getBaseTypeById(Integer.parseInt(basetype));
+		modelMap.put("basetype", b);
+		return "/base/baseDataList";
 	}
 }

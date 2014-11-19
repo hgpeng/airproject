@@ -200,7 +200,7 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 	@Override
 	public Pagination<BaseData> getGreenProduct(Pagination<BaseData> page,
 			Map<String, Object> query) {
-		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,name,icon,typeId,parentId,url,descr,createTime,createMan");
+		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS id,name,number,icon,typeId,parentId,url,descr,createTime,createMan");
 		sql.append(" from basedata where 1=1 ");
 		if(null!=query.get("type")){
 			sql.append("and typeId= '"+query.get("type").toString()+"'");
@@ -211,9 +211,9 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 		if(null!=query.get("parent")){
 			sql.append("and parentId = '"+query.get("parent").toString()+"'");
 		}
-		
+		sql.append(" order by number asc ");
 		List<Object> args=new ArrayList<Object>();
-		sql.append(" order by id asc");
+		//sql.append(" order by id asc");
 		return SQLHelpers.getRowSize(sql.toString(), airDataSource, args.toArray(), page, new PageMapper<BaseData>(){
 
 			@Override
@@ -221,6 +221,7 @@ public class BaseDataDaoImpl extends BaseDaoImpl implements BaseDataDao {
 				BaseData baseData=new BaseData();
 				baseData.setId(rs.getInt("id"));
 				baseData.setName(rs.getString("name"));
+				baseData.setNumber(rs.getString("number"));
 				baseData.setTypeId(rs.getInt("typeId"));
 				baseData.setParentId(rs.getInt("parentId"));
 				baseData.setUrl(rs.getString("url"));
