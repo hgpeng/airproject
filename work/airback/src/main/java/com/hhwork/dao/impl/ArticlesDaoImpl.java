@@ -27,7 +27,7 @@ public class ArticlesDaoImpl extends BaseDaoImpl implements ArticlesDao {
 	@Override
 	public Pagination<Articles> getArticles(Pagination<Articles> page,Map<String,Object> params) {
 		StringBuilder sql=new StringBuilder("select SQL_CALC_FOUND_ROWS a.id,a.title,a.content,a.img,a.preview,a.type,a.status,a.createTime,a.createMan ");
-		sql.append("from articles a,basedata b where a.type=b.id ");
+		sql.append(",b.name baseName from articles a,basedata b where a.type=b.id ");
 		List<Object> args=new ArrayList<Object>();
 		Object baseTypeIdObj=params.get("baseTypeId");
 		if(baseTypeIdObj!=null){
@@ -39,7 +39,9 @@ public class ArticlesDaoImpl extends BaseDaoImpl implements ArticlesDao {
 
 			@Override
 			public Articles toCustomizedBean(ResultSet rs) throws SQLException {
-				return generateArticles(rs);
+				Articles art= generateArticles(rs);
+				art.setBaseData(rs.getString("baseName"));
+				return art;
 			}
 			
 		});
@@ -54,7 +56,7 @@ public class ArticlesDaoImpl extends BaseDaoImpl implements ArticlesDao {
 		res.setPreview(rs.getString("preview"));
 		res.setType(rs.getInt("type"));
 		res.setStatus(rs.getInt("status"));
-		res.setCreateTime(rs.getDate("createTime"));
+		res.setCreateTime(rs.getTimestamp("createTime"));
 		res.setCreateMan(rs.getString("createMan"));
 		return res;
 	}

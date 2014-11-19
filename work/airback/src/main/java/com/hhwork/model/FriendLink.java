@@ -3,7 +3,7 @@ package com.hhwork.model;
 import java.util.Date;
 
 /**
- * ÓÑÇéÁ´½Ó
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * @author hgpeng
  *
  */
@@ -12,15 +12,15 @@ public class FriendLink {
 	
 	private int id;
 	
-	private String text;
+	private BaseData text;
 	
-	private String link;
+	private BaseData link;
 	
-	private String icon;
+	private BaseData icon;
 	
 	private Date createTime;
 	
-	private String createMan;
+	private BaseData createMan;
 	
 	private int status;
 
@@ -32,27 +32,27 @@ public class FriendLink {
 		this.id = id;
 	}
 
-	public String getText() {
+	public BaseData getText() {
 		return text;
 	}
 
-	public void setText(String text) {
+	public void setText(BaseData text) {
 		this.text = text;
 	}
 
-	public String getLink() {
+	public BaseData getLink() {
 		return link;
 	}
 
-	public void setLink(String link) {
+	public void setLink(BaseData link) {
 		this.link = link;
 	}
 
-	public String getIcon() {
+	public BaseData getIcon() {
 		return icon;
 	}
 
-	public void setIcon(String icon) {
+	public void setIcon(BaseData icon) {
 		this.icon = icon;
 	}
 
@@ -64,11 +64,11 @@ public class FriendLink {
 		this.createTime = createTime;
 	}
 
-	public String getCreateMan() {
+	public BaseData getCreateMan() {
 		return createMan;
 	}
 
-	public void setCreateMan(String createMan) {
+	public void setCreateMan(BaseData createMan) {
 		this.createMan = createMan;
 	}
 

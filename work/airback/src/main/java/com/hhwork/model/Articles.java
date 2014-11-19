@@ -1,7 +1,6 @@
 package com.hhwork.model;
 
 import java.io.Serializable;
-
 import java.util.Date;
 
 import com.hhwork.annotation.Column;
@@ -33,6 +32,17 @@ public class Articles implements Serializable{
 	private Date createTime;
 	
 	private String createMan;
+	
+	/**是否为推荐文章
+	 * 
+	 */
+	private Integer recommend;
+	
+	@Column(ignore=true)
+	private String baseData;
+	
+	@Column(ignore=true)
+	private String formattedDate;
 
 	public int getId() {
 		return id;
@@ -104,6 +114,30 @@ public class Articles implements Serializable{
 
 	public void setCreateMan(String createMan) {
 		this.createMan = createMan;
+	}
+
+	public Integer getRecommend() {
+		return recommend;
+	}
+
+	public void setRecommend(Integer recommend) {
+		this.recommend = recommend;
+	}
+
+	public String getBaseData() {
+		return baseData;
+	}
+
+	public void setBaseData(String baseData) {
+		this.baseData = baseData;
+	}
+
+	public String getFormattedDate() {
+		return formattedDate;
+	}
+
+	public void setFormattedDate(String formattedDate) {
+		this.formattedDate = formattedDate;
 	}
 	
 	

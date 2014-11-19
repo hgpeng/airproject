@@ -84,7 +84,6 @@ public class BaseDataServiceImpl implements BaseDataService {
 
 	@Override
 	public BaseData getBaseDataById(int id) {
-		// TODO Auto-generated method stub
 		return baseDataDao.getBaseDataById(id);
 	}
 

@@ -1,6 +1,6 @@
 package com.hhwork.controller;
 
-import java.util.ArrayList;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,6 +35,8 @@ public class ArticlesController extends BaseController {
 	@Resource
 	protected BaseDataService baseDataService;
 	
+	SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+	
 	@RequestMapping("articleIndex")
 	public String articleIndex(ModelMap modelMap){
 		int typeId=getInt("basedata",-1);
@@ -56,6 +58,10 @@ public class ArticlesController extends BaseController {
 			query.put("baseTypeId", baseTypeId);
 		}
 		Pagination<Articles> result=articleService.getArticles(page,query);
+		List<Articles> items=result.getRows();
+		for(Articles art:items){
+			art.setFormattedDate(format.format(art.getCreateTime()));
+		}
 		outPrint(response, JSONArray.toJSON(result));
 	}
 	

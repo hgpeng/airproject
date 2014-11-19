@@ -24,6 +24,8 @@ var article=function(){
 				columns: [ 
 	            {display: '主键', name: 'id', align: 'center', width: '5%' },
 	            {display:'内容',name:'preview',align:'left',width:'60%'},
+	            {display:'类型',name:'baseData',align:'center',width:'5%'},
+	            {display:'创建时间',name:'formattedDate',align:'center',width:'15%'},
 	            {display:'操作',name:'operation',align:'center',render:function(rowdata, index, value){
 	            	var str="<a href='javascript:void(0);' onclick='edit("+rowdata.id+")'>修改</a>   ";
 	            	str+="<a href='javascript:void(0);' onclick='deleteArticle("+rowdata.id+")'>删除</a>  ";
@@ -65,7 +67,7 @@ var article=function(){
 					var content=page.saveArticleDialog.getContent();
 					var pagejq=$(contentWindow.document);
 					var articleId=pagejq.find("#articleId").val();
-					var type = pagejq.find("#type").val();
+					var type = pagejq.find("#baseDataList>option:selected").val();
 					var tilte = pagejq.find("#title").val();
 					var imgpath = '';
 					$.each(pagejq.find("#imgdiv img"),function(i,item){

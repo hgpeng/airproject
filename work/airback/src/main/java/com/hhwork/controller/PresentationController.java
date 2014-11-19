@@ -9,14 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.pool.impl.GenericKeyedObjectPool.Config;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alibaba.fastjson.JSONArray;
 import com.d3.d396333.common.util.ResponseUtils;
-import com.dingjian.base.util.SystemConfig;
 import com.hhwork.common.Constants;
 import com.hhwork.common.Pagination;
 import com.hhwork.model.BaseData;

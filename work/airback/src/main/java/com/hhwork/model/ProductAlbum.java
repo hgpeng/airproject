@@ -4,9 +4,9 @@ public class ProductAlbum {
 
 	private int id;
 	
-	private String path;
+	private BaseData path;
 	
-	private String desc;
+	private BaseData desc;
 	
 	private Product product;
 	
@@ -20,19 +20,19 @@ public class ProductAlbum {
 		this.id = id;
 	}
 
-	public String getPath() {
+	public BaseData getPath() {
 		return path;
 	}
 
-	public void setPath(String path) {
+	public void setPath(BaseData path) {
 		this.path = path;
 	}
 
-	public String getDesc() {
+	public BaseData getDesc() {
 		return desc;
 	}
 
-	public void setDesc(String desc) {
+	public void setDesc(BaseData desc) {
 		this.desc = desc;
 	}
 

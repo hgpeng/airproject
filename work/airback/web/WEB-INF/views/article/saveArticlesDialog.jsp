@@ -18,7 +18,12 @@
 	</div>
 	<div>
 		<input type="hidden" id="type" name="type" value="${typeId }" />
-		
+		请选择类型:
+		<select id="baseDataList" style="width:200px;">
+		<c:forEach items="${bdlist }" var="baseData">
+		<option value="${baseData.id }" <c:if test="${article.type==baseData.id }">selected</c:if>>${baseData.name }</option>
+		</c:forEach>
+		</select>
 	</div>
 	<input type="hidden" id="imgpath" name="imgpath"
 		value="${article.img }" /> 图片:

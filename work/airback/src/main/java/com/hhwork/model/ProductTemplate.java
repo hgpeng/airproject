@@ -1,7 +1,7 @@
 package com.hhwork.model;
 
 /**
- * Éú³ÉµÄ²úÆ·Ä£°å
+ * ï¿½ï¿½ÉµÄ²ï¿½Æ·Ä£ï¿½ï¿½
  * @author hgpeng
  *
  */
@@ -9,7 +9,7 @@ public class ProductTemplate {
 
 	private int id;
 	
-	private String script;
+	private BaseData script;
 	
 	private int status;
 
@@ -21,11 +21,11 @@ public class ProductTemplate {
 		this.id = id;
 	}
 
-	public String getScript() {
+	public BaseData getScript() {
 		return script;
 	}
 
-	public void setScript(String script) {
+	public void setScript(BaseData script) {
 		this.script = script;
 	}
 

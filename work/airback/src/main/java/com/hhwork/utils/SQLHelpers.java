@@ -22,7 +22,6 @@ import com.hhwork.annotation.Column;
 import com.hhwork.annotation.Table;
 import com.hhwork.common.PageMapper;
 import com.hhwork.common.Pagination;
-import com.hhwork.model.BaseData;
 
 public class SQLHelpers {
 
@@ -325,7 +324,7 @@ public class SQLHelpers {
 	}
 	
 	public static void main(String[] args) {
-		BaseData baseData=new BaseData();
+		String baseData=new String();
 		SQLValues sqlValue=generateInsertSQL(baseData);
 		System.out.println(sqlValue.sql);
 	}
