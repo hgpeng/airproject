@@ -37,7 +37,7 @@ public class LeavesDaoImpl extends BaseDaoImpl implements LeavesDao {
 	public Pagination<Leaves> getLeaves(Pagination<Leaves> leaves,
 			Map<String, Object> query) {
 		StringBuilder sql=new StringBuilder();
-		sql.append("select SQL_CALC_FOUND_ROWS id,content,contact,status,createTime,replyMan,replyContent from leaves");
+		sql.append("select SQL_CALC_FOUND_ROWS id,content,contact,status,createTime,phone,mail,replyMan,replyContent from leaves");
 		sql.append(" order by createTime desc");
 		List<Object> args=new ArrayList<Object>();
 		return SQLHelpers.getRowSize(sql.toString(), airDataSource, args.toArray(), leaves, new PageMapper<Leaves>(){
@@ -48,6 +48,8 @@ public class LeavesDaoImpl extends BaseDaoImpl implements LeavesDao {
 				leaves.setId(rs.getInt("id"));
 				leaves.setContent(rs.getString("content"));
 				leaves.setContact(rs.getString("contact"));
+				leaves.setPhone(rs.getString("phone"));
+				leaves.setMail(rs.getString("mail"));
 				leaves.setStatus(rs.getInt("status"));
 				leaves.setCreateTime(rs.getDate("createTime"));
 				leaves.setReplyMan(rs.getString("replyMan"));

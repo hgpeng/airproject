@@ -31,6 +31,10 @@ public class Leaves implements Serializable{
 	private String replyMan;
 	
 	private String replyContent;
+	
+	private String phone;
+	
+	private String mail;
 
 	public int getId() {
 		return id;
@@ -86,6 +90,22 @@ public class Leaves implements Serializable{
 
 	public void setReplyContent(String replyContent) {
 		this.replyContent = replyContent;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 	
 	
