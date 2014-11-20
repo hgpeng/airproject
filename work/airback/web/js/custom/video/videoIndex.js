@@ -2,6 +2,12 @@ var videoIndex=function(){
 	var _this;
 	var grid;
 
+	function reload(){
+		var param=_this.getParam();
+		grid.options.parms=param;
+		grid.loadData();
+	}
+
 	return {
 		init:function(){
 			_this=this;
@@ -30,8 +36,8 @@ var videoIndex=function(){
 
 		},
 		add:function(id){
-			var width=$(document).width()-50;
-			var height=$(document).height()*0.8;
+			var width=500;
+			var height=300;
 			art.dialog.open(base+'/video/saveVideoDialog.jsps',{
 				id:"saveVideoDialog",
 				title:'保存视频',
@@ -41,7 +47,33 @@ var videoIndex=function(){
 				lock:true,
 				okVal:'保存',
 				ok:function(contentWindow,target){
-				}
+					var page=contentWindow.window;
+					var pagejq=$(contentWindow.document);
+					var imgPath=pagejq.find("#picPath").text().trim();
+					var videoPath=pagejq.find("#videoPath").text().trim();
+					if(imgPath.length==0){
+						art.dialog.alert("请上传图片");
+						return false;
+					}
+					if(videoPath.length==0){
+						art.dialog.alert("请上传视频");
+						return false;
+					}
+					$.ajax({
+						url:base+'/video/saveVideo.jsps',
+						type:'post',
+						data:{imgPath:imgPath,videoPath:videoPath},
+						success:function(res){
+							if(res.ret==1){
+								art.dialog.alert("新增成功",reload);
+							}else{
+								return false;
+							}
+
+						}
+					});
+				},
+				cancel:true
 			});
 		}
 	}
