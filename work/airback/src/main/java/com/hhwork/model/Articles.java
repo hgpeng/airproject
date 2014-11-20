@@ -39,6 +39,8 @@ public class Articles implements Serializable{
 	private Integer recommend;
 	
 	
+	private String number;
+	
 	@Column(ignore=true)
 	private String baseData;
 	
@@ -139,6 +141,14 @@ public class Articles implements Serializable{
 
 	public void setFormattedDate(String formattedDate) {
 		this.formattedDate = formattedDate;
+	}
+
+	public String getNumber() {
+		return number;
+	}
+
+	public void setNumber(String number) {
+		this.number = number;
 	}
 	
 	

@@ -22,7 +22,13 @@ var article=function(){
 		initGrid:function(){
 			grid=$("#tableGrid").ligerGrid({
 				columns: [ 
-	            {display: '标题', name: 'title', align: 'center', width: '20%' },
+	            {display: '标题', name: 'title', align: 'center', width: '20%' ,render:function(rowdata,index,value){
+	            	var str=value;
+	            	if(rowdata.recommend==1){
+	            		str+="<span style='color:red;'>【推荐】</span>";
+	            	}
+	            	return str;
+	            }},
 	            {display:'内容',name:'preview',align:'left',width:'40%'},
 	            {display:'类型',name:'baseData',align:'center',width:'10%'},
 	            {display:'创建时间',name:'formattedDate',align:'center',width:'15%'},
@@ -85,7 +91,7 @@ var article=function(){
 						params.recommend=0;
 					}
 					var number=pagejq.find("#number").val();
-					
+					params.number=number;
 					$.ajax({
 						url:base+'/articles/saves.jsps',
 						type:'post',
