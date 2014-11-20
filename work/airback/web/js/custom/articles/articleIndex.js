@@ -22,9 +22,9 @@ var article=function(){
 		initGrid:function(){
 			grid=$("#tableGrid").ligerGrid({
 				columns: [ 
-	            {display: '主键', name: 'id', align: 'center', width: '5%' },
-	            {display:'内容',name:'preview',align:'left',width:'60%'},
-	            {display:'类型',name:'baseData',align:'center',width:'5%'},
+	            {display: '标题', name: 'title', align: 'center', width: '20%' },
+	            {display:'内容',name:'preview',align:'left',width:'40%'},
+	            {display:'类型',name:'baseData',align:'center',width:'10%'},
 	            {display:'创建时间',name:'formattedDate',align:'center',width:'15%'},
 	            {display:'操作',name:'operation',align:'center',render:function(rowdata, index, value){
 	            	var str="<a href='javascript:void(0);' onclick='edit("+rowdata.id+")'>修改</a>   ";

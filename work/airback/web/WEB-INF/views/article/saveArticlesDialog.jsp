@@ -42,7 +42,7 @@
 			</p>
 		</c:forEach>
 	</div>
-	<div style="width:100%;height:240px;">
+	<div style="width:900px;height:240px;">
 		<script type="text/plain" id="content" name="content">${article.content}</script>
 	</div>
 	<script type="text/javascript"

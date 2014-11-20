@@ -63,7 +63,7 @@ var greenDataIndex=function(){
                     items: [
                     { text: '增加', click: _this.add, icon: 'add' },
                     { line: true },
-                    { text: '修改', click: null, icon: 'modify' }
+                    { text: '文章管理', click: _this.artmanage, icon: 'modify' }
                     ]
                 }
 			});
@@ -80,7 +80,7 @@ var greenDataIndex=function(){
 		},
 		oprender:function(data,filterData){
 			var str="<a href='javascript:void(0);' onclick='modify("+data.id+")'>修改</a>  ";
-			str +="<a href='javascript:void(0);' onclick='addarticle("+data.id+")'>添加文章</a>  ";
+			str +="<a href='javascript:void(0);' onclick='addarticle(12)'>添加文章</a>  ";
 			str+='<a href="javascript:void(0)" onclick=deletebase("'+data.id+'")>删除</a>';
 			return str;
 		},
@@ -124,6 +124,17 @@ var greenDataIndex=function(){
 						}
 					})
 				}
+			});
+		},
+		artmanage:function(){
+			art.dialog.open(base+'/articles/articleIndex.jsps?basedata=12',{
+				id:"saveBaseType",
+				title:'文章管理',
+				width: 1000,
+				height: 800,
+				resizable: false,
+				lock:true,
+				okVal:'关闭'
 			});
 		}
 	}
