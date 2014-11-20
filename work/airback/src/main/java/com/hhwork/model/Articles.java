@@ -38,6 +38,7 @@ public class Articles implements Serializable{
 	 */
 	private Integer recommend;
 	
+	
 	@Column(ignore=true)
 	private String baseData;
 	

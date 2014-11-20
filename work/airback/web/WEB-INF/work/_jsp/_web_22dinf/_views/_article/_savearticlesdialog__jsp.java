@@ -181,7 +181,7 @@ public class _savearticlesdialog__jsp extends com.caucho.jsp.JavaPage
     String resourcePath = loader.getResourcePathSpecificFirst();
     mergePath.addClassPath(resourcePath);
     com.caucho.vfs.Depend depend;
-    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/article/saveArticlesDialog.jsp"), -1127231394101259168L, false);
+    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/article/saveArticlesDialog.jsp"), 4814037235487878211L, false);
     com.caucho.jsp.JavaPage.addDepend(_caucho_depends, depend);
   }
 
@@ -207,8 +207,9 @@ public class _savearticlesdialog__jsp extends com.caucho.jsp.JavaPage
   private static com.caucho.el.Expr _caucho_expr_12;
 
   private final static char []_jsp_string8;
-  private final static char []_jsp_string5;
+  private final static char []_jsp_string3;
   private final static char []_jsp_string4;
+  private final static char []_jsp_string5;
   private final static char []_jsp_string6;
   private final static char []_jsp_string13;
   private final static char []_jsp_string9;
@@ -224,15 +225,15 @@ public class _savearticlesdialog__jsp extends com.caucho.jsp.JavaPage
   private final static char []_jsp_string16;
   private final static char []_jsp_string22;
   private final static char []_jsp_string0;
-  private final static char []_jsp_string3;
   private final static char []_jsp_string17;
   private final static char []_jsp_string18;
   private final static char []_jsp_string2;
   private final static char []_jsp_string1;
   static {
     _jsp_string8 = "</option>\r\n		".toCharArray();
-    _jsp_string5 = "\r\n		<option value=\"".toCharArray();
+    _jsp_string3 = "\" />\r\n			<label>\r\n			\u662f\u5426\u4e3a\u63a8\u8350\u4ea7\u54c1<input type=\"checkbox\" id=\"recommend\" />\r\n			</label>\r\n			<span>\u3000\u5e8f\u53f7:</span>\r\n			<input type=\"text\" id=\"sort\" />\r\n		<div style=\"clear:both;margin:5px;\"></div>\r\n	</div>\r\n	<div>\r\n		<input type=\"hidden\" id=\"type\" name=\"type\" value=\"".toCharArray();
     _jsp_string4 = "\" />\r\n		\u8bf7\u9009\u62e9\u7c7b\u578b:\r\n		<select id=\"baseDataList\" style=\"width:200px;\">\r\n		".toCharArray();
+    _jsp_string5 = "\r\n		<option value=\"".toCharArray();
     _jsp_string6 = "\" ".toCharArray();
     _jsp_string13 = "\" /> <input type=\"button\"\r\n					onclick=\"deleteimg(this)\" value=\"\u5220\u9664\" />\r\n			</p>\r\n		".toCharArray();
     _jsp_string9 = "\r\n		</select>\r\n	</div>\r\n	<input type=\"hidden\" id=\"imgpath\" name=\"imgpath\"\r\n		value=\"".toCharArray();
@@ -248,7 +249,6 @@ public class _savearticlesdialog__jsp extends com.caucho.jsp.JavaPage
     _jsp_string16 = "/js/ueditor/ueditor.config.js\"></script>\r\n	<script type=\"text/javascript\"\r\n		src=\"".toCharArray();
     _jsp_string22 = "/js/custom/articles/saveArticlesDialog.js\"></script>\r\n	<script type=\"text/javascript\">\r\n		function deleteimg(obj) {\r\n			$(obj).parent().remove();\r\n		}\r\n	</script>\r\n</body>\r\n</html>".toCharArray();
     _jsp_string0 = "\r\n\r\n<html>\r\n<head>\r\n<title>\u4fee\u6539\u6587\u7ae0</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n<style type=\"text/css\">\r\n</style>\r\n".toCharArray();
-    _jsp_string3 = "\" />\r\n		<div style=\"clear:both;margin:5px;\"></div>\r\n	</div>\r\n	<div>\r\n		<input type=\"hidden\" id=\"type\" name=\"type\" value=\"".toCharArray();
     _jsp_string17 = "/js/ueditor/ueditor.all.min.js\"></script>\r\n	<script type=\"text/javascript\"\r\n		src=\"".toCharArray();
     _jsp_string18 = "/js/artDialog/artDialog.js?skin=blue\"></script>\r\n	<script type=\"text/javascript\"\r\n		src=\"".toCharArray();
     _jsp_string2 = "\" />\r\n	<div>\r\n		\u6807\u9898:<input type=\"text\" id=\"title\" style=\"width:300px;\"\r\n			value=\"".toCharArray();

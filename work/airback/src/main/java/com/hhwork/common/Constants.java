@@ -48,6 +48,8 @@ public class Constants {
 		public static final int HTML=11;
 		
 		public static final int CASE=7;
+		
+		public static final int VIDEO=14;
 	}
 	
 	/**

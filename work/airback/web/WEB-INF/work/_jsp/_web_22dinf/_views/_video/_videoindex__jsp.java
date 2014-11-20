@@ -112,20 +112,20 @@ public class _videoindex__jsp extends com.caucho.jsp.JavaPage
     String resourcePath = loader.getResourcePathSpecificFirst();
     mergePath.addClassPath(resourcePath);
     com.caucho.vfs.Depend depend;
-    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/video/videoIndex.jsp"), -4247143474324077428L, false);
+    depend = new com.caucho.vfs.Depend(appDir.lookup("WEB-INF/views/video/videoIndex.jsp"), 3807079724684780768L, false);
     com.caucho.jsp.JavaPage.addDepend(_caucho_depends, depend);
   }
   private static com.caucho.el.Expr _caucho_expr_0;
 
-  private final static char []_jsp_string4;
   private final static char []_jsp_string1;
   private final static char []_jsp_string2;
+  private final static char []_jsp_string4;
   private final static char []_jsp_string0;
   private final static char []_jsp_string3;
   static {
-    _jsp_string4 = "/js/custom/leaves/leavesIndex.js\"></script>\r\n</body>\r\n</html>".toCharArray();
     _jsp_string1 = "\r\n<script type=\"text/javascript\" src=\"".toCharArray();
     _jsp_string2 = "/js/artDialog/artDialog.js?skin=blue\"></script>\r\n<script type=\"text/javascript\" src=\"".toCharArray();
+    _jsp_string4 = "/js/custom/video/videoIndex.js\"></script>\r\n</body>\r\n</html>".toCharArray();
     _jsp_string0 = "\r\n\r\n<html>\r\n<head>\r\n<title>\u89c6\u9891\u7ba1\u7406</title>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n\r\n</head>\r\n<body>\r\n<div id=\"tableGrid\"></div>\r\n".toCharArray();
     _jsp_string3 = "/js/artDialog/plugins/iframeTools.js\"></script>\r\n<script src=\"".toCharArray();
   }

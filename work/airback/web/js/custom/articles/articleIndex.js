@@ -78,6 +78,14 @@ var article=function(){
 					if(articleId){
 						params.id=articleId;
 					}
+					var bischecked=pagejq.find('#recommend').is(':checked');
+					if(bischecked){
+						params.recommend=1;
+					}else{
+						params.recommend=0;
+					}
+					var number=pagejq.find("#number").val();
+					
 					$.ajax({
 						url:base+'/articles/saves.jsps',
 						type:'post',

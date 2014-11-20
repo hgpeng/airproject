@@ -6,20 +6,43 @@ var videoIndex=function(){
 		init:function(){
 			_this=this;
 			grid=$("#tableGrid").ligerGrid({
-				columns: [ 
-	            {display: '留言', name: 'content', align: 'center', width: '60%' },
-	            {display:'回复状态',name:'replyStatus',align:'center',render:function(rowdata, index, value){
-	            	
+				columns: [
+				{display:'标题',name:'name',align:'center',width:'20%'},
+	            {display: '图片', name: 'icon', align: 'center', width: '30%' },
+	            {display:'路径',name:'url',align:'center',render:function(rowdata, index, value){
+	            	return value;
 	            }} 
 	            ], 
 	            url:'/video/getVideoList.jsps', 
 	            parms:_this.getParam(),
                 pageSize: 20,
-	            fixedCellHeight:false
+                width: '99%',
+                height: 0.95*$(document).height(),
+	            fixedCellHeight:false,
+	            toolbar: {
+                    items: [
+                    { text: '增加', click: _this.add, icon: 'add' }
+                    ]
+                }
 			});
 		},
 		getParam:function(){
 
+		},
+		add:function(id){
+			var width=$(document).width()-50;
+			var height=$(document).height()*0.8;
+			art.dialog.open(base+'/video/saveVideoDialog.jsps',{
+				id:"saveVideoDialog",
+				title:'保存视频',
+				width: width,
+				height: height,
+				resizable: false,
+				lock:true,
+				okVal:'保存',
+				ok:function(contentWindow,target){
+				}
+			});
 		}
 	}
 }();

@@ -14,6 +14,11 @@
 	<div>
 		标题:<input type="text" id="title" style="width:300px;"
 			value="${article.title }" />
+			<label>
+			是否为推荐产品<input type="checkbox" id="recommend" />
+			</label>
+			<span>　序号:</span>
+			<input type="text" id="number" />
 		<div style="clear:both;margin:5px;"></div>
 	</div>
 	<div>
