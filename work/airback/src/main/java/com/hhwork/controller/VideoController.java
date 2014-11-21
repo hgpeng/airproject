@@ -44,6 +44,11 @@ public class VideoController extends BaseController {
 	
 	@RequestMapping("saveVideoDialog")
 	public String saveVideoDialog(ModelMap modelMap){
+		int videoId=getInt("videoId",-1);
+		if(videoId!=-1){
+			BaseData video=baseDataService.getBaseDataById(videoId);
+			modelMap.put("video", video);
+		}
 		return "/video/saveVideoDialog";
 	}
 	
@@ -52,15 +57,20 @@ public class VideoController extends BaseController {
 			HttpServletResponse response){
 		String imgPath=getString("imgPath");
 		String videoPath=getString("videoPath");
-		if(StringUtils.isBlank(imgPath)|| StringUtils.isBlank(videoPath)){
+		String name=getString("name");
+		if(StringUtils.isBlank(imgPath)|| StringUtils.isBlank(videoPath) || StringUtils.isBlank(name)){
 			ResponseUtils.renderJson(response, "{\"ret\":-1}");
 			return;
 		}
 		BaseData baseData=new BaseData();
-		baseData.setName("");
+		baseData.setName(name);
 		baseData.setTypeId(Constants.BaseType.VIDEO);
 		baseData.setIcon(imgPath);
 		baseData.setUrl(videoPath);
+		int id=getInt("id",-1);
+		if(id!=-1){
+			baseData.setId(id);
+		}
 		int ret=baseDataService.saveBaseData(baseData);
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
 	}
