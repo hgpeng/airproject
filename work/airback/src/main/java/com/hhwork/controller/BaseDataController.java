@@ -142,6 +142,7 @@ public class BaseDataController extends BaseController {
 		String url=getString("url","");
 		int typeId=getInt("typeId",-1);
 		int parentId = getInt("parentId",0);
+		String desc = this.getString("desc");
 		/**
 		 * 名称不能为空
 		 */
@@ -162,6 +163,7 @@ public class BaseDataController extends BaseController {
 		baseData.setName_en(name_en);
 		baseData.setNumber(number);
 		baseData.setParentId(parentId);
+		baseData.setDesc(desc);
 		int ret=baseDataService.saveBaseData(baseData);
 		ResponseUtils.renderJson(response, "{\"ret\":\""+ret+"\"}");
 	}

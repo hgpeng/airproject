@@ -23,6 +23,7 @@ public class BaseData {
 	
 	private String url;
 	
+	@Column(value="descr")
 	private String desc;
 	
 	private Date createTime;
