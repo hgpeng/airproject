@@ -1,4 +1,4 @@
-var baseDataIndex=function(){
+var downDataIndex=function(){
 	var _this;
 	var grid;
 
@@ -12,47 +12,13 @@ var baseDataIndex=function(){
 	return {
 		init:function(){
 			_this=this;
-			var h = $(top).height();
 			
-			$("#main").ligerLayout({height:h*0.9+'',leftWidth:200,minLeftWidth:200,allowLeftCollapse:true,allowLeftResize:true});
-			
-			var setting = {
-		            data: {
-		                simpleData: {
-		                	idKey:"id",
-		                    enable: true
-		                },
-		                key:{
-		            		url:"",
-		            		name:"name"
-		            	}
-		            },
-		            check: {
-		                enable: true
-		            },
-		            async: {//异步加载节点数据
-		                enable: true,
-		                url: "/baseData/getAllBaseTypes.jsps"
-		            },
-		            callback: {//绑定回调函数
-		            	onAsyncSuccess:function(event,treeId,treeNode,msg){
-
-		            	},
-		                onClick: function(event, treeId, treeNode, msg){
-		                	var param={};
-		                	param.type = treeNode.id;
-		                	grid.options.parms=param;
-		            		grid.loadData();
-		                }//点击绑定事件
-		            }
-
-		        };  
-		        $.fn.zTree.init($("#leftTree"), setting, []); 
-			
+			//$("#main").ligerLayout({leftWidth:200,minLeftWidth:200,allowLeftCollapse:true,allowLeftResize:true});	
+		      
 			grid=$("#tableGrid").ligerGrid({
 				columns: [ 
 	            {display:'名称',name:'name',align:'center',width:'30%'},
-	            {display:'编号',name:'number',align:'center',width:'30%'},
+	            {display:'编号',name:'number',align:'center',width:'30%'},		           
 	            {display:'操作',name:'name',align:'center',width:'30%',render:_this.oprender}
 	            ], 
 	            url:'/baseData/getBaseData.jsps', 
@@ -63,22 +29,17 @@ var baseDataIndex=function(){
 	            toolbar: {
                     items: [
                     { text: '增加', click: _this.add, icon: 'add' },
-                    { line: true },
-                    { text: '修改', click: null, icon: 'modify' }
+                    { line: true }
                     ]
                 }
 			});
 			
-			/*var tree = $.fn.zTree.getZTreeObj("leftTree");
-			var nodeary = tree.getNodes();
-			nodeary[0].click();*/
+			reload();
 			
 		},
 		getParam:function(){
 			var param = {};
-			var tree = $.fn.zTree.getZTreeObj("leftTree");
-			var node = tree.getSelectedNodes();
-			param.type = node[0].id;
+			param.type = '15';
 			return param;
 		},
 		oprender:function(data,filterData){
@@ -90,11 +51,11 @@ var baseDataIndex=function(){
 			reload();
 		},
 		add:function(){
-			art.dialog.open(base+'/baseData/saveBaseDataDialog.jsps',{
+			art.dialog.open(base+'/down/add.jsps',{
 				id:"saveBaseType",
-				title:'保存基础类型',
-				width: 500,
-				height: 350,
+				title:'保存',
+				width: 700,
+				height: 500,
 				resizable: false,
 				lock:true,
 				okVal:'保存',
@@ -102,20 +63,20 @@ var baseDataIndex=function(){
 					var page=$(contentWindow.document);
 					var name=page.find("#name").val();
 					var number=page.find("#number").val();
-					var id=page.find("#id").val();
+					var id=page.find("#dataId").val();
 					var url=page.find("#url").val();
 					var icon=page.find("#icon").val();
-					var name_en = page.find("#name_en").val();
 					var desc = page.find("#desc").val();
 					var basetypeId=page.find("#baseTypeId").val();
+					
 					if(!name || name.length==0){
-						art.dialog.alert("请输入类型名");
+						art.dialog.alert("请输入名称");
 						return false;
 					}
 					$.ajax({
 						url:base+'/baseData/saveBaseData.jsps',
 						type:'post',
-						data:{name:name,desc:desc,number:number,url:url,id:id,typeId:basetypeId,icon:icon,name_en:name_en},
+						data:{number:number,name:name,url:url,id:id,typeId:basetypeId,icon:icon,desc:desc},
 						success:function(ret){
 							if(ret.ret==-1){
 								art.dialog.alert("修改失败");
@@ -131,15 +92,15 @@ var baseDataIndex=function(){
 	}
 }();
 $(function(){
-	baseDataIndex.init();
+	downDataIndex.init();
 })
 
 function modify(id){
-	art.dialog.open(base+'/baseData/saveBaseDataDialog.jsps?id='+id,{
+	art.dialog.open(base+'/down/add.jsps?id='+id,{
 		id:"saveBaseType",
-		title:'修改基础类型',
-		width: 500,
-		height: 350,
+		title:'修改产品',
+		width: 700,
+		height: 500,
 		resizable: false,
 		lock:true,
 		okVal:'保存',
@@ -147,10 +108,9 @@ function modify(id){
 			var page=$(contentWindow.document);
 			var name=page.find("#name").val();
 			var number=page.find("#number").val();
-			var id=page.find("#id").val();
+			var id=page.find("#dataId").val();
 			var url=page.find("#url").val();
 			var icon=page.find("#icon").val();
-			var name_en = page.find("#name_en").val();
 			var desc = page.find("#desc").val();
 			var basetypeId=page.find("#baseTypeId").val();
 			if(!name || name.length==0){
@@ -160,20 +120,21 @@ function modify(id){
 			$.ajax({
 				url:base+'/baseData/saveBaseData.jsps',
 				type:'post',
-				data:{name:name,desc:desc,number:number,url:url,id:id,typeId:basetypeId,icon:icon,name_en:name_en},
+				data:{number:number,name:name,url:url,id:id,typeId:basetypeId,icon:icon,desc:desc},
 				success:function(ret){
 					if(ret.ret==-1){
 						art.dialog.alert("修改失败");
 						return false;
 					}
 					art.dialog.alert("修改成功",function(){
-						baseDataIndex.reloadData();
+						downDataIndex.reloadData();
 					});
 				}
 			})
 		}
 	});
 }
+
 
 function deletebase(id){
 	$.post(base+"/baseData/deleteBaseData.jsps",{id:id},function(ret){
@@ -182,6 +143,6 @@ function deletebase(id){
 						return false;
 					}
 					art.dialog.alert("删除成功");
-					baseDataIndex.reload();
+					downDataIndex.reload();
 	},'json')
 }

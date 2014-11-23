@@ -127,7 +127,8 @@ var greenDataIndex=function(){
 			});
 		},
 		artmanage:function(){
-			art.dialog.open(base+'/articles/articleIndex.jsps?basedata=12',{
+			top.main.addTab("artmanage",base+'/articles/articleIndex.jsps?basedata=12',"文章管理");
+			/*art.dialog.open(base+'/articles/articleIndex.jsps?basedata=12',{
 				id:"saveBaseType",
 				title:'文章管理',
 				width: 1000,
@@ -135,7 +136,7 @@ var greenDataIndex=function(){
 				resizable: false,
 				lock:true,
 				okVal:'关闭'
-			});
+			});*/
 		}
 	}
 }();
